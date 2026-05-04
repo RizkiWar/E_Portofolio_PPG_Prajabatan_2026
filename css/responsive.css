@@ -148,7 +148,7 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
     margin-bottom: 36px;
   }
   html {
-    scroll-padding-top: 96px;
+    scroll-padding-top: 72px;
   }
 
   /* --- NAVBAR: hide links, show hamburger --- */
@@ -164,9 +164,6 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
     align-items: center;
     min-height: 44px;
     min-width: 44px;
-  }
-  .btn-cv {
-    display: none !important;
   }
   .nav-links {
     position: absolute;
@@ -216,20 +213,6 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
   .nav-links li:last-child a {
     border-bottom: none;
   }
-  /* CV button inside mobile menu */
-  .nav-links::after {
-    content: '⬇ Download CV';
-    display: block;
-    margin-top: 16px;
-    padding: 14px;
-    background: linear-gradient(135deg, #0F5EA8, #2FAFE6);
-    color: white;
-    border-radius: 12px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-
   [data-theme="dark"] .nav-links {
     background: rgba(13, 17, 23, 0.98);
     border-bottom-color: var(--accent, #39BDEB);
@@ -561,7 +544,7 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
-  .gallery-item {
+  .gallery-grid .gallery-item {
     height: 160px;
   }
 
@@ -584,7 +567,7 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
     padding: 40px 0;
   }
   section {
-    scroll-margin-top: 96px;
+    scroll-margin-top: 72px;
   }
   .container {
     padding-left: 16px;
@@ -664,7 +647,7 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
   }
 
   /* Gallery: 2 col, shorter */
-  .gallery-item {
+  .gallery-grid .gallery-item {
     height: 120px;
   }
 

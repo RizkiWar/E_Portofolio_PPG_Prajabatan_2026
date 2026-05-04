@@ -1,0 +1,660 @@
+/* ============================================
+   VISUAL ENHANCEMENTS
+   Focused polish for hero, artifacts, and assessment charts.
+   ============================================ */
+
+/* --- Nav CV Download Button --- */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: var(--gradient-warm, linear-gradient(135deg, #0F5EA8, #39BDEB));
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(15, 94, 168, 0.25);
+  white-space: nowrap;
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(57, 189, 235, 0.4);
+  color: #fff;
+}
+
+/* --- Hero CV Download Button --- */
+.btn-cv-hero {
+  background: linear-gradient(135deg, #0F5EA8, #39BDEB);
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(15, 94, 168, 0.3);
+}
+
+.btn-cv-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(57, 189, 235, 0.45);
+}
+
+/* --- Portfolio card image fix: smooth clipping, no boxy edges --- */
+.portfolio-card {
+  overflow: hidden;
+}
+
+.portfolio-card-img {
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+}
+
+.portfolio-card-img img {
+  border-radius: 0;
+  display: block;
+}
+
+/* --- Gallery images: rounded & clean --- */
+.gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  border-radius: 0;
+  display: block;
+}
+
+/* --- About section image: clean edges --- */
+.about-image-card {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.about-image-card img {
+  display: block;
+}
+
+/* --- Dark mode btn-cv --- */
+[data-theme="dark"] .btn-cv {
+  background: linear-gradient(135deg, #2FAFE6, #39BDEB);
+  box-shadow: 0 4px 14px rgba(57, 189, 235, 0.3);
+}
+
+[data-theme="dark"] .btn-cv-hero {
+  background: linear-gradient(135deg, #2FAFE6, #39BDEB);
+}
+
+/* --- Responsive: hide CV btn on small screens --- */
+@media (max-width: 768px) {
+  .btn-cv {
+    display: none;
+  }
+}
+
+/* --- Hero trimming fixes: eliminate boxy edges at 1080p --- */
+
+/* Background pattern behind hero text — use softer radial mask */
+.hero-content::before {
+  border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, transparent 70%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, transparent 70%);
+}
+
+/* Floating shapes — softer edges, no clipping artifacts */
+.floating-shapes {
+  overflow: visible;
+}
+
+.shape {
+  opacity: 0.14;
+  filter: blur(1px);
+}
+
+/* Hero image wrapper — clean circular crop */
+.hero-image-wrapper {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.hero-image-wrapper::before {
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: 0.25;
+}
+
+/* Hero badges — rounded, no hard corners */
+.hero-badges {
+  border-radius: 16px;
+}
+
+.hero-badge {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+:root {
+  --surface-glass: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --border-soft: rgba(15, 94, 168, 0.12);
+  --shadow-premium: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+.hero .container {
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-actions .btn,
+.btn-download-new,
+.portfolio-card-body .card-link {
+  border-radius: 8px;
+}
+
+.hero-actions .btn-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.hero-social {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.hero-social a {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.hero-social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.hero-social a:nth-child(1) svg,
+.hero-social a:nth-child(3) svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.is-placeholder-link {
+  cursor: not-allowed;
+}
+
+.hero-image-wrapper {
+  box-shadow: 0 28px 80px rgba(15, 94, 168, 0.16);
+}
+
+.gsap-ready .hero-greeting,
+.gsap-ready .hero-name,
+.gsap-ready .hero-role,
+.gsap-ready .hero-desc,
+.gsap-ready .hero-actions .btn,
+.gsap-ready .hero-social a,
+.gsap-ready .hero-image-wrapper,
+.gsap-ready .hero-badge,
+.gsap-ready .portfolio-card,
+.gsap-ready .section-header,
+.gsap-ready .timeline-card,
+.gsap-ready .assessment-card,
+.gsap-ready .chart-panel,
+.gsap-ready .pillar-card,
+.gsap-ready .gallery-item,
+.gsap-ready .skill-item-card,
+.gsap-ready .cert-card {
+  will-change: transform, opacity;
+}
+
+.hero-badge {
+  border-radius: 8px;
+  border: 1px solid rgba(15, 94, 168, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.portfolio-grid {
+  gap: 22px;
+}
+
+.portfolio-card {
+  border-radius: 8px;
+  border-color: rgba(15, 94, 168, 0.12);
+  background: var(--surface-strong);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+}
+
+.portfolio-card:hover {
+  box-shadow: 0 26px 64px rgba(15, 23, 42, 0.14);
+}
+
+.portfolio-card-img {
+  height: 236px;
+}
+
+.portfolio-card-img .card-tag {
+  border-radius: 8px;
+  letter-spacing: 0;
+}
+
+.card-img-overlay {
+  background:
+    linear-gradient(180deg, rgba(15, 94, 168, 0.05), rgba(15, 94, 168, 0.78));
+}
+
+.card-img-overlay span {
+  border-radius: 8px;
+}
+
+.portfolio-card[data-siklus="siklus2"],
+.portfolio-card[data-siklus="siklus3"] {
+  opacity: 1;
+  border-style: dashed;
+  background:
+    linear-gradient(135deg, rgba(15, 94, 168, 0.04), rgba(46, 196, 182, 0.05)),
+    var(--surface-strong);
+}
+
+.portfolio-card[data-siklus="siklus2"] .portfolio-card-img img,
+.portfolio-card[data-siklus="siklus3"] .portfolio-card-img img {
+  filter: grayscale(0.78) saturate(0.7) opacity(0.58);
+}
+
+.portfolio-card[data-siklus="siklus2"]::after,
+.portfolio-card[data-siklus="siklus3"]::after {
+  content: "Dalam pengembangan";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary, #0F5EA8);
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
+}
+
+.assessment-dashboard {
+  display: grid;
+  gap: 18px;
+  margin: 0 auto 26px;
+}
+
+.assessment-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.assessment-card,
+.chart-panel {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+}
+
+.assessment-card {
+  padding: 18px;
+}
+
+.assessment-kicker {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: rgba(15, 94, 168, 0.08);
+  color: var(--primary, #0F5EA8);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.assessment-card strong {
+  display: block;
+  color: var(--gray-800);
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.assessment-card p {
+  margin-top: 8px;
+  color: var(--gray-500);
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.assessment-chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 16px;
+}
+
+.chart-panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.chart-panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.chart-panel-header span {
+  color: var(--gray-500);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.chart-panel-header strong {
+  color: var(--primary, #0F5EA8);
+  font-size: 0.98rem;
+  text-align: right;
+}
+
+.chart-frame {
+  position: relative;
+  height: 300px;
+}
+
+.assessment-note {
+  margin: -2px 0 0;
+  color: var(--gray-500);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+/* --- Section transition motion --- */
+.section-motion-section {
+  --section-accent: var(--accent, #39BDEB);
+  --section-sweep: rgba(57, 189, 235, 0.12);
+  isolation: isolate;
+}
+
+.section-motion-section > .container {
+  position: relative;
+  z-index: 1;
+  transform-origin: center top;
+}
+
+.section-motion-current > .container,
+.section-motion-current .section-motion-child {
+  will-change: transform, opacity;
+}
+
+.section-motion-section::before,
+.section-motion-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-motion-section::before {
+  inset: 0;
+  background: linear-gradient(
+    112deg,
+    transparent 0%,
+    transparent 36%,
+    var(--section-sweep) 49%,
+    rgba(255, 255, 255, 0.22) 52%,
+    transparent 66%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translate3d(-125%, 0, 0) skewX(-10deg);
+}
+
+.section-motion-section::after {
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--section-accent), transparent);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.section-motion-play::before {
+  animation: sectionSweep 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.section-motion-play::after {
+  animation: sectionRuleTrace 0.82s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.section-motion-play > .container {
+  animation: sectionFocusIn 0.86s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.section-motion-leaving > .container {
+  animation: sectionCalmOut 0.38s ease-out both;
+}
+
+.section-motion-child-play {
+  animation: sectionChildCascade 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--section-motion-delay, 0ms);
+}
+
+#hero {
+  --section-accent: #39BDEB;
+  --section-sweep: rgba(57, 189, 235, 0.13);
+}
+
+#about,
+#model-guru {
+  --section-accent: #2ec4b6;
+  --section-sweep: rgba(46, 196, 182, 0.12);
+}
+
+#education,
+#gallery {
+  --section-accent: #9b72cf;
+  --section-sweep: rgba(155, 114, 207, 0.12);
+}
+
+#portfolio,
+#skills {
+  --section-accent: #0F5EA8;
+  --section-sweep: rgba(15, 94, 168, 0.12);
+}
+
+#penilaian,
+#certificates {
+  --section-accent: #6bcb77;
+  --section-sweep: rgba(107, 203, 119, 0.13);
+}
+
+#contact {
+  --section-accent: #ff6f91;
+  --section-sweep: rgba(255, 111, 145, 0.11);
+}
+
+[data-theme="dark"] .section-motion-section::before {
+  background: linear-gradient(
+    112deg,
+    transparent 0%,
+    transparent 36%,
+    var(--section-sweep) 49%,
+    rgba(125, 211, 252, 0.12) 52%,
+    transparent 66%,
+    transparent 100%
+  );
+}
+
+@keyframes sectionSweep {
+  0% {
+    opacity: 0;
+    transform: translate3d(-125%, 0, 0) skewX(-10deg);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(125%, 0, 0) skewX(-10deg);
+  }
+}
+
+@keyframes sectionRuleTrace {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  35% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes sectionFocusIn {
+  0% {
+    opacity: 0.92;
+    transform: translate3d(0, 20px, 0) scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes sectionCalmOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.96;
+    transform: translate3d(0, -8px, 0) scale(0.998);
+  }
+}
+
+@keyframes sectionChildCascade {
+  0% {
+    opacity: 0.72;
+    transform: translate3d(0, 18px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+[data-theme="dark"] {
+  --surface-glass: rgba(30, 32, 41, 0.76);
+  --surface-strong: rgba(30, 32, 41, 0.96);
+  --border-soft: rgba(57, 189, 235, 0.18);
+  --shadow-premium: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme="dark"] .hero-badge,
+[data-theme="dark"] .assessment-card,
+[data-theme="dark"] .chart-panel,
+[data-theme="dark"] .portfolio-card {
+  background: var(--surface-strong);
+  border-color: var(--border-soft);
+}
+
+[data-theme="dark"] .assessment-card p,
+[data-theme="dark"] .assessment-note,
+[data-theme="dark"] .chart-panel-header span {
+  color: var(--gray-500);
+}
+
+[data-theme="dark"] .assessment-card strong {
+  color: var(--gray-800);
+}
+
+[data-theme="dark"] .portfolio-card[data-siklus="siklus2"]::after,
+[data-theme="dark"] .portfolio-card[data-siklus="siklus3"]::after {
+  background: rgba(37, 40, 51, 0.94);
+  color: var(--accent-light, #7DD3FC);
+}
+
+@media (max-width: 900px) {
+  .assessment-summary,
+  .assessment-chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-frame {
+    height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chart-panel-header {
+    display: block;
+  }
+
+  .chart-panel-header strong {
+    display: block;
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  .chart-frame {
+    height: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gsap-ready .hero-greeting,
+  .gsap-ready .hero-name,
+  .gsap-ready .hero-role,
+  .gsap-ready .hero-desc,
+  .gsap-ready .hero-actions .btn,
+  .gsap-ready .hero-social a,
+  .gsap-ready .hero-image-wrapper,
+  .gsap-ready .hero-badge,
+  .gsap-ready .portfolio-card,
+  .gsap-ready .section-header,
+  .gsap-ready .timeline-card,
+  .gsap-ready .assessment-card,
+  .gsap-ready .chart-panel,
+  .gsap-ready .pillar-card,
+  .gsap-ready .gallery-item,
+  .gsap-ready .skill-item-card,
+  .gsap-ready .cert-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .section-motion-section,
+  .section-motion-section::before,
+  .section-motion-section::after,
+  .section-motion-section > .container,
+  .section-motion-child-play {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

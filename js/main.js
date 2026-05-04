@@ -7,10 +7,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
+
+  const hideLoadingScreen = () => {
+    if (!loadingScreen) return;
+    loadingScreen.classList.add('hidden');
+    loadingScreen.setAttribute('aria-hidden', 'true');
+  };
+
   if (loadingScreen) {
-    setTimeout(() => {
-      loadingScreen.classList.add('hidden');
-    }, 1800);
+    const minLoadingTime = 1400;
+
+    if (document.readyState === 'complete') {
+      setTimeout(hideLoadingScreen, minLoadingTime);
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(hideLoadingScreen, minLoadingTime);
+      }, { once: true });
+      setTimeout(hideLoadingScreen, 3000);
+    }
+  }
+
+  // ---------- Intro Screen (Two-Phase) ----------
+  const introTear = document.getElementById('introTear');
+  let introOpened = false;
+
+  const completeIntro = () => {
+    if (!introTear) return;
+    introTear.classList.add('is-complete');
+    document.body.classList.add('intro-ready', 'intro-opened');
+  };
+
+  if (introTear && !window.location.hash) {
+    // Phase 1: Loading bar runs via CSS animation (~1.5s)
+    // After page load, transition to Phase 2: "Scroll to view"
+    try { window.history.scrollRestoration = 'manual'; } catch (_) {}
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    const minLoaderTime = 1200;
+    const maxLoaderTime = 2400;
+    const startedAt = performance.now();
+    let loaderDone = false;
+
+    const showPrompt = () => {
+      if (loaderDone) return;
+      loaderDone = true;
+      const elapsed = performance.now() - startedAt;
+      const delay = Math.max(0, minLoaderTime - elapsed);
+      setTimeout(() => {
+        introTear.classList.add('loader-complete');
+        // Phase 2: Wait for user interaction to open
+        addIntroListeners();
+      }, delay);
+    };
+
+    if (document.readyState === 'complete') {
+      showPrompt();
+    } else {
+      window.addEventListener('load', showPrompt, { once: true });
+      setTimeout(showPrompt, maxLoaderTime);
+    }
+
+    // Phase 2: Listen for scroll/touch/keyboard to open the intro
+    const openKeys = new Set(['ArrowDown', 'PageDown', ' ', 'Spacebar', 'Enter']);
+
+    const openIntro = () => {
+      if (introOpened || !introTear.classList.contains('loader-complete')) return;
+      introOpened = true;
+      removeIntroListeners();
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+      // Tear-open animation
+      introTear.classList.add('is-opening');
+      setTimeout(completeIntro, 1000);
+    };
+
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaY) <= 1) return;
+      e.preventDefault();
+      openIntro();
+    };
+    const onTouch = () => openIntro();
+    const onKey = (e) => {
+      if (!openKeys.has(e.key)) return;
+      e.preventDefault();
+      openIntro();
+    };
+    const onScroll = () => { if (window.scrollY > 2) openIntro(); };
+
+    function addIntroListeners() {
+      if (introOpened) return;
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouch, { passive: true });
+      window.addEventListener('keydown', onKey);
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    function removeIntroListeners() {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouch);
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll);
+    }
+  } else {
+    // No intro needed (hash in URL or no introTear element)
+    if (introTear) completeIntro();
+    document.body.classList.add('intro-ready');
   }
 
   // ---------- Scroll Progress Bar ----------
@@ -83,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-links a');
 
   function highlightNav() {
-    const scrollPos = window.scrollY + 120;
+    // Trigger highlight when section reaches the upper third of the screen
+    const scrollPos = window.scrollY + (window.innerHeight / 3);
 
     sections.forEach(sec => {
       const top = sec.offsetTop;
@@ -275,12 +377,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- Smooth anchor scrolling ----------
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function getAnchorScrollOffset() {
+    const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+    const extraGap = window.innerWidth <= 768 ? 6 : 8;
+    return Math.ceil(navHeight + extraGap);
+  }
+
+  function scrollToAnchor(target) {
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    const scrollTop = Math.max(0, targetTop - getAnchorScrollOffset());
+
+    window.scrollTo({
+      top: scrollTop,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') {
+        e.preventDefault();
+        return;
+      }
+
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        scrollToAnchor(target);
+        hamburger.classList.remove('active');
+        navLinksEl.classList.remove('open');
       }
     });
   });
@@ -370,61 +498,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.3 });
   document.querySelectorAll('.pillar-card').forEach(card => pillarObserver.observe(card));
 
-  // ---------- Gallery Lightbox ----------
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxPrev = document.getElementById('lightboxPrev');
-  const lightboxNext = document.getElementById('lightboxNext');
-  let currentGalleryIdx = 0;
-
-  function openLightbox(idx) {
-    currentGalleryIdx = idx;
-    const item = galleryItems[idx];
-    const imgEl = item.querySelector('img');
-    // Use the already-resolved absolute URL from the loaded img element (safe, browser-resolved)
-    lightboxImg.src = imgEl ? imgEl.src : '';
-    lightboxCaption.textContent = item.getAttribute('data-caption') || '';
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  galleryItems.forEach((item, idx) => {
-    item.addEventListener('click', () => openLightbox(idx));
-  });
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightbox) {
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
+  // ---------- Gallery Accordion Interaction ----------
+  const galleryItems = document.querySelectorAll('.gallery-accordion .gallery-item');
+  
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active from all
+      galleryItems.forEach(el => el.classList.remove('active'));
+      // Add active to clicked
+      item.classList.add('active');
     });
-  }
-  if (lightboxPrev) {
-    lightboxPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentGalleryIdx = (currentGalleryIdx - 1 + galleryItems.length) % galleryItems.length;
-      openLightbox(currentGalleryIdx);
-    });
-  }
-  if (lightboxNext) {
-    lightboxNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentGalleryIdx = (currentGalleryIdx + 1) % galleryItems.length;
-      openLightbox(currentGalleryIdx);
-    });
-  }
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox || !lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft' && lightboxPrev) lightboxPrev.click();
-    if (e.key === 'ArrowRight' && lightboxNext) lightboxNext.click();
   });
 
 }); // End DOMContentLoaded

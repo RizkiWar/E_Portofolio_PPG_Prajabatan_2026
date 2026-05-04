@@ -118,24 +118,3 @@
   z-index: 1001;
   transition: width 0.1s linear;
 }
-
-/* CV Download Button */
-.btn-cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 14px;
-  background: linear-gradient(135deg, #0F5EA8, #2FAFE6);
-  color: white !important;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-.btn-cv:hover {
-  background: linear-gradient(135deg, #39BDEB, #7DD3FC);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(57, 189, 235,0.3);
-}
