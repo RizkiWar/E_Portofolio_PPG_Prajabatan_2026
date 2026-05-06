@@ -1,5 +1,8 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+const { gsap, ScrollTrigger } = window;
+
+if (!gsap || !ScrollTrigger) {
+  throw new Error('GSAP vendor scripts must be loaded before scroll-experience.js');
+}
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
