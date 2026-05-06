@@ -5,9 +5,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const enhancedScrollFx = window.__portfolioScrollExperience === true;
   const sections = Array.from(document.querySelectorAll('section.section[id]'));
 
-  if (!sections.length || reduceMotion || !('IntersectionObserver' in window)) {
+  if (!sections.length || reduceMotion || enhancedScrollFx || !('IntersectionObserver' in window)) {
     document.body.classList.add('section-motion-ready');
     return;
   }
