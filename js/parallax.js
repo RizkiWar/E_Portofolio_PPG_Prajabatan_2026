@@ -3,9 +3,6 @@
    Lightweight, accessibility-aware parallax effects.
    ============================================ */
 (function () {
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reducedMotion) return;
-
   const maxOffset = window.innerWidth < 768 ? 18 : 42;
   const parallaxLayers = Array.from(document.querySelectorAll('.parallax-layer'));
   const imageLayers = Array.from(document.querySelectorAll('.parallax-image-frame img'));

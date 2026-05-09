@@ -3,8 +3,6 @@
    Enhanced with mouse interaction & click effects
    ============================================ */
 (function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
 

@@ -1173,60 +1173,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gsap-ready .hero-greeting,
-  .gsap-ready .hero-name,
-  .gsap-ready .hero-role,
-  .gsap-ready .hero-desc,
-  .gsap-ready .hero-actions .btn,
-  .gsap-ready .hero-social a,
-  .gsap-ready .hero-image-wrapper,
-  .gsap-ready .hero-badge,
-  .gsap-ready .portfolio-card,
-  .gsap-ready .section-header,
-  .gsap-ready .timeline-card,
-  .gsap-ready .assessment-card,
-  .gsap-ready .chart-panel,
-  .gsap-ready .pillar-card,
-  .gsap-ready .gallery-item,
-  .gsap-ready .skill-item-card,
-  .gsap-ready .cert-card {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+  .scroll-fx-current .scroll-fx-item,
+  .scroll-fx-current .scroll-fx-card {
     will-change: auto;
-  }
-
-  .section-motion-section,
-  .section-motion-section::before,
-  .section-motion-section::after,
-  .section-motion-section > .container,
-  .section-motion-child-play {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .scroll-aura,
-  .scroll-rail,
-  .section-light-sweep {
-    display: none !important;
-  }
-
-  .scroll-fx-ready .reveal,
-  .scroll-fx-ready .reveal-left,
-  .scroll-fx-ready .reveal-right,
-  .scroll-fx-item,
-  .scroll-fx-card,
-  .scroll-title-word > span {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    filter: none !important;
-    transition: none !important;
-    will-change: auto !important;
-  }
-
-  .scroll-fx-ready .timeline::before {
-    clip-path: none !important;
   }
 }

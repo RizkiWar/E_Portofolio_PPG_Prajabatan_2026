@@ -354,15 +354,9 @@ body:not(.intro-ready) {
   .parallax-image-frame img,
   .portfolio-card.parallax-card,
   .timeline-card.parallax-card,
-  .pillar-card.parallax-card,
-  .intro-tear,
-  .intro-panel-content {
+  .pillar-card.parallax-card {
     transform: none !important;
     transition: none !important;
     will-change: auto;
-  }
-
-  .intro-tear {
-    display: none;
   }
 }

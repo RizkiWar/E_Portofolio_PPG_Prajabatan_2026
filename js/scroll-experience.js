@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
 
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-window.__portfolioScrollExperience = !motionQuery.matches;
+window.__portfolioScrollExperience = true;
 
 const SECTION_PALETTES = {
   hero: {
@@ -533,8 +533,6 @@ function getInitialSection(sections) {
 }
 
 function initScrollExperience() {
-  if (motionQuery.matches) return;
-
   const sections = gsap.utils.toArray('section.section[id]');
   if (!sections.length) return;
 
@@ -566,6 +564,5 @@ function initScrollExperience() {
 }
 
 onReady(() => {
-  if (motionQuery.matches) return;
   waitForIntroReady(initScrollExperience);
 });

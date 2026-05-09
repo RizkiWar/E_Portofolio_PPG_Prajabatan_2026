@@ -303,8 +303,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .shape,
   #particleCanvas {
-    animation: none !important;
-    display: none;
+    animation-duration: 18s !important;
   }
 }
 
@@ -574,4 +573,3 @@ ul, ol { list-style: none; }
 [data-theme="dark"] .footer {
   background: rgba(10, 12, 18, 0.90) !important;
 }
-
