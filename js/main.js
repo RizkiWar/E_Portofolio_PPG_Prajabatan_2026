@@ -3,7 +3,11 @@
    Core interactions, nav, theme, scroll reveal
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+let mainInitialized = false;
+
+function initMain() {
+  if (mainInitialized) return;
+  mainInitialized = true;
 
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
@@ -510,7 +514,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-}); // End DOMContentLoaded
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMain, { once: true });
+} else {
+  initMain();
+}
 
 // Fade-in keyframe (used by filter)
 const style = document.createElement('style');
