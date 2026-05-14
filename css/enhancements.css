@@ -1258,7 +1258,7 @@
 #hero.hero.section {
   --hero-bg-image: url("../assets/img/hero-bg-ai-light.png");
   --hero-bg-overlay:
-    linear-gradient(90deg, rgba(248, 250, 252, 0.97) 0%, rgba(248, 250, 252, 0.9) 26%, rgba(248, 250, 252, 0.58) 48%, rgba(248, 250, 252, 0.18) 72%, rgba(248, 250, 252, 0.04) 100%);
+    linear-gradient(90deg, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.96) 36%, rgba(248, 250, 252, 0.86) 54%, rgba(248, 250, 252, 0.42) 72%, rgba(248, 250, 252, 0.08) 100%);
   --hero-bg-position: center right;
   --hero-scroll-shift: 0px;
   --hero-motion-layer-opacity: 0.62;
@@ -1319,6 +1319,43 @@
 [data-theme="dark"] #hero.hero.section::after {
   mix-blend-mode: screen;
 }
+#hero.hero.section .hero-name .highlight {
+  background: linear-gradient(135deg, #0F172A 0%, #0F5EA8 58%, #075985 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 10px rgba(255, 255, 255, 0.72));
+}
+
+#hero.hero.section .hero-greeting,
+#hero.hero.section .hero-desc {
+  color: #334155;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.9);
+}
+
+#hero.hero.section .hero-role .typed-text {
+  color: #0F766E;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="dark"] #hero.hero.section .hero-name .highlight {
+  background: linear-gradient(135deg, #E0F2FE 0%, #7DD3FC 55%, #BAE6FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 14px rgba(15, 23, 42, 0.82));
+}
+
+[data-theme="dark"] #hero.hero.section .hero-greeting,
+[data-theme="dark"] #hero.hero.section .hero-desc {
+  color: #E2E8F0;
+  text-shadow: 0 1px 14px rgba(15, 23, 42, 0.9);
+}
+
+[data-theme="dark"] #hero.hero.section .hero-role .typed-text {
+  color: #99F6E4;
+  text-shadow: 0 1px 14px rgba(15, 23, 42, 0.9);
+}
 
 #hero.hero.section .hero-content,
 #hero.hero.section .hero-image {
@@ -1338,7 +1375,7 @@
 @media (max-width: 768px) {
   #hero.hero.section {
     --hero-bg-overlay:
-      linear-gradient(180deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.82) 36%, rgba(248, 250, 252, 0.46) 66%, rgba(248, 250, 252, 0.18) 100%);
+      linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.9) 42%, rgba(248, 250, 252, 0.62) 72%, rgba(248, 250, 252, 0.22) 100%);
     --hero-bg-position: 68% center;
     --hero-motion-layer-opacity: 0.52;
     --hero-overlay-opacity: 0.38;
@@ -1441,4 +1478,5 @@
     transform: none !important;
   }
 }
+
 
