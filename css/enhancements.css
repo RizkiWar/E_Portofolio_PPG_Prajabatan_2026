@@ -1255,13 +1255,13 @@
 }
 
 /* AI-generated technical drawing hero backgrounds. */
-.hero {
+#hero.hero.section {
   background:
     linear-gradient(90deg, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.92) 40%, rgba(248, 250, 252, 0.18) 100%),
     url("../assets/img/hero-bg-ai-light.png") center right / cover no-repeat !important;
 }
 
-[data-theme="dark"] .hero {
+[data-theme="dark"] #hero.hero.section {
   background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.84) 44%, rgba(15, 23, 42, 0.2) 100%),
     url("../assets/img/hero-bg-ai-dark.png") center right / cover no-repeat !important;
@@ -1278,13 +1278,13 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
+  #hero.hero.section {
     background:
       linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.92) 48%, rgba(248, 250, 252, 0.78) 100%),
       url("../assets/img/hero-bg-ai-light.png") 68% center / cover no-repeat !important;
   }
 
-  [data-theme="dark"] .hero {
+  [data-theme="dark"] #hero.hero.section {
     background:
       linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(15, 23, 42, 0.9) 52%, rgba(15, 23, 42, 0.78) 100%),
       url("../assets/img/hero-bg-ai-dark.png") 68% center / cover no-repeat !important;
