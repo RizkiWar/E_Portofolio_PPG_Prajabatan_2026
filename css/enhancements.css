@@ -1398,11 +1398,20 @@
   text-shadow: 0 1px 14px rgba(15, 23, 42, 0.9);
 }
 
-#hero.hero.section .hero-content,
 #hero.hero.section .hero-image {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: none !important;
+  position: relative;
+  z-index: 10 !important;
+  isolation: isolate;
+}
+
+#hero.hero.section .hero-image-wrapper {
+  position: relative;
+  z-index: 10 !important;
+}
+
+#hero.hero.section .hero-image-wrapper img {
+  position: relative;
+  z-index: 10 !important;
 }
 
 .mobile-name-break {
@@ -1686,16 +1695,18 @@
 }
 
 
-/* Keep mechanical particle canvas above section SVG/background layers. */
+/* Particle canvas above hero PNG/SVG background, below content */
 #particleCanvas {
+  position: fixed !important;
+  inset: 0 !important;
   z-index: 2 !important;
-  opacity: 0.72 !important;
+  opacity: 0.82 !important;
   mix-blend-mode: multiply;
   pointer-events: none !important;
 }
 
 [data-theme="dark"] #particleCanvas {
-  opacity: 0.58 !important;
+  opacity: 0.65 !important;
   mix-blend-mode: screen;
 }
 
@@ -1725,38 +1736,13 @@
 #hero.hero.section > .container {
   z-index: 3;
 }
-/* Force particle canvas to background of all content */
-#particleCanvas {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-  opacity: 0.55 !important;
-  pointer-events: none !important;
-  mix-blend-mode: multiply;
-}
-
-[data-theme="dark"] #particleCanvas {
-  mix-blend-mode: screen;
-  opacity: 0.35 !important;
-}
-
 /* Ensure section containers are above particles */
-section, .section, .container {
+section, .section {
   position: relative !important;
-  z-index: 10 !important;
+  z-index: auto !important;
 }
 
-/* Glassmorphism for text readability in all sections */
-.hero-content, .about-content, .section-content {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(8px) !important;
-  border-radius: 16px !important;
-  padding: 24px !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-}
-
-[data-theme="dark"] .hero-content, 
-[data-theme="dark"] .about-content, 
-[data-theme="dark"] .section-content {
-  background: rgba(0, 0, 0, 0.6) !important;
+section > .container, .section > .container {
+  position: relative !important;
+  z-index: 3 !important;
 }

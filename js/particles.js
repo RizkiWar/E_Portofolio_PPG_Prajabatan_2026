@@ -13,6 +13,58 @@
   let animationId;
   let width, height;
   let mouseX = -1000, mouseY = -1000;
+  let contentRects = [];
+
+  function updateContentRects() {
+    const selectors = [
+      '.hero-content', '.hero-image', '.section-header', '.about-grid',
+      '.timeline', '.portfolio-grid', '.accordion', '.philosophy-card',
+      '.philosophy-pillars', '.skills-tabs', '.skills-panel.active',
+      '.cert-grid', '.gallery-grid', '.contact-grid', '.navbar',
+      '.hero-badges', '.about-stats', '.footer'
+    ];
+
+    contentRects = [];
+    selectors.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+          contentRects.push({
+            left: rect.left - 36,
+            top: rect.top - 36,
+            right: rect.right + 36,
+            bottom: rect.bottom + 36,
+            centerX: rect.left + rect.width / 2,
+            centerY: rect.top + rect.height / 2,
+          });
+        }
+      });
+    });
+  }
+
+  function applyContentAvoidance(p) {
+    contentRects.forEach(rect => {
+      const nearestX = Math.max(rect.left, Math.min(p.x, rect.right));
+      const nearestY = Math.max(rect.top, Math.min(p.y, rect.bottom));
+      const dx = p.x - nearestX;
+      const dy = p.y - nearestY;
+      const distSq = dx * dx + dy * dy;
+      const avoidRadius = 90;
+
+      if (distSq < avoidRadius * avoidRadius) {
+        const dist = Math.sqrt(distSq) || 1;
+        const force = (avoidRadius - dist) / avoidRadius;
+        const angle = distSq === 0
+          ? Math.atan2(p.y - rect.centerY, p.x - rect.centerX)
+          : Math.atan2(dy, dx);
+
+        p.x += Math.cos(angle) * force * 3.5;
+        p.y += Math.sin(angle) * force * 3.5;
+        p.speedX += Math.cos(angle) * force * 0.08;
+        p.speedY += Math.sin(angle) * force * 0.08;
+      }
+    });
+  }
 
   const colors = [
     { r: 15,  g: 94,  b: 168 },
@@ -40,11 +92,11 @@
     return {
       x: x !== undefined ? x : Math.random() * width,
       y: y !== undefined ? y : Math.random() * height,
-      size: Math.random() * 8 + 7,
+      size: Math.random() * 10 + 9,
       speedX: (Math.random() - 0.5) * 0.6,
       speedY: (Math.random() - 0.5) * 0.4 - 0.15,
       color: color,
-      alpha: isDark ? (Math.random() * 0.18 + 0.1) : (Math.random() * 0.22 + 0.1),
+      alpha: isDark ? (Math.random() * 0.35 + 0.4) : (Math.random() * 0.35 + 0.45),
       pulse: Math.random() * Math.PI * 2,
       pulseSpeed: Math.random() * 0.02 + 0.005,
       rotation: Math.random() * Math.PI * 2,
@@ -289,6 +341,8 @@
         p.speedY += (p.origSpeedY - p.speedY) * 0.01;
       }
 
+      applyContentAvoidance(p);
+
       p.x += p.speedX;
       p.y += p.speedY;
       p.pulse += p.pulseSpeed;
@@ -328,6 +382,7 @@
   // Initialize
   resize();
   initParticles();
+  updateContentRects();
   animate();
 
   let resizeTimer;
@@ -336,8 +391,13 @@
     resizeTimer = setTimeout(() => {
       resize();
       initParticles();
+      updateContentRects();
     }, 200);
   });
+
+  window.addEventListener('scroll', () => {
+    updateContentRects();
+  }, { passive: true });
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
