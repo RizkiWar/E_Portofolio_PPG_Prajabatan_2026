@@ -248,6 +248,44 @@ function initMain() {
     }
   });
 
+  // ---------- Hero Background Parallax ----------
+  const heroSection = document.querySelector('#hero.hero.section');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (heroSection && !reducedMotionQuery.matches) {
+    const getShift = () => (window.innerWidth < 768 ? -18 : -54);
+
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.to(heroSection, {
+        '--hero-scroll-shift': () => `${getShift()}px`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.8,
+          invalidateOnRefresh: true
+        }
+      });
+    } else {
+      let ticking = false;
+      const updateHeroParallax = () => {
+        const progress = Math.min(1, Math.max(0, -heroSection.getBoundingClientRect().top / Math.max(heroSection.offsetHeight, 1)));
+        heroSection.style.setProperty('--hero-scroll-shift', `${Math.round(progress * getShift())}px`);
+        ticking = false;
+      };
+      const requestHeroParallax = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateHeroParallax);
+      };
+      updateHeroParallax();
+      window.addEventListener('scroll', requestHeroParallax, { passive: true });
+      window.addEventListener('resize', requestHeroParallax, { passive: true });
+    }
+  }
+
   // ---------- Scroll Reveal ----------
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
