@@ -132,10 +132,10 @@ function initMain() {
   // ---------- Typed Text Effect ----------
   const typedTextEl = document.getElementById('typedText');
   const phrases = [
-    'Guru Teknik Manufaktur',
-    'Peserta PPG Prajabatan 2026',
-    'Pengajar Autodesk Inventor',
-    'Pendidik yang Berdedikasi'
+    'Calon Guru Profesional Teknik Pemesinan',
+    'Pendidik yang Adaptif dan Inovatif',
+    'Fasilitator Pembelajaran Berbasis Praktik',
+    'Pengembang Keterampilan Industri'
   ];
 
   let phraseIdx = 0;

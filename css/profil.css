@@ -190,17 +190,28 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: var(--gray-50);
-  color: var(--gray-500);
+  color: #fff;
   font-size: 1.2rem;
   transition: all 0.3s var(--ease-smooth);
 }
 
+.hero-social a:nth-child(1) {
+  background: #0077B5;
+}
+.hero-social a:nth-child(2) {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.hero-social a:nth-child(3) {
+  background: #FF0000;
+}
+.hero-social a:nth-child(4) {
+  background: #EA4335;
+}
+
 .hero-social a:hover {
-  background: var(--gradient-warm);
-  color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glow-coral);
+  transform: translateY(-3px) scale(1.08);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 /* Hero Image */
