@@ -15,14 +15,13 @@
   let mouseX = -1000, mouseY = -1000;
 
   const colors = [
-    { r: 255, g: 107, b: 107 },
+    { r: 15,  g: 94,  b: 168 },
+    { r: 57,  g: 189, b: 235 },
     { r: 46,  g: 196, b: 182 },
-    { r: 155, g: 114, b: 207 },
-    { r: 255, g: 179, b: 71  },
-    { r: 86,  g: 204, b: 242 },
-    { r: 107, g: 203, b: 119 },
-    { r: 255, g: 111, b: 145 },
+    { r: 241, g: 192, b: 91  },
   ];
+
+  const particleTypes = ['gear', 'hexBolt', 'cube', 'caliper', 'spark'];
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -41,13 +40,16 @@
     return {
       x: x !== undefined ? x : Math.random() * width,
       y: y !== undefined ? y : Math.random() * height,
-      size: Math.random() * 5 + 1.5,
+      size: Math.random() * 8 + 7,
       speedX: (Math.random() - 0.5) * 0.6,
       speedY: (Math.random() - 0.5) * 0.4 - 0.15,
       color: color,
-      alpha: isDark ? (Math.random() * 0.20 + 0.10) : (Math.random() * 0.30 + 0.15),
+      alpha: isDark ? (Math.random() * 0.18 + 0.1) : (Math.random() * 0.22 + 0.1),
       pulse: Math.random() * Math.PI * 2,
       pulseSpeed: Math.random() * 0.02 + 0.005,
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: (Math.random() - 0.5) * 0.012,
+      type: particleTypes[Math.floor(Math.random() * particleTypes.length)],
       origSpeedX: 0,
       origSpeedY: 0,
     };
@@ -131,22 +133,113 @@
     }
   }
 
-  // --- Draw main particles with mouse repulsion ---
+  function strokeParticlePath(p, alpha, drawFn) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.strokeStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`;
+    ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.12})`;
+    ctx.lineWidth = Math.max(1, p.size * 0.11);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    drawFn(p.size);
+    ctx.restore();
+  }
+
+  function drawGear(size) {
+    const teeth = 8;
+    ctx.beginPath();
+    for (let i = 0; i < teeth * 2; i++) {
+      const radius = i % 2 === 0 ? size : size * 0.75;
+      const angle = (Math.PI * 2 * i) / (teeth * 2);
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.34, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  function drawHexBolt(size) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const angle = Math.PI / 6 + (Math.PI * 2 * i) / 6;
+      const x = Math.cos(angle) * size;
+      const y = Math.sin(angle) * size;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.32, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  function drawCube(size) {
+    const half = size * 0.55;
+    const offset = size * 0.32;
+    ctx.strokeRect(-half, -half, size, size);
+    ctx.strokeRect(-half + offset, -half - offset, size, size);
+    ctx.beginPath();
+    ctx.moveTo(-half, -half);
+    ctx.lineTo(-half + offset, -half - offset);
+    ctx.moveTo(half, -half);
+    ctx.lineTo(half + offset, -half - offset);
+    ctx.moveTo(-half, half);
+    ctx.lineTo(-half + offset, half - offset);
+    ctx.moveTo(half, half);
+    ctx.lineTo(half + offset, half - offset);
+    ctx.stroke();
+  }
+
+  function drawCaliper(size) {
+    ctx.beginPath();
+    ctx.moveTo(-size, -size * 0.5);
+    ctx.lineTo(size, -size * 0.5);
+    ctx.lineTo(size * 0.72, size * 0.18);
+    ctx.moveTo(-size, -size * 0.5);
+    ctx.lineTo(-size * 0.72, size * 0.18);
+    ctx.moveTo(-size * 0.6, -size * 0.18);
+    ctx.lineTo(size * 0.48, -size * 0.18);
+    ctx.moveTo(-size * 0.2, -size * 0.5);
+    ctx.lineTo(-size * 0.2, -size * 0.2);
+    ctx.moveTo(size * 0.18, -size * 0.5);
+    ctx.lineTo(size * 0.18, -size * 0.2);
+    ctx.stroke();
+  }
+
+  function drawSpark(size) {
+    ctx.beginPath();
+    ctx.moveTo(-size, 0);
+    ctx.lineTo(size, 0);
+    ctx.moveTo(0, -size);
+    ctx.lineTo(0, size);
+    ctx.moveTo(-size * 0.62, -size * 0.62);
+    ctx.lineTo(size * 0.62, size * 0.62);
+    ctx.moveTo(size * 0.62, -size * 0.62);
+    ctx.lineTo(-size * 0.62, size * 0.62);
+    ctx.stroke();
+  }
+
+  // --- Draw main mechanical particles with mouse repulsion ---
   function drawParticle(p) {
     const pulseFactor = Math.sin(p.pulse) * 0.3 + 0.7;
     const alpha = p.alpha * pulseFactor;
 
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`;
-    ctx.fill();
+    const drawers = {
+      gear: drawGear,
+      hexBolt: drawHexBolt,
+      cube: drawCube,
+      caliper: drawCaliper,
+      spark: drawSpark,
+    };
 
-    if (p.size > 2.5) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.15})`;
-      ctx.fill();
-    }
+    strokeParticlePath(p, alpha, drawers[p.type] || drawHexBolt);
   }
 
   function drawConnections() {
@@ -199,6 +292,7 @@
       p.x += p.speedX;
       p.y += p.speedY;
       p.pulse += p.pulseSpeed;
+      p.rotation += p.rotationSpeed;
 
       if (p.x < -10) p.x = width + 10;
       if (p.x > width + 10) p.x = -10;

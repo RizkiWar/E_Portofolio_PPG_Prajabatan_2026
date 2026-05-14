@@ -1559,8 +1559,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: var(--section-svg-opacity, 0.18);
+  opacity: var(--section-svg-opacity, 0.24);
   mix-blend-mode: multiply;
+  transform: translate3d(0, 0, 0) scale(1.04);
+  transform-origin: center;
+  will-change: transform, opacity, background-position;
+  animation: sectionSvgDrift 32s ease-in-out infinite alternate;
 }
 
 #about.section > .container,
@@ -1577,47 +1581,47 @@
 }
 
 #about.section::before {
-  --section-svg-opacity: 0.2;
+  --section-svg-opacity: 0.34;
   background-image: url("../assets/img/section-bg/profile-bg.svg");
 }
 
 #education.section::before {
-  --section-svg-opacity: 0.18;
+  --section-svg-opacity: 0.3;
   background-image: url("../assets/img/section-bg/education-bg.svg");
 }
 
 #portfolio.section::before {
-  --section-svg-opacity: 0.12;
+  --section-svg-opacity: 0.22;
   background-image: url("../assets/img/section-bg/portfolio-bg.svg");
 }
 
 #penilaian.section::before {
-  --section-svg-opacity: 0.18;
+  --section-svg-opacity: 0.3;
   background-image: url("../assets/img/section-bg/assessment-bg.svg");
 }
 
 #model-guru.section::before {
-  --section-svg-opacity: 0.18;
+  --section-svg-opacity: 0.3;
   background-image: url("../assets/img/section-bg/teacher-model-bg.svg");
 }
 
 #skills.section::before {
-  --section-svg-opacity: 0.16;
+  --section-svg-opacity: 0.28;
   background-image: url("../assets/img/section-bg/skills-bg.svg");
 }
 
 #certificates.section::before {
-  --section-svg-opacity: 0.16;
+  --section-svg-opacity: 0.28;
   background-image: url("../assets/img/section-bg/certificates-bg.svg");
 }
 
 #gallery.section::before {
-  --section-svg-opacity: 0.12;
+  --section-svg-opacity: 0.22;
   background-image: url("../assets/img/section-bg/gallery-bg.svg");
 }
 
 #contact.section::before {
-  --section-svg-opacity: 0.16;
+  --section-svg-opacity: 0.28;
   background-image: url("../assets/img/section-bg/contact-bg.svg");
 }
 
@@ -1630,7 +1634,7 @@
 [data-theme="dark"] #certificates.section::before,
 [data-theme="dark"] #gallery.section::before,
 [data-theme="dark"] #contact.section::before {
-  opacity: calc(var(--section-svg-opacity, 0.18) * 0.72);
+  opacity: calc(var(--section-svg-opacity, 0.24) * 0.86);
   mix-blend-mode: screen;
   filter: invert(1) hue-rotate(165deg) saturate(1.25) brightness(0.82);
 }
@@ -1647,6 +1651,37 @@
   #contact.section::before {
     background-size: auto 100%;
     background-position: center top;
-    opacity: calc(var(--section-svg-opacity, 0.18) * 0.7);
+    opacity: calc(var(--section-svg-opacity, 0.24) * 0.78);
   }
 }
+
+@keyframes sectionSvgDrift {
+  0% {
+    transform: translate3d(-14px, -8px, 0) scale(1.04);
+    background-position: 46% 48%;
+  }
+  50% {
+    transform: translate3d(10px, 8px, 0) scale(1.07);
+    background-position: 53% 52%;
+  }
+  100% {
+    transform: translate3d(18px, -10px, 0) scale(1.05);
+    background-position: 50% 46%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about.section::before,
+  #education.section::before,
+  #portfolio.section::before,
+  #penilaian.section::before,
+  #model-guru.section::before,
+  #skills.section::before,
+  #certificates.section::before,
+  #gallery.section::before,
+  #contact.section::before {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
