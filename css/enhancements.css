@@ -1725,3 +1725,38 @@
 #hero.hero.section > .container {
   z-index: 3;
 }
+/* Force particle canvas to background of all content */
+#particleCanvas {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  opacity: 0.55 !important;
+  pointer-events: none !important;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] #particleCanvas {
+  mix-blend-mode: screen;
+  opacity: 0.35 !important;
+}
+
+/* Ensure section containers are above particles */
+section, .section, .container {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Glassmorphism for text readability in all sections */
+.hero-content, .about-content, .section-content {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .hero-content, 
+[data-theme="dark"] .about-content, 
+[data-theme="dark"] .section-content {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
