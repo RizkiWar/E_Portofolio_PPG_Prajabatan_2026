@@ -1260,6 +1260,11 @@
   --hero-bg-overlay: linear-gradient(90deg, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.92) 40%, rgba(248, 250, 252, 0.18) 100%);
   --hero-bg-position: center right;
   --hero-scroll-shift: 0px;
+  --hero-motion-layer-opacity: 0.48;
+  --hero-overlay-opacity: 0.58;
+  --hero-dot-color: rgba(14, 138, 195, 0.48);
+  --hero-grid-color: rgba(15, 94, 168, 0.2);
+  --hero-sweep-color: rgba(47, 175, 230, 0.38);
   isolation: isolate;
   overflow: hidden;
   background: var(--hero-bg-overlay), var(--hero-bg-image) var(--hero-bg-position) / cover no-repeat !important;
@@ -1268,6 +1273,11 @@
 [data-theme="dark"] #hero.hero.section {
   --hero-bg-image: url("../assets/img/hero-bg-ai-dark.png");
   --hero-bg-overlay: linear-gradient(90deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.84) 44%, rgba(15, 23, 42, 0.2) 100%);
+  --hero-motion-layer-opacity: 0.2;
+  --hero-overlay-opacity: 0.22;
+  --hero-dot-color: rgba(125, 211, 252, 0.3);
+  --hero-grid-color: rgba(125, 211, 252, 0.12);
+  --hero-sweep-color: rgba(125, 211, 252, 0.14);
 }
 
 #hero.hero.section::before,
@@ -1281,42 +1291,48 @@
   inset: 0;
   z-index: 0;
   background: var(--hero-bg-image) var(--hero-bg-position) / cover no-repeat;
-  opacity: 0.24;
+  opacity: var(--hero-motion-layer-opacity);
   transform: translate3d(var(--hero-scroll-shift), 0, 0) scale(1.015);
   transform-origin: center right;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 42%, rgba(0, 0, 0, 0.42) 58%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 42%, rgba(0, 0, 0, 0.42) 58%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.44) 50%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, rgba(0, 0, 0, 0.44) 50%, #000 100%);
   will-change: transform;
-  animation: heroBgDriftZoom 38s ease-in-out infinite alternate;
-}
-
-[data-theme="dark"] #hero.hero.section::before {
-  opacity: 0.2;
+  animation: heroBgDriftZoom 30s ease-in-out infinite alternate;
 }
 
 #hero.hero.section::after {
   inset: 0;
   z-index: 1;
-  opacity: 0.3;
+  opacity: var(--hero-overlay-opacity);
   background:
-    radial-gradient(circle, rgba(57, 189, 235, 0.25) 0 1px, transparent 2px),
-    linear-gradient(115deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.24) 48%, transparent 58%, transparent 100%),
-    linear-gradient(rgba(57, 189, 235, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 94, 168, 0.07) 1px, transparent 1px);
-  background-size: 64px 64px, 240% 100%, 84px 84px, 84px 84px;
+    radial-gradient(circle, var(--hero-dot-color) 0 1.8px, transparent 3.2px),
+    linear-gradient(115deg, transparent 0%, transparent 32%, var(--hero-sweep-color) 48%, transparent 64%, transparent 100%),
+    linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
+  background-size: 48px 48px, 210% 100%, 68px 68px, 68px 68px;
   background-position: 0 0, -180% 0, 0 0, 0 0;
   mix-blend-mode: multiply;
   will-change: background-position, opacity;
-  animation: heroBlueprintOverlay 22s linear infinite;
+  animation: heroBlueprintOverlay 18s linear infinite;
 }
 
 [data-theme="dark"] #hero.hero.section::after {
-  opacity: 0.22;
   mix-blend-mode: screen;
 }
 
 .hero-content::before {
   display: none !important;
+}
+
+#hero.hero.section .hero-content,
+#hero.hero.section .hero-image {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.mobile-name-break {
+  display: none;
 }
 
 .hero .container {
@@ -1327,6 +1343,8 @@
   #hero.hero.section {
     --hero-bg-overlay: linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.92) 48%, rgba(248, 250, 252, 0.78) 100%);
     --hero-bg-position: 68% center;
+    --hero-motion-layer-opacity: 0.44;
+    --hero-overlay-opacity: 0.42;
   }
 
   [data-theme="dark"] #hero.hero.section {
@@ -1336,40 +1354,80 @@
   #hero.hero.section::before {
     inset: 0;
     animation-duration: 42s;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.34) 32%, #000 100%);
-    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.34) 32%, #000 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.44) 30%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.44) 30%, #000 100%);
   }
 
   #hero.hero.section::after {
-    opacity: 0.18;
-    background-size: 74px 74px, 260% 100%, 92px 92px, 92px 92px;
+    opacity: var(--hero-overlay-opacity);
+    background-size: 64px 64px, 240% 100%, 84px 84px, 84px 84px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero.hero.section .hero-image {
+    width: 100%;
+  }
+
+  #hero.hero.section .hero-content {
+    width: 100%;
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  #hero.hero.section .hero-desc {
+    width: min(100%, 300px);
+    max-width: 100%;
+    margin-inline: auto;
+    overflow-wrap: break-word;
+  }
+
+  #hero.hero.section .hero-badges {
+    width: min(100%, 360px);
+    margin-inline: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #hero.hero.section .hero-badge {
+    width: fit-content;
+    max-width: calc(100vw - 32px);
+  }
+
+  .hero-name {
+    line-height: 1.08;
+  }
+
+  .mobile-name-break {
+    display: block;
   }
 }
 
 @keyframes heroBgDriftZoom {
   0% {
-    transform: translate3d(calc(var(--hero-scroll-shift) + 0px), 0, 0) scale(1.015);
+    transform: translate3d(calc(var(--hero-scroll-shift) + 0px), 0, 0) scale(1.025);
   }
   50% {
-    transform: translate3d(calc(var(--hero-scroll-shift) - 8px), -4px, 0) scale(1.03);
+    transform: translate3d(calc(var(--hero-scroll-shift) - 22px), -8px, 0) scale(1.052);
   }
   100% {
-    transform: translate3d(calc(var(--hero-scroll-shift) - 16px), 6px, 0) scale(1.045);
+    transform: translate3d(calc(var(--hero-scroll-shift) - 44px), 10px, 0) scale(1.08);
   }
 }
 
 @keyframes heroBlueprintOverlay {
   0% {
     background-position: 0 0, -180% 0, 0 0, 0 0;
-    opacity: 0.22;
+    opacity: calc(var(--hero-overlay-opacity) - 0.1);
   }
   50% {
-    background-position: 26px -32px, 30% 0, 18px 12px, -14px 16px;
-    opacity: 0.34;
+    background-position: 58px -62px, 35% 0, 34px 22px, -30px 30px;
+    opacity: var(--hero-overlay-opacity);
   }
   100% {
-    background-position: 52px -64px, 180% 0, 36px 24px, -28px 32px;
-    opacity: 0.22;
+    background-position: 116px -124px, 190% 0, 68px 44px, -60px 60px;
+    opacity: calc(var(--hero-overlay-opacity) - 0.1);
   }
 }
 

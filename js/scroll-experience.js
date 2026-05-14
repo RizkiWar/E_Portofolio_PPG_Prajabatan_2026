@@ -265,6 +265,7 @@ function prepareSection(section, index) {
 }
 
 function buildSectionEntrance(section, prepared, index) {
+  const isHeroSection = section.id === 'hero';
   const header = section.querySelector('.section-header');
   const icons = gsap.utils.toArray(section.querySelectorAll(
     '.hero-badge-icon, .info-icon, .timeline-dot, .edu-logo, .pillar-icon, .skill-item-icon, .cert-icon, .detail-icon'
@@ -329,27 +330,38 @@ function buildSectionEntrance(section, prepared, index) {
 
   const bodyItems = prepared.items.filter(item => item !== header);
   if (bodyItems.length) {
-    timeline.fromTo(bodyItems, {
-      autoAlpha: 0,
-      x: 0,
-      y: 32,
-      scale: 0.985,
-      rotationX: 4,
-      filter: 'blur(4px)',
-      transformPerspective: 900
-    }, {
-      autoAlpha: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotationX: 0,
-      filter: 'blur(0px)',
-      duration: 0.98,
-      stagger: {
-        each: 0.055,
-        from: 'start'
-      }
-    }, header ? 0.32 : 0.08);
+    if (isHeroSection) {
+      timeline.set(bodyItems, {
+        autoAlpha: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        filter: 'none'
+      }, 0);
+    } else {
+      timeline.fromTo(bodyItems, {
+        autoAlpha: 0,
+        x: 0,
+        y: 32,
+        scale: 0.985,
+        rotationX: 4,
+        filter: 'blur(4px)',
+        transformPerspective: 900
+      }, {
+        autoAlpha: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        filter: 'none',
+        duration: 0.98,
+        stagger: {
+          each: 0.055,
+          from: 'start'
+        }
+      }, header ? 0.32 : 0.08);
+    }
   }
 
   if (icons.length) {

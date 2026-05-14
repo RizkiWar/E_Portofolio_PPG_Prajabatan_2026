@@ -253,7 +253,7 @@ function initMain() {
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   if (heroSection && !reducedMotionQuery.matches) {
-    const getShift = () => (window.innerWidth < 768 ? -18 : -54);
+    const getShift = () => (window.innerWidth < 768 ? -34 : -96);
 
     if (window.gsap && window.ScrollTrigger) {
       window.gsap.registerPlugin(window.ScrollTrigger);
