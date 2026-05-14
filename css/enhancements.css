@@ -1685,3 +1685,43 @@
   }
 }
 
+
+/* Keep mechanical particle canvas above section SVG/background layers. */
+#particleCanvas {
+  z-index: 2 !important;
+  opacity: 0.72 !important;
+  mix-blend-mode: multiply;
+  pointer-events: none !important;
+}
+
+[data-theme="dark"] #particleCanvas {
+  opacity: 0.58 !important;
+  mix-blend-mode: screen;
+}
+
+#about.section::before,
+#education.section::before,
+#portfolio.section::before,
+#penilaian.section::before,
+#model-guru.section::before,
+#skills.section::before,
+#certificates.section::before,
+#gallery.section::before,
+#contact.section::before,
+#hero.hero.section::before,
+#hero.hero.section::after {
+  z-index: 0;
+}
+
+#about.section > .container,
+#education.section > .container,
+#portfolio.section > .container,
+#penilaian.section > .container,
+#model-guru.section > .container,
+#skills.section > .container,
+#certificates.section > .container,
+#gallery.section > .container,
+#contact.section > .container,
+#hero.hero.section > .container {
+  z-index: 3;
+}
