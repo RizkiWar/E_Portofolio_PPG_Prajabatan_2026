@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-rpp1': {
       title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
       type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
-      fileUrl: 'assets/pdf/RPP_Siklus_1.pdf',
+      fileUrl: 'https://drive.google.com/file/d/13HtahKdlZsOCvZQitf-nsfdewEUgTeHT/view?usp=sharing',
       context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik di mana mayoritas siswa memiliki gaya belajar visual-kinestetik dan sudah menguasai dasar 3D Part Modeling (.ipt).',
       purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hingga mahir merakit secara virtual (Assembly) di Autodesk Inventor.',
       pros: [
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-materi1': {
       title: 'Bahan Ajar P1 — Dasar Assembly Tool Post',
       type: 'Modul Ajar Cetak & Digital',
-      fileUrl: 'assets/pdf/Materi_Siklus-1_P1.pdf',
+      fileUrl: 'https://drive.google.com/file/d/17Dta9nZyABe3j9t8P9DnovuKzn75m45l/view?usp=sharing',
       context: 'Materi Siklus 1 Pertemuan 1, membahas pengenalan komponen utama Tool Post dan cara melakukan penempatan awal (Place Component) beserta penetapan Grounded Component.',
       purpose: 'Memberikan pemahaman awal mengenai antarmuka Autodesk Inventor untuk perakitan, dan memastikan siswa paham mana komponen yang harus menjadi patokan (Grounded).',
       pros: ['Sangat detail untuk siswa pemula.', 'Dilengkapi gambar tiap ikon perintah.'],
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-materi2': {
       title: 'Bahan Ajar P2 — Penerapan Constraint',
       type: 'Modul Ajar Cetak & Digital',
-      fileUrl: 'assets/pdf/Materi_Siklus-1_P2.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing',
       context: 'Materi Siklus 1 Pertemuan 2, fokus pada penerapan constraint Mate, Flush, dan Insert pada 8 komponen Tool Post.',
       purpose: 'Membimbing siswa agar dapat merakit komponen hingga memiliki Degrees of Freedom (DOF) = 0.',
       pros: ['Menyertakan troubleshooting untuk error constraint yang sering terjadi.', 'Glosarium sangat membantu.'],
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-materi3': {
       title: 'Bahan Ajar P3 — Drawing & Bill of Materials',
       type: 'Modul Ajar Cetak & Digital',
-      fileUrl: 'assets/pdf/Materi_Siklus-1_P3.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing',
       context: 'Materi Siklus 1 Pertemuan 3, materi tingkat lanjut mengenai pembuatan gambar kerja 2D (Drawing) dari hasil rakitan 3D.',
       purpose: 'Siswa dapat membuat etiket (title block), Bill of Materials (BOM), dan Ballooning sesuai standar industri manufaktur.',
       pros: ['Mengajarkan standar industri yang sangat krusial di dunia kerja nyata.'],
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media1': {
       title: 'Media Presentasi (PPT) — Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Interaktif)',
-      fileUrl: 'assets/pdf/Media_Siklus1_PPT.pdf', // PPTX converted to PDF for preview
+      fileUrl: 'https://drive.google.com/file/d/1EUubB5nRb-d2RGyJCrDbUVBlOO3ZwAxq/view?usp=sharing', // PPTX converted to PDF for preview
       context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
       purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
       pros: [
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-asesmen1': {
       title: 'Perangkat Asesmen Terpadu — Siklus 1',
       type: 'Instrumen Asesmen (Diagnostik, Formatif, Sumatif)',
-      fileUrl: 'assets/pdf/Asesmen_Siklus_1.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1SJhusFCTSfJd1659mWUAMIJrQBfO3nmM/view?usp=sharing',
       context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sumatif.',
       purpose: 'Memetakan tingkat pemahaman awal siswa (untuk pengelompokan scaffolding) dan mengevaluasi ketercapaian perakitan Tool Post secara autentik.',
       pros: [
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm1': {
       title: 'Lembar Kerja Murid (LKM) — Pertemuan 1',
       type: 'Dokumen Hasil Praktik P1',
-      fileUrl: 'assets/pdf/LKM_Siklus-1_P1.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1mcGkRJtcLVytwnXn7z2mykJoX9hgZZ9R/view?usp=sharing',
       context: 'LKM untuk pertemuan pertama yang memandu siswa memposisikan komponen Base dan Tool Holder (Grounded).',
       purpose: 'Melatih kemampuan dasar perakitan 3D, membiasakan siswa melakukan self-assessment.',
       pros: ['Sangat mudah diikuti dengan format checklist.'],
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm2': {
       title: 'Lembar Kerja Murid (LKM) — Pertemuan 2',
       type: 'Dokumen Hasil Praktik P2',
-      fileUrl: 'assets/pdf/LKM_Siklus-1_P2.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1Z3_glCt5CahLNMVduJ6XUMTLAjnhsl6d/view?usp=sharing',
       context: 'LKM pertemuan kedua yang berfokus pada pemasangan baut, washer, dan pengunci menggunakan Insert Constraint.',
       purpose: 'Memastikan seluruh komponen Tool Post terakit sempurna dengan DOF = 0.',
       pros: ['Memiliki tingkat kesulitan yang bertahap (graded difficulty).'],
@@ -114,17 +114,37 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm3': {
       title: 'Lembar Kerja Murid (LKM) — Pertemuan 3',
       type: 'Dokumen Hasil Praktik P3',
-      fileUrl: 'assets/pdf/LKM_Siklus-1_P3.pdf',
+      fileUrl: 'https://drive.google.com/file/d/1YuJtd6sDCAwnYJ2eVZJI71GClZ6ep8et/view?usp=sharing',
       context: 'LKM pertemuan terakhir yang berisi tugas membuat presentasi file 2D (Drawing) lengkap dengan part list (BOM).',
       purpose: 'Mendokumentasikan hasil akhir siswa secara komprehensif dalam bentuk file PDF Drawing.',
       pros: ['Meningkatkan kemampuan literasi grafis siswa sesuai standar.'],
       cons: ['Proses layout drawing cukup kompleks untuk siswa.'],
       theory: 'Penerapan Experiential Learning (Kolb) dari proses merakit (konkret) menjadi gambar teknik standar (abstrak).'
     },
+    'modal-media2': {
+      title: 'Media Presentasi (PPT) P2 — Perakitan Kompleks',
+      type: 'Media Pembelajaran (Slide Interaktif)',
+      fileUrl: 'https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing',
+      context: 'Media pendamping untuk pertemuan kedua yang berfokus pada teknik assembly tingkat lanjut dan pemecahan masalah (troubleshooting) pada Autodesk Inventor.',
+      purpose: 'Memastikan siswa memahami urutan perakitan komponen yang efisien dan cara mengatasi kendala error constraint.',
+      pros: ['Sangat membantu visualisasi langkah demi langkah.', 'Interaktif dengan contoh kasus nyata.'],
+      cons: ['Butuh waktu lebih untuk penjelasan tiap slide.'],
+      theory: 'Cognitive Load Theory (Sweller) — menyajikan informasi secara bertahap untuk mencegah kelebihan beban kognitif.'
+    },
+    'modal-media3': {
+      title: 'Media Presentasi (PPT) P3 — Standard Drawing',
+      type: 'Media Pembelajaran (Slide Interaktif)',
+      fileUrl: 'https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing',
+      context: 'Media untuk pertemuan ketiga yang membahas standar pembuatan gambar kerja industri (ISO/ANSI).',
+      purpose: 'Membekali siswa dengan pengetahuan standar dokumentasi teknik yang berlaku di industri global.',
+      pros: ['Sangat relevan dengan kebutuhan dunia kerja.', 'Visualisasi title block dan BOM sangat jelas.'],
+      cons: ['Materi cukup teoritis, butuh contoh fisik drawing industri.'],
+      theory: 'Contextual Teaching and Learning (CTL) — menghubungkan materi kelas dengan konteks dunia kerja nyata.'
+    },
     'modal-toolpost': {
       title: 'Gambar Teknik Tool Post (Revisi)',
       type: 'Gambar Teknik',
-      fileUrl: 'assets/pdf/Tool Post Rev.pdf',
+      fileUrl: 'LINK_GOOGLE_DRIVE_TOOLPOST_ANDA_DISINI',
       context: 'File gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
       purpose: 'Siswa menggunakan dimensi dan bentuk pada file ini sebagai acuan perakitan komponen.',
       pros: ['Detail presisi sangat jelas sebagai referensi utama untuk objek rakitan.'],
@@ -133,12 +153,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  function getEmbedUrl(url) {
+    if (!url) return '';
+    // Convert Google Drive view URL to preview URL for iframe embed
+    const driveMatch = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+    if (driveMatch) {
+      return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+    }
+    return url;
+  }
+
   function openModal(modalId, viewMode) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
     const fileUrl = data.fileUrl || '';
-    const canPreviewPdf = Boolean(fileUrl && /\.pdf(?:$|[?#])/i.test(fileUrl));
+    const embedUrl = getEmbedUrl(fileUrl);
+    const isDrive = /drive\.google\.com/i.test(fileUrl);
+    const canPreview = Boolean(fileUrl && (isDrive || /\.pdf(?:$|[?#])/i.test(fileUrl)));
 
-    if (viewMode === 'pdf' && canPreviewPdf) {
+    if (viewMode === 'pdf' && canPreview) {
       // Tampilan HANYA PDF
       modalContent.innerHTML = `
         <div class="modal-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: none; padding-bottom: 0; gap: 15px; padding-right: 30px;">
@@ -151,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
         </div>
         <div class="modal-body" style="height: 75vh; padding-top: 20px;">
-          <iframe src="${fileUrl}#toolbar=0" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
+          <iframe src="${embedUrl}" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
         </div>
       `;
     } else {
@@ -160,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
 
       let filePreviewHtml = '';
-      if (canPreviewPdf) {
+      if (canPreview) {
         filePreviewHtml = `
           <div class="pdf-preview" style="margin-top: 30px; border-top: 2px dashed #DEE2E8; padding-top: 20px;">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 10px;">
@@ -169,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Buka di Tab Baru ↗
               </a>
             </div>
-            <iframe src="${fileUrl}#toolbar=0" style="width: 100%; height: 60vh; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
+            <iframe src="${embedUrl}" style="width: 100%; height: 60vh; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
           </div>
         `;
       } else if (fileUrl) {
