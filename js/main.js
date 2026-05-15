@@ -18,6 +18,9 @@ import { initKontakAnimation } from './kontak-animation.js';
 import { initFooterAnimation } from './footer-animation.js';
 import { initPortfolioChooser } from './portfolio-chooser.js';
 import { initSertifikatModal } from './sertifikat-modal.js';
+import { refreshEp2Animation } from './eportfolio2-animation.js';
+
+window.refreshEp2Animation = refreshEp2Animation;
 
 let mainInitialized = false;
 

@@ -67,12 +67,15 @@ export function initPortfolioChooser() {
     document.body.style.position = '';
     window.scrollTo({ top: 0, behavior: 'auto' });
 
-    // Trigger reveal animations
+    // Trigger reveal animations + refresh GSAP ScrollTrigger
     setTimeout(() => {
       ep2Wrapper.querySelectorAll('.reveal').forEach(el => {
         el.classList.add('visible');
       });
-    }, 300);
+      if (typeof window.refreshEp2Animation === 'function') {
+        window.refreshEp2Animation();
+      }
+    }, 100);
   }
 
   function hideEP2() {
