@@ -269,13 +269,10 @@ function prepareSection(section, index) {
 function buildSectionEntrance(section, prepared, index) {
   const isHeroSection = section.id === 'hero';
   const header = section.querySelector('.section-header');
-  const icons = gsap.utils.toArray(section.querySelectorAll(
-    '.hero-badge-icon, .info-icon, .timeline-dot, .edu-logo, .pillar-icon, .skill-item-icon, .cert-icon, .detail-icon'
-  ));
 
   const start = index === 0 ? 'top 92%' : 'top 78%';
   const timeline = gsap.timeline({
-    defaults: { ease: 'power4.out' },
+    defaults: { ease: 'power3.out' },
     scrollTrigger: {
       trigger: section,
       start,
@@ -291,88 +288,54 @@ function buildSectionEntrance(section, prepared, index) {
   if (header) {
     timeline.fromTo(header, {
       autoAlpha: 0,
-      x: 0,
-      y: 26,
-      rotationX: 6,
-      transformPerspective: 900
+      y: 20
     }, {
       autoAlpha: 1,
-      x: 0,
       y: 0,
-      rotationX: 0,
-      duration: 1.05
+      duration: 0.6
     }, 0.04);
   }
 
   if (prepared.titleWords.length) {
     timeline.fromTo(prepared.titleWords, {
       autoAlpha: 0,
-      yPercent: 78,
-      rotationX: 42,
-      transformOrigin: 'left bottom',
-      transformPerspective: 900
+      yPercent: 40
     }, {
       autoAlpha: 1,
       yPercent: 0,
-      rotationX: 0,
-      duration: 0.95,
-      stagger: 0.035,
-      ease: 'power4.out'
-    }, 0.14);
+      duration: 0.6,
+      stagger: 0.03
+    }, 0.1);
   }
 
   timeline.to(section, {
     '--fx-line-opacity': 1,
     '--fx-line-scale': 1,
-    duration: 0.95,
-    ease: 'power3.out'
-  }, 0.2);
+    duration: 0.6,
+    ease: 'power2.out'
+  }, 0.15);
 
   const bodyItems = prepared.items.filter(item => item !== header);
   if (bodyItems.length) {
     if (isHeroSection) {
       timeline.set(bodyItems, {
         autoAlpha: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        rotationX: 0,
-        filter: 'none'
+        y: 0
       }, 0);
     } else {
       timeline.fromTo(bodyItems, {
         autoAlpha: 0,
-        x: 0,
-        y: 32,
-        scale: 0.985,
-        rotationX: 4,
-        transformPerspective: 900
+        y: 24
       }, {
         autoAlpha: 1,
-        x: 0,
         y: 0,
-        scale: 1,
-        rotationX: 0,
-        duration: 0.98,
+        duration: 0.5,
         stagger: {
-          each: 0.055,
+          each: 0.04,
           from: 'start'
         }
-      }, header ? 0.32 : 0.08);
+      }, header ? 0.25 : 0.05);
     }
-  }
-
-  if (icons.length) {
-    timeline.fromTo(icons, {
-      scale: 0.86,
-      rotate: -3
-    }, {
-      scale: 1,
-      rotate: 0,
-      duration: 0.74,
-      stagger: 0.035,
-      ease: 'back.out(1.25)'
-    }, 0.46);
   }
 }
 
