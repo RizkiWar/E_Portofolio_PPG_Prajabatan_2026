@@ -1,8 +1,10 @@
 /* ============================================
    PARALLAX SCROLL
    Lightweight, accessibility-aware parallax effects.
+   Disabled when scroll-experience.js is active (to prevent double-parallax jank)
    ============================================ */
 (function () {
+  if (window.__portfolioScrollExperience) return;
   const maxOffset = window.innerWidth < 768 ? 18 : 42;
   const parallaxLayers = Array.from(document.querySelectorAll('.parallax-layer'));
   const imageLayers = Array.from(document.querySelectorAll('.parallax-image-frame img'));

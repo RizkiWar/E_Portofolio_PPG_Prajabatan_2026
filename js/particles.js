@@ -346,10 +346,6 @@
   }
 
   function animate() {
-    if (isScrolling) {
-      animationId = requestAnimationFrame(animate);
-      return;
-    }
     ctx.clearRect(0, 0, width, height);
 
     const mouseRadius = 120;
@@ -371,7 +367,7 @@
         p.speedY += (p.origSpeedY - p.speedY) * 0.01;
       }
 
-      applyContentAvoidance(p);
+      if (!isScrolling) applyContentAvoidance(p);
 
       p.x += p.speedX;
       p.y += p.speedY;
@@ -415,11 +411,14 @@
   updateContentRects();
   animate();
 
-  // Pause particles during scroll for performance
+  // Pause heavy calculations during scroll for performance
   window.addEventListener('scroll', () => {
     isScrolling = true;
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => { isScrolling = false; }, 150);
+    scrollTimeout = setTimeout(() => {
+      isScrolling = false;
+      updateContentRects();
+    }, 200);
   }, { passive: true });
 
   let resizeTimer;
