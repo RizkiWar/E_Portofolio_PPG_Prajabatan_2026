@@ -2131,15 +2131,18 @@ section {
 }
 
 .contact-detail-item:nth-child(1) .detail-icon {
-  background: rgba(57, 189, 235, 0.12);
+  background: linear-gradient(135deg, #EA4335, #FF6B6B);
+  color: #fff;
 }
 
 .contact-detail-item:nth-child(2) .detail-icon {
-  background: rgba(46, 196, 182, 0.12);
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
 }
 
 .contact-detail-item:nth-child(3) .detail-icon {
-  background: rgba(155, 114, 207, 0.12);
+  background: linear-gradient(135deg, #4285F4, #0F5EA8);
+  color: #fff;
 }
 
 .contact-detail-item .detail-label {

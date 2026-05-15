@@ -1133,31 +1133,65 @@
             hubungi melalui form atau kontak di bawah ini.
           </p>
           <div class="contact-details">
-            <div class="contact-detail-item">
-              <div class="detail-icon">📧</div>
+            <div class="contact-detail-item email-chooser" style="cursor: pointer;">
+              <div class="detail-icon"><i class="fas fa-envelope"></i></div>
               <div>
                 <div class="detail-label">Email</div>
-                <div class="detail-value">email.anda@gmail.com</div>
+                <div class="detail-value">fannyfatchurrahman@gmail.com</div>
               </div>
             </div>
-            <div class="contact-detail-item">
-              <div class="detail-icon">📱</div>
+            <a href="https://wa.me/6281227448532" target="_blank" rel="noopener noreferrer" class="contact-detail-item" style="text-decoration: none; color: inherit;">
+              <div class="detail-icon"><i class="fab fa-whatsapp"></i></div>
               <div>
-                <div class="detail-label">Telepon</div>
-                <div class="detail-value">+62 812 XXXX XXXX</div>
+                <div class="detail-label">WhatsApp</div>
+                <div class="detail-value">Chat via WhatsApp</div>
               </div>
-            </div>
-            <div class="contact-detail-item">
-              <div class="detail-icon">📍</div>
+            </a>
+            <a href="https://maps.google.com/?q=Klaten,+Indonesia" target="_blank" rel="noopener noreferrer" class="contact-detail-item" style="text-decoration: none; color: inherit;">
+              <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
               <div>
                 <div class="detail-label">Lokasi</div>
-                <div class="detail-value">Yogyakarta, Indonesia</div>
+                <div class="detail-value">Klaten, Indonesia</div>
               </div>
+            </a>
+          </div>
+          <!-- Social Media Links -->
+          <div class="contact-social">
+            <h4 style="font-size:0.95rem; color:var(--gray-600); margin:24px 0 12px; text-transform:uppercase; letter-spacing:0.05em;">Ikuti Saya</h4>
+            <div class="social-links-grid">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact-social-btn linkedin" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact-social-btn instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact-social-btn youtube" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="contact-social-btn github" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Email Popup -->
+          <div class="email-popup-overlay" id="emailPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:10000; align-items:center; justify-content:center;">
+            <div class="email-popup-box" style="background:#fff; border-radius:20px; padding:32px; max-width:320px; width:90%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+              <h4 style="margin:0 0 8px; font-size:1.1rem; color:#0F5EA8;">Kirim Email via</h4>
+              <p style="margin:0 0 20px; font-size:0.85rem; color:#666;">Pilih cara mengirim email</p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fannyfatchurrahman@gmail.com" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; text-decoration:none; color:#333; background:rgba(234,67,53,0.08); margin-bottom:10px; transition:all 0.2s;">
+                <i class="fab fa-google" style="color:#EA4335; font-size:1.3rem;"></i>
+                <span style="font-weight:600;">Buka Gmail Web</span>
+              </a>
+              <a href="mailto:fannyfatchurrahman@gmail.com" style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; text-decoration:none; color:#333; background:rgba(15,94,168,0.08); transition:all 0.2s;">
+                <i class="fas fa-paper-plane" style="color:#0F5EA8; font-size:1.3rem;"></i>
+                <span style="font-weight:600;">Email Client</span>
+              </a>
+              <button class="email-popup-close" style="margin-top:16px; background:none; border:none; color:#999; cursor:pointer; font-size:0.85rem;">Batal</button>
             </div>
           </div>
         </div>
         <div class="contact-form reveal-right">
-          <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/meenbpro" method="POST">
             <div class="form-group floating">
               <input type="text" id="name" name="name" placeholder=" " required />
               <label for="name">Nama Lengkap</label>
@@ -1242,6 +1276,7 @@
   <script src="js/model-guru-animation.js"></script>
   <script src="js/keahlian-animation.js"></script>
   <script src="js/galeri-animation.js"></script>
+  <script src="js/kontak-animation.js"></script>
 </body>
 
 </html>

@@ -395,26 +395,52 @@ function initMain() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ---------- Contact Form ----------
+  // ---------- Contact Form (Formspree AJAX) ----------
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formSuccess = document.getElementById('formSuccess');
       const btn = contactForm.querySelector('.form-submit');
+      const originalText = btn.textContent;
+
       btn.textContent = '⏳ Mengirim...';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.style.display = 'none';
-        if (formSuccess) formSuccess.style.display = 'block';
-        setTimeout(() => {
-          btn.style.display = '';
-          btn.textContent = 'Kirim Pesan 🚀';
-          btn.disabled = false;
-          if (formSuccess) formSuccess.style.display = 'none';
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          btn.style.display = 'none';
+          if (formSuccess) formSuccess.style.display = 'block';
           contactForm.reset();
-        }, 3000);
-      }, 1000);
+          setTimeout(() => {
+            btn.style.display = '';
+            btn.textContent = originalText;
+            btn.disabled = false;
+            if (formSuccess) formSuccess.style.display = 'none';
+          }, 4000);
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const errMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Gagal mengirim pesan. Coba lagi.';
+          btn.textContent = '❌ ' + errMsg;
+          btn.disabled = false;
+          setTimeout(() => {
+            btn.textContent = originalText;
+          }, 4000);
+        }
+      } catch (err) {
+        btn.textContent = '❌ Koneksi gagal. Coba lagi.';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 4000);
+      }
     });
   }
 
