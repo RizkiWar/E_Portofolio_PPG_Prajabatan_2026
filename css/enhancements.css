@@ -1837,11 +1837,12 @@ section > .container, .section > .container {
   display: none;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: 1;
 }
 
 .portfolio-chooser.active {
   display: flex;
+  opacity: 1;
 }
 
 .chooser-content {
