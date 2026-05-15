@@ -84,24 +84,20 @@
   // Show chooser after intro loading completes
   function tryShowChooser() {
     if (introTear && introTear.classList.contains('is-complete')) {
-      setTimeout(showChooser, 400);
+      setTimeout(showChooser, 600);
     } else if (introTear) {
       const observer = new MutationObserver(() => {
         if (introTear.classList.contains('is-complete')) {
           observer.disconnect();
-          clearTimeout(fallbackTimer);
-          setTimeout(showChooser, 400);
+          setTimeout(showChooser, 600);
         }
       });
       observer.observe(introTear, { attributes: true, attributeFilter: ['class'] });
-
-      // Fallback: if intro never completes after 5s, show chooser anyway
-      var fallbackTimer = setTimeout(() => {
-        observer.disconnect();
-        showChooser();
-      }, 5000);
     } else {
-      setTimeout(showChooser, 800);
+      // No intro tear element, show after page fully loaded
+      window.addEventListener('load', () => {
+        setTimeout(showChooser, 1000);
+      });
     }
   }
 
