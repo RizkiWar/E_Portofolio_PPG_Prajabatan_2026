@@ -1190,37 +1190,33 @@
   .portfolio-tabs,
   .skills-tabs {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-x: visible;
-    scroll-snap-type: none;
-    padding-bottom: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
     mask-image: none;
     -webkit-mask-image: none;
   }
 
   .portfolio-tabs .tab-btn {
-    flex: 1 1 calc(33.333% - 8px);
-    min-width: 0;
+    flex: 0 0 auto;
+    white-space: nowrap;
     justify-content: center;
   }
 
   .portfolio-filter .filter-btn {
-    flex: 1 1 94px;
-    min-width: 0;
-    max-width: 150px;
+    flex: 0 0 auto;
+    white-space: nowrap;
     justify-content: center;
     text-align: center;
-    white-space: normal;
   }
 
   .skills-tab-btn {
-    flex: 1 1 calc(50% - 8px);
-    min-width: 0;
-    max-width: 190px;
+    flex: 0 0 auto;
+    white-space: nowrap;
     justify-content: center;
     text-align: center;
-    white-space: normal;
   }
 
   .chart-panel-header {
