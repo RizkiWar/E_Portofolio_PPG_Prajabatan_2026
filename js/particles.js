@@ -12,6 +12,8 @@
   let burstParticles = [];
   let animationId;
   let width, height;
+  let isScrolling = false;
+  let scrollTimeout;
   let mouseX = -1000, mouseY = -1000;
   let contentRects = [];
 
@@ -337,6 +339,10 @@
   }
 
   function animate() {
+    if (isScrolling) {
+      animationId = requestAnimationFrame(animate);
+      return;
+    }
     ctx.clearRect(0, 0, width, height);
 
     const mouseRadius = 120;
@@ -401,6 +407,13 @@
   initParticles();
   updateContentRects();
   animate();
+
+  // Pause particles during scroll for performance
+  window.addEventListener('scroll', () => {
+    isScrolling = true;
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => { isScrolling = false; }, 150);
+  }, { passive: true });
 
   let resizeTimer;
   window.addEventListener('resize', () => {

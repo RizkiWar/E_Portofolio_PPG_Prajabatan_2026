@@ -1747,3 +1747,81 @@ section > .container, .section > .container {
   position: relative !important;
   z-index: 3 !important;
 }
+
+/* ============================================
+   GPU ACCELERATION FOR ANIMATED ELEMENTS
+   ============================================ */
+.portfolio-card,
+.pillar-card,
+.skill-item-card,
+.about-image-card,
+.about-stat,
+.gallery-item,
+.timeline-card,
+.profil-narasi,
+.life-step-dot,
+.contact-detail-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+#particleCanvas {
+  will-change: transform;
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Reduce backdrop-filter blur intensity (very expensive) */
+.navbar.scrolled,
+.modal-overlay,
+.gallery-lightbox {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Disable expensive transitions on accordion bodies */
+.accordion-body {
+  transition: max-height 0.3s ease, opacity 0.2s ease !important;
+}
+
+/* Optimize tab/filter button transitions */
+.tab-btn,
+.filter-btn,
+.skills-tab-btn {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease !important;
+  will-change: auto;
+}
+
+.tab-btn.active,
+.filter-btn.active,
+.skills-tab-btn.active {
+  will-change: transform;
+}
+
+/* Reduce content contain repainting */
+.portfolio-card,
+.skill-item-card,
+.pillar-card,
+.timeline-card,
+.gallery-item,
+.contact-detail-item {
+  contain: layout style paint;
+}
+
+/* Disable transitions on mobile for better perf */
+@media (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.2s !important;
+  }
+  .navbar,
+  .modal-overlay,
+  .gallery-lightbox,
+  .hero-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

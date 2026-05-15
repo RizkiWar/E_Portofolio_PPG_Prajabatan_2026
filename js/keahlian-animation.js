@@ -1,165 +1,88 @@
-/* ============================================
-   KEAHLIAN SECTION — PREMIUM ANIMATION
-   ============================================ */
-(function() {
+(function(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  const section = document.querySelector('#skills');
+  var section = document.querySelector('#skills');
   if (!section) return;
 
-  // ============================================
-  // SECTION HEADER
-  // ============================================
-  gsap.set('#skills .section-badge', { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set('#skills .section-title', { opacity: 0, y: 60, filter: 'blur(10px)' });
-  gsap.set('#skills .section-subtitle', { opacity: 0, y: 30 });
+  var badge = section.querySelector('.section-badge');
+  var title = section.querySelector('.section-title');
+  var subtitle = section.querySelector('.section-subtitle');
+  var tabBtns = gsap.utils.toArray('#skills .skills-tab-btn');
+  var activePanel = section.querySelector('.skills-panel.active');
+  var activeCards = activePanel ? gsap.utils.toArray(activePanel.querySelectorAll('.skill-item-card')) : [];
+
+  gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
+  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(subtitle, { opacity: 0, y: 30 });
+  gsap.set(tabBtns, { opacity: 0, y: -20, scale: 0.8 });
+  gsap.set(activeCards, { opacity: 0, y: 50, scale: 0.8, rotateX: 12, transformPerspective: 1000 });
 
   gsap.timeline({
     scrollTrigger: {
-      trigger: '#skills .section-header',
-      start: 'top 85%',
+      trigger: '#skills',
+      start: 'top 75%',
       toggleActions: 'play none none none'
     }
   })
-  .to('#skills .section-badge', {
-    opacity: 1, scale: 1, rotation: 0,
-    duration: 0.8, ease: 'elastic.out(1, 0.5)'
-  })
-  .to('#skills .section-title', {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    duration: 0.7, ease: 'power3.out'
-  }, '-=0.4')
-  .to('#skills .section-subtitle', {
-    opacity: 1, y: 0,
-    duration: 0.5, ease: 'power2.out'
+  .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
+  .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
+  .to(tabBtns, { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.08, ease: 'back.out(1.7)' }, '-=0.3')
+  .to(activeCards, {
+    opacity: 1, y: 0, scale: 1, rotateX: 0,
+    duration: 0.6, stagger: 0.1, ease: 'back.out(1.4)'
   }, '-=0.3');
 
-  // ============================================
-  // TAB BUTTONS — CASCADE ENTRANCE
-  // ============================================
-  gsap.set('#skills .skills-tab-btn', { opacity: 0, y: -20, scale: 0.8 });
-
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: '#skills .skills-tabs',
-      start: 'top 85%',
-      toggleActions: 'play none none none'
-    }
-  })
-  .to('#skills .skills-tab-btn', {
-    opacity: 1, y: 0, scale: 1,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: 'back.out(1.7)'
-  });
-
-  // ============================================
-  // SKILL CARDS — STAGGERED ENTRANCE
-  // ============================================
-  function animateSkillCards() {
-    const activePanel = section.querySelector('.skills-panel.active');
-    if (!activePanel) return;
-    const cards = activePanel.querySelectorAll('.skill-item-card');
-
+  function animateSkillCards(){
+    var panel = section.querySelector('.skills-panel.active');
+    if (!panel) return;
+    var cards = panel.querySelectorAll('.skill-item-card');
     gsap.fromTo(cards,
-      { opacity: 0, y: 50, scale: 0.8, rotateX: 15, transformPerspective: 1000 },
-      {
-        opacity: 1, y: 0, scale: 1, rotateX: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: 'back.out(1.4)'
-      }
+      { opacity: 0, y: 40, scale: 0.85 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.09, ease: 'back.out(1.4)', overwrite: 'auto' }
     );
   }
 
-  ScrollTrigger.create({
-    trigger: '#skills .skills-panel',
-    start: 'top 82%',
-    once: true,
-    onEnter: animateSkillCards
-  });
-
-  // Re-animate on tab change
-  section.querySelectorAll('.skills-tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setTimeout(animateSkillCards, 100);
+  section.querySelectorAll('.skills-tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      gsap.fromTo(btn, { scale: 1 }, { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1, ease: 'power2.out' });
+      setTimeout(animateSkillCards, 80);
     });
   });
 
-  // ============================================
-  // HOVER MICRO-INTERACTIONS
-  // ============================================
-  section.querySelectorAll('.skill-item-card').forEach(card => {
-    const icon = card.querySelector('.skill-item-icon');
-    const badge = card.querySelector('.skill-item-badge');
+  section.querySelectorAll('.skill-item-card').forEach(function(card){
+    var icon = card.querySelector('.skill-item-icon');
+    var badge = card.querySelector('.skill-item-badge');
 
-    card.addEventListener('mouseenter', () => {
+    card.addEventListener('mouseenter', function(){
       gsap.to(card, {
         y: -8, scale: 1.05,
         boxShadow: '0 16px 40px rgba(15, 94, 168, 0.15)',
         duration: 0.4, ease: 'power2.out'
       });
-      if (icon) gsap.to(icon, {
-        scale: 1.2, rotation: 10,
-        duration: 0.4, ease: 'back.out(2)'
-      });
-      if (badge) gsap.to(badge, {
-        scale: 1.1, y: -2,
-        duration: 0.3, ease: 'power2.out'
-      });
+      if (icon) gsap.to(icon, { scale: 1.2, rotation: 10, duration: 0.4, ease: 'back.out(2)' });
+      if (badge) gsap.to(badge, { scale: 1.1, y: -2, duration: 0.3, ease: 'power2.out' });
     });
 
-    card.addEventListener('mouseleave', () => {
+    card.addEventListener('mouseleave', function(){
       gsap.to(card, {
         y: 0, scale: 1,
         boxShadow: '0 4px 15px rgba(0,0,0,0.06)',
         duration: 0.5, ease: 'power2.out'
       });
-      if (icon) gsap.to(icon, {
-        scale: 1, rotation: 0,
-        duration: 0.5, ease: 'elastic.out(1, 0.4)'
-      });
-      if (badge) gsap.to(badge, {
-        scale: 1, y: 0,
-        duration: 0.3, ease: 'power2.out'
-      });
+      if (icon) gsap.to(icon, { scale: 1, rotation: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+      if (badge) gsap.to(badge, { scale: 1, y: 0, duration: 0.3, ease: 'power2.out' });
     });
   });
 
-  // ============================================
-  // TAB BUTTON HOVER
-  // ============================================
-  section.querySelectorAll('.skills-tab-btn').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
+  section.querySelectorAll('.skills-tab-btn').forEach(function(btn){
+    btn.addEventListener('mouseenter', function(){
       gsap.to(btn, { y: -3, scale: 1.05, duration: 0.3, ease: 'back.out(2)' });
     });
-    btn.addEventListener('mouseleave', () => {
+    btn.addEventListener('mouseleave', function(){
       gsap.to(btn, { y: 0, scale: 1, duration: 0.4, ease: 'power2.out' });
     });
-    btn.addEventListener('click', () => {
-      gsap.fromTo(btn, { scale: 1 }, { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1, ease: 'power2.out' });
-    });
   });
-
-  // ============================================
-  // PARALLAX (Desktop)
-  // ============================================
-  if (window.innerWidth > 768) {
-    gsap.utils.toArray('#skills .skill-item-card').forEach((card, i) => {
-      gsap.to(card, {
-        y: -10 - (i % 4) * 5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5
-        }
-      });
-    });
-  }
 })();
