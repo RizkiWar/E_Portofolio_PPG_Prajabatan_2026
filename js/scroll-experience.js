@@ -545,7 +545,7 @@ function getInitialSection(sections) {
 }
 
 function initScrollExperience() {
-  const sections = gsap.utils.toArray('section.section[id]');
+  const sections = gsap.utils.toArray('section.section[id]').filter(s => !s.closest('.eportfolio2-wrapper'));
   if (!sections.length) return;
 
   document.body.classList.add('gsap-ready', 'scroll-fx-ready');

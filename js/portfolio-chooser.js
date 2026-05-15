@@ -127,13 +127,19 @@ export function initPortfolioChooser() {
       });
     });
 
-    // Smooth scroll for EP2 nav links
+    // Smooth scroll for EP2 nav links (scroll within wrapper)
     ep2Wrapper.querySelectorAll('a[href^="#ep2-"]').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Also scroll wrapper directly as fallback
+          const wrapper = document.getElementById('eportfolio2Wrapper');
+          if (wrapper) {
+            const offsetTop = target.offsetTop - 60;
+            wrapper.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          }
         }
       });
     });

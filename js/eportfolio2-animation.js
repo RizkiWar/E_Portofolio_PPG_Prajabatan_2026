@@ -88,12 +88,13 @@ export function initEp2Animation() {
     });
   });
 
-  // Scroll-spy for EP2 navbar
+  // Scroll-spy for EP2 navbar (wrapper is the scroller, not window)
   var navLinks = wrapper.querySelectorAll('#ep2NavLinks a');
   var sections = wrapper.querySelectorAll('.ep2-hero, .ep2-section');
   if (navLinks.length && sections.length) {
     sections.forEach(function(section) {
       ScrollTrigger.create({
+        scroller: wrapper,
         trigger: section,
         start: 'top 50%',
         end: 'bottom 50%',
