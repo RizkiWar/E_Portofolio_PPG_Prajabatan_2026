@@ -3006,21 +3006,25 @@ body {
 }
 
 .cert-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 14px;
+  display: block;
+  margin-top: 12px;
+  padding: 8px 16px;
   background: linear-gradient(135deg, #0F5EA8, #2FAFE6);
   color: white !important;
   border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
+  text-align: center;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
 .cert-btn:hover {
   background: linear-gradient(135deg, #39BDEB, #7DD3FC);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 94, 168, 0.3);
 }
 
 .cert-card-content h4 {
