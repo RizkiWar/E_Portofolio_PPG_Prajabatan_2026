@@ -1199,7 +1199,7 @@
 
 /* ============================================
    EP2 LIVE AMBIENT ANIMATION
-   lightweight floating particles + gradient glow
+   Floating particles, gradient glow, aurora, geometric shapes
    ============================================ */
 .ep2-live-bg {
   position: fixed;
@@ -1260,6 +1260,244 @@
   15% { opacity: 0.48; }
   80% { opacity: 0.35; }
   100% { transform: translate3d(24px, -110vh, 0) scale(1.15); opacity: 0; }
+}
+
+/* --- LIVE AURORA GRADIENT --- */
+.ep2-live-bg .ep2-aurora {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(46, 196, 182, 0.08) 0%,
+    rgba(57, 189, 235, 0.06) 25%,
+    rgba(155, 114, 207, 0.08) 50%,
+    rgba(46, 196, 182, 0.06) 75%,
+    rgba(57, 189, 235, 0.08) 100%
+  );
+  background-size: 400% 400%;
+  animation: ep2-aurora-flow 18s ease-in-out infinite;
+  opacity: 0.6;
+}
+@keyframes ep2-aurora-flow {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 25%; }
+  50% { background-position: 100% 75%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- FLOATING GEOMETRIC SHAPES --- */
+.ep2-live-bg .ep2-geo {
+  position: absolute;
+  border: 2px solid;
+  opacity: 0.18;
+  animation: ep2-geo-float 10s ease-in-out infinite;
+}
+.ep2-live-bg .ep2-geo:nth-child(11) {
+  width: 40px; height: 40px;
+  border-color: rgba(46, 196, 182, 0.6);
+  border-radius: 8px;
+  top: 15%; left: 5%;
+  animation-duration: 12s;
+  animation-delay: -2s;
+}
+.ep2-live-bg .ep2-geo:nth-child(12) {
+  width: 24px; height: 24px;
+  border-color: rgba(155, 114, 207, 0.6);
+  border-radius: 50%;
+  top: 30%; right: 8%;
+  animation-duration: 15s;
+  animation-delay: -5s;
+}
+.ep2-live-bg .ep2-geo:nth-child(13) {
+  width: 32px; height: 32px;
+  border-color: rgba(57, 189, 235, 0.6);
+  border-radius: 4px;
+  bottom: 25%; left: 12%;
+  animation-duration: 11s;
+  animation-delay: -7s;
+  transform: rotate(45deg);
+}
+.ep2-live-bg .ep2-geo:nth-child(14) {
+  width: 18px; height: 18px;
+  border-color: rgba(46, 196, 182, 0.5);
+  border-radius: 50%;
+  top: 55%; right: 15%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+.ep2-live-bg .ep2-geo:nth-child(15) {
+  width: 28px; height: 28px;
+  border-color: rgba(155, 114, 207, 0.5);
+  border-radius: 6px;
+  bottom: 40%; right: 5%;
+  animation-duration: 16s;
+  animation-delay: -9s;
+}
+.ep2-live-bg .ep2-geo:nth-child(16) {
+  width: 20px; height: 20px;
+  border-color: rgba(57, 189, 235, 0.5);
+  border-radius: 50%;
+  top: 70%; left: 20%;
+  animation-duration: 13s;
+  animation-delay: -4s;
+}
+@keyframes ep2-geo-float {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-18px) rotate(45deg) scale(1.1); }
+  50% { transform: translateY(-8px) rotate(90deg) scale(0.95); }
+  75% { transform: translateY(-22px) rotate(135deg) scale(1.05); }
+}
+
+/* --- PULSING ORBS --- */
+.ep2-live-bg .ep2-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: ep2-orb-pulse 4s ease-in-out infinite;
+}
+.ep2-live-bg .ep2-orb:nth-child(17) {
+  width: 12px; height: 12px;
+  background: rgba(46, 196, 182, 0.5);
+  box-shadow: 0 0 24px rgba(46, 196, 182, 0.5);
+  top: 20%; left: 30%;
+  animation-delay: 0s;
+}
+.ep2-live-bg .ep2-orb:nth-child(18) {
+  width: 10px; height: 10px;
+  background: rgba(155, 114, 207, 0.5);
+  box-shadow: 0 0 20px rgba(155, 114, 207, 0.5);
+  top: 45%; right: 25%;
+  animation-delay: -1.5s;
+}
+.ep2-live-bg .ep2-orb:nth-child(19) {
+  width: 14px; height: 14px;
+  background: rgba(57, 189, 235, 0.45);
+  box-shadow: 0 0 28px rgba(57, 189, 235, 0.45);
+  bottom: 30%; left: 45%;
+  animation-delay: -3s;
+}
+.ep2-live-bg .ep2-orb:nth-child(20) {
+  width: 8px; height: 8px;
+  background: rgba(46, 196, 182, 0.4);
+  box-shadow: 0 0 16px rgba(46, 196, 182, 0.4);
+  top: 65%; right: 35%;
+  animation-delay: -2s;
+}
+@keyframes ep2-orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.8); opacity: 0.8; }
+}
+
+/* --- CONNECTING LINES (subtle grid feel) --- */
+.ep2-live-bg .ep2-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(57, 189, 235, 0.2), transparent);
+  animation: ep2-line-sweep 8s ease-in-out infinite;
+  opacity: 0.3;
+}
+.ep2-live-bg .ep2-line:nth-child(21) {
+  width: 200px; top: 25%; left: 10%;
+  animation-delay: 0s;
+}
+.ep2-live-bg .ep2-line:nth-child(22) {
+  width: 160px; top: 50%; right: 8%;
+  animation-delay: -3s;
+  background: linear-gradient(90deg, transparent, rgba(155, 114, 207, 0.2), transparent);
+}
+.ep2-live-bg .ep2-line:nth-child(23) {
+  width: 180px; bottom: 35%; left: 25%;
+  animation-delay: -5s;
+  background: linear-gradient(90deg, transparent, rgba(46, 196, 182, 0.2), transparent);
+}
+@keyframes ep2-line-sweep {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0; }
+  20% { opacity: 0.35; }
+  50% { transform: translateX(40px) scaleX(1.3); opacity: 0.3; }
+  80% { opacity: 0.35; }
+}
+
+[data-theme="dark"] .ep2-aurora { opacity: 0.8; }
+[data-theme="dark"] .ep2-live-bg .ep2-geo { opacity: 0.25; }
+[data-theme="dark"] .ep2-live-bg .ep2-orb { opacity: 0.6; }
+[data-theme="dark"] .ep2-live-bg .ep2-line { opacity: 0.4; }
+
+/* --- LIVE CARD BREATHING --- */
+.ep2-question-card,
+.ep2-filosofi-mini-card {
+  animation: ep2-card-breathe 6s ease-in-out infinite;
+}
+.ep2-question-card:nth-child(2) { animation-delay: -2s; }
+.ep2-question-card:nth-child(3) { animation-delay: -4s; }
+.ep2-filosofi-mini-card:nth-child(2) { animation-delay: -2s; }
+.ep2-filosofi-mini-card:nth-child(3) { animation-delay: -4s; }
+@keyframes ep2-card-breathe {
+  0%, 100% { box-shadow: 0 4px 20px rgba(15, 94, 168, 0.06); }
+  50% { box-shadow: 0 8px 32px rgba(15, 94, 168, 0.12), 0 0 0 1px rgba(46, 196, 182, 0.08); }
+}
+
+/* --- ANIMATED GRADIENT BORDER on hero preview cards --- */
+.ep2-hero-preview-card {
+  position: relative;
+  overflow: hidden;
+}
+.ep2-hero-preview-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--teal, #2EC4B6), var(--lavender, #9B72CF), transparent);
+  animation: ep2-border-slide 4s linear infinite;
+}
+.ep2-hero-preview-card[data-accent="lavender"]::after {
+  animation-delay: -2s;
+}
+@keyframes ep2-border-slide {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* --- LIVE ICON ROTATION on question cards --- */
+.ep2-question-icon {
+  animation: ep2-icon-spin 20s linear infinite;
+}
+.ep2-question-icon:nth-child(1) { animation-delay: 0s; }
+@keyframes ep2-icon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.ep2-question-icon i {
+  animation: ep2-icon-counter-spin 20s linear infinite;
+}
+@keyframes ep2-icon-counter-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* --- VALUE MINI CARDS shimmer --- */
+.ep2-value-mini {
+  position: relative;
+  overflow: hidden;
+}
+.ep2-value-mini::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: ep2-shimmer 5s ease-in-out infinite;
+}
+.ep2-value-mini:nth-child(2)::before { animation-delay: -1.2s; }
+.ep2-value-mini:nth-child(3)::before { animation-delay: -2.4s; }
+.ep2-value-mini:nth-child(4)::before { animation-delay: -3.6s; }
+@keyframes ep2-shimmer {
+  0% { left: -100%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+[data-theme="dark"] .ep2-value-mini::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
 }
 .eportfolio2-wrapper > section,
 .ep2-footer,
