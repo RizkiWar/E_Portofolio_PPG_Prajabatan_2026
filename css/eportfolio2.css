@@ -1916,3 +1916,92 @@
     font-size: clamp(1.3rem, 6vw, 1.7rem) !important;
   }
 }
+
+/* ============================================
+   GSAP ANIMATION SUPPORT
+   Initial states & utilities for JS-driven animations
+   ============================================ */
+
+/* GSAP uses autoAlpha (visibility+opacity), set initial visibility */
+.ep2-hero-left,
+.ep2-hero-greeting,
+.ep2-title,
+.ep2-subtitle,
+.ep2-hero-quote,
+.ep2-hero-actions,
+.ep2-hero-preview-card,
+.ep2-hero-photo,
+.ep2-hero-social a,
+#ep2-refleksi .section-header,
+#ep2-filosofi .section-header,
+.ep2-question-card,
+.ep2-refleksi-summary-item,
+.ep2-quote-banner,
+.ep2-filosofi-mini-card,
+.ep2-values-section,
+.ep2-value-mini,
+.ep2-footer .footer-brand,
+.ep2-footer .footer-sitemap {
+  visibility: hidden;
+}
+
+/* Word split spans */
+.ep2-word {
+  display: inline-block;
+  will-change: transform, opacity;
+  perspective: 600px;
+}
+
+/* 3D tilt perspective container */
+.ep2-question-card,
+.ep2-filosofi-mini-card,
+.ep2-hero-preview-card {
+  transform-style: preserve-3d;
+}
+
+/* Section accent sweep line */
+#ep2-refleksi::after,
+#ep2-filosofi::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+#ep2-refleksi::after {
+  background: linear-gradient(90deg, transparent, var(--teal, #2EC4B6), transparent);
+}
+#ep2-filosofi::after {
+  background: linear-gradient(90deg, transparent, var(--lavender, #9B72CF), transparent);
+}
+
+/* Reduced motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  .ep2-hero-left,
+  .ep2-hero-greeting,
+  .ep2-title,
+  .ep2-subtitle,
+  .ep2-hero-quote,
+  .ep2-hero-actions,
+  .ep2-hero-preview-card,
+  .ep2-hero-photo,
+  .ep2-hero-social a,
+  #ep2-refleksi .section-header,
+  #ep2-filosofi .section-header,
+  .ep2-question-card,
+  .ep2-refleksi-summary-item,
+  .ep2-quote-banner,
+  .ep2-filosofi-mini-card,
+  .ep2-values-section,
+  .ep2-value-mini,
+  .ep2-footer .footer-brand,
+  .ep2-footer .footer-sitemap {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
