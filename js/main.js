@@ -478,6 +478,7 @@ function initMain() {
         entry.target.dataset.counted = 'true';
         const text = entry.target.textContent;
         const num = parseInt(text);
+        if (isNaN(num)) return;
         const suffix = text.includes('+') ? '+' : '';
         countUp(entry.target, num, suffix);
       }

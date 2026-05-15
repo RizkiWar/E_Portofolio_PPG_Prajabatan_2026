@@ -43,27 +43,44 @@
   }
 
   function applyContentAvoidance(p) {
+    let totalForceX = 0;
+    let totalForceY = 0;
+    let activeRects = 0;
+
     contentRects.forEach(rect => {
       const nearestX = Math.max(rect.left, Math.min(p.x, rect.right));
       const nearestY = Math.max(rect.top, Math.min(p.y, rect.bottom));
       const dx = p.x - nearestX;
       const dy = p.y - nearestY;
       const distSq = dx * dx + dy * dy;
-      const avoidRadius = 90;
+      const avoidRadius = 80;
 
       if (distSq < avoidRadius * avoidRadius) {
+        activeRects++;
         const dist = Math.sqrt(distSq) || 1;
         const force = (avoidRadius - dist) / avoidRadius;
         const angle = distSq === 0
-          ? Math.atan2(p.y - rect.centerY, p.x - rect.centerX)
+          ? Math.atan2(p.y - rect.centerY, p.x - rect.centerX) || (Math.random() * Math.PI * 2)
           : Math.atan2(dy, dx);
 
-        p.x += Math.cos(angle) * force * 3.5;
-        p.y += Math.sin(angle) * force * 3.5;
-        p.speedX += Math.cos(angle) * force * 0.08;
-        p.speedY += Math.sin(angle) * force * 0.08;
+        totalForceX += Math.cos(angle) * force;
+        totalForceY += Math.sin(angle) * force;
       }
     });
+
+    if (activeRects > 0) {
+      // Apply combined force, with anti-stuck random kick if multiple rects
+      const stuckKick = activeRects > 1 ? (Math.random() - 0.5) * 0.4 : 0;
+      p.x += totalForceX * 2.2 + stuckKick;
+      p.y += totalForceY * 2.2 + stuckKick;
+      p.speedX += totalForceX * 0.05;
+      p.speedY += totalForceY * 0.05;
+
+      // Clamp speeds to prevent runaway acceleration
+      const maxSpeed = 1.2;
+      p.speedX = Math.max(-maxSpeed, Math.min(maxSpeed, p.speedX));
+      p.speedY = Math.max(-maxSpeed, Math.min(maxSpeed, p.speedY));
+    }
   }
 
   const colors = [
@@ -395,8 +412,10 @@
     }, 200);
   });
 
+  let scrollTimer;
   window.addEventListener('scroll', () => {
-    updateContentRects();
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateContentRects, 150);
   }, { passive: true });
 
   document.addEventListener('visibilitychange', () => {

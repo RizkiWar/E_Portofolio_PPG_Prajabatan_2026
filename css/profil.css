@@ -347,11 +347,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
 }
 
 .about-image {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: 0;
 }
 
 .about-image-card {
@@ -375,11 +379,16 @@
 }
 
 .about-stats {
-  position: absolute;
-  bottom: -30px;
-  right: -20px;
-  display: flex;
+  position: relative;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  width: calc(100% - 32px);
+  max-width: 420px;
+  z-index: 2;
 }
 
 .about-stat {
@@ -401,6 +410,24 @@
   background-clip: text;
 }
 
+.about-stat .stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.about-stat .stat-icon svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+  transition: transform 0.3s ease;
+}
+
+.about-stat:hover .stat-icon svg {
+  transform: scale(1.1) rotate(-3deg);
+}
+
 .about-stat .label {
   font-size: 0.75rem;
   color: var(--gray-400);
@@ -413,13 +440,21 @@
   color: var(--gray-500);
   margin-bottom: 20px;
   line-height: 1.8;
+  text-align: justify;
+}
+
+.about-content .about-text strong {
+  color: var(--coral);
+}
+
+[data-theme="dark"] .about-content .about-text strong {
+  color: #7DD3FC;
 }
 
 .about-info-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin-top: 28px;
 }
 
 .about-info-item {
@@ -461,7 +496,7 @@
    LIFE MINI TIMELINE (About Section)
    ============================================ */
 .life-timeline {
-  margin-top: 32px;
+  margin-top: 0;
 }
 
 .life-timeline-title {
