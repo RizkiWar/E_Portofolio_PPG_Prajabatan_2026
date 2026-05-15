@@ -10,6 +10,7 @@
   const STORAGE_KEY = 'selectedPortfolio';
   const cards = chooser.querySelectorAll('.chooser-card');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ep2Wrapper = document.getElementById('eportfolio2Wrapper');
 
   function showChooser() {
     chooser.classList.add('active');
@@ -54,20 +55,42 @@
     document.body.classList.remove('chooser-active');
   }
 
+  function showEP2() {
+    if (!ep2Wrapper) return;
+    // Hide all E-Portfolio 1 sections
+    document.querySelectorAll('body > section, body > footer, #particleCanvas, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
+      el.style.display = 'none';
+    });
+    // Show E-Portfolio 2
+    ep2Wrapper.style.display = 'block';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
+    // Trigger reveal animations
+    setTimeout(() => {
+      ep2Wrapper.querySelectorAll('.reveal').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 300);
+  }
+
+  function hideEP2() {
+    if (!ep2Wrapper) return;
+    ep2Wrapper.style.display = 'none';
+    // Restore E-Portfolio 1 sections
+    document.querySelectorAll('body > section, body > footer, #particleCanvas, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
+      el.style.display = '';
+    });
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
   function selectPortfolio(num) {
     document.body.setAttribute('data-portfolio', num);
 
     if (num === '2') {
-      const message = document.createElement('div');
-      message.style.cssText = 'position:fixed; inset:0; background:linear-gradient(135deg,#0F2027,#2C5364); display:flex; align-items:center; justify-content:center; z-index:9997; color:#fff; text-align:center; padding:24px;';
-      message.innerHTML = '<div><h2 style="font-size:1.8rem; margin-bottom:12px;">E-Portfolio 2 - UAS</h2><p style="opacity:0.8; max-width:480px; margin:0 auto 24px;">Konten E-Portfolio 2 (Refleksi Akhir PPL Terbimbing dan Filosofi Mengajar) akan tersedia setelah PPL Terbimbing selesai.</p><button id="backToChooser" style="background:#2EC4B6; color:#fff; border:none; padding:12px 28px; border-radius:12px; font-weight:600; cursor:pointer; font-size:0.95rem;">Kembali</button></div>';
-      document.body.appendChild(message);
       hideChooser();
-      document.getElementById('backToChooser').addEventListener('click', () => {
-        message.remove();
-        try { sessionStorage.removeItem(STORAGE_KEY); } catch(e) {}
-        showChooser();
-      });
+      showEP2();
     } else {
       hideChooser();
     }
@@ -79,6 +102,29 @@
       selectPortfolio(num);
     });
   });
+
+  // EP2 back buttons
+  if (ep2Wrapper) {
+    var backBtns = ep2Wrapper.querySelectorAll('#ep2BackBtn, #ep2BackChooser, #ep2FooterBack');
+    backBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        hideEP2();
+        showChooser();
+      });
+    });
+
+    // Smooth scroll for EP2 nav links
+    ep2Wrapper.querySelectorAll('a[href^="#ep2-"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
 
   function introAnimationCompleted() {
     if (!introTear) return true;
