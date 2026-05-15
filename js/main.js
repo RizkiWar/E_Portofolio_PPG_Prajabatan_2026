@@ -24,9 +24,54 @@ window.refreshEp2Animation = refreshEp2Animation;
 
 let mainInitialized = false;
 
+function preloadAllAssets() {
+  // Force browser to parse & cache all DOM elements by reading layout
+  var allSections = document.querySelectorAll('section, .eportfolio2-wrapper, .footer, .ep2-footer');
+  allSections.forEach(function(section) {
+    section.offsetHeight;
+  });
+
+  // Preload all images (including lazy-loaded ones)
+  var allImages = document.querySelectorAll('img[loading="lazy"], img[data-src]');
+  allImages.forEach(function(img) {
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
+    }
+    img.removeAttribute('loading');
+  });
+
+  // Force decode all visible images
+  var visibleImages = document.querySelectorAll('img[src]');
+  visibleImages.forEach(function(img) {
+    if (img.decode) {
+      img.decode().catch(function() {});
+    }
+  });
+
+  // Pre-cache EP2 template content
+  var templates = document.querySelectorAll('template[id]');
+  templates.forEach(function(tpl) {
+    tpl.content.cloneNode(true);
+  });
+
+  // Force style recalc on all animated elements so first animation frame is instant
+  var animTargets = document.querySelectorAll(
+    '.portfolio-card, .timeline-card, .pillar-card, .skill-item-card, .cert-card, ' +
+    '.gallery-item, .section-header, .hero-image-wrapper, .about-image-card, ' +
+    '.ep2-question-card, .ep2-filosofi-mini-card, .ep2-hero-preview-card, ' +
+    '.ep2-value-mini, .ep2-hero-left, .ep2-hero-photo'
+  );
+  animTargets.forEach(function(el) {
+    window.getComputedStyle(el).opacity;
+  });
+}
+
 function initMain() {
   if (mainInitialized) return;
   mainInitialized = true;
+
+  // ---------- Preload & Cache All DOM + Images ----------
+  preloadAllAssets();
 
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
