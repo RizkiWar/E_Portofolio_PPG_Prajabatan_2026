@@ -89,10 +89,17 @@
       const observer = new MutationObserver(() => {
         if (introTear.classList.contains('is-complete')) {
           observer.disconnect();
+          clearTimeout(fallbackTimer);
           setTimeout(showChooser, 400);
         }
       });
       observer.observe(introTear, { attributes: true, attributeFilter: ['class'] });
+
+      // Fallback: if intro never completes after 5s, show chooser anyway
+      var fallbackTimer = setTimeout(() => {
+        observer.disconnect();
+        showChooser();
+      }, 5000);
     } else {
       setTimeout(showChooser, 800);
     }

@@ -1990,3 +1990,37 @@ body.chooser-active .back-to-top {
 .scroll-indicator {
   display: none !important;
 }
+
+/* Fix chooser on mobile - ensure full screen coverage */
+.portfolio-chooser {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .portfolio-chooser {
+    padding: 20px 0;
+  }
+  .chooser-content {
+    padding: 20px 16px;
+  }
+  .chooser-logo img {
+    width: min(280px, 70vw);
+  }
+  .chooser-title {
+    font-size: 1.4rem;
+  }
+  .chooser-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .chooser-card {
+    padding: 24px 16px;
+  }
+  .chooser-card-icon {
+    font-size: 2.2rem;
+  }
+  .chooser-card h3 {
+    font-size: 1.1rem;
+  }
+}
