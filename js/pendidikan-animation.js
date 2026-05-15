@@ -47,7 +47,7 @@ export function initPendidikanAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
 
   timelineItems.forEach(function(item, i){
@@ -66,7 +66,7 @@ export function initPendidikanAnimation(){
     if (logo) masterTL.to(logo, { scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(2.2)' }, '-=0.4');
     if (heading) masterTL.to(heading, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
     if (institution) masterTL.to(institution, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' }, '-=0.3');
-    if (desc) masterTL.to(desc, { opacity: 1, y: 0, , duration: 0.5, ease: 'power2.out' }, '-=0.25');
+    if (desc) masterTL.to(desc, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.25');
   });
 
   var timelineEl = eduSection.querySelector('.timeline');

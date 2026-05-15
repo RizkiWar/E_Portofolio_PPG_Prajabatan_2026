@@ -24,7 +24,7 @@ export function initGaleriAnimation(){
     }
   })
   .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-  .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .to(title, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
   .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
   .to(items, {
     opacity: 1, scale: 1, y: 0,

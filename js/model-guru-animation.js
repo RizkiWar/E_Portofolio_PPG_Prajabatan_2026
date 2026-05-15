@@ -46,7 +46,7 @@ export function initModelGuruAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, , duration: 0.5, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, '-=0.3');
 
   if (quoteCard) {
@@ -69,7 +69,7 @@ export function initModelGuruAnimation(){
       opacity: 1, y: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out'
     }, '-=0.35');
     masterTL.to('#model-guru .pillar-card p', {
-      opacity: 1, y: 0, ,
+      opacity: 1, y: 0,
       duration: 0.35, stagger: 0.06, ease: 'power2.out'
     }, '-=0.3');
   }

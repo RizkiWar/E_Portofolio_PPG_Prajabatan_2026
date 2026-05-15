@@ -42,13 +42,13 @@ export function initKontakAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
 
   if (contactInfo) {
     masterTL.to(contactInfo, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.2');
     if (infoHeading) masterTL.to(infoHeading, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.4');
-    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, , duration: 0.5, ease: 'power2.out' }, '-=0.3');
+    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
     if (detailItems.length) masterTL.to(detailItems, { opacity: 1, x: 0, scale: 1, duration: 0.45, stagger: 0.1, ease: 'back.out(1.5)' }, '-=0.2');
   }
 

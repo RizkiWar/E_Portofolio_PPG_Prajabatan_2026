@@ -28,7 +28,7 @@ export function initArtefakAnimation(){
     }
   })
   .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-  .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .to(title, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
   .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
   .to(tabBtns, { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.07, ease: 'back.out(1.7)' }, '-=0.3')
   .to(filterBtns, { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05, ease: 'back.out(1.7)' }, '-=0.3')
