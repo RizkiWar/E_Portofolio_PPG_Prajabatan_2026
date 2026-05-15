@@ -132,14 +132,9 @@ export function initPortfolioChooser() {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Also scroll wrapper directly as fallback
-          const wrapper = document.getElementById('eportfolio2Wrapper');
-          if (wrapper) {
-            const offsetTop = target.offsetTop - 60;
-            wrapper.scrollTo({ top: offsetTop, behavior: 'smooth' });
-          }
+        if (target && ep2Wrapper) {
+          const offsetTop = target.offsetTop;
+          ep2Wrapper.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
       });
     });
