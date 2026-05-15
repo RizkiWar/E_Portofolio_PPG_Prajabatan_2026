@@ -118,4 +118,69 @@ export function refreshEp2Animation() {
     }
   });
   initEp2Animation();
+  initEp2Interactions();
+}
+
+function initEp2Interactions() {
+  var wrapper = document.getElementById('eportfolio2Wrapper');
+  if (!wrapper || wrapper.dataset.interactionsBound === '1') return;
+  wrapper.dataset.interactionsBound = '1';
+
+  var overlay = document.getElementById('ep2ModalOverlay');
+  var modalContent = document.getElementById('ep2ModalContent');
+  var closeBtn = document.getElementById('ep2ModalClose');
+
+  function openModal(templateId) {
+    var template = document.getElementById(templateId + '-template');
+    if (!template || !overlay || !modalContent) return;
+    modalContent.innerHTML = '';
+    modalContent.appendChild(template.content.cloneNode(true));
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (modalContent) modalContent.innerHTML = '';
+    }, 300);
+  }
+
+  // Question card click → open modal
+  wrapper.querySelectorAll('[data-ep2-modal]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      openModal(card.getAttribute('data-ep2-modal'));
+    });
+  });
+
+  // Close handlers
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) closeModal();
+  });
+
+  // Filosofi expand/collapse
+  wrapper.querySelectorAll('[data-ep2-expand]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = btn.getAttribute('data-ep2-expand');
+      var target = document.getElementById(targetId);
+      if (!target) return;
+      var isOpen = target.classList.toggle('open');
+      btn.classList.toggle('expanded', isOpen);
+      btn.querySelector('span') ||
+        (btn.firstChild.nodeType === 3 ? null : null);
+      var label = isOpen ? 'Tutup' : 'Baca Selengkapnya';
+      btn.innerHTML = label + ' <i class="fa-solid fa-chevron-down"></i>';
+      if (isOpen) btn.classList.add('expanded');
+    });
+  });
 }

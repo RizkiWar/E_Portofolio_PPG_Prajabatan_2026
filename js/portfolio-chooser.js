@@ -106,6 +106,16 @@ export function initPortfolioChooser() {
     });
   });
 
+  // EP1 home button → back to chooser
+  var homeBtn = document.getElementById('homeBtn');
+  if (homeBtn) {
+    homeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      showChooser();
+    });
+  }
+
   // EP2 back buttons
   if (ep2Wrapper) {
     var backBtns = ep2Wrapper.querySelectorAll('#ep2BackBtn, #ep2BackChooser, #ep2FooterBack');

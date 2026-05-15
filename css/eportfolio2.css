@@ -574,3 +574,598 @@
     left: 11px;
   }
 }
+
+/* ============================================
+   EP2 QUESTION CARDS (Refleksi Section)
+   ============================================ */
+.ep2-questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.ep2-question-card {
+  position: relative;
+  text-align: left;
+  padding: 32px 28px;
+  background: var(--white, #fff);
+  border: 1px solid var(--gray-100, #eee);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.4s var(--ease-smooth, cubic-bezier(0.4, 0, 0.2, 1));
+  overflow: hidden;
+}
+.ep2-question-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal, #2EC4B6), var(--coral, #39BDEB), var(--lavender, #9B72CF));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ep2-question-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg, 0 20px 50px rgba(15, 94, 168, 0.12));
+  border-color: transparent;
+}
+.ep2-question-card:hover::before {
+  opacity: 1;
+}
+[data-theme="dark"] .ep2-question-card {
+  background: var(--gray-800, #1A2030);
+  border-color: var(--gray-700, #2D3443);
+}
+.ep2-question-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.ep2-question-icon.teal { background: linear-gradient(135deg, var(--teal, #2EC4B6), var(--teal-dark, #1FA899)); }
+.ep2-question-icon.coral { background: linear-gradient(135deg, var(--coral, #39BDEB), var(--coral-dark, #0E8AC3)); }
+.ep2-question-icon.lavender { background: linear-gradient(135deg, var(--lavender, #9B72CF), #6B4FA3); }
+.ep2-question-num {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gray-100, #eee);
+  line-height: 1;
+  font-family: var(--font-heading, "Outfit", sans-serif);
+}
+[data-theme="dark"] .ep2-question-num {
+  color: rgba(255, 255, 255, 0.05);
+}
+.ep2-question-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gray-800, #1A2030);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+[data-theme="dark"] .ep2-question-title {
+  color: #E8EAED;
+}
+.ep2-question-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--gray-500, #6E7787);
+  margin: 0 0 20px;
+}
+.ep2-question-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary, #0F5EA8);
+  transition: gap 0.3s ease;
+}
+.ep2-question-card:hover .ep2-question-cta {
+  gap: 12px;
+}
+[data-theme="dark"] .ep2-question-cta {
+  color: var(--coral, #39BDEB);
+}
+
+/* ============================================
+   EP2 MODAL
+   ============================================ */
+.ep2-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ep2-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+.ep2-modal-container {
+  background: var(--white, #fff);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 40px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ep2-modal-overlay.active .ep2-modal-container {
+  transform: scale(1) translateY(0);
+}
+[data-theme="dark"] .ep2-modal-container {
+  background: var(--gray-800, #1A2030);
+}
+.ep2-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-100, #eee);
+  color: var(--gray-700, #2D3443);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.ep2-modal-close:hover {
+  background: var(--coral, #39BDEB);
+  color: #fff;
+  transform: rotate(90deg);
+}
+[data-theme="dark"] .ep2-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  color: #E8EAED;
+}
+.ep2-modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray-100, #eee);
+}
+[data-theme="dark"] .ep2-modal-header {
+  border-bottom-color: var(--gray-700, #2D3443);
+}
+.ep2-modal-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 6px 0 0;
+  color: var(--gray-800, #1A2030);
+  line-height: 1.3;
+}
+[data-theme="dark"] .ep2-modal-header h3 {
+  color: #E8EAED;
+}
+.ep2-modal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.ep2-modal-tag.teal { background: rgba(46, 196, 182, 0.12); color: var(--teal-dark, #1FA899); }
+.ep2-modal-tag.coral { background: rgba(57, 189, 235, 0.12); color: var(--primary, #0F5EA8); }
+.ep2-modal-tag.lavender { background: rgba(155, 114, 207, 0.12); color: var(--lavender, #9B72CF); }
+.ep2-modal-tag.problem { background: rgba(255, 107, 107, 0.12); color: #D32F2F; }
+
+.ep2-modal-body > p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--gray-600, #4A5263);
+  margin: 0 0 24px;
+}
+[data-theme="dark"] .ep2-modal-body > p {
+  color: #C4CAD4;
+}
+
+/* Modal: Timeline (Q1) */
+.ep2-modal-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ep2-modal-step {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--gray-50, #f8fafc);
+}
+[data-theme="dark"] .ep2-modal-step {
+  background: rgba(13, 17, 23, 0.4);
+}
+.ep2-modal-step-num {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+}
+.ep2-modal-step-num.teal { background: var(--teal, #2EC4B6); }
+.ep2-modal-step-num.sky { background: var(--coral, #39BDEB); }
+.ep2-modal-step-num.amber { background: #F59E0B; }
+.ep2-modal-step-num.lavender { background: var(--lavender, #9B72CF); }
+.ep2-modal-step h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 4px 0 6px;
+  color: var(--gray-800, #1A2030);
+}
+[data-theme="dark"] .ep2-modal-step h4 {
+  color: #E8EAED;
+}
+.ep2-modal-step p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600, #4A5263);
+  margin: 0;
+}
+[data-theme="dark"] .ep2-modal-step p {
+  color: #9AA2B0;
+}
+
+/* Modal: Challenges (Q2) */
+.ep2-modal-challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ep2-modal-challenge {
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--gray-50, #f8fafc);
+  border-left: 4px solid #FF6B6B;
+}
+[data-theme="dark"] .ep2-modal-challenge {
+  background: rgba(13, 17, 23, 0.4);
+}
+.ep2-modal-challenge-head {
+  margin-bottom: 12px;
+}
+.ep2-modal-challenge-head h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 8px 0 0;
+  color: var(--gray-800, #1A2030);
+}
+[data-theme="dark"] .ep2-modal-challenge-head h4 {
+  color: #E8EAED;
+}
+.ep2-modal-challenge-problem {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600, #4A5263);
+  margin: 0 0 14px;
+}
+[data-theme="dark"] .ep2-modal-challenge-problem {
+  color: #9AA2B0;
+}
+.ep2-modal-solution {
+  background: rgba(46, 196, 182, 0.08);
+  border-left: 3px solid var(--teal, #2EC4B6);
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+.ep2-modal-solution strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--teal-dark, #1FA899);
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+.ep2-modal-solution p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--gray-700, #2D3443);
+  margin: 0;
+}
+[data-theme="dark"] .ep2-modal-solution p {
+  color: #C4CAD4;
+}
+
+/* Modal: Feedback (Q3) */
+.ep2-modal-feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ep2-modal-feedback {
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--gray-50, #f8fafc);
+  border-left: 4px solid var(--lavender, #9B72CF);
+}
+[data-theme="dark"] .ep2-modal-feedback {
+  background: rgba(13, 17, 23, 0.4);
+}
+.ep2-modal-feedback-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(155, 114, 207, 0.12);
+  color: var(--lavender, #9B72CF);
+  margin-bottom: 10px;
+}
+.ep2-modal-feedback blockquote {
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--gray-700, #2D3443);
+  border: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+[data-theme="dark"] .ep2-modal-feedback blockquote {
+  color: #C4CAD4;
+}
+.ep2-modal-action {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--gray-700, #2D3443);
+  background: rgba(46, 196, 182, 0.08);
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.ep2-modal-action i {
+  color: var(--teal, #2EC4B6);
+  margin-top: 4px;
+}
+[data-theme="dark"] .ep2-modal-action {
+  color: #C4CAD4;
+}
+
+/* ============================================
+   EP2 COMPACT FILOSOFI
+   ============================================ */
+.ep2-quote-banner {
+  position: relative;
+  text-align: center;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(155, 114, 207, 0.06), rgba(46, 196, 182, 0.06));
+  border-radius: 20px;
+  margin-bottom: 36px;
+  border: 1px solid var(--gray-100, #eee);
+}
+[data-theme="dark"] .ep2-quote-banner {
+  background: linear-gradient(135deg, rgba(155, 114, 207, 0.08), rgba(46, 196, 182, 0.08));
+  border-color: var(--gray-700, #2D3443);
+}
+.ep2-quote-mark {
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: var(--lavender, #9B72CF);
+  line-height: 0.5;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+.ep2-quote-banner blockquote {
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: var(--gray-800, #1A2030);
+  line-height: 1.5;
+  margin: 0 0 12px;
+  border: none;
+  padding: 0;
+}
+[data-theme="dark"] .ep2-quote-banner blockquote {
+  color: #E8EAED;
+}
+.ep2-quote-banner cite {
+  font-size: 0.88rem;
+  color: var(--gray-500, #6E7787);
+  font-style: normal;
+}
+
+.ep2-filosofi-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.ep2-filosofi-mini-card {
+  background: var(--white, #fff);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--gray-100, #eee);
+  border-top: 4px solid var(--teal, #2EC4B6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ep2-filosofi-mini-card[data-accent="sky"] { border-top-color: var(--coral, #39BDEB); }
+.ep2-filosofi-mini-card[data-accent="lavender"] { border-top-color: var(--lavender, #9B72CF); }
+.ep2-filosofi-mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,0.08));
+}
+[data-theme="dark"] .ep2-filosofi-mini-card {
+  background: var(--gray-800, #1A2030);
+  border-color: var(--gray-700, #2D3443);
+}
+.ep2-filosofi-mini-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(46, 196, 182, 0.12);
+  color: var(--teal, #2EC4B6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+.ep2-filosofi-mini-card[data-accent="sky"] .ep2-filosofi-mini-icon {
+  background: rgba(57, 189, 235, 0.12);
+  color: var(--coral, #39BDEB);
+}
+.ep2-filosofi-mini-card[data-accent="lavender"] .ep2-filosofi-mini-icon {
+  background: rgba(155, 114, 207, 0.12);
+  color: var(--lavender, #9B72CF);
+}
+.ep2-filosofi-mini-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--gray-800, #1A2030);
+}
+[data-theme="dark"] .ep2-filosofi-mini-card h3 {
+  color: #E8EAED;
+}
+.ep2-filosofi-mini-summary {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--gray-600, #4A5263);
+  margin: 0 0 14px;
+}
+[data-theme="dark"] .ep2-filosofi-mini-summary {
+  color: #9AA2B0;
+}
+.ep2-filosofi-expand {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary, #0F5EA8);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s ease;
+}
+.ep2-filosofi-expand:hover {
+  gap: 10px;
+}
+.ep2-filosofi-expand i {
+  transition: transform 0.3s ease;
+}
+.ep2-filosofi-expand.expanded i {
+  transform: rotate(180deg);
+}
+[data-theme="dark"] .ep2-filosofi-expand {
+  color: var(--coral, #39BDEB);
+}
+.ep2-filosofi-mini-full {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, margin-top 0.5s ease;
+}
+.ep2-filosofi-mini-full.open {
+  max-height: 800px;
+  margin-top: 14px;
+}
+.ep2-filosofi-mini-full p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--gray-600, #4A5263);
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-100, #eee);
+}
+[data-theme="dark"] .ep2-filosofi-mini-full p {
+  color: #C4CAD4;
+  border-top-color: var(--gray-700, #2D3443);
+}
+
+/* Compact Values (mini horizontal cards) */
+.ep2-value-mini {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--white, #fff);
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--gray-100, #eee);
+  transition: transform 0.3s ease;
+}
+.ep2-value-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm, 0 8px 20px rgba(0,0,0,0.06));
+}
+[data-theme="dark"] .ep2-value-mini {
+  background: var(--gray-800, #1A2030);
+  border-color: var(--gray-700, #2D3443);
+}
+.ep2-value-mini-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ep2-value-mini-icon.teal { background: var(--teal, #2EC4B6); }
+.ep2-value-mini-icon.sky { background: var(--coral, #39BDEB); }
+.ep2-value-mini-icon.lavender { background: var(--lavender, #9B72CF); }
+.ep2-value-mini-icon.amber { background: #F59E0B; }
+.ep2-value-mini h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--gray-800, #1A2030);
+}
+[data-theme="dark"] .ep2-value-mini h4 {
+  color: #E8EAED;
+}
+.ep2-value-mini p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--gray-500, #6E7787);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .ep2-modal-container { padding: 28px 20px; }
+  .ep2-modal-header { flex-direction: column; gap: 12px; }
+  .ep2-quote-banner { padding: 28px 20px; }
+}
