@@ -13,7 +13,7 @@ export function initKontakAnimation(){
   var contactForm = section.querySelector('.contact-form');
 
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(title, { opacity: 0, y: 60,  });
   gsap.set(subtitle, { opacity: 0, y: 30 });
 
   var infoHeading = contactInfo ? contactInfo.querySelector('h3') : null;
@@ -22,7 +22,7 @@ export function initKontakAnimation(){
 
   if (contactInfo) gsap.set(contactInfo, { opacity: 0, x: -50 });
   if (infoHeading) gsap.set(infoHeading, { opacity: 0, y: 15 });
-  if (infoDesc) gsap.set(infoDesc, { opacity: 0, y: 12, filter: 'blur(6px)' });
+  if (infoDesc) gsap.set(infoDesc, { opacity: 0, y: 12,  });
   gsap.set(detailItems, { opacity: 0, x: -30, scale: 0.9 });
 
   var formGroups = contactForm ? gsap.utils.toArray(contactForm.querySelectorAll('.form-group')) : [];
@@ -42,13 +42,13 @@ export function initKontakAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
 
   if (contactInfo) {
     masterTL.to(contactInfo, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.2');
     if (infoHeading) masterTL.to(infoHeading, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.4');
-    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' }, '-=0.3');
+    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, , duration: 0.5, ease: 'power2.out' }, '-=0.3');
     if (detailItems.length) masterTL.to(detailItems, { opacity: 1, x: 0, scale: 1, duration: 0.45, stagger: 0.1, ease: 'back.out(1.5)' }, '-=0.2');
   }
 

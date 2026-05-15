@@ -12,7 +12,7 @@ export function initGaleriAnimation(){
   var items = gsap.utils.toArray('#gallery .gallery-item');
 
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(title, { opacity: 0, y: 60,  });
   gsap.set(subtitle, { opacity: 0, y: 30 });
   gsap.set(items, { opacity: 0, scale: 0.85, y: 40 });
 
@@ -24,7 +24,7 @@ export function initGaleriAnimation(){
     }
   })
   .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-  .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
   .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
   .to(items, {
     opacity: 1, scale: 1, y: 0,

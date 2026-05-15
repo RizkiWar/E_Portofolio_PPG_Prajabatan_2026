@@ -14,7 +14,7 @@ export function initKeahlianAnimation(){
   var activeCards = activePanel ? gsap.utils.toArray(activePanel.querySelectorAll('.skill-item-card')) : [];
 
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(title, { opacity: 0, y: 60,  });
   gsap.set(subtitle, { opacity: 0, y: 30 });
   gsap.set(tabBtns, { opacity: 0, y: -20, scale: 0.8 });
   gsap.set(activeCards, { opacity: 0, y: 50, scale: 0.8, rotateX: 12, transformPerspective: 1000 });
@@ -27,7 +27,7 @@ export function initKeahlianAnimation(){
     }
   })
   .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-  .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
+  .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
   .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
   .to(tabBtns, { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.08, ease: 'back.out(1.7)' }, '-=0.3')
   .to(activeCards, {

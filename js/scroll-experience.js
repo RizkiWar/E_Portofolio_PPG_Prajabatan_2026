@@ -294,14 +294,12 @@ function buildSectionEntrance(section, prepared, index) {
       x: 0,
       y: 26,
       rotationX: 6,
-      filter: 'blur(4px)',
       transformPerspective: 900
     }, {
       autoAlpha: 1,
       x: 0,
       y: 0,
       rotationX: 0,
-      filter: 'blur(0px)',
       duration: 1.05
     }, 0.04);
   }
@@ -348,7 +346,6 @@ function buildSectionEntrance(section, prepared, index) {
         y: 32,
         scale: 0.985,
         rotationX: 4,
-        filter: 'blur(4px)',
         transformPerspective: 900
       }, {
         autoAlpha: 1,
@@ -356,7 +353,6 @@ function buildSectionEntrance(section, prepared, index) {
         y: 0,
         scale: 1,
         rotationX: 0,
-        filter: 'none',
         duration: 0.98,
         stagger: {
           each: 0.055,

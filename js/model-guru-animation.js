@@ -16,7 +16,7 @@ export function initModelGuruAnimation(){
   var pillars = gsap.utils.toArray('#model-guru .pillar-card');
 
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(title, { opacity: 0, y: 60,  });
   gsap.set(subtitle, { opacity: 0, y: 30 });
   if (quoteCard) gsap.set(quoteCard, { opacity: 0, scale: 0.85, rotateX: 18, transformPerspective: 1000 });
   if (quoteIcon) gsap.set(quoteIcon, { opacity: 0, scale: 0, rotation: -90 });
@@ -33,7 +33,7 @@ export function initModelGuruAnimation(){
     });
     if (icon) gsap.set(icon, { opacity: 0, scale: 0, rotation: -180 });
     if (heading) gsap.set(heading, { opacity: 0, y: 12 });
-    if (desc) gsap.set(desc, { opacity: 0, y: 10, filter: 'blur(6px)' });
+    if (desc) gsap.set(desc, { opacity: 0, y: 10,  });
   });
 
   var masterTL = gsap.timeline({
@@ -46,7 +46,7 @@ export function initModelGuruAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, , duration: 0.5, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, '-=0.3');
 
   if (quoteCard) {
@@ -69,7 +69,7 @@ export function initModelGuruAnimation(){
       opacity: 1, y: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out'
     }, '-=0.35');
     masterTL.to('#model-guru .pillar-card p', {
-      opacity: 1, y: 0, filter: 'blur(0px)',
+      opacity: 1, y: 0, ,
       duration: 0.35, stagger: 0.06, ease: 'power2.out'
     }, '-=0.3');
   }

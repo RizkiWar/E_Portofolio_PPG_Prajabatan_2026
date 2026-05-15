@@ -12,7 +12,7 @@ export function initPendidikanAnimation(){
   var timelineItems = gsap.utils.toArray('#education .timeline-item');
 
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
-  gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
+  gsap.set(title, { opacity: 0, y: 60,  });
   gsap.set(subtitle, { opacity: 0, y: 30 });
 
   timelineItems.forEach(function(item, i){
@@ -33,7 +33,7 @@ export function initPendidikanAnimation(){
     if (logo) gsap.set(logo, { scale: 0, rotation: -90 });
     if (heading) gsap.set(heading, { opacity: 0, y: 15 });
     if (institution) gsap.set(institution, { opacity: 0, x: -15 });
-    if (desc) gsap.set(desc, { opacity: 0, y: 10, filter: 'blur(6px)' });
+    if (desc) gsap.set(desc, { opacity: 0, y: 10,  });
     if (year) gsap.set(year, { opacity: 0, scale: 0.5 });
   });
 
@@ -47,7 +47,7 @@ export function initPendidikanAnimation(){
 
   masterTL
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
+    .to(title, { opacity: 1, y: 0, , duration: 0.7, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
 
   timelineItems.forEach(function(item, i){
@@ -66,7 +66,7 @@ export function initPendidikanAnimation(){
     if (logo) masterTL.to(logo, { scale: 1, rotation: 0, duration: 0.5, ease: 'back.out(2.2)' }, '-=0.4');
     if (heading) masterTL.to(heading, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
     if (institution) masterTL.to(institution, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' }, '-=0.3');
-    if (desc) masterTL.to(desc, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' }, '-=0.25');
+    if (desc) masterTL.to(desc, { opacity: 1, y: 0, , duration: 0.5, ease: 'power2.out' }, '-=0.25');
   });
 
   var timelineEl = eduSection.querySelector('.timeline');
