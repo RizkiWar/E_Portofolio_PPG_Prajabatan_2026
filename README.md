@@ -1,16 +1,16 @@
-# E-Portfolio PPG Prajabatan 2026
+# 📚 E-Portfolio PPG Prajabatan 2026
 
 > Website E-Portfolio untuk memenuhi persyaratan **Program Pendidikan Profesi Guru (PPG) Prajabatan 2026**.
 
 ---
 
-## Live Demo
+## 🌐 Live Demo
 
-[Lihat E-Portfolio](https://fannyf123.github.io/E_Portofolio_PPG_Prajabatan_2026)
+🔗 [Lihat E-Portfolio](https://fannyf123.github.io/E_Portofolio_PPG_Prajabatan_2026)
 
 ---
 
-## Komponen E-Portfolio
+## 📋 Komponen E-Portfolio
 
 Website ini dirancang sesuai Rubrik E-Portfolio PPG Prajabatan, mencakup:
 
@@ -25,7 +25,7 @@ Website ini dirancang sesuai Rubrik E-Portfolio PPG Prajabatan, mencakup:
 
 ---
 
-## Struktur File
+## 🗂️ Struktur File
 
 ```
 E-Portofolio_PPG_Prajabatan_2026/
@@ -78,7 +78,29 @@ E-Portofolio_PPG_Prajabatan_2026/
 
 ---
 
-## Teknologi
+## 🧭 Navigasi Website
+
+```
+Beranda | Profil | Pendidikan | Artefak | Penilaian | Model Guru | Galeri | Keahlian | Sertifikat | Kontak
+```
+
+---
+
+## ✨ Fitur Website
+
+- 🎨 **Desain Modern** — Tampilan profesional dengan animasi partikel interaktif
+- 🌙 **Dark / Light Mode** — Toggle tema gelap dan terang
+- 📱 **Responsif** — Optimal di desktop, tablet, dan mobile
+- 🔍 **Filter Artefak** — Saring artefak berdasarkan kategori (RPP, Modul, Media, Asesmen, dll)
+- 📋 **Modal Analisis** — Popup detail analisis setiap artefak
+- 📊 **Tabel Penilaian** — Lampiran 7 & 8 per siklus dari Guru Pamong & DPL
+- 🏅 **Sertifikat** — Preview sertifikat dengan modal popup
+- 📸 **Galeri** — Dokumentasi kegiatan dengan lightbox
+- 🗺️ **Perjalanan Hidup** — Timeline visual perjalanan akademik
+
+---
+
+## 🛠️ Teknologi
 
 - **HTML5** — Struktur semantik
 - **CSS3** — Custom properties, animations, glassmorphism
@@ -92,7 +114,7 @@ E-Portofolio_PPG_Prajabatan_2026/
 
 ---
 
-## Cara Penggunaan
+## 📌 Cara Penggunaan
 
 1. Clone repository ini
 2. `npm install`
@@ -102,15 +124,19 @@ E-Portofolio_PPG_Prajabatan_2026/
 
 ---
 
-## Deployment
+## 🚀 Deployment
 
 Deploy otomatis ke GitHub Pages via GitHub Actions setiap push ke branch `main`. Workflow menjalankan `npm run build` dan deploy folder `dist/`.
 
 ---
 
-## Tentang
+## 👩‍🏫 Tentang
 
 **Program:** PPG Prajabatan 2026
 **Bidang Studi:** Teknik Pemesinan
 **Institusi:** Universitas Sarjanawiyata Tamansiswa (UST)
 **Mahasiswa:** Fanny Fatchurrahman
+
+---
+
+*Dibuat dengan ❤️ untuk PPG Prajabatan 2026*
