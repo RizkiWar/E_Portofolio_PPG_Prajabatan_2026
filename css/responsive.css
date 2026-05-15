@@ -17,10 +17,10 @@ html, body {
   position: relative;
 }
 
-/* Adaptive Typography (all screens) */
-h1, .hero-name        { font-size: clamp(1.8rem, 5vw, 3rem); }
-h2, .section-title     { font-size: clamp(1.4rem, 4vw, 2rem); }
-h3                     { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+/* Adaptive Typography (all screens) — exclude EP2 which has its own sizing */
+h1:not(.ep2-title):not(.ep2-hero-name), .hero-name { font-size: clamp(1.8rem, 5vw, 3rem); }
+h2:not(.ep2-section .section-title), .section-title:not(.ep2-section .section-title) { font-size: clamp(1.4rem, 4vw, 2rem); }
+h3:not(.eportfolio2-wrapper h3) { font-size: clamp(1.1rem, 3vw, 1.5rem); }
 body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
 
 /* Base Container Override */
@@ -454,10 +454,8 @@ body                   { font-size: clamp(0.9rem, 2.5vw, 1rem); }
     gap: 8px;
     justify-content: flex-start;
     padding-bottom: 8px;
+    padding-right: 16px;
     position: relative;
-    /* Gradient fade hint on right */
-    mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
   }
   .portfolio-filter::-webkit-scrollbar,
   .portfolio-tabs::-webkit-scrollbar {

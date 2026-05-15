@@ -382,18 +382,25 @@
 }
 
 @media (max-width: 768px) {
-  .ep2-hero-content { transform: translateY(16px); }
+  .ep2-hero-content { transform: translateY(0); gap: 24px; }
   .ep2-hero-top {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 24px;
   }
+  .ep2-hero-left { padding: 18px 16px; }
   .ep2-hero-right { align-items: center; text-align: center; }
-  .ep2-hero-actions { justify-content: center; }
+  .ep2-hero-actions { justify-content: center; flex-wrap: wrap; }
   .ep2-hero-greeting { margin: 0 auto; }
-  .ep2-hero-preview { grid-template-columns: 1fr; }
-  .ep2-hero-photo { width: 120px; height: 120px; }
+  .ep2-hero-preview { grid-template-columns: 1fr; gap: 14px; }
+  .ep2-hero-preview-card { padding: 16px 18px; }
+  .ep2-hero-photo { width: 110px; height: 110px; }
   .ep2-hero-quote { text-align: left; }
+  .ep2-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .ep2-subtitle { font-size: 0.88rem; }
+  .ep2-hero-name { font-size: 1.2rem; }
+  .ep2-hero-social a { width: 34px; height: 34px; font-size: 0.9rem; }
+  .ep2-scroll-indicator { display: none; }
 }
 
 .ep2-scroll-indicator {
