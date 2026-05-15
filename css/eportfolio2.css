@@ -2243,3 +2243,79 @@
     filter: none !important;
   }
 }
+
+/* ============================================
+   EP2 SCROLL RAIL (dot navigation)
+   ============================================ */
+.ep2-scroll-rail {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1100;
+  padding: 12px 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+.ep2-rail-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-300, #C4CAD4);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+.ep2-rail-dot::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+.ep2-rail-dot:hover {
+  border-color: var(--teal, #2EC4B6);
+  transform: scale(1.3);
+}
+.ep2-rail-dot.active {
+  border-color: var(--teal, #2EC4B6);
+  transform: scale(1.4);
+}
+.ep2-rail-dot.active::before {
+  background: var(--teal, #2EC4B6);
+  box-shadow: 0 0 8px rgba(46, 196, 182, 0.5);
+}
+[data-theme="dark"] .ep2-scroll-rail {
+  background: rgba(20, 22, 29, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .ep2-rail-dot {
+  border-color: var(--gray-500);
+}
+[data-theme="dark"] .ep2-rail-dot:hover,
+[data-theme="dark"] .ep2-rail-dot.active {
+  border-color: var(--teal, #2EC4B6);
+}
+@media (max-width: 768px) {
+  .ep2-scroll-rail { display: none; }
+}
+
+/* EP2 Particle canvas layer */
+#ep2ParticleCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}

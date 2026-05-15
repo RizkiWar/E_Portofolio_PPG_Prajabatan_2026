@@ -79,7 +79,7 @@ function initEp2GsapAnimations(wrapper) {
   }
 
   // --- Hero entrance timeline ---
-  var heroTl = gsap.timeline({ delay: 0.2 });
+  var heroTl = gsap.timeline({ delay: 0.1 });
 
   var heroLeft = wrapper.querySelector('.ep2-hero-left');
   var heroGreeting = wrapper.querySelector('.ep2-hero-greeting');
@@ -92,15 +92,15 @@ function initEp2GsapAnimations(wrapper) {
   if (heroLeft) {
     heroTl.fromTo(heroLeft,
       { autoAlpha: 0, scale: 0.85, rotateY: -15, filter: 'blur(8px)' },
-      { autoAlpha: 1, scale: 1, rotateY: 0, filter: 'blur(0px)', duration: 1, ease: 'back.out(1.4)' }
+      { autoAlpha: 1, scale: 1, rotateY: 0, filter: 'blur(0px)', duration: 0.6, ease: 'back.out(1.4)' }
     );
   }
 
   if (heroGreeting) {
     heroTl.fromTo(heroGreeting,
       { autoAlpha: 0, x: -30, scale: 0.9 },
-      { autoAlpha: 1, x: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
-      '-=0.5'
+      { autoAlpha: 1, x: 0, scale: 1, duration: 0.4, ease: 'power3.out' },
+      '-=0.3'
     );
   }
 
@@ -111,32 +111,32 @@ function initEp2GsapAnimations(wrapper) {
   if (heroSubtitle) {
     heroTl.fromTo(heroSubtitle,
       { autoAlpha: 0, y: 20, filter: 'blur(4px)' },
-      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power2.out' },
-      '-=0.4'
+      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' },
+      '-=0.2'
     );
   }
 
   if (heroQuote) {
     heroTl.fromTo(heroQuote,
       { autoAlpha: 0, x: -20, scaleX: 0.95 },
-      { autoAlpha: 1, x: 0, scaleX: 1, duration: 0.7, ease: 'power2.out' },
-      '-=0.3'
+      { autoAlpha: 1, x: 0, scaleX: 1, duration: 0.4, ease: 'power2.out' },
+      '-=0.2'
     );
   }
 
   if (heroActions) {
     heroTl.fromTo(heroActions,
       { autoAlpha: 0, y: 20 },
-      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-      '-=0.3'
+      { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+      '-=0.2'
     );
   }
 
   if (heroPreviewCards.length) {
     heroTl.fromTo(heroPreviewCards,
       { autoAlpha: 0, y: 40, rotateX: 8, scale: 0.92 },
-      { autoAlpha: 1, y: 0, rotateX: 0, scale: 1, duration: 0.8, stagger: 0.15, ease: 'back.out(1.3)' },
-      '-=0.3'
+      { autoAlpha: 1, y: 0, rotateX: 0, scale: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(1.3)' },
+      '-=0.2'
     );
   }
 
@@ -145,8 +145,8 @@ function initEp2GsapAnimations(wrapper) {
   if (heroPhoto) {
     heroTl.fromTo(heroPhoto,
       { autoAlpha: 0, scale: 0.6, rotation: -10 },
-      { autoAlpha: 1, scale: 1, rotation: 0, duration: 1, ease: 'elastic.out(1, 0.6)' },
-      0.1
+      { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.6)' },
+      0.05
     );
   }
 
@@ -155,8 +155,8 @@ function initEp2GsapAnimations(wrapper) {
   if (socialIcons.length) {
     heroTl.fromTo(socialIcons,
       { autoAlpha: 0, scale: 0, rotation: -180 },
-      { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.6, stagger: 0.08, ease: 'back.out(2)' },
-      '-=0.6'
+      { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.4, stagger: 0.05, ease: 'back.out(2)' },
+      '-=0.4'
     );
   }
 
@@ -171,25 +171,32 @@ function initEp2GsapAnimations(wrapper) {
    WORD-BY-WORD TITLE REVEAL
    ============================================ */
 function splitTextReveal(el, timeline) {
-  var text = el.textContent;
-  var words = text.split(/\s+/);
+  var html = el.innerHTML;
+  var parts = html.split(/<br\s*\/?>/i);
   el.innerHTML = '';
   el.style.overflow = 'hidden';
 
-  words.forEach(function(word, i) {
-    var span = document.createElement('span');
-    span.textContent = word + ' ';
-    span.style.display = 'inline-block';
-    span.style.willChange = 'transform, opacity';
-    span.classList.add('ep2-word');
-    el.appendChild(span);
+  parts.forEach(function(part, pi) {
+    var words = part.trim().split(/\s+/);
+    words.forEach(function(word) {
+      if (!word) return;
+      var span = document.createElement('span');
+      span.innerHTML = word + ' ';
+      span.style.display = 'inline-block';
+      span.style.willChange = 'transform, opacity';
+      span.classList.add('ep2-word');
+      el.appendChild(span);
+    });
+    if (pi < parts.length - 1) {
+      el.appendChild(document.createElement('br'));
+    }
   });
 
   var wordSpans = el.querySelectorAll('.ep2-word');
   timeline.fromTo(wordSpans,
     { yPercent: 80, rotationX: 45, autoAlpha: 0 },
-    { yPercent: 0, rotationX: 0, autoAlpha: 1, duration: 0.9, stagger: 0.04, ease: 'power3.out' },
-    '-=0.5'
+    { yPercent: 0, rotationX: 0, autoAlpha: 1, duration: 0.5, stagger: 0.03, ease: 'power3.out' },
+    '-=0.3'
   );
 }
 
@@ -262,7 +269,7 @@ function initEp2SectionEntrances(wrapper) {
   if (refleksiHeader) {
     gsap.fromTo(refleksiHeader,
       { autoAlpha: 0, y: 30, filter: 'blur(6px)' },
-      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power2.out',
+      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: refleksiHeader, scroller: wrapper, start: 'top 82%', once: true }
       }
     );
@@ -272,7 +279,7 @@ function initEp2SectionEntrances(wrapper) {
     gsap.fromTo(questionCards,
       { autoAlpha: 0, y: 50, rotateX: 12, scale: 0.88, filter: 'blur(4px)' },
       { autoAlpha: 1, y: 0, rotateX: 0, scale: 1, filter: 'blur(0px)',
-        duration: 0.9, stagger: 0.15, ease: 'back.out(1.4)',
+        duration: 0.5, stagger: 0.1, ease: 'back.out(1.4)',
         scrollTrigger: { trigger: questionCards[0], scroller: wrapper, start: 'top 80%', once: true }
       }
     );
@@ -282,7 +289,7 @@ function initEp2SectionEntrances(wrapper) {
     gsap.fromTo(summaryItems,
       { autoAlpha: 0, x: -30, scale: 0.92 },
       { autoAlpha: 1, x: 0, scale: 1,
-        duration: 0.7, stagger: 0.1, ease: 'power3.out',
+        duration: 0.4, stagger: 0.07, ease: 'power3.out',
         scrollTrigger: { trigger: summaryItems[0], scroller: wrapper, start: 'top 85%', once: true }
       }
     );
@@ -298,7 +305,7 @@ function initEp2SectionEntrances(wrapper) {
   if (filosofiHeader) {
     gsap.fromTo(filosofiHeader,
       { autoAlpha: 0, y: 30, filter: 'blur(6px)' },
-      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power2.out',
+      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: filosofiHeader, scroller: wrapper, start: 'top 82%', once: true }
       }
     );
@@ -307,16 +314,15 @@ function initEp2SectionEntrances(wrapper) {
   if (quoteBanner) {
     gsap.fromTo(quoteBanner,
       { autoAlpha: 0, scale: 0.92, y: 20 },
-      { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'power2.out',
+      { autoAlpha: 1, scale: 1, y: 0, duration: 0.6, ease: 'power2.out',
         scrollTrigger: { trigger: quoteBanner, scroller: wrapper, start: 'top 80%', once: true }
       }
     );
-    // Quote mark special entrance
     var quoteMark = quoteBanner.querySelector('.ep2-quote-mark');
     if (quoteMark) {
       gsap.fromTo(quoteMark,
         { autoAlpha: 0, scale: 0, rotation: -90 },
-        { autoAlpha: 0.5, scale: 1, rotation: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)',
+        { autoAlpha: 0.5, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)',
           scrollTrigger: { trigger: quoteBanner, scroller: wrapper, start: 'top 80%', once: true }
         }
       );
@@ -327,7 +333,7 @@ function initEp2SectionEntrances(wrapper) {
     gsap.fromTo(filosofiCards,
       { autoAlpha: 0, y: 50, rotateX: 10, scale: 0.88, filter: 'blur(4px)' },
       { autoAlpha: 1, y: 0, rotateX: 0, scale: 1, filter: 'blur(0px)',
-        duration: 0.9, stagger: 0.18, ease: 'back.out(1.4)',
+        duration: 0.5, stagger: 0.12, ease: 'back.out(1.4)',
         scrollTrigger: { trigger: filosofiCards[0], scroller: wrapper, start: 'top 80%', once: true }
       }
     );
@@ -336,7 +342,7 @@ function initEp2SectionEntrances(wrapper) {
   if (valuesSection) {
     gsap.fromTo(valuesSection,
       { autoAlpha: 0, y: 30 },
-      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out',
+      { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: valuesSection, scroller: wrapper, start: 'top 82%', once: true }
       }
     );
@@ -346,7 +352,7 @@ function initEp2SectionEntrances(wrapper) {
     gsap.fromTo(valueMinis,
       { autoAlpha: 0, y: 30, scale: 0.9 },
       { autoAlpha: 1, y: 0, scale: 1,
-        duration: 0.7, stagger: 0.1, ease: 'back.out(1.6)',
+        duration: 0.4, stagger: 0.07, ease: 'back.out(1.6)',
         scrollTrigger: { trigger: valueMinis[0], scroller: wrapper, start: 'top 85%', once: true }
       }
     );
@@ -631,4 +637,188 @@ function initEp2Interactions() {
 export function refreshEp2Animation() {
   initEp2Animation();
   initEp2Interactions();
+  initEp2Particles();
+  initEp2ScrollRail();
+}
+
+/* ============================================
+   EP2 CANVAS PARTICLES
+   Lightweight particle system with mouse interaction
+   ============================================ */
+function initEp2Particles() {
+  var wrapper = document.getElementById('eportfolio2Wrapper');
+  if (!wrapper || wrapper.dataset.particlesBound === '1') return;
+  wrapper.dataset.particlesBound = '1';
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth < 768) return;
+
+  var canvas = document.createElement('canvas');
+  canvas.id = 'ep2ParticleCanvas';
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0.6;';
+  wrapper.insertBefore(canvas, wrapper.firstChild);
+
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var mouseX = -999, mouseY = -999;
+  var particleCount = Math.min(Math.floor(window.innerWidth / 25), 45);
+  var colors = ['rgba(46,196,182,0.6)', 'rgba(57,189,235,0.5)', 'rgba(155,114,207,0.5)', 'rgba(15,94,168,0.4)'];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      size: Math.random() * 3 + 1.5,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      life: Math.random() * 200 + 100
+    };
+  }
+
+  for (var i = 0; i < particleCount; i++) {
+    particles.push(createParticle());
+  }
+
+  wrapper.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  wrapper.addEventListener('mouseleave', function() {
+    mouseX = -999;
+    mouseY = -999;
+  });
+
+  // Click ripple
+  wrapper.addEventListener('click', function(e) {
+    for (var j = 0; j < 8; j++) {
+      var angle = (j / 8) * Math.PI * 2;
+      var speed = 2 + Math.random() * 2;
+      var p = createParticle();
+      p.x = e.clientX;
+      p.y = e.clientY;
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+      p.life = 40;
+      p.size = 2.5;
+      particles.push(p);
+    }
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life--;
+
+      // Mouse repulsion
+      var dx = p.x - mouseX;
+      var dy = p.y - mouseY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 100 && dist > 0) {
+        var force = (100 - dist) / 100 * 0.8;
+        p.vx += (dx / dist) * force;
+        p.vy += (dy / dist) * force;
+      }
+
+      // Damping
+      p.vx *= 0.99;
+      p.vy *= 0.99;
+
+      // Wrap edges
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+
+      // Draw
+      var alpha = Math.min(p.life / 40, 1);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color.replace(/[\d.]+\)$/, (alpha * 0.6) + ')');
+      ctx.fill();
+
+      // Connection lines
+      for (var j = i - 1; j >= Math.max(0, i - 10); j--) {
+        var p2 = particles[j];
+        var d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
+        if (d < 100) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(57,189,235,' + ((1 - d / 100) * 0.15) + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+
+      if (p.life <= 0) {
+        particles[i] = createParticle();
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+/* ============================================
+   EP2 SCROLL RAIL (dot navigation)
+   ============================================ */
+function initEp2ScrollRail() {
+  var wrapper = document.getElementById('eportfolio2Wrapper');
+  if (!wrapper || wrapper.dataset.railBound === '1') return;
+  wrapper.dataset.railBound = '1';
+  if (window.innerWidth < 768) return;
+
+  var sections = wrapper.querySelectorAll('section[id]');
+  if (sections.length < 2) return;
+
+  // Create rail
+  var rail = document.createElement('div');
+  rail.className = 'ep2-scroll-rail';
+  rail.setAttribute('aria-hidden', 'true');
+
+  var sectionNames = { 'ep2-hero': 'Beranda', 'ep2-refleksi': 'Refleksi', 'ep2-filosofi': 'Filosofi' };
+
+  sections.forEach(function(section) {
+    var dot = document.createElement('button');
+    dot.className = 'ep2-rail-dot';
+    dot.setAttribute('data-target', section.id);
+    dot.setAttribute('title', sectionNames[section.id] || section.id);
+    dot.addEventListener('click', function() {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    rail.appendChild(dot);
+  });
+
+  wrapper.appendChild(rail);
+
+  // Update active dot on scroll
+  function updateRail() {
+    var scrollTop = wrapper.scrollTop;
+    var wrapperH = wrapper.clientHeight;
+    var current = '';
+    sections.forEach(function(section) {
+      if (section.offsetTop <= scrollTop + wrapperH * 0.5) {
+        current = section.id;
+      }
+    });
+    rail.querySelectorAll('.ep2-rail-dot').forEach(function(dot) {
+      dot.classList.toggle('active', dot.getAttribute('data-target') === current);
+    });
+  }
+
+  wrapper.addEventListener('scroll', updateRail, { passive: true });
+  updateRail();
 }
