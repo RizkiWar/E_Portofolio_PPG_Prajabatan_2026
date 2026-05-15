@@ -42,28 +42,16 @@
   }
 
   function hideChooser() {
-    if (typeof gsap !== 'undefined') {
-      gsap.to(chooser, {
-        opacity: 0, duration: 0.4, ease: 'power2.in',
-        onComplete: () => {
-          chooser.classList.remove('active');
-          chooser.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-          document.body.style.height = '';
-          document.body.style.position = '';
-          document.body.style.width = '';
-          document.body.classList.remove('chooser-active');
-        }
-      });
-    } else {
-      chooser.classList.remove('active');
-      chooser.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      document.body.style.height = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.classList.remove('chooser-active');
-    }
+    chooser.classList.remove('active');
+    chooser.setAttribute('aria-hidden', 'true');
+    chooser.style.display = 'none';
+    chooser.style.visibility = 'hidden';
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
+    document.body.style.top = '';
+    document.body.classList.remove('chooser-active');
   }
 
   function selectPortfolio(num) {
