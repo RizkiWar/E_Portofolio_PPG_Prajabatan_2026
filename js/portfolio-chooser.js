@@ -9,6 +9,7 @@
 
   const STORAGE_KEY = 'selectedPortfolio';
   const cards = chooser.querySelectorAll('.chooser-card');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function showChooser() {
     chooser.classList.add('active');
@@ -23,7 +24,6 @@
     document.body.style.top = '0';
     document.body.classList.add('chooser-active');
 
-    // Re-enforce visibility after short delay (in case other scripts override)
     setTimeout(() => {
       if (chooser.classList.contains('active')) {
         chooser.style.display = 'flex';
@@ -58,7 +58,6 @@
     document.body.setAttribute('data-portfolio', num);
 
     if (num === '2') {
-      // E-Portfolio 2 placeholder - hide existing sections, show coming soon message
       const message = document.createElement('div');
       message.style.cssText = 'position:fixed; inset:0; background:linear-gradient(135deg,#0F2027,#2C5364); display:flex; align-items:center; justify-content:center; z-index:9997; color:#fff; text-align:center; padding:24px;';
       message.innerHTML = '<div><h2 style="font-size:1.8rem; margin-bottom:12px;">E-Portfolio 2 - UAS</h2><p style="opacity:0.8; max-width:480px; margin:0 auto 24px;">Konten E-Portfolio 2 (Refleksi Akhir PPL Terbimbing dan Filosofi Mengajar) akan tersedia setelah PPL Terbimbing selesai.</p><button id="backToChooser" style="background:#2EC4B6; color:#fff; border:none; padding:12px 28px; border-radius:12px; font-weight:600; cursor:pointer; font-size:0.95rem;">Kembali</button></div>';
@@ -81,13 +80,19 @@
     });
   });
 
-  // Show chooser after intro is fully opened by user interaction
+  function introAnimationCompleted() {
+    if (!introTear) return true;
+    if (window.location.hash) return document.body.classList.contains('intro-opened');
+    if (prefersReducedMotion) return document.body.classList.contains('intro-opened');
+    return introTear.classList.contains('is-opening') && introTear.classList.contains('is-complete');
+  }
+
   function tryShowChooser() {
-    if (document.body.classList.contains('intro-opened') && introTear && introTear.classList.contains('is-complete')) {
+    if (introAnimationCompleted()) {
       setTimeout(showChooser, 500);
     } else {
       const observer = new MutationObserver(() => {
-        if (document.body.classList.contains('intro-opened') && introTear && introTear.classList.contains('is-complete')) {
+        if (introAnimationCompleted()) {
           observer.disconnect();
           setTimeout(showChooser, 500);
         }

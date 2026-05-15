@@ -96,7 +96,9 @@ function initMain() {
       e.preventDefault();
       openIntro();
     };
-    const onScroll = () => { if (window.scrollY > 2) openIntro(); };
+    let scrollListenerReady = false;
+    setTimeout(() => { scrollListenerReady = true; }, 800);
+    const onScroll = () => { if (scrollListenerReady && window.scrollY > 2) openIntro(); };
 
     function addIntroListeners() {
       if (introOpened) return;
@@ -120,14 +122,21 @@ function initMain() {
 
   // ---------- Scroll Progress Bar ----------
   const scrollProgress = document.getElementById('scrollProgress');
+  let scrollTicking = false;
   function updateScrollProgress() {
     if (!scrollProgress) return;
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     scrollProgress.style.width = pct + '%';
+    scrollTicking = false;
   }
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateScrollProgress);
+      scrollTicking = true;
+    }
+  }, { passive: true });
 
   // ---------- Typed Text Effect ----------
   const typedTextEl = document.getElementById('typedText');
@@ -173,15 +182,22 @@ function initMain() {
   // ---------- Navbar Scroll ----------
   const navbar = document.getElementById('navbar');
 
+  let navScrollTicking = false;
   function handleNavScroll() {
     if (window.scrollY > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+    navScrollTicking = false;
   }
 
-  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!navScrollTicking) {
+      requestAnimationFrame(handleNavScroll);
+      navScrollTicking = true;
+    }
+  }, { passive: true });
 
   // ---------- Active Nav Link ----------
   const sections = document.querySelectorAll('section[id]');
@@ -207,7 +223,13 @@ function initMain() {
     });
   }
 
-  window.addEventListener('scroll', highlightNav, { passive: true });
+  let highlightTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!highlightTicking) {
+      requestAnimationFrame(() => { highlightNav(); highlightTicking = false; });
+      highlightTicking = true;
+    }
+  }, { passive: true });
 
   // ---------- Hamburger ----------
   const hamburger = document.getElementById('hamburger');
@@ -383,11 +405,18 @@ function initMain() {
   // ---------- Back to Top ----------
   const backToTop = document.getElementById('backToTop');
 
+  let bttTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
+    if (!bttTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+        bttTicking = false;
+      });
+      bttTicking = true;
     }
   }, { passive: true });
 
