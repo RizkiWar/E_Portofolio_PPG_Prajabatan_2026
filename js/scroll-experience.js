@@ -315,58 +315,8 @@ function playEntrance(section, header, titleWords, bodyItems) {
 }
 
 function buildSectionScrub(section) {
-  const parallaxTargets = gsap.utils.toArray(section.querySelectorAll(
-    '.hero-image-wrapper, .about-image-card, .philosophy-card'
-  ));
-
-  if (parallaxTargets.length) {
-    gsap.to(parallaxTargets, {
-      yPercent: -4,
-      rotate: index => (index % 2 === 0 ? 0.6 : -0.6),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 2.5
-      }
-    });
-  }
-
-  const floatingIcons = gsap.utils.toArray(section.querySelectorAll(
-    '.timeline-dot, .edu-logo, .pillar-icon, .skill-item-icon, .cert-icon, .detail-icon'
-  ));
-
-  if (floatingIcons.length) {
-    gsap.to(floatingIcons, {
-      y: -5,
-      rotate: index => (index % 2 === 0 ? 1.5 : -1.5),
-      ease: 'none',
-      stagger: 0.02,
-      scrollTrigger: {
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 3
-      }
-    });
-  }
-
-  const timeline = section.querySelector('.timeline');
-  if (timeline) {
-    gsap.fromTo(timeline, {
-      '--timeline-reveal': '100%'
-    }, {
-      '--timeline-reveal': '0%',
-      ease: 'none',
-      scrollTrigger: {
-        trigger: timeline,
-        start: 'top 78%',
-        end: 'bottom 42%',
-        scrub: 2
-      }
-    });
-  }
+  // Removed: ScrollTrigger scrub parallax was causing frame drops during scroll
+  // Parallax effect now handled by CSS transform in smoothness.css
 }
 
 function setActiveSection(section, index, ui) {
@@ -397,15 +347,13 @@ function animateVisiblePortfolioCards() {
 
   gsap.fromTo(cards, {
     autoAlpha: 0,
-    y: 16,
-    scale: 0.988
+    y: 16
   }, {
     autoAlpha: 1,
     y: 0,
-    scale: 1,
-    duration: 0.62,
-    stagger: 0.04,
-    ease: 'power4.out',
+    duration: 0.4,
+    stagger: 0.03,
+    ease: 'power3.out',
     overwrite: true
   });
 }
@@ -418,17 +366,13 @@ function buildInteractionMicroMotion() {
         const cards = activePanel ? gsap.utils.toArray(activePanel.querySelectorAll('.skill-item-card')) : [];
         gsap.fromTo(cards, {
           autoAlpha: 0,
-          y: 20,
-          scale: 0.985,
-          rotationX: 4
+          y: 16
         }, {
           autoAlpha: 1,
           y: 0,
-          scale: 1,
-          rotationX: 0,
-          duration: 0.66,
-          stagger: 0.055,
-          ease: 'power4.out',
+          duration: 0.4,
+          stagger: 0.03,
+          ease: 'power3.out',
           overwrite: true
         });
         refreshSoon();
