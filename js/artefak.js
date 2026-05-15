@@ -1,5 +1,5 @@
 /* ============================================
-   E-PORTFOLIO — ARTEFAK & MODAL JS
+   E-PORTFOLIO - ARTEFAK & MODAL JS
    Portfolio modal popup for artifact analysis
    ============================================ */
 
@@ -10,155 +10,175 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalContent = document.getElementById('modalContent');
   const modalTriggers = document.querySelectorAll('.btn-modal');
 
-  // Artifact analysis data (per rubrik PPG)
-  const artifactData = {    
+  const artifactData = {
     'modal-rpp1': {
-      title: 'RPP Siklus 1 — Gambar Teknik Manufaktur (Deep Learning)',
-      type: 'RPP & Modul Ajar (Fase F / Kelas XI TPM)',
+      title: 'RPP Siklus 1 - Deep Learning Assembly Tool Post',
+      type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
       fileUrl: 'https://drive.google.com/file/d/13HtahKdlZsOCvZQitf-nsfdewEUgTeHT/view?usp=sharing',
-      context: 'RPP ini disusun untuk kelas XI Teknik Pemesinan (TPM) di SMK Negeri 2 Depok Sleman pada materi "Perancangan Gambar Rakitan Kompleks (Assembly) Menggunakan Aplikasi Teknologi CAD". Latar belakang penyusunan didasarkan pada hasil asesmen diagnostik di mana mayoritas siswa memiliki gaya belajar visual-kinestetik dan sudah menguasai dasar 3D Part Modeling (.ipt).',
-      purpose: 'Menerapkan Perencanaan Pembelajaran Mendalam (Deep Learning) untuk memfasilitasi kebutuhan belajar siswa yang beragam, membimbing mereka dari merakit komponen fisik di bengkel hingga mahir merakit secara virtual (Assembly) di Autodesk Inventor.',
+      context: 'RPP untuk mata pelajaran Gambar Teknik Manufaktur kelas XI SMK Negeri 2 Depok Sleman, topik perancangan gambar rakitan Tool Post menggunakan Autodesk Inventor selama 3 pertemuan (24 JP).',
+      purpose: 'Memandu guru melaksanakan pembelajaran mendalam (deep learning) agar siswa mampu membuat assembly, menerapkan constraint, membuat drawing IDW, dan mengekspor PDF gambar kerja Tool Post sesuai standar industri.',
       pros: [
-        'Menerapkan scaffolding (panduan bertahap) bagi murid yang butuh panduan ekstra.',
-        'Menyediakan pengayaan eksplorasi fitur lanjut bagi siswa yang lebih cepat paham.',
-        'Sangat relevan dengan dunia kerja industri manufaktur karena fokus pada visualisasi 3D realistis.'
+        'Mengintegrasikan tiga pendekatan pedagogis: Understanding by Design (UbD), Deep Learning (Berkesadaran-Bermakna-Menggembirakan), dan Sistem Among Tamansiswa secara koheren.',
+        'Rubrik sumatif 9 aspek berbobot 100 sangat terstruktur dan transparan untuk penilaian objektif.',
+        'Diferensiasi pembelajaran jelas: scaffolding untuk siswa lambat dan pengayaan (exploded view, isometric) untuk siswa cepat.'
       ],
       cons: [
-        'Membutuhkan ketersediaan perangkat komputer yang memadai untuk menjalankan software CAD yang berat.',
-        'Alokasi waktu (24 JP) harus dikelola ketat agar semua siswa mencapai target kompetensi perakitan kompleks.'
+        'Alokasi waktu 8 JP per pertemuan sangat padat, terutama Pertemuan 3 yang menuntut pembuatan 3 lembar drawing sekaligus.',
+        'Tidak menyediakan alternatif asesmen bagi siswa yang mengalami kendala teknis berat di luar kontrol mereka.'
       ],
-      theory: 'Pembelajaran ini didasarkan pada teori Konstruktivisme Vygotsky dengan penerapan Scaffolding. Pendekatan Diferensiasi (Tomlinson) juga diterapkan dengan membedakan proses belajar antara kelompok yang butuh panduan bertahap dengan kelompok yang siap untuk eksplorasi mandiri.'
+      theory: 'Menerapkan Understanding by Design (Wiggins & McTighe, 2005) dengan backward design 3 tahap, dikombinasikan dengan pendekatan Deep Learning Kemdikbud dan filosofi Among Ki Hadjar Dewantara (Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani).'
     },
     'modal-materi1': {
-      title: 'Bahan Ajar P1 — Dasar Assembly Tool Post',
-      type: 'Modul Ajar Cetak & Digital',
+      title: 'Handbook Siswa Siklus 1 - Assembly Tool Post Autodesk Inventor',
+      type: 'Bahan Ajar / Handbook Siswa',
       fileUrl: 'https://drive.google.com/file/d/17Dta9nZyABe3j9t8P9DnovuKzn75m45l/view?usp=sharing',
-      context: 'Materi Siklus 1 Pertemuan 1, membahas pengenalan komponen utama Tool Post dan cara melakukan penempatan awal (Place Component) beserta penetapan Grounded Component.',
-      purpose: 'Memberikan pemahaman awal mengenai antarmuka Autodesk Inventor untuk perakitan, dan memastikan siswa paham mana komponen yang harus menjadi patokan (Grounded).',
-      pros: ['Sangat detail untuk siswa pemula.', 'Dilengkapi gambar tiap ikon perintah.'],
-      cons: ['Berfokus pada teori dasar, praktik aslinya mungkin lebih cepat.'],
-      theory: 'Mengacu pada prinsip Scaffolding (Vygotsky), di mana tahap awal diberikan panduan penuh.'
-    },
-    'modal-materi2': {
-      title: 'Bahan Ajar P2 — Penerapan Constraint',
-      type: 'Modul Ajar Cetak & Digital',
-      fileUrl: 'https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing',
-      context: 'Materi Siklus 1 Pertemuan 2, fokus pada penerapan constraint Mate, Flush, dan Insert pada 8 komponen Tool Post.',
-      purpose: 'Membimbing siswa agar dapat merakit komponen hingga memiliki Degrees of Freedom (DOF) = 0.',
-      pros: ['Menyertakan troubleshooting untuk error constraint yang sering terjadi.', 'Glosarium sangat membantu.'],
-      cons: ['Cukup padat, siswa butuh waktu untuk memahami perbedaan Mate dan Flush.'],
-      theory: 'Didasarkan pada prinsip Cognitive Load Theory (Sweller) dengan memisahkan materi kompleks menjadi sub-langkah kecil.'
-    },
-    'modal-materi3': {
-      title: 'Bahan Ajar P3 — Drawing & Bill of Materials',
-      type: 'Modul Ajar Cetak & Digital',
-      fileUrl: 'https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing',
-      context: 'Materi Siklus 1 Pertemuan 3, materi tingkat lanjut mengenai pembuatan gambar kerja 2D (Drawing) dari hasil rakitan 3D.',
-      purpose: 'Siswa dapat membuat etiket (title block), Bill of Materials (BOM), dan Ballooning sesuai standar industri manufaktur.',
-      pros: ['Mengajarkan standar industri yang sangat krusial di dunia kerja nyata.'],
-      cons: ['Langkah pembuatan BOM dan penomoran (Balloon) cukup rumit.'],
-      theory: 'Penerapan Contextual Teaching and Learning (CTL) karena sangat berkaitan dengan dokumen kerja bengkel industri.'
-    },
-    'modal-media1': {
-      title: 'Media Presentasi (PPT) — Assembly Tool Post',
-      type: 'Media Pembelajaran (Slide Interaktif)',
-      fileUrl: 'https://drive.google.com/file/d/1EUubB5nRb-d2RGyJCrDbUVBlOO3ZwAxq/view?usp=sharing', // PPTX converted to PDF for preview
-      context: 'Disusun sebagai pendamping visualisasi bagi siswa di awal pertemuan sebelum mereka turun praktik merakit komponen menggunakan komputer.',
-      purpose: 'Memvisualisasikan bentuk akhir dari Tool Post secara 3D untuk memancing atensi (hook) serta menjelaskan langkah krusial seperti perbedaan constraint Mate dan Flush.',
+      context: 'Bahan ajar pendukung LKM untuk siswa kelas XI Teknik Pemesinan SMK Negeri 2 Depok, berisi panduan lengkap alur kerja assembly Tool Post hingga ekspor PDF gambar kerja menggunakan Autodesk Inventor.',
+      purpose: 'Memberikan referensi prosedural dan konseptual bagi siswa agar dapat secara mandiri menyelesaikan assembly Tool Post, menerapkan constraint, membuat drawing IDW 3 lembar, dan mengekspor PDF sesuai kriteria penilaian.',
       pros: [
-        'Sangat efektif menarik perhatian awal kelas.',
-        'Mempermudah penjelasan konsep abstrak (seperti DOF) melalui representasi visual.'
+        'Struktur sistematis dari pengenalan komponen hingga ekspor PDF, dilengkapi tabel kesalahan umum beserta solusinya.',
+        'Menyediakan lembar praktik cek mandiri per pertemuan dan glosarium istilah teknis CAD.',
+        'Visualisasi screenshot langkah kerja mempermudah siswa visual-kinestetik mengikuti prosedur.'
       ],
       cons: [
-        'Bersifat komunikasi satu arah.',
-        'Masih membutuhkan demonstrasi software langsung agar siswa benar-benar paham alur klik pada mouse.'
+        'Konten sangat padat (9 bagian) untuk satu handbook; siswa mungkin kesulitan menavigasi bagian yang relevan.',
+        'Belum menyertakan contoh gambar kerja PDF yang sudah jadi sebagai benchmark visual.'
       ],
-      theory: 'Desain media ini bertumpu pada Dual Coding Theory (Paivio), di mana integrasi stimulasi verbal (penjelasan guru) dan gambar (slide PPT) terbukti lebih mudah diingat dalam *working memory* siswa.'
+      theory: 'Menerapkan prinsip scaffolding Vygotsky melalui panduan bertahap dalam Zone of Proximal Development, serta Project-Based Learning dengan produk autentik berupa PDF gambar kerja.'
     },
     'modal-asesmen1': {
-      title: 'Perangkat Asesmen Terpadu — Siklus 1',
-      type: 'Instrumen Asesmen (Diagnostik, Formatif, Sumatif)',
+      title: 'Instrumen Asesmen Siklus 1 - Tool Post',
+      type: 'Instrumen Asesmen (Awal, Formatif, Sumatif)',
       fileUrl: 'https://drive.google.com/file/d/1SJhusFCTSfJd1659mWUAMIJrQBfO3nmM/view?usp=sharing',
-      context: 'Dikembangkan untuk memantau kemajuan siswa dari sebelum hingga sesudah pembelajaran. Memuat instrumen Asesmen Awal, Lembar Observasi Guru, Exit Ticket per pertemuan, dan Rubrik Sumatif.',
-      purpose: 'Memetakan tingkat pemahaman awal siswa (untuk pengelompokan scaffolding) dan mengevaluasi ketercapaian perakitan Tool Post secara autentik.',
+      context: 'Dokumen instrumen asesmen lengkap untuk Siklus 1, mencakup asesmen awal, lembar observasi formatif, checklist mandiri, rubrik sumatif 9 aspek, pedoman penskoran, dan lembar rekap nilai.',
+      purpose: 'Menyediakan alat ukur komprehensif untuk memetakan kesiapan awal siswa, memantau proses praktik secara formatif, dan menilai produk akhir PDF gambar kerja Tool Post secara objektif.',
       pros: [
-        'Sangat komprehensif dan berkelanjutan (mulai dari pra-pembelajaran hingga akhir).',
-        'Exit ticket (seperti pertanyaan mengapa Tool Holder harus di-grounded) sangat efektif mengecek pemahaman konsep.',
-        'Rubrik jelas untuk mengkategorikan siswa: mandiri, butuh panduan, atau butuh scaffolding penuh.'
+        'Alur asesmen bertahap (awal-formatif-sumatif) sangat jelas dengan pemisahan tegas antara asesmen non-nilai dan sumatif.',
+        'Rubrik rinci per aspek dengan deskriptor 5 level (0-4) dan rumus konversi bobot memungkinkan penilaian konsisten.',
+        'Menyertakan instrumen refleksi murid dan catatan guru yang mendukung assessment as learning.'
       ],
       cons: [
-        'Lembar observasi manual memakan banyak waktu guru jika diterapkan pada kelas dengan jumlah siswa >30 orang.'
+        'Rubrik 9 aspek x 5 level menghasilkan beban penilaian yang berat bagi guru jika menilai banyak siswa.',
+        'Asesmen awal hanya berupa 5 pertanyaan terbuka tanpa rubrik penskoran kuantitatif.'
       ],
-      theory: 'Asesmen ini mengimplementasikan konsep Assessment for Learning dan Assessment as Learning (Earl, 2003). Rubrik unjuk kerjanya berlandaskan prinsip Asesmen Autentik (Wiggins) di mana siswa dinilai melalui performa praktik yang menyerupai standar industri manufaktur sesungguhnya.'
+      theory: 'Mengacu pada Assessment for Learning, Assessment as Learning, dan Assessment of Learning (Earl, 2013), dengan rubrik analitik berbobot sejalan dengan authentic assessment (Mueller, 2005).'
     },
     'modal-lkm1': {
-      title: 'Lembar Kerja Murid (LKM) — Pertemuan 1',
-      type: 'Dokumen Hasil Praktik P1',
+      title: 'LKM Siklus 1 Pertemuan 1 - Assembly Tool Post',
+      type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1mcGkRJtcLVytwnXn7z2mykJoX9hgZZ9R/view?usp=sharing',
-      context: 'LKM untuk pertemuan pertama yang memandu siswa memposisikan komponen Base dan Tool Holder (Grounded).',
-      purpose: 'Melatih kemampuan dasar perakitan 3D, membiasakan siswa melakukan self-assessment.',
-      pros: ['Sangat mudah diikuti dengan format checklist.'],
-      cons: ['Terkadang siswa lupa mengambil screenshot sebagai bukti.'],
-      theory: 'Menerapkan prinsip Self-Regulated Learning (Zimmerman) dengan kolom refleksi kendala di bagian akhir LKM.'
+      context: 'Lembar kerja siswa untuk Pertemuan 1 Siklus 1, memandu siswa membuat file assembly .iam dan menempatkan 8 komponen Tool Post di Autodesk Inventor.',
+      purpose: 'Memandu siswa secara prosedural untuk membuat file assembly, menempatkan seluruh komponen sesuai BOM, dan menetapkan Tool Holder sebagai Grounded Component.',
+      pros: [
+        'Format checklist dengan kolom "Sudah/Perlu bimbingan" memungkinkan self-assessment dan identifikasi kebutuhan bimbingan.',
+        'Tabel komponen lengkap dengan jumlah dan fungsi singkat membantu verifikasi kelengkapan assembly.'
+      ],
+      cons: [
+        'Tidak menyertakan ilustrasi/screenshot langkah kerja sehingga siswa bergantung pada demonstrasi guru.',
+        'Kolom catatan kendala terlalu sempit untuk dokumentasi permasalahan teknis kompleks.'
+      ],
+      theory: 'Menerapkan guided practice dari Cognitive Apprenticeship (Collins, Brown & Newman, 1989) di mana siswa mengikuti prosedur eksplisit dengan monitoring bertahap.'
     },
     'modal-lkm2': {
-      title: 'Lembar Kerja Murid (LKM) — Pertemuan 2',
-      type: 'Dokumen Hasil Praktik P2',
+      title: 'LKM Siklus 1 Pertemuan 2 - Constraint dan Cek DOF',
+      type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1Z3_glCt5CahLNMVduJ6XUMTLAjnhsl6d/view?usp=sharing',
-      context: 'LKM pertemuan kedua yang berfokus pada pemasangan baut, washer, dan pengunci menggunakan Insert Constraint.',
-      purpose: 'Memastikan seluruh komponen Tool Post terakit sempurna dengan DOF = 0.',
-      pros: ['Memiliki tingkat kesulitan yang bertahap (graded difficulty).'],
-      cons: ['Butuh ketelitian lebih untuk memasang constraint pada lubang yang kecil.'],
-      theory: 'Menerapkan Zone of Proximal Development (Vygotsky) dengan pemberian bantuan terstruktur.'
+      context: 'Lembar kerja siswa untuk Pertemuan 2 Siklus 1, memandu penerapan constraint Mate, Flush, Insert, dan Angle pada assembly Tool Post hingga DOF = 0.',
+      purpose: 'Memandu siswa menerapkan empat jenis constraint secara berurutan agar hubungan antar komponen stabil dan rakitan siap untuk drawing IDW.',
+      pros: [
+        'Tabel constraint dilengkapi fungsi dan contoh spesifik pada Tool Post.',
+        'Target DOF = 0 sebagai indikator keberhasilan memberikan ukuran objektif yang dapat dicek mandiri.'
+      ],
+      cons: [
+        'Urutan constraint bersifat linear, padahal praktik mungkin perlu pendekatan iteratif.',
+        'Tidak ada panduan troubleshooting jika terjadi over-constraint atau konflik.'
+      ],
+      theory: 'Berbasis scaffolded practice (Bruner, 1966) dengan pengurangan bantuan bertahap: demonstrasi, imitasi dengan checklist, lalu pengecekan mandiri melalui indikator DOF.'
     },
     'modal-lkm3': {
-      title: 'Lembar Kerja Murid (LKM) — Pertemuan 3',
-      type: 'Dokumen Hasil Praktik P3',
+      title: 'LKM Siklus 1 Pertemuan 3 - Drawing IDW dan Export PDF',
+      type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1YuJtd6sDCAwnYJ2eVZJI71GClZ6ep8et/view?usp=sharing',
-      context: 'LKM pertemuan terakhir yang berisi tugas membuat presentasi file 2D (Drawing) lengkap dengan part list (BOM).',
-      purpose: 'Mendokumentasikan hasil akhir siswa secara komprehensif dalam bentuk file PDF Drawing.',
-      pros: ['Meningkatkan kemampuan literasi grafis siswa sesuai standar.'],
-      cons: ['Proses layout drawing cukup kompleks untuk siswa.'],
-      theory: 'Penerapan Experiential Learning (Kolb) dari proses merakit (konkret) menjadi gambar teknik standar (abstrak).'
+      context: 'Lembar kerja siswa untuk Pertemuan 3 Siklus 1, memandu pembuatan drawing .idw 3 lembar beserta BOM, balloon, title block, dan ekspor PDF sebagai produk akhir sumatif.',
+      purpose: 'Memandu siswa menghasilkan PDF gambar kerja Tool Post 3 lembar yang lengkap dan memenuhi rubrik 9 aspek penilaian sumatif.',
+      pros: [
+        'Checklist akhir 10 item sebelum upload PDF berfungsi sebagai quality control mandiri.',
+        'Menyertakan rubrik penilaian ringkas langsung di LKM sehingga siswa memahami ekspektasi saat mengerjakan.',
+        'Kolom refleksi tiga bagian (dikuasai/sulit/bantuan) mendorong metakognisi siswa.'
+      ],
+      cons: [
+        'Beban kerja Pertemuan 3 sangat tinggi (3 lembar drawing + semua elemen + refleksi) dalam satu sesi 8 JP.',
+        'Tidak ada contoh visual hasil drawing yang benar sebagai acuan perbandingan.'
+      ],
+      theory: 'Menerapkan Project-Based Learning (Larmer & Mergendoller, 2015) dengan produk autentik dan self-regulation melalui checklist metakognitif, sejalan dengan Assessment as Learning.'
+    },
+    'modal-media1': {
+      title: 'Media Pembelajaran Pertemuan 1 - Assembly Tool Post',
+      type: 'Media Pembelajaran (Slide Presentasi)',
+      fileUrl: 'https://drive.google.com/file/d/1EUubB5nRb-d2RGyJCrDbUVBlOO3ZwAxq/view?usp=sharing',
+      context: 'Slide presentasi 11 halaman untuk Pertemuan 1 Siklus 1, digunakan guru saat demonstrasi di lab CAD untuk memandu Assembly Environment, Place Component, dan Grounded Component.',
+      purpose: 'Menyajikan visualisasi langkah kerja assembly Tool Post secara bertahap agar siswa memahami konsep file .ipt/.iam/.idw, Place Component, serta Grounded Component.',
+      pros: [
+        'Pertanyaan pemantik kontekstual efektif menghubungkan praktik digital dengan realitas industri.',
+        'Slide referensi 8 komponen lengkap dengan nama file .ipt berfungsi sebagai quick reference.',
+        'Struktur slide mengikuti alur Among (Ing Ngarsa-Ing Madya-Tut Wuri) dengan exit ticket di akhir.'
+      ],
+      cons: [
+        'Konten bergantung pada narasi guru; siswa yang absen sulit mempelajari ulang tanpa rekaman.',
+        'Tidak menyertakan animasi atau video pendek proses Place Component.'
+      ],
+      theory: 'Mengacu pada Dual Coding Theory (Paivio, 1986) dan prinsip Multimedia Learning Mayer (2009) yang menekankan segmentasi informasi dalam chunk kecil per slide.'
     },
     'modal-media2': {
-      title: 'Media Presentasi (PPT) P2 — Perakitan Kompleks',
-      type: 'Media Pembelajaran (Slide Interaktif)',
+      title: 'Media Pembelajaran Pertemuan 2 - Constraint Assembly Tool Post',
+      type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing',
-      context: 'Media pendamping untuk pertemuan kedua yang berfokus pada teknik assembly tingkat lanjut dan pemecahan masalah (troubleshooting) pada Autodesk Inventor.',
-      purpose: 'Memastikan siswa memahami urutan perakitan komponen yang efisien dan cara mengatasi kendala error constraint.',
-      pros: ['Sangat membantu visualisasi langkah demi langkah.', 'Interaktif dengan contoh kasus nyata.'],
-      cons: ['Butuh waktu lebih untuk penjelasan tiap slide.'],
-      theory: 'Cognitive Load Theory (Sweller) — menyajikan informasi secara bertahap untuk mencegah kelebihan beban kognitif.'
+      context: 'Slide presentasi 11 halaman untuk Pertemuan 2 Siklus 1, memandu demonstrasi dan praktik penerapan constraint Mate, Flush, Insert, dan Angle pada assembly Tool Post.',
+      purpose: 'Memvisualisasikan konsep dan prosedur empat jenis constraint agar siswa memahami fungsi, cara memilih permukaan yang tepat, serta cara mengecek DOF.',
+      pros: [
+        'Setiap jenis constraint disajikan dengan slide terpisah berisi definisi, langkah, dan kesalahan umum.',
+        'Slide troubleshooting constraint memberikan panduan langsung yang dapat dirujuk saat praktik.',
+        'Urutan kerja praktik P2 disajikan dalam format numbered steps yang jelas.'
+      ],
+      cons: [
+        'Penjelasan perbedaan Mate vs Flush masih kurang kontrastif untuk siswa pemula.',
+        'Tidak ada slide perbandingan before-after assembly sebelum dan sesudah constraint.'
+      ],
+      theory: 'Menerapkan Worked Example Effect (Sweller, 2006) dari Cognitive Load Theory, di mana demonstrasi langkah per langkah mengurangi beban kognitif ekstrinsik siswa.'
     },
     'modal-media3': {
-      title: 'Media Presentasi (PPT) P3 — Standard Drawing',
-      type: 'Media Pembelajaran (Slide Interaktif)',
+      title: 'Media Pembelajaran Pertemuan 3 - Drawing Tool Post',
+      type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing',
-      context: 'Media untuk pertemuan ketiga yang membahas standar pembuatan gambar kerja industri (ISO/ANSI).',
-      purpose: 'Membekali siswa dengan pengetahuan standar dokumentasi teknik yang berlaku di industri global.',
-      pros: ['Sangat relevan dengan kebutuhan dunia kerja.', 'Visualisasi title block dan BOM sangat jelas.'],
-      cons: ['Materi cukup teoritis, butuh contoh fisik drawing industri.'],
-      theory: 'Contextual Teaching and Learning (CTL) — menghubungkan materi kelas dengan konteks dunia kerja nyata.'
+      context: 'Slide presentasi 11 halaman untuk Pertemuan 3 Siklus 1, memandu pembuatan drawing .idw 3 lembar, BOM, balloon, title block, dan ekspor PDF gambar kerja Tool Post.',
+      purpose: 'Memvisualisasikan prosedur pembuatan gambar kerja 2D dari model 3D assembly, termasuk komponen wajib drawing dan standar ekspor PDF.',
+      pros: [
+        'Slide "Komponen Drawing Wajib Ada" menyajikan 8 elemen esensial sebagai mental checklist.',
+        'Checklist sumatif 9 aspek dengan bobot ditampilkan langsung sehingga siswa memahami prioritas penilaian.',
+        'Slide troubleshooting akhir sangat praktis untuk penyelesaian masalah saat ekspor.'
+      ],
+      cons: [
+        'Tidak menyertakan contoh PDF gambar kerja yang sudah memenuhi semua 9 aspek rubrik.',
+        'Materi drawing environment yang kompleks dipadatkan dalam 11 slide, berpotensi terlalu cepat.'
+      ],
+      theory: 'Mengacu pada Goal-Free Effect (Sweller, 1988) dengan target produk di awal, serta Signaling Principle (Mayer, 2009) melalui highlight bobot terbesar pada rubrik.'
     },
     'modal-toolpost': {
       title: 'Gambar Teknik Tool Post (Revisi)',
       type: 'Gambar Teknik',
-      fileUrl: 'LINK_GOOGLE_DRIVE_TOOLPOST_ANDA_DISINI',
+      fileUrl: 'https://drive.google.com/file/d/1HGyN7VOBQYgdXj3-IszSVntb4yltAMt_/view?usp=sharing',
       context: 'File gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
       purpose: 'Siswa menggunakan dimensi dan bentuk pada file ini sebagai acuan perakitan komponen.',
       pros: ['Detail presisi sangat jelas sebagai referensi utama untuk objek rakitan.'],
       cons: ['Bukan modul ajar, murni hanya gambar teknik tanpa instruksi urutan pasang.'],
-      theory: 'Video ini menjadi alat utama untuk Reflective Practice (Schon) yang memungkinkan calon guru melakukan reflection-on-action dengan mengevaluasi bahasa tubuh, kejelasan instruksi, serta respon langsung dari para murid.'
+      theory: 'Berfungsi sebagai authentic material yang merepresentasikan dokumen kerja nyata di industri manufaktur, mendukung prinsip Contextual Teaching and Learning (CTL).'
     }
   };
 
   function getEmbedUrl(url) {
     if (!url) return '';
-    // Convert Google Drive view URL to preview URL for iframe embed
     const driveMatch = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
     if (driveMatch) {
-      return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+      return 'https://drive.google.com/file/d/' + driveMatch[1] + '/preview';
     }
     return url;
   }
@@ -171,72 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const canPreview = Boolean(fileUrl && (isDrive || /\.pdf(?:$|[?#])/i.test(fileUrl)));
 
     if (viewMode === 'pdf' && canPreview) {
-      // Tampilan HANYA PDF
-      modalContent.innerHTML = `
-        <div class="modal-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: none; padding-bottom: 0; gap: 15px; padding-right: 30px;">
-          <div style="flex: 1; min-width: 250px;">
-            <h3 style="margin-bottom: 4px; font-size: 1.3rem;">${data.title}</h3>
-            <p style="margin-bottom: 0;">Preview Dokumen</p>
-          </div>
-          <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: #2EC4B6; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(46,196,182,0.3); z-index: 5;">
-            Buka di Tab Baru ↗
-          </a>
-        </div>
-        <div class="modal-body" style="height: 75vh; padding-top: 20px;">
-          <iframe src="${embedUrl}" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
-        </div>
-      `;
+      modalContent.innerHTML = '<div class="modal-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: none; padding-bottom: 0; gap: 15px; padding-right: 30px;"><div style="flex: 1; min-width: 250px;"><h3 style="margin-bottom: 4px; font-size: 1.3rem;">' + data.title + '</h3><p style="margin-bottom: 0;">Preview Dokumen</p></div><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: #2EC4B6; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(46,196,182,0.3); z-index: 5;">Buka di Tab Baru &nearr;</a></div><div class="modal-body" style="height: 75vh; padding-top: 20px;"><iframe src="' + embedUrl + '" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe></div>';
     } else {
-      // Tampilan ANALISIS (default)
-      let prosHtml = data.pros.map(p => `<li>✅ ${p}</li>`).join('');
-      let consHtml = data.cons.map(c => `<li>⚠️ ${c}</li>`).join('');
+      var prosHtml = data.pros.map(function(p) { return '<li>&check; ' + p + '</li>'; }).join('');
+      var consHtml = data.cons.map(function(c) { return '<li>&excl; ' + c + '</li>'; }).join('');
 
-      let filePreviewHtml = '';
+      var filePreviewHtml = '';
       if (canPreview) {
-        filePreviewHtml = `
-          <div class="pdf-preview" style="margin-top: 30px; border-top: 2px dashed #DEE2E8; padding-top: 20px;">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 10px;">
-              <h4 style="margin: 0;">📄 Preview Dokumen Full</h4>
-              <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 6px 14px; background: #EEF0F4; color: #2EC4B6; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.85rem;">
-                Buka di Tab Baru ↗
-              </a>
-            </div>
-            <iframe src="${embedUrl}" style="width: 100%; height: 60vh; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe>
-          </div>
-        `;
+        filePreviewHtml = '<div class="pdf-preview" style="margin-top: 30px; border-top: 2px dashed #DEE2E8; padding-top: 20px;"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 10px;"><h4 style="margin: 0;">Preview Dokumen Full</h4><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 6px 14px; background: #EEF0F4; color: #2EC4B6; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.85rem;">Buka di Tab Baru &nearr;</a></div><iframe src="' + embedUrl + '" style="width: 100%; height: 60vh; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe></div>';
       } else if (fileUrl) {
-        filePreviewHtml = `
-          <div class="modal-files" style="margin-top: 20px;">
-            <h4>📎 File Artefak</h4>
-            <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 20px; background: #FF6B6B; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none;">Buka File</a>
-          </div>
-        `;
+        filePreviewHtml = '<div class="modal-files" style="margin-top: 20px;"><h4>File Artefak</h4><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 20px; background: #FF6B6B; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none;">Buka File</a></div>';
       }
 
-      modalContent.innerHTML = `
-        <div class="modal-header">
-          <h3 style="font-size: 1.5rem;">${data.title}</h3>
-          <p>${data.type}</p>
-        </div>
-        <div class="modal-body">
-          <h4>📌 Konteks Pembuatan</h4>
-          <p>${data.context}</p>
-          
-          <h4>🎯 Tujuan</h4>
-          <p>${data.purpose}</p>
-          
-          <h4>📈 Kelebihan & Kekurangan</h4>
-          <ul>
-            ${prosHtml}
-            ${consHtml}
-          </ul>
-          
-          <h4>📖 Kajian Teori</h4>
-          <p>${data.theory}</p>
-          
-          ${filePreviewHtml}
-        </div>
-      `;
+      modalContent.innerHTML = '<div class="modal-header"><h3 style="font-size: 1.5rem;">' + data.title + '</h3><p>' + data.type + '</p></div><div class="modal-body"><h4>Konteks Pembuatan</h4><p>' + data.context + '</p><h4>Tujuan</h4><p>' + data.purpose + '</p><h4>Kelebihan & Kekurangan</h4><ul>' + prosHtml + consHtml + '</ul><h4>Kajian Teori</h4><p>' + data.theory + '</p>' + filePreviewHtml + '</div>';
     }
 
     modalOverlay.classList.add('active');
@@ -248,8 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  modalTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  modalTriggers.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
       e.preventDefault();
       openModal(btn.getAttribute('data-modal'), btn.getAttribute('data-view'));
     });
@@ -258,15 +225,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalClose) modalClose.addEventListener('click', closeModal);
 
   if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
+    modalOverlay.addEventListener('click', function(e) {
       if (e.target === modalOverlay) closeModal();
     });
   }
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
       closeModal();
     }
   });
 
-}); // End DOMContentLoaded
+});

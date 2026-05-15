@@ -27,13 +27,26 @@
 }
 
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-  background: var(--gradient-hero);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.nav-logo:hover img {
+  transform: scale(1.08);
+}
+
+[data-theme="dark"] .nav-logo img {
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .nav-links {
