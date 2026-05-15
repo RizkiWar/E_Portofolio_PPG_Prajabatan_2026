@@ -3,6 +3,22 @@
    Core interactions, nav, theme, scroll reveal
    ============================================ */
 
+import '../css/index.css';
+import './particles.js';
+import './scroll-experience.js';
+import './section-transitions.js';
+import './artefak.js';
+import { initProfilAnimation } from './profil-animation.js';
+import { initPendidikanAnimation } from './pendidikan-animation.js';
+import { initArtefakAnimation } from './artefak-animation.js';
+import { initModelGuruAnimation } from './model-guru-animation.js';
+import { initKeahlianAnimation } from './keahlian-animation.js';
+import { initGaleriAnimation } from './galeri-animation.js';
+import { initKontakAnimation } from './kontak-animation.js';
+import { initFooterAnimation } from './footer-animation.js';
+import { initPortfolioChooser } from './portfolio-chooser.js';
+import { initSertifikatModal } from './sertifikat-modal.js';
+
 let mainInitialized = false;
 
 function initMain() {
@@ -19,7 +35,7 @@ function initMain() {
   };
 
   if (loadingScreen) {
-    const minLoadingTime = 1400;
+    const minLoadingTime = 800;
 
     if (document.readyState === 'complete') {
       setTimeout(hideLoadingScreen, minLoadingTime);
@@ -47,7 +63,7 @@ function initMain() {
     try { window.history.scrollRestoration = 'manual'; } catch (_) {}
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
-    const minLoaderTime = 1200;
+    const minLoaderTime = 800;
     const maxLoaderTime = 2400;
     const startedAt = performance.now();
     let loaderDone = false;
@@ -82,7 +98,7 @@ function initMain() {
 
       // Tear-open animation
       introTear.classList.add('is-opening');
-      setTimeout(completeIntro, 1000);
+      setTimeout(completeIntro, 600);
     };
 
     const onWheel = (e) => {
@@ -250,12 +266,8 @@ function initMain() {
   // ---------- Dark / Light Mode Toggle ----------
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = themeToggle.querySelector('.theme-icon');
-  const savedTheme = localStorage.getItem('theme');
-
-  if (savedTheme !== 'light') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeIcon.textContent = '☀️';
-  }
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
 
   themeToggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -610,6 +622,17 @@ function initMain() {
       item.classList.add('active');
     });
   });
+
+  initProfilAnimation();
+  initPendidikanAnimation();
+  initArtefakAnimation();
+  initModelGuruAnimation();
+  initKeahlianAnimation();
+  initGaleriAnimation();
+  initKontakAnimation();
+  initFooterAnimation();
+  initPortfolioChooser();
+  initSertifikatModal();
 
 }
 

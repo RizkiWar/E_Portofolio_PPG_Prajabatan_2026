@@ -41,7 +41,7 @@
 
 /* --- Portfolio card image fix: smooth clipping, no boxy edges --- */
 .portfolio-card {
-  overflow: hidden;
+  /* overflow removed — was clipping hover scale/translateY animations */
 }
 
 .portfolio-card-img {

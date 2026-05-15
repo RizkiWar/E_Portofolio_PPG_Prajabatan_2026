@@ -1,4 +1,4 @@
-(function(){
+export function initFooterAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -50,4 +50,4 @@
       gsap.to(link, { y: 0, scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.4)' });
     });
   });
-})();
+}

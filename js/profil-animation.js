@@ -1,4 +1,4 @@
-(function(){
+export function initProfilAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -19,8 +19,7 @@
   gsap.set(badge, { opacity: 0, scale: 0, rotation: -180 });
   gsap.set(title, { opacity: 0, y: 60, filter: 'blur(10px)' });
   gsap.set(subtitle, { opacity: 0, y: 30 });
-  gsap.set(imageCard, { opacity: 0, scale: 0.7, rotateY: -30, transformPerspective: 1200 });
-  if (imageCardImg) gsap.set(imageCardImg, { scale: 1.3, filter: 'blur(10px)' });
+  gsap.set(imageCard, { opacity: 0, y: 40 });
   gsap.set(stats, { opacity: 0, y: 60, scale: 0.5 });
   gsap.set(infoItems, { opacity: 0, x: -40, scale: 0.9 });
   if (quote) gsap.set(quote, { opacity: 0, scale: 0.8, filter: 'blur(12px)' });
@@ -38,8 +37,7 @@
     .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
     .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
     .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-    .to(imageCard, { opacity: 1, scale: 1, rotateY: 0, duration: 1, ease: 'power4.out' }, '-=0.3')
-    .to(imageCardImg, { scale: 1, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' }, '<')
+    .to(imageCard, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
     .to(stats, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12, ease: 'elastic.out(1, 0.6)' }, '-=0.5')
     .to(infoItems, { opacity: 1, x: 0, scale: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out' }, '-=0.4');
 
@@ -73,58 +71,27 @@
     .to(lifeLines, { scaleX: 1, duration: 0.4, stagger: 0.15, ease: 'power2.inOut' }, '-=0.6');
   }
 
+  // Hover: simple scale on card, no 3D tilt
   if (imageCard && window.innerWidth > 768) {
-    var bounds;
-    var photoRaf = null;
-    var photoLastEvent = null;
-    var updateBounds = function(){ bounds = imageCard.getBoundingClientRect(); };
-    updateBounds();
-    window.addEventListener('resize', updateBounds);
-    window.addEventListener('scroll', updateBounds, { passive: true });
-
-    imageCard.addEventListener('mousemove', function(e){
-      photoLastEvent = e;
-      if (photoRaf) return;
-      photoRaf = requestAnimationFrame(function(){
-        if (!bounds || !photoLastEvent) { photoRaf = null; return; }
-        var x = (photoLastEvent.clientX - bounds.left) / bounds.width - 0.5;
-        var y = (photoLastEvent.clientY - bounds.top) / bounds.height - 0.5;
-        gsap.to(imageCard, {
-          rotateY: x * 12, rotateX: -y * 12, scale: 1.03,
-          duration: 0.6, ease: 'power2.out', transformPerspective: 1000, overwrite: 'auto'
-        });
-        photoRaf = null;
-      });
+    imageCard.addEventListener('mouseenter', function(){
+      gsap.to(imageCard, { scale: 1.02, boxShadow: '0 20px 50px rgba(15, 94, 168, 0.2)', duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
+      if (imageCardImg) gsap.to(imageCardImg, { scale: 1.05, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
     });
-
     imageCard.addEventListener('mouseleave', function(){
-      if (photoRaf) { cancelAnimationFrame(photoRaf); photoRaf = null; }
-      gsap.to(imageCard, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.7, ease: 'elastic.out(1, 0.5)', overwrite: 'auto' });
+      gsap.to(imageCard, { scale: 1, boxShadow: '0 4px 20px rgba(0,0,0,0.06)', duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
+      if (imageCardImg) gsap.to(imageCardImg, { scale: 1, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
     });
   }
 
   document.querySelectorAll('.about-stat').forEach(function(stat){
     var svg = stat.querySelector('svg');
-    var statRaf = null;
-    var statLastEvent = null;
-
-    stat.addEventListener('mousemove', function(e){
-      statLastEvent = e;
-      if (statRaf) return;
-      statRaf = requestAnimationFrame(function(){
-        var b = stat.getBoundingClientRect();
-        var x = (statLastEvent.clientX - b.left - b.width / 2) * 0.25;
-        var y = (statLastEvent.clientY - b.top - b.height / 2) * 0.25;
-        gsap.to(stat, { x: x, y: y, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
-        if (svg) gsap.to(svg, { rotation: x * 0.3, scale: 1.15, duration: 0.3, overwrite: 'auto' });
-        statRaf = null;
-      });
+    stat.addEventListener('mouseenter', function(){
+      gsap.to(stat, { y: -4, scale: 1.05, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+      if (svg) gsap.to(svg, { rotation: 10, scale: 1.1, duration: 0.3, overwrite: 'auto' });
     });
-
     stat.addEventListener('mouseleave', function(){
-      if (statRaf) { cancelAnimationFrame(statRaf); statRaf = null; }
-      gsap.to(stat, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)', overwrite: 'auto' });
-      if (svg) gsap.to(svg, { rotation: 0, scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.4)', overwrite: 'auto' });
+      gsap.to(stat, { y: 0, scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)', overwrite: 'auto' });
+      if (svg) gsap.to(svg, { rotation: 0, scale: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)', overwrite: 'auto' });
     });
   });
 
@@ -154,15 +121,6 @@
     });
   });
 
-  if (imageCardImg) {
-    imageCard.addEventListener('mouseenter', function(){
-      gsap.to(imageCardImg, { scale: 1.08, duration: 0.6, ease: 'power3.out' });
-    });
-    imageCard.addEventListener('mouseleave', function(){
-      gsap.to(imageCardImg, { scale: 1, duration: 0.6, ease: 'power3.out' });
-    });
-  }
-
   gsap.utils.toArray('.life-step-dot').forEach(function(dot, i){
     gsap.to(dot, { scale: 1.06, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.3 });
   });
@@ -174,4 +132,4 @@
       duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut'
     });
   }
-})();
+}

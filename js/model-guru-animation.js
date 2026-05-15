@@ -1,4 +1,4 @@
-(function(){
+export function initModelGuruAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -45,33 +45,33 @@
   });
 
   masterTL
-    .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
-    .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+    .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })
+    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, '-=0.3')
+    .to(subtitle, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, '-=0.3');
 
   if (quoteCard) {
-    masterTL.to(quoteCard, { opacity: 1, scale: 1, rotateX: 0, duration: 0.9, ease: 'power4.out' }, '-=0.2');
-    if (quoteIcon) masterTL.to(quoteIcon, { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' }, '-=0.5');
-    if (blockquote) masterTL.to(blockquote, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
-    if (author) masterTL.to(author, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.3');
+    masterTL.to(quoteCard, { opacity: 1, scale: 1, rotateX: 0, duration: 0.6, ease: 'power4.out' }, '-=0.2');
+    if (quoteIcon) masterTL.to(quoteIcon, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: 'elastic.out(1, 0.5)' }, '-=0.4');
+    if (blockquote) masterTL.to(blockquote, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.3');
+    if (author) masterTL.to(author, { opacity: 1, x: 0, duration: 0.3, ease: 'power2.out' }, '-=0.2');
   }
 
   if (pillars.length) {
     masterTL.to(pillars, {
       opacity: 1, y: 0, scale: 1, rotateY: 0,
-      duration: 0.8, stagger: 0.13, ease: 'power4.out'
-    }, '-=0.3');
+      duration: 0.5, stagger: 0.08, ease: 'power4.out'
+    }, '-=0.2');
     masterTL.to('#model-guru .pillar-icon', {
       opacity: 1, scale: 1, rotation: 0,
-      duration: 0.6, stagger: 0.13, ease: 'back.out(2.3)'
-    }, '-=0.6');
+      duration: 0.4, stagger: 0.08, ease: 'back.out(2.3)'
+    }, '-=0.4');
     masterTL.to('#model-guru .pillar-card h4', {
-      opacity: 1, y: 0, duration: 0.45, stagger: 0.1, ease: 'power2.out'
-    }, '-=0.5');
+      opacity: 1, y: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out'
+    }, '-=0.35');
     masterTL.to('#model-guru .pillar-card p', {
       opacity: 1, y: 0, filter: 'blur(0px)',
-      duration: 0.5, stagger: 0.1, ease: 'power2.out'
-    }, '-=0.4');
+      duration: 0.35, stagger: 0.06, ease: 'power2.out'
+    }, '-=0.3');
   }
 
   pillars.forEach(function(card){
@@ -177,4 +177,4 @@
       duration: 1.6, repeat: -1, yoyo: true, ease: 'sine.inOut'
     });
   }
-})();
+}

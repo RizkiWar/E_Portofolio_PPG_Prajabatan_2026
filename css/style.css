@@ -3,8 +3,7 @@
    Modern Minimalist | Bright & Cheerful
    ============================================ */
 
-/* ---------- Google Fonts ---------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+/* Google Fonts loaded via <link> in index.html */
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
@@ -664,7 +663,7 @@ section {
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background: var(--off-white);
 }
 
@@ -1411,7 +1410,7 @@ section {
 .philosophy {
   background: var(--white);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 }
 
 .philosophy::before {
@@ -1572,7 +1571,7 @@ section {
 .portfolio-card {
   background: var(--white);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--gray-100);
   transition: all 0.4s var(--ease-smooth);
@@ -2073,7 +2072,7 @@ section {
 .contact {
   background: var(--white);
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .contact::before {

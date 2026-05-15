@@ -1,4 +1,4 @@
-(function(){
+export function initPendidikanAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -126,4 +126,4 @@
       duration: 1.5, repeat: -1, yoyo: true, ease: 'sine.inOut'
     });
   }
-})();
+}

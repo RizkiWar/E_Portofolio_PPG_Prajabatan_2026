@@ -1,4 +1,4 @@
-(function(){
+export function initKeahlianAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -85,4 +85,4 @@
       gsap.to(btn, { y: 0, scale: 1, duration: 0.4, ease: 'power2.out' });
     });
   });
-})();
+}

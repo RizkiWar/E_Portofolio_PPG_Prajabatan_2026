@@ -2,7 +2,7 @@
    PORTFOLIO CHOOSER SCREEN
    Show 2 portfolio options after intro loading
    ============================================ */
-(function() {
+export function initPortfolioChooser() {
   const chooser = document.getElementById('portfolioChooser');
   const introTear = document.getElementById('introTear');
   if (!chooser) return;
@@ -37,7 +37,7 @@
 
     if (typeof gsap !== 'undefined' && window.innerWidth > 768) {
       gsap.from('.chooser-content > *', {
-        opacity: 0, y: 30, duration: 0.6, stagger: 0.12, ease: 'power3.out', delay: 0.1
+        opacity: 0, y: 20, duration: 0.35, stagger: 0.06, ease: 'power3.out', delay: 0
       });
     }
   }
@@ -135,12 +135,12 @@
 
   function tryShowChooser() {
     if (introAnimationCompleted()) {
-      setTimeout(showChooser, 500);
+      setTimeout(showChooser, 100);
     } else {
       const observer = new MutationObserver(() => {
         if (introAnimationCompleted()) {
           observer.disconnect();
-          setTimeout(showChooser, 500);
+          setTimeout(showChooser, 100);
         }
       });
       observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
@@ -156,4 +156,4 @@
   } else {
     tryShowChooser();
   }
-})();
+}

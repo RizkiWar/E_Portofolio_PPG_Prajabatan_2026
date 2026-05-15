@@ -6,6 +6,13 @@
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
 
+  const isMobile = window.innerWidth < 768;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isMobile || prefersReduced) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   const ctx = canvas.getContext('2d');
   let particles = [];
   let ripples = [];

@@ -1,4 +1,4 @@
-(function(){
+export function initArtefakAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -125,4 +125,4 @@
       gsap.to(overlay, { y: 30, opacity: 0, duration: 0.3, ease: 'power2.in' });
     });
   });
-})();
+}

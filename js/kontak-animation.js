@@ -1,4 +1,4 @@
-(function(){
+export function initKontakAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -135,4 +135,4 @@
       });
     });
   }
-})();
+}

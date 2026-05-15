@@ -769,3 +769,42 @@ html, body {
     height: 36px;
   }
 }
+
+/* ============================================
+   6. EXTRA SMALL (max-width: 320px)
+   Prevent overflow on very narrow screens
+   ============================================ */
+@media (max-width: 320px) {
+  .hero-image-wrapper {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .hero-name {
+    font-size: 1.4rem;
+  }
+  .hero-badges > div {
+    font-size: 0.7rem !important;
+    padding: 4px 8px !important;
+  }
+  .about-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+  .skill-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .chooser-cards {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-filter,
+  .portfolio-tabs,
+  .skills-tabs {
+    gap: 6px;
+  }
+  .filter-btn,
+  .tab-btn,
+  .skills-tab-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}

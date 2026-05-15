@@ -8,28 +8,35 @@
     content="E-Portfolio Guru Profesional - PPG Prajabatan 2026. Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran." />
   <meta name="keywords" content="e-portfolio, PPG Prajabatan, guru profesional, pendidikan, portofolio guru" />
   <meta name="author" content="Fanny Fatchurrahman" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="E-Portfolio | Guru Profesional PPG Prajabatan 2026" />
+  <meta property="og:description" content="Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran PPG Prajabatan 2026." />
+  <meta property="og:image" content="https://fannyf123.github.io/E_Portofolio_PPG_Prajabatan_2026/assets/img/hero-bg-ai-light.png" />
+  <meta property="og:url" content="https://fannyf123.github.io/E_Portofolio_PPG_Prajabatan_2026/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>E-Portfolio | Guru Profesional PPG Prajabatan 2026</title>
 
   <!-- Favicon -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
 
+  <!-- Dark mode FOUC prevention -->
+  <script>
+  (function(){
+    var t=localStorage.getItem('theme');
+    if(!t)t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    document.documentElement.setAttribute('data-theme',t);
+  })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Modular CSS -->
-  <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="css/pendidikan.css" />
-  <link rel="stylesheet" href="css/artefak.css" />
-  <link rel="stylesheet" href="css/skills.css" />
-  <link rel="stylesheet" href="css/model-guru.css" />
-  <link rel="stylesheet" href="css/kontak.css" />
-  <link rel="stylesheet" href="css/parallax.css" />
-  <!-- Responsive MUST be last to override all above -->
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="stylesheet" href="css/galeri.css" />
-  <link rel="stylesheet" href="css/enhancements.css?v=mechanical-particles-layer-20260514" />
-  <link rel="stylesheet" href="css/smoothness.css?v=20260515" />
-  <link rel="stylesheet" href="css/eportfolio2.css?v=20260515" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -43,7 +50,7 @@
     <!-- Content centered on top of both halves -->
     <div class="intro-panel-content">
       <div class="intro-panel-logo">
-        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG Pendidikan Profesi Guru" />
+        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG Pendidikan Profesi Guru" width="120" height="120" />
       </div>
       <div class="intro-panel-title">E-Portfolio PPG Prajabatan 2026</div>
       <div class="intro-panel-loading">
@@ -60,7 +67,7 @@
   <div class="portfolio-chooser" id="portfolioChooser" aria-hidden="true">
     <div class="chooser-content">
       <div class="chooser-logo">
-        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" />
+        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" width="48" height="48" />
       </div>
       <h2 class="chooser-title">Pilih E-Portfolio</h2>
       <p class="chooser-subtitle">Silakan pilih e-portfolio yang ingin Anda lihat</p>
@@ -107,7 +114,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#hero" class="nav-logo">
-        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG Pendidikan Profesi Guru" />
+        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG Pendidikan Profesi Guru" width="120" height="120" />
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="active">Beranda</a></li>
@@ -157,9 +164,9 @@
         </p>
         <div class="hero-actions">
           <a href="#portfolio" class="btn btn-primary">
-            📂 Lihat Portofolio
+            <i class="fa-solid fa-folder-open"></i> Lihat Portofolio
           </a>
-          <a href="#contact" class="btn btn-secondary"> ✉️ Hubungi Saya </a>
+          <a href="#contact" class="btn btn-secondary"> <i class="fa-solid fa-envelope"></i> Hubungi Saya </a>
         </div>
         <div class="hero-social">
           <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -170,7 +177,7 @@
       </div>
       <div class="hero-image">
         <div class="hero-image-wrapper">
-          <img src="assets/img/profile.jpeg" alt="Foto Profil Fanny Fatchurrahman" />
+          <img src="assets/img/profile.jpeg" alt="Foto Profil Fanny Fatchurrahman" width="300" height="300" />
         </div>
 
         <!-- Badges dipindah ke bawah gambar agar rapi dan tidak menutupi -->
@@ -199,7 +206,7 @@
   <section class="about section" id="about">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge coral">✨ Profil Mahasiswa</div>
+        <div class="section-badge coral"><i class="fa-solid fa-user"></i> Profil Mahasiswa</div>
         <h2 class="section-title">Mengenal Saya Lebih Dekat</h2>
         <p class="section-subtitle">
           Narasi perjalanan hidup dan inspirasi menjadi guru profesional
@@ -208,7 +215,7 @@
       <div class="about-grid">
         <div class="about-image reveal-left">
           <div class="about-image-card">
-            <img src="assets/img/hero-bg.png" alt="Foto Kegiatan Mengajar" />
+            <img src="assets/img/hero-bg.png" alt="Foto Kegiatan Mengajar" width="640" height="400" />
           </div>
           <div class="about-stats">
             <div class="about-stat">
@@ -374,7 +381,7 @@
   <section class="education section" id="education">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge teal">🎓 Riwayat Pendidikan</div>
+        <div class="section-badge teal"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</div>
         <h2 class="section-title">Perjalanan Akademik</h2>
         <p class="section-subtitle">
           Jejak pendidikan formal yang membentuk kompetensi profesional saya
@@ -386,7 +393,7 @@
           <div class="timeline-card">
             <div class="timeline-card-header">
               <div class="edu-logo edu-logo-ppg">
-                <img src="assets/img/ust-logo.png" alt="Logo Universitas Sarjanawiyata Tamansiswa" />
+                <img src="assets/img/ust-logo.png" alt="Logo Universitas Sarjanawiyata Tamansiswa" width="60" height="60" />
               </div>
               <div class="edu-info">
                 <span class="timeline-year">2025 - Sekarang</span>
@@ -403,7 +410,7 @@
           <div class="timeline-card">
             <div class="timeline-card-header">
               <div class="edu-logo edu-logo-s1">
-                <img src="assets/img/uny-logo.png" alt="Logo Universitas Negeri Yogyakarta" />
+                <img src="assets/img/uny-logo.png" alt="Logo Universitas Negeri Yogyakarta" width="60" height="60" />
               </div>
               <div class="edu-info">
                 <span class="timeline-year">2021 - 2025</span>
@@ -419,7 +426,7 @@
           <div class="timeline-card">
             <div class="timeline-card-header">
               <div class="edu-logo edu-logo-smk">
-                <img src="assets/img/smk2klaten-logo.png" alt="Logo SMK Negeri 2 Klaten" />
+                <img src="assets/img/smk2klaten-logo.png" alt="Logo SMK Negeri 2 Klaten" width="60" height="60" />
               </div>
               <div class="edu-info">
                 <span class="timeline-year">2017 - 2021</span>
@@ -440,7 +447,7 @@
   <section class="portfolio section" id="portfolio">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge amber">📁 Portofolio</div>
+        <div class="section-badge amber"><i class="fa-solid fa-folder-open"></i> Portofolio</div>
         <h2 class="section-title">Karya & Dokumentasi</h2>
         <p class="section-subtitle">
           Koleksi perangkat pembelajaran, media, dan dokumentasi kegiatan
@@ -464,13 +471,13 @@
       <div class="portfolio-grid-wrapper" id="portfolioGridWrapper"
         style="display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
         <div class="portfolio-grid-inner" id="portfolioGridInner"
-          style="min-height: 0; overflow: hidden; transition: opacity 0.5s ease, margin-top 0.5s ease; opacity: 1; margin-top: 0;">
+          style="min-height: 0; overflow: visible; transition: opacity 0.5s ease, margin-top 0.5s ease; opacity: 1; margin-top: 0;">
           <div class="portfolio-grid" id="portfolioGrid" style="padding-bottom: 20px;">
             <!-- Card 1: RPP -->
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="rpp">
               <a href="https://drive.google.com/file/d/13HtahKdlZsOCvZQitf-nsfdewEUgTeHT/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat RPP Siklus 1">
-                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 1 — Gambar Teknik Manufaktur" loading="lazy" />
+                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 1 — Gambar Teknik Manufaktur" loading="lazy" width="640" height="400" />
                 <span class="card-tag rpp">RPP</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -490,7 +497,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="asesmen">
               <a href="https://drive.google.com/file/d/1SJhusFCTSfJd1659mWUAMIJrQBfO3nmM/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Asesmen Siklus 1">
-                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Terpadu Siklus 1" loading="lazy" />
+                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Terpadu Siklus 1" loading="lazy" width="640" height="400" />
                 <span class="card-tag asesmen">Asesmen</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -510,7 +517,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="lkm">
               <a href="https://drive.google.com/file/d/1mcGkRJtcLVytwnXn7z2mykJoX9hgZZ9R/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat LKM Siklus 1 P1">
-                <img src="assets/img/LKM_Siklus-1_P1.png" alt="Lembar Kerja Murid P1" loading="lazy" />
+                <img src="assets/img/LKM_Siklus-1_P1.png" alt="Lembar Kerja Murid P1" loading="lazy" width="640" height="400" />
                 <span class="card-tag modul">LKM P1</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -529,7 +536,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="lkm">
               <a href="https://drive.google.com/file/d/1Z3_glCt5CahLNMVduJ6XUMTLAjnhsl6d/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat LKM Siklus 1 P2">
-                <img src="assets/img/LKM_Siklus-1_P2.png" alt="Lembar Kerja Murid P2" loading="lazy" />
+                <img src="assets/img/LKM_Siklus-1_P2.png" alt="Lembar Kerja Murid P2" loading="lazy" width="640" height="400" />
                 <span class="card-tag modul">LKM P2</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -548,7 +555,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="lkm">
               <a href="https://drive.google.com/file/d/1YuJtd6sDCAwnYJ2eVZJI71GClZ6ep8et/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat LKM Siklus 1 P3">
-                <img src="assets/img/LKM_Siklus-1_P3.png" alt="Lembar Kerja Murid P3" loading="lazy" />
+                <img src="assets/img/LKM_Siklus-1_P3.png" alt="Lembar Kerja Murid P3" loading="lazy" width="640" height="400" />
                 <span class="card-tag modul">LKM P3</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -568,7 +575,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="materi">
               <a href="https://drive.google.com/file/d/17Dta9nZyABe3j9t8P9DnovuKzn75m45l/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Bahan Ajar Siklus 1">
-                <img src="assets/img/Materi_Siklus-1_P1.png" alt="Bahan Ajar Siklus 1" loading="lazy" />
+                <img src="assets/img/Materi_Siklus-1_P1.png" alt="Bahan Ajar Siklus 1" loading="lazy" width="640" height="400" />
                 <span class="card-tag sky">Materi</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -587,7 +594,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="media">
               <a href="https://drive.google.com/file/d/1EUubB5nRb-d2RGyJCrDbUVBlOO3ZwAxq/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Media Pembelajaran Siklus 1">
-                <img src="assets/img/Media_Siklus1_PPT.png" alt="Media Pembelajaran — PPT Siklus 1" loading="lazy" />
+                <img src="assets/img/Media_Siklus1_PPT.png" alt="Media Pembelajaran — PPT Siklus 1" loading="lazy" width="640" height="400" />
                 <span class="card-tag media">Media</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -607,7 +614,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="media">
               <a href="https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Media Pembelajaran Siklus 1 P2">
-                <img src="assets/img/Media_Siklus1_P2.png" alt="Media Pembelajaran — PPT Siklus 1 P2" loading="lazy" />
+                <img src="assets/img/Media_Siklus1_P2.png" alt="Media Pembelajaran — PPT Siklus 1 P2" loading="lazy" width="640" height="400" />
                 <span class="card-tag media">Media P2</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -627,7 +634,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="media">
               <a href="https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Media Pembelajaran Siklus 1 P3">
-                <img src="assets/img/Media_Siklus1_P3.png" alt="Media Pembelajaran — PPT Siklus 1 P3" loading="lazy" />
+                <img src="assets/img/Media_Siklus1_P3.png" alt="Media Pembelajaran — PPT Siklus 1 P3" loading="lazy" width="640" height="400" />
                 <span class="card-tag media">Media P3</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -645,7 +652,7 @@
             <div class="portfolio-card reveal" data-siklus="siklus1" data-category="lainnya">
               <a href="https://drive.google.com/file/d/1HGyN7VOBQYgdXj3-IszSVntb4yltAMt_/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                 class="portfolio-card-img" aria-label="Lihat Gambar Teknik Tool Post Revisi">
-                <img src="assets/img/Tool Post Rev.png" alt="Gambar Teknik Tool Post Revisi" loading="lazy" />
+                <img src="assets/img/Tool Post Rev.png" alt="Gambar Teknik Tool Post Revisi" loading="lazy" width="640" height="400" />
                 <span class="card-tag coral">Gambar Teknik</span>
                 <div class="card-img-overlay"><span>📄 Buka PDF di Drive</span></div>
               </a>
@@ -665,7 +672,7 @@
             <!-- Card S2-1: RPP Siklus 2 -->
             <div class="portfolio-card reveal" data-siklus="siklus2" data-category="rpp" style="display:none;">
               <div class="portfolio-card-img" tabindex="0" role="button" aria-label="RPP Siklus 2">
-                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 2" loading="lazy" class="img-siklus2" />
+                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 2" loading="lazy" width="640" height="400" class="img-siklus2" />
                 <span class="card-tag rpp">RPP</span>
                 <div class="card-img-overlay"><span>🚧 Segera Hadir</span></div>
               </div>
@@ -682,7 +689,7 @@
             <!-- Card S2-2: Asesmen Siklus 2 -->
             <div class="portfolio-card reveal" data-siklus="siklus2" data-category="asesmen" style="display:none;">
               <div class="portfolio-card-img" tabindex="0" role="button" aria-label="Asesmen Siklus 2">
-                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Siklus 2" loading="lazy" class="img-siklus2" />
+                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Siklus 2" loading="lazy" width="640" height="400" class="img-siklus2" />
                 <span class="card-tag asesmen">Asesmen</span>
                 <div class="card-img-overlay"><span>🚧 Segera Hadir</span></div>
               </div>
@@ -699,7 +706,7 @@
             <!-- Card S2-3: Media Siklus 2 -->
             <div class="portfolio-card reveal" data-siklus="siklus2" data-category="media" style="display:none;">
               <div class="portfolio-card-img" tabindex="0" role="button" aria-label="Media Siklus 2">
-                <img src="assets/img/Media_Siklus1_PPT.png" alt="Media Siklus 2" loading="lazy" class="img-siklus2" />
+                <img src="assets/img/Media_Siklus1_PPT.png" alt="Media Siklus 2" loading="lazy" width="640" height="400" class="img-siklus2" />
                 <span class="card-tag media">Media</span>
                 <div class="card-img-overlay"><span>🚧 Segera Hadir</span></div>
               </div>
@@ -717,7 +724,7 @@
             <!-- Card S3-1: RPP Siklus 3 -->
             <div class="portfolio-card reveal" data-siklus="siklus3" data-category="rpp" style="display:none;">
               <div class="portfolio-card-img" tabindex="0" role="button" aria-label="RPP Siklus 3">
-                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 3" loading="lazy" class="img-siklus3" />
+                <img src="assets/img/RPP_Siklus_1.png" alt="RPP Siklus 3" loading="lazy" width="640" height="400" class="img-siklus3" />
                 <span class="card-tag rpp">RPP</span>
                 <div class="card-img-overlay"><span>🚧 Segera Hadir</span></div>
               </div>
@@ -734,7 +741,7 @@
             <!-- Card S3-2: Asesmen Siklus 3 -->
             <div class="portfolio-card reveal" data-siklus="siklus3" data-category="asesmen" style="display:none;">
               <div class="portfolio-card-img" tabindex="0" role="button" aria-label="Asesmen Siklus 3">
-                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Siklus 3" loading="lazy" class="img-siklus3" />
+                <img src="assets/img/Asesmen_Siklus_1.png" alt="Asesmen Siklus 3" loading="lazy" width="640" height="400" class="img-siklus3" />
                 <span class="card-tag asesmen">Asesmen</span>
                 <div class="card-img-overlay"><span>🚧 Segera Hadir</span></div>
               </div>
@@ -756,7 +763,7 @@
   <!-- ============================================
        MODAL ANALISIS ARTEFAK (Template)
        ============================================ -->
-  <div class="modal-overlay" id="modalOverlay">
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-container" id="modalContainer">
       <button class="modal-close" id="modalClose">×</button>
       <div class="modal-content" id="modalContent">
@@ -771,7 +778,7 @@
   <section class="penilaian section" id="penilaian">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge mint">📝 Penilaian DPL & GP</div>
+        <div class="section-badge mint"><i class="fa-solid fa-clipboard-check"></i> Penilaian DPL & GP</div>
         <h2 class="section-title">Hasil Penilaian Praktik</h2>
         <p class="section-subtitle">Lampiran 7 dan 8: Penilaian penyusunan perangkat dan praktik mengajar</p>
       </div>
@@ -855,7 +862,7 @@
   <section class="philosophy section" id="model-guru">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge lavender">🌟 Model Guru yang Dituju</div>
+        <div class="section-badge lavender"><i class="fa-solid fa-star"></i> Model Guru yang Dituju</div>
         <h2 class="section-title">Guru Profesional Impian Saya</h2>
         <p class="section-subtitle">
           Misi, kompetensi, dan karakter guru yang ingin saya bangun
@@ -906,7 +913,7 @@
   <section class="skills section" id="skills">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge sky">🛠️ Keahlian</div>
+        <div class="section-badge sky"><i class="fa-solid fa-wrench"></i> Keahlian</div>
         <h2 class="section-title">Kompetensi & Keahlian</h2>
         <p class="section-subtitle">Berbagai keterampilan yang mendukung profesionalisme di bidang pendidikan</p>
       </div>
@@ -1021,7 +1028,7 @@
   <section class="certificates section" id="certificates">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge mint">🏅 Sertifikat</div>
+        <div class="section-badge mint"><i class="fa-solid fa-certificate"></i> Sertifikat</div>
         <h2 class="section-title">Sertifikat & Pencapaian</h2>
         <p class="section-subtitle">
           Bukti pengembangan diri dan pencapaian profesional
@@ -1149,7 +1156,7 @@
   </section>
 
   <!-- Sertifikat Preview Modal -->
-  <div class="cert-modal-overlay" id="certModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; padding:24px;">
+  <div class="cert-modal-overlay" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; padding:24px;">
     <div class="cert-modal-box" style="background:#fff; border-radius:16px; width:90%; max-width:900px; height:85vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
       <div class="cert-modal-header" style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid #eee;">
         <h4 id="certModalTitle" style="margin:0; font-size:1.1rem; color:#0F5EA8;">Preview Sertifikat</h4>
@@ -1170,7 +1177,7 @@
   <section class="gallery section" id="gallery">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge teal">📸 Galeri</div>
+        <div class="section-badge teal"><i class="fa-solid fa-images"></i> Galeri</div>
         <h2 class="section-title">Dokumentasi Kegiatan</h2>
         <p class="section-subtitle">
           Kumpulan momen bermakna selama proses belajar mengajar
@@ -1179,28 +1186,28 @@
 
       <div class="gallery-accordion reveal">
         <div class="gallery-item active" data-type="image" data-src="assets/img/hero-bg.png">
-          <img src="assets/img/hero-bg.png" alt="Praktik Mesin Bubut">
+          <img src="assets/img/hero-bg.png" alt="Praktik Mesin Bubut" loading="lazy" width="800" height="600">
           <div class="gallery-caption">
             <h3>Praktik Mesin Bubut</h3>
             <p>Membimbing siswa kelas XI Teknik Pemesinan</p>
           </div>
         </div>
         <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
-          <img src="assets/img/hero-bg.png" alt="Diskusi Kelompok">
+          <img src="assets/img/hero-bg.png" alt="Diskusi Kelompok" loading="lazy" width="800" height="600">
           <div class="gallery-caption">
             <h3>Diskusi Kelompok</h3>
             <p>Penerapan model pembelajaran Project Based Learning</p>
           </div>
         </div>
         <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
-          <img src="assets/img/hero-bg.png" alt="Presentasi Proyek">
+          <img src="assets/img/hero-bg.png" alt="Presentasi Proyek" loading="lazy" width="800" height="600">
           <div class="gallery-caption">
             <h3>Presentasi Proyek</h3>
             <p>Siswa memaparkan hasil rancangan CAD 3D</p>
           </div>
         </div>
         <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
-          <img src="assets/img/hero-bg.png" alt="Observasi PPL">
+          <img src="assets/img/hero-bg.png" alt="Observasi PPL" loading="lazy" width="800" height="600">
           <div class="gallery-caption">
             <h3>Observasi PPL</h3>
             <p>Kegiatan pengamatan budaya sekolah di SMKN 2 Depok</p>
@@ -1209,7 +1216,7 @@
       </div>
 
       <!-- Lightbox -->
-      <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+      <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Galeri Lightbox" aria-hidden="true">
         <button class="lightbox-close" aria-label="Tutup">&times;</button>
         <button class="lightbox-prev" aria-label="Sebelumnya">&#8249;</button>
         <button class="lightbox-next" aria-label="Berikutnya">&#8250;</button>
@@ -1225,7 +1232,7 @@
   <section class="contact section" id="contact">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge coral">📬 Kontak</div>
+        <div class="section-badge coral"><i class="fa-solid fa-envelope-open-text"></i> Kontak</div>
         <h2 class="section-title">Hubungi Saya</h2>
         <p class="section-subtitle">
           Jangan ragu untuk menghubungi saya untuk diskusi atau kolaborasi
@@ -1381,7 +1388,7 @@
     <nav class="navbar ep2-navbar" id="ep2Navbar">
       <div class="container">
         <a href="#" class="nav-logo" id="ep2BackBtn">
-          <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" />
+          <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" width="48" height="48" />
         </a>
         <ul class="nav-links">
           <li><a href="#ep2-refleksi" class="active">Refleksi PPL</a></li>
@@ -1609,21 +1616,7 @@
   <!-- JavaScript -->
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script type="module" src="js/main.js?v=mechanical-particles-layer-20260514"></script>
-  <script type="module" src="js/scroll-experience.js?v=mechanical-particles-layer-20260514"></script>
-  <script type="module" src="js/section-transitions.js"></script>
-  <script type="module" src="js/artefak.js"></script>
-  <script type="module" src="js/particles.js"></script>
-  <script src="js/profil-animation.js"></script>
-  <script src="js/pendidikan-animation.js"></script>
-  <script src="js/artefak-animation.js"></script>
-  <script src="js/model-guru-animation.js"></script>
-  <script src="js/keahlian-animation.js"></script>
-  <script src="js/galeri-animation.js"></script>
-  <script src="js/kontak-animation.js"></script>
-  <script src="js/footer-animation.js"></script>
-  <script src="js/portfolio-chooser.js"></script>
-  <script src="js/sertifikat-modal.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

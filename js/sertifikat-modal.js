@@ -1,7 +1,7 @@
 /* ============================================
    SERTIFIKAT MODAL POPUP
    ============================================ */
-(function() {
+export function initSertifikatModal() {
   const modal = document.getElementById('certModal');
   if (!modal) return;
 
@@ -63,4 +63,4 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
   });
-})();
+}

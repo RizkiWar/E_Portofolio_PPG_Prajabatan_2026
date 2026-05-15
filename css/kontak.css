@@ -4,7 +4,7 @@
 .contact {
   background: var(--white);
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .contact::before {
@@ -40,12 +40,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-top: 12px;
 }
 
 .contact-detail-item {
   display: flex;
   align-items: center;
   gap: 16px;
+  overflow: visible;
+  padding: 8px 0;
 }
 
 .contact-detail-item .detail-icon {
@@ -62,6 +65,7 @@
   color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
+  overflow: visible;
 }
 
 .contact-detail-item:nth-child(1) .detail-icon {
