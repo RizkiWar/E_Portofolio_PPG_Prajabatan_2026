@@ -29,7 +29,7 @@
   updateActiveNav();
 
   initEp2RevealAnimations(wrapper);
-  initEp2HeroParallax(wrapper);
+  // initEp2HeroParallax(wrapper); // disabled: avoid scroll jank/freezing
 
   // Smooth scroll for nav links (snap will handle the rest)
   wrapper.querySelectorAll('a[href^="#ep2-"]').forEach(function(link) {
@@ -58,6 +58,7 @@ function initEp2RevealAnimations(wrapper) {
     '.ep2-hero-preview-card',
     '.section-header',
     '.ep2-question-card',
+    '.ep2-refleksi-summary-item',
     '.ep2-quote-banner',
     '.ep2-filosofi-mini-card',
     '.ep2-values-section',

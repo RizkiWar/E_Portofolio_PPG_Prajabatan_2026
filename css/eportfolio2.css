@@ -1063,7 +1063,7 @@
 #ep2-refleksi,
 #ep2-filosofi {
   justify-content: flex-start;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 48px;
 }
 #ep2-refleksi .container,
@@ -1084,6 +1084,653 @@
 @media (max-width: 768px) {
   #ep2-refleksi,
   #ep2-filosofi {
-    padding-top: 10px;
+    padding-top: 15px;
   }
+}
+
+/* EP2 Refleksi enrichment */
+.ep2-refleksi-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.ep2-refleksi-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.ep2-refleksi-summary-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 10px 26px rgba(15, 94, 168, 0.05);
+}
+.ep2-refleksi-summary-num {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--teal, #2EC4B6), var(--coral, #39BDEB));
+}
+.ep2-refleksi-summary-item strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--gray-800);
+  margin-bottom: 3px;
+}
+.ep2-refleksi-summary-item p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--gray-500);
+}
+[data-theme="dark"] .ep2-refleksi-summary-item {
+  background: var(--gray-50);
+  border-color: var(--gray-200);
+}
+[data-theme="dark"] .ep2-refleksi-summary-item strong { color: var(--gray-800); }
+[data-theme="dark"] .ep2-refleksi-summary-item p { color: var(--gray-500); }
+@media (max-width: 980px) {
+  .ep2-refleksi-summary { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .ep2-refleksi-summary { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   EP2 LIVE AMBIENT ANIMATION
+   lightweight floating particles + gradient glow
+   ============================================ */
+.ep2-live-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ep2-live-bg::before,
+.ep2-live-bg::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(56px);
+  opacity: 0.22;
+  animation: ep2-glow-drift 14s ease-in-out infinite alternate;
+}
+.ep2-live-bg::before {
+  top: 8%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(46, 196, 182, 0.55), transparent 68%);
+}
+.ep2-live-bg::after {
+  right: -10%;
+  bottom: 8%;
+  background: radial-gradient(circle, rgba(155, 114, 207, 0.5), transparent 68%);
+  animation-delay: -5s;
+}
+.ep2-live-bg span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(57, 189, 235, 0.55);
+  box-shadow: 0 0 18px rgba(57, 189, 235, 0.55);
+  opacity: 0.45;
+  animation: ep2-particle-rise 12s linear infinite;
+}
+.ep2-live-bg span:nth-child(1) { left: 8%;  top: 80%; animation-duration: 13s; animation-delay: -1s; }
+.ep2-live-bg span:nth-child(2) { left: 18%; top: 62%; animation-duration: 16s; animation-delay: -6s; width: 5px; height: 5px; }
+.ep2-live-bg span:nth-child(3) { left: 32%; top: 74%; animation-duration: 14s; animation-delay: -3s; background: rgba(46,196,182,.55); }
+.ep2-live-bg span:nth-child(4) { left: 46%; top: 86%; animation-duration: 18s; animation-delay: -8s; width: 6px; height: 6px; }
+.ep2-live-bg span:nth-child(5) { left: 58%; top: 68%; animation-duration: 15s; animation-delay: -2s; background: rgba(155,114,207,.55); }
+.ep2-live-bg span:nth-child(6) { left: 70%; top: 82%; animation-duration: 17s; animation-delay: -9s; width: 5px; height: 5px; }
+.ep2-live-bg span:nth-child(7) { left: 82%; top: 72%; animation-duration: 14s; animation-delay: -5s; background: rgba(46,196,182,.5); }
+.ep2-live-bg span:nth-child(8) { left: 92%; top: 88%; animation-duration: 19s; animation-delay: -10s; width: 6px; height: 6px; }
+.ep2-live-bg span:nth-child(9) { left: 24%; top: 92%; animation-duration: 20s; animation-delay: -12s; background: rgba(155,114,207,.45); }
+.ep2-live-bg span:nth-child(10){ left: 76%; top: 94%; animation-duration: 21s; animation-delay: -13s; background: rgba(57,189,235,.5); }
+
+@keyframes ep2-glow-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(70px, -42px, 0) scale(1.14); }
+}
+@keyframes ep2-particle-rise {
+  0% { transform: translate3d(0, 0, 0) scale(0.8); opacity: 0; }
+  15% { opacity: 0.48; }
+  80% { opacity: 0.35; }
+  100% { transform: translate3d(24px, -110vh, 0) scale(1.15); opacity: 0; }
+}
+.eportfolio2-wrapper > section,
+.ep2-footer,
+.ep2-navbar {
+  position: relative;
+  z-index: 1;
+}
+[data-theme="dark"] .ep2-live-bg::before,
+[data-theme="dark"] .ep2-live-bg::after {
+  opacity: 0.28;
+}
+[data-theme="dark"] .ep2-live-bg span {
+  opacity: 0.55;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ep2-live-bg::before,
+  .ep2-live-bg::after,
+  .ep2-live-bg span {
+    animation: none;
+  }
+}
+
+/* EP2 hero background extends behind navbar */
+.ep2-hero {
+  margin-top: -76px;
+  padding-top: 76px;
+}
+.ep2-navbar {
+  z-index: 1200;
+}
+.ep2-live-bg {
+  z-index: 0;
+}
+.ep2-hero {
+  z-index: 1;
+}
+
+/* EP2 live animation layer: above PNG background, below content */
+.ep2-live-bg {
+  z-index: 2;
+}
+.eportfolio2-wrapper > section,
+.ep2-footer {
+  z-index: 3;
+}
+.ep2-navbar {
+  z-index: 1200;
+}
+.ep2-hero::before {
+  z-index: 1;
+}
+.ep2-hero .container {
+  z-index: 4;
+}
+
+/* EP2 live animation visible across all sections */
+.eportfolio2-wrapper {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(46, 196, 182, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 28%, rgba(155, 114, 207, 0.08), transparent 30%),
+    var(--off-white, #fafbfd);
+}
+[data-theme="dark"] .eportfolio2-wrapper {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(46, 196, 182, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 28%, rgba(155, 114, 207, 0.12), transparent 30%),
+    var(--off-white, #14161D);
+}
+#ep2-refleksi,
+#ep2-filosofi {
+  background: transparent;
+}
+#ep2-refleksi::before,
+#ep2-filosofi::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(46, 196, 182, 0.08), transparent 30%),
+    radial-gradient(circle at 82% 20%, rgba(57, 189, 235, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.50));
+}
+[data-theme="dark"] #ep2-refleksi::before,
+[data-theme="dark"] #ep2-filosofi::before {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(46, 196, 182, 0.10), transparent 30%),
+    radial-gradient(circle at 82% 20%, rgba(57, 189, 235, 0.10), transparent 26%),
+    linear-gradient(180deg, rgba(20,22,29,0.70), rgba(20,22,29,0.48));
+}
+#ep2-refleksi > .container,
+#ep2-filosofi > .container {
+  position: relative;
+  z-index: 4;
+}
+.ep2-live-bg {
+  z-index: 2;
+  position: fixed;
+}
+.ep2-live-bg span {
+  opacity: 0.62;
+}
+.ep2-live-bg::before,
+.ep2-live-bg::after {
+  opacity: 0.30;
+}
+[data-theme="dark"] .ep2-live-bg span {
+  opacity: 0.72;
+}
+
+/* EP2 navbar always visible above all live layers */
+.ep2-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+  isolation: isolate;
+}
+.ep2-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+[data-theme="dark"] .ep2-navbar.scrolled {
+  background: rgba(20, 22, 29, 0.90) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30) !important;
+}
+.ep2-live-bg {
+  z-index: 1 !important;
+}
+.eportfolio2-wrapper > section,
+.ep2-footer {
+  z-index: 2 !important;
+}
+.ep2-hero .container,
+#ep2-refleksi > .container,
+#ep2-filosofi > .container {
+  z-index: 3 !important;
+}
+
+/* EP2 hero spacing + particle visibility fix */
+.ep2-hero {
+  padding-top: 120px !important;
+}
+.ep2-hero-content {
+  transform: translateY(34px) !important;
+}
+.ep2-live-bg {
+  z-index: 2 !important;
+}
+.ep2-hero::before {
+  z-index: 1 !important;
+}
+.ep2-hero .container {
+  z-index: 4 !important;
+}
+.ep2-live-bg span {
+  opacity: 0.72 !important;
+}
+.ep2-live-bg::before,
+.ep2-live-bg::after {
+  opacity: 0.36 !important;
+}
+[data-theme="dark"] .ep2-live-bg span {
+  opacity: 0.82 !important;
+}
+@media (max-width: 768px) {
+  .ep2-hero {
+    padding-top: 110px !important;
+  }
+  .ep2-hero-content {
+    transform: translateY(20px) !important;
+  }
+}
+
+/* ============================================
+   EP2 HERO FINAL: EP1-like full-screen fit
+   ============================================ */
+.ep2-hero {
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  margin-top: -76px !important;
+  padding: 76px 0 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.ep2-hero .container {
+  height: calc(100dvh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+  padding-bottom: 20px;
+}
+.ep2-hero-content {
+  width: min(100%, 1180px);
+  max-height: calc(100dvh - 118px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px !important;
+  transform: none !important;
+}
+.ep2-hero-top {
+  grid-template-columns: 280px minmax(0, 1fr) !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+.ep2-hero-left {
+  padding: 20px 18px !important;
+  gap: 10px !important;
+}
+.ep2-hero-photo {
+  width: 132px !important;
+  height: 132px !important;
+}
+.ep2-hero-name { font-size: 1.28rem !important; }
+.ep2-hero-role { font-size: 0.84rem !important; }
+.ep2-hero-tag { font-size: 0.72rem !important; padding: 5px 10px !important; }
+.ep2-hero-social a { width: 34px !important; height: 34px !important; }
+.ep2-hero-right { gap: 12px !important; }
+.ep2-title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem) !important;
+  line-height: 1.12 !important;
+}
+.ep2-subtitle {
+  max-width: 620px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+.ep2-hero-quote {
+  padding: 12px 16px !important;
+}
+.ep2-hero-quote p {
+  font-size: 0.82rem !important;
+  line-height: 1.5 !important;
+}
+.ep2-hero-preview {
+  gap: 16px !important;
+}
+.ep2-hero-preview-card {
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+}
+.ep2-hero-preview-icon {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  font-size: 1rem !important;
+}
+.ep2-hero-preview-text h3 { font-size: 0.92rem !important; }
+.ep2-hero-preview-text p {
+  font-size: 0.74rem !important;
+  line-height: 1.42 !important;
+}
+.ep2-hero-preview-num { font-size: 1.45rem !important; }
+.ep2-scroll-indicator {
+  bottom: 12px !important;
+}
+@media (max-width: 900px) {
+  .ep2-hero {
+    height: auto !important;
+    min-height: 100dvh !important;
+    overflow: visible !important;
+    padding-bottom: 32px !important;
+  }
+  .ep2-hero .container {
+    height: auto;
+    min-height: calc(100dvh - 76px);
+  }
+  .ep2-hero-content {
+    max-height: none;
+    gap: 20px !important;
+  }
+  .ep2-hero-top {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .ep2-hero-right { align-items: center; text-align: center; }
+  .ep2-hero-preview { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================
+   EP2 HERO TRUE FIT (GitHub/EP1 style)
+   Background starts at viewport top, navbar overlays it
+   ============================================ */
+.ep2-hero {
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  background-position: center top !important;
+}
+.ep2-hero .container {
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: 1200px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 86px 24px 34px !important;
+  box-sizing: border-box !important;
+}
+.ep2-hero-content {
+  width: 100% !important;
+  max-height: calc(100dvh - 120px) !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 18px !important;
+}
+.ep2-hero-top {
+  display: grid !important;
+  grid-template-columns: 270px minmax(0, 1fr) !important;
+  gap: 44px !important;
+  align-items: center !important;
+}
+.ep2-hero-left {
+  padding: 18px 16px !important;
+  gap: 9px !important;
+}
+.ep2-hero-photo {
+  width: 124px !important;
+  height: 124px !important;
+}
+.ep2-hero-name { font-size: 1.22rem !important; }
+.ep2-hero-role { font-size: 0.82rem !important; }
+.ep2-hero-tags { margin-top: 4px !important; gap: 6px !important; }
+.ep2-hero-tag { font-size: 0.7rem !important; padding: 4px 9px !important; }
+.ep2-hero-social { gap: 8px !important; }
+.ep2-hero-social a { width: 32px !important; height: 32px !important; font-size: .88rem !important; }
+.ep2-hero-right { gap: 10px !important; }
+.ep2-hero-greeting { font-size: .84rem !important; padding: 6px 14px !important; }
+.ep2-title {
+  font-size: clamp(1.85rem, 3.7vw, 2.65rem) !important;
+  line-height: 1.12 !important;
+}
+.ep2-subtitle {
+  max-width: 610px !important;
+  font-size: .9rem !important;
+  line-height: 1.5 !important;
+}
+.ep2-hero-quote {
+  padding: 10px 14px !important;
+}
+.ep2-hero-quote p {
+  font-size: .78rem !important;
+  line-height: 1.45 !important;
+}
+.ep2-hero-actions { gap: 12px !important; }
+.ep2-hero-preview {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+.ep2-hero-preview-card {
+  padding: 12px 16px !important;
+  min-height: 92px !important;
+}
+.ep2-hero-preview-icon {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+}
+.ep2-hero-preview-text h3 { font-size: .9rem !important; }
+.ep2-hero-preview-text p { font-size: .72rem !important; line-height: 1.38 !important; }
+.ep2-hero-preview-num { font-size: 1.35rem !important; min-width: 40px !important; }
+.ep2-scroll-indicator { bottom: 10px !important; }
+.ep2-navbar:not(.scrolled) {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.ep2-live-bg { z-index: 2 !important; }
+.ep2-hero::before { z-index: 1 !important; }
+.ep2-hero .container { position: relative !important; z-index: 4 !important; }
+@media (max-width: 900px) {
+  .ep2-hero {
+    height: auto !important;
+    min-height: 100dvh !important;
+    overflow: visible !important;
+  }
+  .ep2-hero .container {
+    height: auto !important;
+    min-height: 100dvh !important;
+    padding-top: 92px !important;
+  }
+  .ep2-hero-content { max-height: none !important; }
+  .ep2-hero-top { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .ep2-hero-right { align-items: center !important; text-align: center !important; }
+  .ep2-hero-preview { grid-template-columns: 1fr !important; }
+}
+
+/* EP2 hero sizing: closer to GitHub example proportions */
+.ep2-hero .container {
+  padding: 82px 24px 34px !important;
+}
+.ep2-hero-content {
+  max-height: calc(100dvh - 112px) !important;
+  gap: 24px !important;
+}
+.ep2-hero-top {
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  gap: 56px !important;
+}
+.ep2-hero-left {
+  padding: 24px 22px !important;
+  gap: 14px !important;
+}
+.ep2-hero-photo {
+  width: 160px !important;
+  height: 160px !important;
+}
+.ep2-hero-name { font-size: 1.45rem !important; }
+.ep2-hero-role { font-size: 0.9rem !important; }
+.ep2-hero-tag { font-size: 0.75rem !important; padding: 5px 12px !important; }
+.ep2-hero-social a { width: 38px !important; height: 38px !important; font-size: 1rem !important; }
+.ep2-hero-right { gap: 14px !important; }
+.ep2-hero-greeting { font-size: .92rem !important; padding: 7px 18px !important; }
+.ep2-title {
+  font-size: clamp(2.15rem, 4.7vw, 3.35rem) !important;
+  line-height: 1.12 !important;
+}
+.ep2-subtitle {
+  max-width: 680px !important;
+  font-size: 1.03rem !important;
+  line-height: 1.62 !important;
+}
+.ep2-hero-quote {
+  padding: 14px 18px !important;
+}
+.ep2-hero-quote p {
+  font-size: .9rem !important;
+  line-height: 1.55 !important;
+}
+.ep2-hero-preview {
+  gap: 18px !important;
+}
+.ep2-hero-preview-card {
+  padding: 18px 22px !important;
+  min-height: 118px !important;
+}
+.ep2-hero-preview-icon {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  font-size: 1.15rem !important;
+}
+.ep2-hero-preview-text h3 { font-size: 1rem !important; }
+.ep2-hero-preview-text p { font-size: .82rem !important; line-height: 1.48 !important; }
+.ep2-hero-preview-num { font-size: 1.8rem !important; min-width: 52px !important; }
+@media (max-height: 760px) and (min-width: 901px) {
+  .ep2-hero-photo { width: 140px !important; height: 140px !important; }
+  .ep2-title { font-size: clamp(2rem, 4.2vw, 3rem) !important; }
+  .ep2-subtitle { font-size: .96rem !important; line-height: 1.5 !important; }
+  .ep2-hero-preview-card { min-height: 100px !important; padding: 14px 18px !important; }
+}
+
+/* ============================================
+   EP2 PERFORMANCE FIX: prevent scroll freeze
+   ============================================ */
+.eportfolio2-wrapper {
+  scroll-behavior: auto !important;
+  will-change: auto !important;
+}
+.ep2-live-bg {
+  position: absolute !important;
+  inset: 0 auto auto 0 !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  contain: paint !important;
+}
+.ep2-live-bg::before,
+.ep2-live-bg::after {
+  filter: blur(28px) !important;
+  opacity: 0.18 !important;
+  animation-duration: 20s !important;
+}
+.ep2-live-bg span:nth-child(n+6) {
+  display: none !important;
+}
+.ep2-live-bg span {
+  opacity: 0.38 !important;
+  animation-duration: 18s !important;
+  box-shadow: none !important;
+}
+.ep2-hero-left,
+.ep2-hero-quote,
+.ep2-hero-preview-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.ep2-animate {
+  filter: none !important;
+  transition: opacity 0.45s ease, transform 0.45s ease !important;
+}
+.ep2-float-soft {
+  animation: none !important;
+}
+.ep2-question-card,
+.ep2-filosofi-mini-card,
+.ep2-value-mini,
+.ep2-hero-preview-card {
+  will-change: auto !important;
 }
