@@ -1071,34 +1071,43 @@
       </div>
 
       <div class="gallery-accordion reveal">
-        <div class="gallery-item active">
-          <img src="assets/img/hero-bg.png" alt="Kegiatan 1">
+        <div class="gallery-item active" data-type="image" data-src="assets/img/hero-bg.png">
+          <img src="assets/img/hero-bg.png" alt="Praktik Mesin Bubut">
           <div class="gallery-caption">
             <h3>Praktik Mesin Bubut</h3>
-            <p>Membimbing siswa kelas XI Teknik Manufaktur</p>
+            <p>Membimbing siswa kelas XI Teknik Pemesinan</p>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="assets/img/hero-bg.png" alt="Kegiatan 2">
+        <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
+          <img src="assets/img/hero-bg.png" alt="Diskusi Kelompok">
           <div class="gallery-caption">
             <h3>Diskusi Kelompok</h3>
             <p>Penerapan model pembelajaran Project Based Learning</p>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="assets/img/hero-bg.png" alt="Kegiatan 3">
+        <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
+          <img src="assets/img/hero-bg.png" alt="Presentasi Proyek">
           <div class="gallery-caption">
             <h3>Presentasi Proyek</h3>
             <p>Siswa memaparkan hasil rancangan CAD 3D</p>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="assets/img/hero-bg.png" alt="Kegiatan 4">
+        <div class="gallery-item" data-type="image" data-src="assets/img/hero-bg.png">
+          <img src="assets/img/hero-bg.png" alt="Observasi PPL">
           <div class="gallery-caption">
             <h3>Observasi PPL</h3>
             <p>Kegiatan pengamatan budaya sekolah di SMKN 2 Depok</p>
           </div>
         </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Tutup">&times;</button>
+        <button class="lightbox-prev" aria-label="Sebelumnya">&#8249;</button>
+        <button class="lightbox-next" aria-label="Berikutnya">&#8250;</button>
+        <div class="lightbox-content" id="lightboxContent"></div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
       </div>
     </div>
   </section>
@@ -1232,6 +1241,7 @@
   <script src="js/artefak-animation.js"></script>
   <script src="js/model-guru-animation.js"></script>
   <script src="js/keahlian-animation.js"></script>
+  <script src="js/galeri-animation.js"></script>
 </body>
 
 </html>
