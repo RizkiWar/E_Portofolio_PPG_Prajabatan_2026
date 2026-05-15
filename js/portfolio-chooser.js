@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    PORTFOLIO CHOOSER SCREEN
    Show 2 portfolio options after intro loading
    ============================================ */
@@ -106,7 +106,7 @@ export function initPortfolioChooser() {
     });
   });
 
-  // EP1 home button → back to chooser
+  // EP1 home button â†’ back to chooser
   var homeBtn = document.getElementById('homeBtn');
   if (homeBtn) {
     homeBtn.addEventListener('click', (e) => {
@@ -124,18 +124,6 @@ export function initPortfolioChooser() {
         e.preventDefault();
         hideEP2();
         showChooser();
-      });
-    });
-
-    // Smooth scroll for EP2 nav links (scroll within wrapper)
-    ep2Wrapper.querySelectorAll('a[href^="#ep2-"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target && ep2Wrapper) {
-          const offsetTop = target.offsetTop;
-          ep2Wrapper.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        }
       });
     });
   }
@@ -171,3 +159,5 @@ export function initPortfolioChooser() {
     tryShowChooser();
   }
 }
+
+

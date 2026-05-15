@@ -1859,15 +1859,13 @@ section > .container, .section > .container {
 }
 
 .chooser-logo img {
-  width: min(360px, 78vw);
+  width: min(200px, 50vw);
   height: auto;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  border-radius: 18px;
-  padding: 16px 20px;
-  box-shadow:
-    0 22px 64px rgba(7, 23, 43, 0.22),
-    0 0 0 8px rgba(255, 255, 255, 0.08);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
   display: block;
 }
 
@@ -2006,7 +2004,7 @@ body.chooser-active .back-to-top {
     padding: 20px 16px;
   }
   .chooser-logo img {
-    width: min(280px, 70vw);
+    width: min(160px, 45vw);
   }
   .chooser-title {
     font-size: 1.4rem;

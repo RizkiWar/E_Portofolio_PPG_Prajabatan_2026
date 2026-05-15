@@ -67,7 +67,7 @@
   <div class="portfolio-chooser" id="portfolioChooser" aria-hidden="true">
     <div class="chooser-content">
       <div class="chooser-logo">
-        <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" width="48" height="48" />
+        <img src="assets/img/ust-logo.png" alt="Logo UST" width="48" height="48" />
       </div>
       <h2 class="chooser-title">Pilih E-Portfolio</h2>
       <p class="chooser-subtitle">Silakan pilih e-portfolio yang ingin Anda lihat</p>
@@ -1409,8 +1409,8 @@
       </div>
     </nav>
 
-    <!-- EP2 Hero / Beranda -->
-    <section class="ep2-hero section" id="ep2-hero">
+    <!-- SECTION 1: Hero / Beranda -->
+    <section class="ep2-hero" id="ep2-hero">
       <div class="ep2-hero-shapes" aria-hidden="true">
         <div class="shape shape-circle"></div>
         <div class="shape shape-square"></div>
@@ -1418,19 +1418,64 @@
       </div>
       <div class="container">
         <div class="ep2-hero-content">
-          <div class="ep2-hero-greeting">
-            <i class="fa-solid fa-book-open"></i> E-Portfolio 2 &mdash; UAS
+          <!-- Top row: identity + main message -->
+          <div class="ep2-hero-top">
+            <div class="ep2-hero-left">
+              <div class="ep2-hero-photo">
+                <img src="assets/img/profile.jpeg" alt="Foto Profil Fanny Fatchurrahman" width="180" height="180" />
+              </div>
+              <div class="ep2-hero-identity">
+                <h2 class="ep2-hero-name">Fanny Fatchurrahman</h2>
+                <p class="ep2-hero-role">Calon Guru Teknik Pemesinan</p>
+                <div class="ep2-hero-tags">
+                  <span class="ep2-hero-tag"><i class="fa-solid fa-graduation-cap"></i> PPG Prajabatan 2026</span>
+                  <span class="ep2-hero-tag"><i class="fa-solid fa-school"></i> SMKN 2 Depok</span>
+                </div>
+              </div>
+              <div class="ep2-hero-social">
+                <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@fannyfatchurrahman6134" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="ep2-hero-right">
+              <div class="ep2-hero-greeting">
+                <i class="fa-solid fa-book-open"></i> E-Portfolio 2 — UAS
+              </div>
+              <h1 class="ep2-title">Refleksi Akhir &amp;<br>Filosofi Mengajar</h1>
+              <p class="ep2-subtitle">Dokumentasi refleksi perjalanan Praktik Pengalaman Lapangan Terbimbing dan prinsip-prinsip yang mendasari praktik pengajaran saya sebagai calon guru profesional Teknik Pemesinan.</p>
+              <div class="ep2-hero-quote">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Mengajar bukan sekadar mentransfer pengetahuan, melainkan menyalakan api semangat belajar yang akan terus menyala sepanjang hayat.</p>
+              </div>
+              <div class="ep2-hero-actions">
+                <a href="#ep2-refleksi" class="btn btn-primary"><i class="fa-solid fa-clipboard-list"></i> Lihat Refleksi</a>
+                <a href="#ep2-filosofi" class="btn btn-secondary"><i class="fa-solid fa-lightbulb"></i> Filosofi Mengajar</a>
+              </div>
+            </div>
           </div>
-          <h1 class="ep2-title">Refleksi Akhir &amp;<br>Filosofi Mengajar</h1>
-          <p class="ep2-subtitle">Dokumentasi refleksi perjalanan Praktik Pengalaman Lapangan Terbimbing dan prinsip-prinsip yang mendasari praktik pengajaran saya sebagai calon guru profesional Teknik Pemesinan.</p>
-          <div class="ep2-hero-actions">
-            <a href="#ep2-refleksi" class="btn btn-primary"><i class="fa-solid fa-clipboard-list"></i> Lihat Refleksi</a>
-            <a href="#ep2-filosofi" class="btn btn-secondary"><i class="fa-solid fa-lightbulb"></i> Filosofi Mengajar</a>
-          </div>
-          <div class="ep2-hero-badges">
-            <div class="ep2-hero-badge"><i class="fa-solid fa-graduation-cap"></i> PPG Prajabatan 2026</div>
-            <div class="ep2-hero-badge"><i class="fa-solid fa-school"></i> SMKN 2 Depok</div>
-            <div class="ep2-hero-badge"><i class="fa-solid fa-gears"></i> Teknik Pemesinan</div>
+
+          <!-- Bottom row: full-width preview cards -->
+          <div class="ep2-hero-preview">
+            <div class="ep2-hero-preview-card" data-accent="teal">
+              <div class="ep2-hero-preview-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <div class="ep2-hero-preview-text">
+                <div class="ep2-hero-preview-label">Section 01</div>
+                <h3>Refleksi Akhir PPL Terbimbing</h3>
+                <p>3 pertanyaan refleksi mendalam tentang pembelajaran, tantangan &amp; umpan balik selama PPL.</p>
+              </div>
+              <div class="ep2-hero-preview-num">3</div>
+            </div>
+            <div class="ep2-hero-preview-card" data-accent="lavender">
+              <div class="ep2-hero-preview-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <div class="ep2-hero-preview-text">
+                <div class="ep2-hero-preview-label">Section 02</div>
+                <h3>Filosofi Mengajar</h3>
+                <p>Prinsip pembelajaran bermakna, fasilitator scaffolder, &amp; karakter profesional dengan 4 nilai inti.</p>
+              </div>
+              <div class="ep2-hero-preview-num">3+4</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1440,55 +1485,108 @@
       </div>
     </section>
 
-    <!-- EP2 Section 1: Refleksi Akhir PPL Terbimbing -->
-    <section class="ep2-section section" id="ep2-refleksi">
+    <!-- SECTION 2: Refleksi Akhir PPL Terbimbing -->
+    <section class="ep2-section" id="ep2-refleksi">
       <div class="container">
-        <div class="section-header reveal">
+        <div class="section-header">
           <div class="section-badge teal"><i class="fa-solid fa-clipboard-list"></i> Refleksi PPL Terbimbing</div>
           <h2 class="section-title">Refleksi Akhir PPL Terbimbing</h2>
           <p class="section-subtitle">Klik kartu pertanyaan di bawah untuk melihat refleksi mendalam</p>
         </div>
-
         <div class="ep2-questions-grid">
-          <!-- Question Card 1 -->
-          <button class="ep2-question-card reveal" data-ep2-modal="ep2-q1">
+          <button class="ep2-question-card" data-ep2-modal="ep2-q1">
             <div class="ep2-question-icon teal"><i class="fa-solid fa-book-open"></i></div>
             <div class="ep2-question-num">01</div>
             <h3 class="ep2-question-title">Apa yang Telah Saya Pelajari?</h3>
             <p class="ep2-question-text">Apa yang telah mahasiswa pelajari sebagai peserta PPG calon guru selama tahapan PPL Terbimbing dari awal hingga akhir?</p>
             <span class="ep2-question-cta">Lihat Refleksi <i class="fa-solid fa-arrow-right"></i></span>
           </button>
-
-          <!-- Question Card 2 -->
-          <button class="ep2-question-card reveal" data-ep2-modal="ep2-q2">
+          <button class="ep2-question-card" data-ep2-modal="ep2-q2">
             <div class="ep2-question-icon coral"><i class="fa-solid fa-triangle-exclamation"></i></div>
             <div class="ep2-question-num">02</div>
             <h3 class="ep2-question-title">Pengalaman Menantang &amp; Solusi</h3>
             <p class="ep2-question-text">Apakah terdapat pengalaman yang menantang dan bagaimana solusi dari permasalahan tersebut?</p>
             <span class="ep2-question-cta">Lihat Refleksi <i class="fa-solid fa-arrow-right"></i></span>
           </button>
-
-          <!-- Question Card 3 -->
-          <button class="ep2-question-card reveal" data-ep2-modal="ep2-q3">
+          <button class="ep2-question-card" data-ep2-modal="ep2-q3">
             <div class="ep2-question-icon lavender"><i class="fa-solid fa-comments"></i></div>
             <div class="ep2-question-num">03</div>
             <h3 class="ep2-question-title">Umpan Balik &amp; Saran Konstruktif</h3>
-            <p class="ep2-question-text">Apakah umpan balik atau saran konstruktif yang diberikan kepada mahasiswa dalam diskusi refleksi akhir sebagai bentuk perbaikan untuk ke tahap PPL Mandiri?</p>
+            <p class="ep2-question-text">Apakah umpan balik atau saran konstruktif yang diberikan kepada mahasiswa dalam diskusi refleksi akhir?</p>
             <span class="ep2-question-cta">Lihat Refleksi <i class="fa-solid fa-arrow-right"></i></span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- EP2 Refleksi Modals -->
-    <div class="ep2-modal-overlay" id="ep2ModalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- SECTION 3: Filosofi Mengajar -->
+    <section class="ep2-section ep2-filosofi" id="ep2-filosofi">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge lavender"><i class="fa-solid fa-lightbulb"></i> Filosofi Mengajar</div>
+          <h2 class="section-title">Filosofi Mengajar</h2>
+          <p class="section-subtitle">Prinsip, keyakinan, dan nilai yang mendasari praktik pengajaran saya</p>
+        </div>
+        <div class="ep2-filosofi-content">
+        <div class="ep2-quote-banner">
+          <div class="ep2-quote-mark">“</div>
+          <blockquote>Mengajar bukan sekadar mentransfer pengetahuan, melainkan menyalakan api semangat belajar yang akan terus menyala sepanjang hayat.</blockquote>
+          <cite>— Fanny Fatchurrahman</cite>
+        </div>
+        <div class="ep2-filosofi-compact-grid">
+          <div class="ep2-filosofi-mini-card" data-accent="teal">
+            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+            <h3>Pembelajaran Bermakna</h3>
+            <p class="ep2-filosofi-mini-summary">Berbasis <em>Experiential Learning</em> Kolb — setiap konsep teori diikuti praktik langsung di bengkel.</p>
+            <button class="ep2-filosofi-expand" data-ep2-expand="f1">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="ep2-filosofi-mini-card" data-accent="sky">
+            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+            <h3>Fasilitator &amp; Scaffolder</h3>
+            <p class="ep2-filosofi-mini-summary">Mengacu pada <em>ZPD Vygotsky</em> &amp; <em>TaRL</em> — pendampingan bertahap sesuai level siswa.</p>
+            <button class="ep2-filosofi-expand" data-ep2-expand="f2">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="ep2-filosofi-mini-card" data-accent="lavender">
+            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <h3>Karakter Profesional</h3>
+            <p class="ep2-filosofi-mini-summary">Filosofi <em>Ki Hajar Dewantara</em> &amp; <em>Paulo Freire</em> — budaya kerja, K3, integritas.</p>
+            <button class="ep2-filosofi-expand" data-ep2-expand="f3">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        </div>
+        <div class="ep2-values-section">
+          <h3 class="ep2-values-title">Nilai-Nilai Inti</h3>
+          <div class="ep2-values-grid">
+            <div class="ep2-value-mini">
+              <div class="ep2-value-mini-icon teal"><i class="fa-solid fa-bullseye"></i></div>
+              <div><h4>Relevansi</h4><p>Pembelajaran relevan dengan kebutuhan industri</p></div>
+            </div>
+            <div class="ep2-value-mini">
+              <div class="ep2-value-mini-icon sky"><i class="fa-solid fa-people-group"></i></div>
+              <div><h4>Kolaborasi</h4><p>Belajar bersama membangun pemahaman lebih dalam</p></div>
+            </div>
+            <div class="ep2-value-mini">
+              <div class="ep2-value-mini-icon lavender"><i class="fa-solid fa-chart-line"></i></div>
+              <div><h4>Pertumbuhan</h4><p>Setiap kesalahan adalah kesempatan belajar</p></div>
+            </div>
+            <div class="ep2-value-mini">
+              <div class="ep2-value-mini-icon amber"><i class="fa-solid fa-rocket"></i></div>
+              <div><h4>Inovasi</h4><p>Eksplorasi metode dan teknologi baru</p></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EP2 Modal Overlay -->
+    <div class="ep2-modal-overlay" id="ep2ModalOverlay" aria-hidden="true">
       <div class="ep2-modal-container">
         <button class="ep2-modal-close" id="ep2ModalClose" aria-label="Tutup">&times;</button>
         <div class="ep2-modal-content" id="ep2ModalContent"></div>
       </div>
     </div>
 
-    <!-- Modal Templates (hidden) -->
+    <!-- Modal Templates -->
     <template id="ep2-q1-template">
       <div class="ep2-modal-header">
         <div class="ep2-card-icon teal"><i class="fa-solid fa-book-open"></i></div>
@@ -1500,34 +1598,10 @@
       <div class="ep2-modal-body">
         <p>Selama menjalani tahapan PPL Terbimbing dari awal hingga akhir, saya memperoleh banyak pembelajaran berharga sebagai peserta PPG calon guru:</p>
         <div class="ep2-modal-timeline">
-          <div class="ep2-modal-step">
-            <span class="ep2-modal-step-num teal">1</span>
-            <div>
-              <h4>Tahap Observasi</h4>
-              <p>Saya belajar mengamati dinamika kelas secara menyeluruh. Setiap peserta didik memiliki gaya belajar yang berbeda, terutama dalam pembelajaran praktik Teknik Pemesinan. Saya belajar mengidentifikasi kebutuhan belajar siswa SMK yang beragam, dari yang sudah terbiasa dengan mesin hingga yang baru pertama kali menyentuh peralatan bengkel.</p>
-            </div>
-          </div>
-          <div class="ep2-modal-step">
-            <span class="ep2-modal-step-num sky">2</span>
-            <div>
-              <h4>Tahap Asistensi</h4>
-              <p>Saya belajar bagaimana guru pamong mengelola kelas praktik dengan memperhatikan aspek K3 sekaligus memastikan setiap siswa mendapat kesempatan hands-on yang memadai. Saya juga belajar menyusun jobsheet yang terstruktur dan teknik demonstrasi yang efektif untuk operasi mesin bubut dan mesin frais.</p>
-            </div>
-          </div>
-          <div class="ep2-modal-step">
-            <span class="ep2-modal-step-num amber">3</span>
-            <div>
-              <h4>Tahap Praktik Terbimbing</h4>
-              <p>Saya mengimplementasikan RPP yang telah disusun dan mendapat pengalaman langsung mengelola pembelajaran. Perencanaan yang matang harus diimbangi dengan fleksibilitas di lapangan. Manajemen waktu menjadi krusial saat mengajar praktik pemesinan karena harus mempertimbangkan waktu setup mesin, demonstrasi, praktik siswa, dan evaluasi dalam satu pertemuan.</p>
-            </div>
-          </div>
-          <div class="ep2-modal-step">
-            <span class="ep2-modal-step-num lavender">4</span>
-            <div>
-              <h4>Tahap Refleksi &amp; Evaluasi</h4>
-              <p>Saya menyadari pentingnya refleksi berkelanjutan. Setiap pertemuan mengajar memberikan insight baru tentang bagaimana menjadi guru yang lebih baik. Saya belajar menerima kritik konstruktif sebagai bahan perbaikan dan memahami bahwa menjadi guru profesional adalah proses yang terus berkembang.</p>
-            </div>
-          </div>
+          <div class="ep2-modal-step"><span class="ep2-modal-step-num teal">1</span><div><h4>Tahap Observasi</h4><p>Saya belajar mengamati dinamika kelas secara menyeluruh. Setiap peserta didik memiliki gaya belajar yang berbeda, terutama dalam pembelajaran praktik Teknik Pemesinan.</p></div></div>
+          <div class="ep2-modal-step"><span class="ep2-modal-step-num sky">2</span><div><h4>Tahap Asistensi</h4><p>Saya belajar bagaimana guru pamong mengelola kelas praktik dengan memperhatikan aspek K3 sekaligus memastikan setiap siswa mendapat kesempatan hands-on yang memadai.</p></div></div>
+          <div class="ep2-modal-step"><span class="ep2-modal-step-num amber">3</span><div><h4>Tahap Praktik Terbimbing</h4><p>Saya mengimplementasikan RPP yang telah disusun dan mendapat pengalaman langsung mengelola pembelajaran. Manajemen waktu menjadi krusial saat mengajar praktik pemesinan.</p></div></div>
+          <div class="ep2-modal-step"><span class="ep2-modal-step-num lavender">4</span><div><h4>Tahap Refleksi &amp; Evaluasi</h4><p>Saya menyadari pentingnya refleksi berkelanjutan. Setiap pertemuan mengajar memberikan insight baru tentang bagaimana menjadi guru yang lebih baik.</p></div></div>
         </div>
       </div>
     </template>
@@ -1544,37 +1618,19 @@
         <p>Selama PPL Terbimbing, terdapat tiga pengalaman menantang yang menjadi pembelajaran bermakna:</p>
         <div class="ep2-modal-challenges">
           <div class="ep2-modal-challenge">
-            <div class="ep2-modal-challenge-head">
-              <span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 1</span>
-              <h4>Heterogenitas Kemampuan Siswa</h4>
-            </div>
-            <p class="ep2-modal-challenge-problem">Dalam satu kelas praktik, terdapat kesenjangan kemampuan yang signifikan. Beberapa siswa sudah mahir mengoperasikan mesin bubut sementara yang lain masih kesulitan membaca gambar teknik dasar.</p>
-            <div class="ep2-modal-solution">
-              <strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong>
-              <p>Strategi pembelajaran diferensiasi dengan jobsheet bertingkat (basic, intermediate, advanced). Siswa mahir diberikan tantangan tambahan, sementara yang masih belajar mendapat pendampingan intensif melalui peer tutoring.</p>
-            </div>
+            <div class="ep2-modal-challenge-head"><span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 1</span><h4>Heterogenitas Kemampuan Siswa</h4></div>
+            <p class="ep2-modal-challenge-problem">Dalam satu kelas praktik, terdapat kesenjangan kemampuan yang signifikan antara siswa yang sudah mahir dan yang masih kesulitan membaca gambar teknik dasar.</p>
+            <div class="ep2-modal-solution"><strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong><p>Strategi pembelajaran diferensiasi dengan jobsheet bertingkat (basic, intermediate, advanced) dan peer tutoring.</p></div>
           </div>
           <div class="ep2-modal-challenge">
-            <div class="ep2-modal-challenge-head">
-              <span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 2</span>
-              <h4>Keterbatasan Waktu Praktik</h4>
-            </div>
-            <p class="ep2-modal-challenge-problem">Alokasi waktu praktik yang terbatas (4 JP per pertemuan) seringkali tidak cukup untuk menyelesaikan satu siklus pembelajaran lengkap, mempertimbangkan setup mesin, briefing K3, demonstrasi, dan cleanup.</p>
-            <div class="ep2-modal-solution">
-              <strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong>
-              <p>Optimalisasi waktu dengan video demonstrasi pre-class (flipped learning), SOP setup mesin yang jelas agar siswa bisa mempersiapkan mesin secara mandiri, dan checklist evaluasi yang efisien untuk penilaian proses.</p>
-            </div>
+            <div class="ep2-modal-challenge-head"><span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 2</span><h4>Keterbatasan Waktu Praktik</h4></div>
+            <p class="ep2-modal-challenge-problem">Alokasi waktu praktik yang terbatas (4 JP per pertemuan) seringkali tidak cukup untuk menyelesaikan satu siklus pembelajaran lengkap.</p>
+            <div class="ep2-modal-solution"><strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong><p>Optimalisasi waktu dengan video demonstrasi pre-class (flipped learning) dan SOP setup mesin yang jelas.</p></div>
           </div>
           <div class="ep2-modal-challenge">
-            <div class="ep2-modal-challenge-head">
-              <span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 3</span>
-              <h4>Menjaga Motivasi Siswa</h4>
-            </div>
-            <p class="ep2-modal-challenge-problem">Beberapa siswa menunjukkan penurunan motivasi ketika menghadapi kegagalan dalam praktik (benda kerja tidak sesuai toleransi, pahat patah, dll). Rasa frustrasi berdampak pada semangat belajar mereka.</p>
-            <div class="ep2-modal-solution">
-              <strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong>
-              <p>Membangun budaya "gagal adalah bagian dari belajar" dengan menunjukkan contoh kegagalan yang saya alami sendiri. Sistem reward berbasis progress (bukan hanya hasil akhir) dan feedback spesifik dan konstruktif agar siswa tahu apa yang perlu diperbaiki.</p>
-            </div>
+            <div class="ep2-modal-challenge-head"><span class="ep2-modal-tag problem"><i class="fa-solid fa-circle-exclamation"></i> Tantangan 3</span><h4>Menjaga Motivasi Siswa</h4></div>
+            <p class="ep2-modal-challenge-problem">Beberapa siswa menunjukkan penurunan motivasi ketika menghadapi kegagalan dalam praktik (benda kerja tidak sesuai toleransi).</p>
+            <div class="ep2-modal-solution"><strong><i class="fa-solid fa-lightbulb"></i> Solusi:</strong><p>Membangun budaya "gagal adalah bagian dari belajar" dengan sistem reward berbasis progress dan feedback konstruktif.</p></div>
           </div>
         </div>
       </div>
@@ -1589,116 +1645,98 @@
         </div>
       </div>
       <div class="ep2-modal-body">
-        <p>Berikut adalah umpan balik dan saran konstruktif yang diberikan dalam diskusi refleksi akhir sebagai bentuk perbaikan untuk tahap PPL Mandiri:</p>
+        <p>Berikut adalah umpan balik dan saran konstruktif yang diberikan dalam diskusi refleksi akhir:</p>
         <div class="ep2-modal-feedback-list">
           <div class="ep2-modal-feedback">
             <div class="ep2-modal-feedback-source"><i class="fa-solid fa-user-tie"></i> Guru Pamong</div>
-            <blockquote>"Kemampuan penguasaan materi sudah baik, namun perlu meningkatkan variasi metode penilaian. Coba eksplorasi asesmen autentik yang lebih beragam seperti project-based assessment dan portfolio siswa untuk menilai kompetensi secara holistik."</blockquote>
-            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Rencana Tindak Lanjut:</strong> Mempelajari dan mengembangkan instrumen asesmen autentik yang sesuai dengan karakteristik pembelajaran praktik pemesinan.</div>
+            <blockquote>"Kemampuan penguasaan materi sudah baik, namun perlu meningkatkan variasi metode penilaian. Coba eksplorasi asesmen autentik yang lebih beragam."</blockquote>
+            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Tindak Lanjut:</strong> Mengembangkan instrumen asesmen autentik untuk pembelajaran praktik pemesinan.</div>
           </div>
           <div class="ep2-modal-feedback">
             <div class="ep2-modal-feedback-source"><i class="fa-solid fa-user-graduate"></i> Dosen Pembimbing</div>
-            <blockquote>"Perencanaan pembelajaran sudah terstruktur dengan baik. Untuk PPL Mandiri, tingkatkan kemampuan dalam mengintegrasikan teknologi digital ke dalam pembelajaran praktik. Manfaatkan simulasi CNC dan software CAD/CAM sebagai media pembelajaran pendukung."</blockquote>
-            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Rencana Tindak Lanjut:</strong> Mengembangkan media pembelajaran berbasis teknologi seperti simulasi CNC dan integrasi dengan platform LMS.</div>
+            <blockquote>"Perencanaan pembelajaran sudah terstruktur. Tingkatkan kemampuan mengintegrasikan teknologi digital ke dalam pembelajaran praktik."</blockquote>
+            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Tindak Lanjut:</strong> Mengembangkan media pembelajaran berbasis simulasi CNC dan integrasi LMS.</div>
           </div>
           <div class="ep2-modal-feedback">
             <div class="ep2-modal-feedback-source"><i class="fa-solid fa-people-group"></i> Teman Sejawat</div>
-            <blockquote>"Interaksi dengan siswa sudah natural dan membangun suasana belajar yang positif. Saran saya, coba lebih banyak memberikan kesempatan siswa untuk presentasi hasil kerja mereka agar kemampuan komunikasi teknis mereka juga berkembang."</blockquote>
-            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Rencana Tindak Lanjut:</strong> Menambahkan sesi presentasi hasil praktik di setiap akhir pertemuan dan mengembangkan rubrik penilaian komunikasi teknis.</div>
+            <blockquote>"Interaksi dengan siswa sudah natural. Coba lebih banyak memberikan kesempatan siswa untuk presentasi hasil kerja mereka."</blockquote>
+            <div class="ep2-modal-action"><i class="fa-solid fa-arrow-right"></i> <strong>Tindak Lanjut:</strong> Menambahkan sesi presentasi hasil praktik dan rubrik penilaian komunikasi teknis.</div>
           </div>
         </div>
       </div>
     </template>
 
-    <!-- EP2 Section 2: Filosofi Mengajar (Compact) -->
-    <section class="ep2-section ep2-filosofi section" id="ep2-filosofi">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge lavender"><i class="fa-solid fa-lightbulb"></i> Filosofi Mengajar</div>
-          <h2 class="section-title">Filosofi Mengajar</h2>
-          <p class="section-subtitle">Prinsip, keyakinan, dan nilai yang mendasari praktik pengajaran saya</p>
-        </div>
-
-        <!-- Compact Quote Banner -->
-        <div class="ep2-quote-banner reveal">
-          <div class="ep2-quote-mark">"</div>
-          <blockquote>Mengajar bukan sekadar mentransfer pengetahuan, melainkan menyalakan api semangat belajar yang akan terus menyala sepanjang hayat.</blockquote>
-          <cite>&mdash; Fanny Fatchurrahman</cite>
-        </div>
-
-        <!-- Compact Filosofi Grid -->
-        <div class="ep2-filosofi-compact-grid">
-          <div class="ep2-filosofi-mini-card reveal" data-accent="teal">
-            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-            <h3>Pembelajaran Bermakna</h3>
-            <p class="ep2-filosofi-mini-summary">Berbasis <em>Experiential Learning</em> Kolb &mdash; setiap konsep teori diikuti praktik langsung di bengkel.</p>
-            <button class="ep2-filosofi-expand" data-ep2-expand="f1">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="ep2-filosofi-mini-full" id="f1">
-              <p>Saya meyakini bahwa pembelajaran yang paling bermakna adalah pembelajaran yang terhubung langsung dengan pengalaman nyata peserta didik. Sejalan dengan teori <em>Experiential Learning</em> dari David Kolb (1984), pengetahuan dibangun melalui siklus pengalaman konkret, refleksi, konseptualisasi, dan eksperimentasi aktif. Dalam Teknik Pemesinan, setiap konsep teori harus diikuti praktik langsung, refleksi atas hasil kerja, dan perbaikan berkelanjutan. Siswa tidak hanya menjadi operator mesin, tetapi <em>problem solver</em> yang adaptif di dunia industri.</p>
-            </div>
-          </div>
-          <div class="ep2-filosofi-mini-card reveal" data-accent="sky">
-            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
-            <h3>Fasilitator &amp; Scaffolder</h3>
-            <p class="ep2-filosofi-mini-summary">Mengacu pada <em>ZPD Vygotsky</em> &amp; <em>TaRL</em> &mdash; pendampingan bertahap sesuai level siswa.</p>
-            <button class="ep2-filosofi-expand" data-ep2-expand="f2">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="ep2-filosofi-mini-full" id="f2">
-              <p>Mengacu pada <em>Zone of Proximal Development</em> (ZPD) dari Lev Vygotsky, saya memposisikan diri sebagai fasilitator yang memberikan scaffolding tepat sesuai kebutuhan setiap peserta didik. Tugas guru adalah menjembatani jarak antara kemampuan aktual dengan kemampuan potensial siswa. Dalam praktik: demonstrasi penuh &rarr; <em>guided practice</em> &rarr; <em>independent practice</em>. Saya mengadopsi prinsip <em>Teaching at the Right Level</em> (TaRL) &mdash; setiap siswa memiliki ritme belajar yang valid, dan kesabaran serta empati adalah modal utama seorang guru.</p>
-            </div>
-          </div>
-          <div class="ep2-filosofi-mini-card reveal" data-accent="lavender">
-            <div class="ep2-filosofi-mini-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-            <h3>Karakter Profesional</h3>
-            <p class="ep2-filosofi-mini-summary">Filosofi <em>Ki Hajar Dewantara</em> &amp; <em>Paulo Freire</em> &mdash; budaya kerja, K3, integritas, dan tanggung jawab.</p>
-            <button class="ep2-filosofi-expand" data-ep2-expand="f3">Baca Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="ep2-filosofi-mini-full" id="f3">
-              <p>Pendidikan kejuruan harus membentuk karakter profesional yang utuh. Merujuk pada filosofi Ki Hajar Dewantara &mdash; <em>Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani</em>, saya berusaha menjadi teladan dalam disiplin, ketelitian, dan etos kerja. K3 saya tanamkan sebagai budaya kerja profesional, bukan aturan yang membelenggu. Saya integrasikan nilai kejujuran melalui pengukuran akurat, dan tanggung jawab melalui perawatan mesin. Sebagaimana Paulo Freire dalam <em>Pedagogy of the Oppressed</em>, pendidikan sejati adalah proses pembebasan yang memampukan peserta didik menjadi subjek aktif dalam kehidupannya.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Nilai-Nilai Inti (Compact Inline) -->
-        <div class="ep2-values-section reveal">
-          <h3 class="ep2-values-title">Nilai-Nilai Inti</h3>
-          <div class="ep2-values-grid">
-            <div class="ep2-value-mini reveal">
-              <div class="ep2-value-mini-icon teal"><i class="fa-solid fa-bullseye"></i></div>
-              <div>
-                <h4>Relevansi</h4>
-                <p>Pembelajaran relevan dengan kebutuhan industri</p>
-              </div>
-            </div>
-            <div class="ep2-value-mini reveal">
-              <div class="ep2-value-mini-icon sky"><i class="fa-solid fa-people-group"></i></div>
-              <div>
-                <h4>Kolaborasi</h4>
-                <p>Belajar bersama membangun pemahaman lebih dalam</p>
-              </div>
-            </div>
-            <div class="ep2-value-mini reveal">
-              <div class="ep2-value-mini-icon lavender"><i class="fa-solid fa-chart-line"></i></div>
-              <div>
-                <h4>Pertumbuhan</h4>
-                <p>Setiap kesalahan adalah kesempatan belajar</p>
-              </div>
-            </div>
-            <div class="ep2-value-mini reveal">
-              <div class="ep2-value-mini-icon amber"><i class="fa-solid fa-rocket"></i></div>
-              <div>
-                <h4>Inovasi</h4>
-                <p>Eksplorasi metode dan teknologi baru</p>
-              </div>
-            </div>
-          </div>
+    <template id="ep2-f1-template">
+      <div class="ep2-modal-header">
+        <div class="ep2-card-icon teal"><i class="fa-solid fa-hands-holding-child"></i></div>
+        <div>
+          <span class="ep2-modal-tag teal">Filosofi 1</span>
+          <h3>Pembelajaran Bermakna</h3>
         </div>
       </div>
-    </section>
+      <div class="ep2-modal-body">
+        <p>Saya meyakini bahwa pembelajaran yang paling bermakna adalah pembelajaran yang terhubung langsung dengan pengalaman nyata peserta didik. Sejalan dengan teori <em>Experiential Learning</em> dari David Kolb (1984), pengetahuan dibangun melalui siklus pengalaman konkret, refleksi, konseptualisasi, dan eksperimentasi aktif.</p>
+        <p>Dalam Teknik Pemesinan, setiap konsep teori harus diikuti praktik langsung, refleksi atas hasil kerja, dan perbaikan berkelanjutan. Siswa tidak hanya menjadi operator mesin, tetapi <em>problem solver</em> yang adaptif di dunia industri.</p>
+      </div>
+    </template>
+
+    <template id="ep2-f2-template">
+      <div class="ep2-modal-header">
+        <div class="ep2-card-icon coral"><i class="fa-solid fa-person-chalkboard"></i></div>
+        <div>
+          <span class="ep2-modal-tag coral">Filosofi 2</span>
+          <h3>Fasilitator &amp; Scaffolder</h3>
+        </div>
+      </div>
+      <div class="ep2-modal-body">
+        <p>Mengacu pada <em>Zone of Proximal Development</em> (ZPD) dari Lev Vygotsky, saya memposisikan diri sebagai fasilitator yang memberikan scaffolding tepat sesuai kebutuhan setiap peserta didik. Tugas guru adalah menjembatani jarak antara kemampuan aktual dengan kemampuan potensial siswa.</p>
+        <p>Dalam praktik: demonstrasi penuh → <em>guided practice</em> → <em>independent practice</em>. Saya mengadopsi prinsip <em>Teaching at the Right Level</em> (TaRL) — setiap siswa memiliki ritme belajar yang valid, dan kesabaran serta empati adalah modal utama seorang guru.</p>
+      </div>
+    </template>
+
+    <template id="ep2-f3-template">
+      <div class="ep2-modal-header">
+        <div class="ep2-card-icon lavender"><i class="fa-solid fa-helmet-safety"></i></div>
+        <div>
+          <span class="ep2-modal-tag lavender">Filosofi 3</span>
+          <h3>Karakter Profesional</h3>
+        </div>
+      </div>
+      <div class="ep2-modal-body">
+        <p>Pendidikan kejuruan harus membentuk karakter profesional yang utuh. Merujuk pada filosofi Ki Hajar Dewantara — <em>Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani</em>, saya berusaha menjadi teladan dalam disiplin, ketelitian, dan etos kerja.</p>
+        <p>K3 saya tanamkan sebagai budaya kerja profesional, bukan aturan yang membelenggu. Saya integrasikan nilai kejujuran melalui pengukuran akurat, dan tanggung jawab melalui perawatan mesin. Sebagaimana Paulo Freire dalam <em>Pedagogy of the Oppressed</em>, pendidikan sejati adalah proses pembebasan yang memampukan peserta didik menjadi subjek aktif dalam kehidupannya.</p>
+      </div>
+    </template>
 
     <!-- EP2 Footer -->
-    <footer class="ep2-footer">
+    <footer class="footer ep2-footer">
       <div class="container">
-        <p>&copy; 2026 Fanny Fatchurrahman &mdash; E-Portfolio PPG Prajabatan</p>
-        <button class="btn btn-primary btn-sm" id="ep2FooterBack"><i class="fa-solid fa-arrow-left"></i> Kembali ke Pilihan Portfolio</button>
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" style="height:32px; background:#fff; border-radius:6px; padding:3px 5px;" />
+              <span style="display:block; margin-top:6px;">E-Portfolio</span>
+            </div>
+            <p class="footer-tagline">Calon Guru Teknik Pemesinan<br>PPG Prajabatan 2025-2026, UST</p>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Instagram" class="social-link instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@fannyfatchurrahman6134" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="GitHub" class="social-link github" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="footer-sitemap">
+            <h5>Navigasi</h5>
+            <ul>
+              <li><a href="#ep2-hero">Beranda</a></li>
+              <li><a href="#ep2-refleksi">Refleksi PPL</a></li>
+              <li><a href="#ep2-filosofi">Filosofi Mengajar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Fanny Fatchurrahman. PPG Prajabatan 2025-2026, UST</p>
+        </div>
       </div>
     </footer>
   </div>
