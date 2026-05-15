@@ -84,17 +84,33 @@
   // Show chooser after intro loading completes
   function tryShowChooser() {
     if (introTear && introTear.classList.contains('is-complete')) {
-      setTimeout(showChooser, 600);
+      // Wait until intro tear is fully hidden
+      var checkHidden = setInterval(function() {
+        var style = window.getComputedStyle(introTear);
+        if (style.opacity === '0' || style.display === 'none' || style.visibility === 'hidden' || introTear.getBoundingClientRect().height === 0) {
+          clearInterval(checkHidden);
+          setTimeout(showChooser, 300);
+        }
+      }, 100);
+      // Safety: max 3s wait
+      setTimeout(function() { clearInterval(checkHidden); }, 3000);
     } else if (introTear) {
       const observer = new MutationObserver(() => {
         if (introTear.classList.contains('is-complete')) {
           observer.disconnect();
-          setTimeout(showChooser, 600);
+          // Wait until intro tear is fully hidden
+          var checkHidden = setInterval(function() {
+            var style = window.getComputedStyle(introTear);
+            if (style.opacity === '0' || style.display === 'none' || style.visibility === 'hidden' || introTear.getBoundingClientRect().height === 0) {
+              clearInterval(checkHidden);
+              setTimeout(showChooser, 300);
+            }
+          }, 100);
+          setTimeout(function() { clearInterval(checkHidden); }, 3000);
         }
       });
       observer.observe(introTear, { attributes: true, attributeFilter: ['class'] });
     } else {
-      // No intro tear element, show after page fully loaded
       window.addEventListener('load', () => {
         setTimeout(showChooser, 1000);
       });
