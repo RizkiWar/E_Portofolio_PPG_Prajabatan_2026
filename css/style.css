@@ -1495,6 +1495,14 @@ section {
   justify-content: center;
   font-size: 1.6rem;
   margin: 0 auto 16px;
+  perspective: 600px;
+  perspective-origin: center center;
+}
+
+.pillar-card .pillar-icon .icon-inner {
+  display: inline-block;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
 }
 
 .pillar-card:nth-child(1) .pillar-icon {

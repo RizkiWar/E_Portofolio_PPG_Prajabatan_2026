@@ -79,6 +79,10 @@
 .pillar-icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
 }
 
 .pillar-card h4 {
@@ -90,8 +94,9 @@
 .pillar-card p {
   font-size: 0.88rem;
   color: var(--gray-500);
-  line-height: 1.6;
-  margin-bottom: 12px;
+  line-height: 1.7;
+  margin-bottom: 0;
+  text-align: justify;
 }
 
 .pillar-progress {

@@ -183,6 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return url;
   }
 
+  function highlightText(text) {
+    if (!text) return '';
+    // **bold** -> <strong> with color
+    text = text.replace(/\*\*([^*]+)\*\*/g, '<strong style="color:#FF6B6B;">$1</strong>');
+    // numbers/percentages auto-bold
+    text = text.replace(/\b(\d+[\d,.]*\s?(?:%|JP|jam|aspek|level|halaman|item|komponen|lembar|menit|detik))/g, '<strong style="color:#0F5EA8;">$1</strong>');
+    return text;
+  }
+
   function openModal(modalId, viewMode) {
     const data = artifactData[modalId] || artifactData['modal-rpp1'];
     const fileUrl = data.fileUrl || '';
@@ -193,8 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (viewMode === 'pdf' && canPreview) {
       modalContent.innerHTML = '<div class="modal-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: none; padding-bottom: 0; gap: 15px; padding-right: 30px;"><div style="flex: 1; min-width: 250px;"><h3 style="margin-bottom: 4px; font-size: 1.3rem;">' + data.title + '</h3><p style="margin-bottom: 0;">Preview Dokumen</p></div><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: #2EC4B6; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(46,196,182,0.3); z-index: 5;">Buka di Tab Baru &nearr;</a></div><div class="modal-body" style="height: 75vh; padding-top: 20px;"><iframe src="' + embedUrl + '" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe></div>';
     } else {
-      var prosHtml = data.pros.map(function(p) { return '<li>&check; ' + p + '</li>'; }).join('');
-      var consHtml = data.cons.map(function(c) { return '<li>&excl; ' + c + '</li>'; }).join('');
+      var prosHtml = data.pros.map(function(p) { return '<li style="margin-bottom: 8px; padding: 6px 0;"><span style="color:#2EC4B6;font-weight:700;margin-right:8px;font-size:1.1em;">&#10003;</span>' + highlightText(p) + '</li>'; }).join('');
+      var consHtml = data.cons.map(function(c) { return '<li style="margin-bottom: 8px; padding: 6px 0;"><span style="color:#FF6B6B;font-weight:700;margin-right:8px;font-size:1.1em;">&#9888;</span>' + highlightText(c) + '</li>'; }).join('');
 
       var filePreviewHtml = '';
       if (canPreview) {
@@ -203,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filePreviewHtml = '<div class="modal-files" style="margin-top: 20px;"><h4>File Artefak</h4><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 20px; background: #FF6B6B; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none;">Buka File</a></div>';
       }
 
-      modalContent.innerHTML = '<div class="modal-header"><h3 style="font-size: 1.5rem;">' + data.title + '</h3><p>' + data.type + '</p></div><div class="modal-body"><h4>Konteks Pembuatan</h4><p>' + data.context + '</p><h4>Tujuan</h4><p>' + data.purpose + '</p><h4>Kelebihan & Kekurangan</h4><ul>' + prosHtml + consHtml + '</ul><h4>Kajian Teori</h4><p>' + data.theory + '</p>' + filePreviewHtml + '</div>';
+      modalContent.innerHTML = '<div class="modal-header"><h3 style="font-size: 1.5rem; color: #0F5EA8;">' + data.title + '</h3><p style="color: #666; font-style: italic;">' + data.type + '</p></div><div class="modal-body"><h4 style="color: #0F5EA8; border-left: 3px solid #2EC4B6; padding-left: 10px;">Konteks Pembuatan</h4><p>' + highlightText(data.context) + '</p><h4 style="color: #0F5EA8; border-left: 3px solid #F7C05B; padding-left: 10px;">Tujuan</h4><p>' + highlightText(data.purpose) + '</p><h4 style="color: #0F5EA8; border-left: 3px solid #2EC4B6; padding-left: 10px;">Kelebihan & Kekurangan</h4><ul style="list-style: none; padding-left: 0;">' + prosHtml + consHtml + '</ul><h4 style="color: #0F5EA8; border-left: 3px solid #9B72CF; padding-left: 10px;">Kajian Teori</h4><p style="font-style: italic; border-left: 2px solid #ddd; padding-left: 12px; color: #555;">' + highlightText(data.theory) + '</p>' + filePreviewHtml + '</div>';
     }
 
     modalOverlay.classList.add('active');
