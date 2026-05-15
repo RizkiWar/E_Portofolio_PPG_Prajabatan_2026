@@ -183,4 +183,22 @@ function initEp2Interactions() {
       if (isOpen) btn.classList.add('expanded');
     });
   });
+
+  // EP2 theme toggle (syncs with EP1 toggle via data-theme attribute on html)
+  var ep2ThemeToggle = document.getElementById('ep2ThemeToggle');
+  if (ep2ThemeToggle) {
+    var ep2ThemeIcon = ep2ThemeToggle.querySelector('.theme-icon');
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    if (ep2ThemeIcon) ep2ThemeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
+    ep2ThemeToggle.addEventListener('click', function() {
+      var now = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = now === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      if (ep2ThemeIcon) ep2ThemeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+      // Sync EP1 toggle icon if present
+      var ep1Icon = document.querySelector('#themeToggle .theme-icon');
+      if (ep1Icon) ep1Icon.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
 }

@@ -8,28 +8,23 @@
   min-height: 100vh;
   height: 100vh;
   overflow-y: auto;
-  background: var(--off-white, #f7f9fc);
+  background: var(--off-white);
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
-[data-theme="dark"] .eportfolio2-wrapper {
-  background: var(--gray-900, #0D1117);
-}
+
 
 /* ---------- EP2 Navbar ---------- */
 .ep2-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--glass-bg, rgba(255, 255, 255, 0.85));
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--gray-100, #eee);
+  border-bottom: 1px solid var(--glass-border, rgba(0, 0, 0, 0.06));
   padding: 12px 0;
 }
-[data-theme="dark"] .ep2-navbar {
-  background: rgba(13, 17, 23, 0.9);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
-}
+
 .ep2-navbar .container {
   display: flex;
   align-items: center;
@@ -50,7 +45,7 @@
 .ep2-navbar .nav-links a {
   font-weight: 600;
   font-size: 0.92rem;
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   text-decoration: none;
   position: relative;
   padding: 4px 0;
@@ -75,10 +70,7 @@
 .ep2-navbar .nav-links a.active::after {
   width: 100%;
 }
-[data-theme="dark"] .ep2-navbar .nav-links a:hover,
-[data-theme="dark"] .ep2-navbar .nav-links a.active {
-  color: var(--coral, #39BDEB);
-}
+
 
 /* ---------- EP2 Hero / Beranda ---------- */
 .ep2-hero {
@@ -91,9 +83,7 @@
   background: var(--off-white, #fafbfd);
   overflow: clip;
 }
-[data-theme="dark"] .ep2-hero {
-  background: var(--gray-900, #0D1117);
-}
+
 .ep2-hero-shapes {
   position: absolute;
   inset: 0;
@@ -150,31 +140,24 @@
   background: rgba(46, 196, 182, 0.1);
   border-radius: 30px;
 }
-[data-theme="dark"] .ep2-hero-greeting {
-  background: rgba(46, 196, 182, 0.15);
-  color: var(--teal-light, #4DD9CC);
-}
+
 .ep2-title {
   font-family: var(--font-heading, "Outfit", sans-serif);
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin: 0 0 20px;
   line-height: 1.2;
 }
-[data-theme="dark"] .ep2-title {
-  color: #fff;
-}
+
 .ep2-subtitle {
   font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   max-width: 680px;
   margin: 0 auto 32px;
   line-height: 1.7;
 }
-[data-theme="dark"] .ep2-subtitle {
-  color: var(--gray-400, #9AA2B0);
-}
+
 .ep2-hero-actions {
   display: flex;
   gap: 16px;
@@ -196,19 +179,15 @@
   border-radius: 30px;
   font-size: 0.82rem;
   font-weight: 600;
-  background: var(--white, #fff);
-  color: var(--gray-600, #4A5263);
+  background: var(--white);
+  color: var(--gray-600);
   border: 1px solid var(--gray-200, #DEE2E8);
   box-shadow: var(--shadow-sm);
 }
 .ep2-hero-badge i {
   color: var(--teal, #2EC4B6);
 }
-[data-theme="dark"] .ep2-hero-badge {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: var(--gray-300, #C4CAD4);
-}
+
 .ep2-scroll-indicator {
   position: absolute;
   bottom: 32px;
@@ -259,27 +238,21 @@
   justify-content: center;
 }
 .ep2-section:nth-child(even) {
-  background: var(--white, #fff);
+  background: var(--white);
 }
-[data-theme="dark"] .ep2-section:nth-child(even) {
-  background: rgba(26, 29, 38, 0.5);
-}
-[data-theme="dark"] .ep2-section {
-  background: var(--gray-900, #0D1117);
-}
-[data-theme="dark"] .ep2-section:nth-child(even) {
-  background: var(--gray-800, #1A2030);
-}
+
+
+
 
 /* Smooth snap-to-section scrolling handled on wrapper above */
 
 /* ---------- EP2 Cards ---------- */
 .ep2-card {
-  background: var(--white, #fff);
+  background: var(--white);
   border-radius: 20px;
   padding: 36px;
   margin-bottom: 32px;
-  border: 1px solid var(--gray-100, #eee);
+  border: 1px solid var(--gray-100);
   box-shadow: var(--shadow-sm, 0 2px 12px rgba(0,0,0,0.04));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -287,10 +260,7 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg, 0 12px 40px rgba(0,0,0,0.08));
 }
-[data-theme="dark"] .ep2-card {
-  background: var(--gray-800, #1A2030);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-card-header {
   display: flex;
   align-items: flex-start;
@@ -314,15 +284,13 @@
 .ep2-card-header h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin: 0 0 4px;
 }
-[data-theme="dark"] .ep2-card-header h3 {
-  color: #E8EAED;
-}
+
 .ep2-card-lead {
   font-size: 0.9rem;
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   margin: 0;
 }
 
@@ -352,16 +320,14 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--white, #fff);
+  background: var(--white);
   border: 3px solid var(--teal, #2EC4B6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
 }
-[data-theme="dark"] .ep2-timeline-marker {
-  background: var(--gray-800, #1A2030);
-}
+
 .ep2-timeline-num {
   font-size: 0.8rem;
   font-weight: 800;
@@ -384,21 +350,17 @@
 .ep2-timeline-content h4 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin: 0 0 8px;
 }
-[data-theme="dark"] .ep2-timeline-content h4 {
-  color: #E8EAED;
-}
+
 .ep2-timeline-content p {
   font-size: 0.92rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0;
 }
-[data-theme="dark"] .ep2-timeline-content p {
-  color: #9AA2B0;
-}
+
 
 /* ---------- EP2 Challenges ---------- */
 .ep2-challenges {
@@ -412,13 +374,10 @@
   gap: 20px;
   padding: 24px;
   border-radius: 16px;
-  background: var(--gray-50, #f8fafc);
-  border: 1px solid var(--gray-100, #eee);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
 }
-[data-theme="dark"] .ep2-challenge-item {
-  background: rgba(13, 17, 23, 0.4);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-challenge-problem,
 .ep2-challenge-solution {
   padding: 16px;
@@ -450,22 +409,17 @@
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 8px;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
 }
-[data-theme="dark"] .ep2-challenge-problem h4 {
-  color: #E8EAED;
-}
+
 .ep2-challenge-problem p,
 .ep2-challenge-solution p {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0;
 }
-[data-theme="dark"] .ep2-challenge-problem p,
-[data-theme="dark"] .ep2-challenge-solution p {
-  color: #9AA2B0;
-}
+
 
 /* ---------- EP2 Feedback ---------- */
 .ep2-feedback-list {
@@ -476,18 +430,15 @@
 .ep2-feedback-item {
   padding: 24px;
   border-radius: 16px;
-  background: var(--gray-50, #f8fafc);
-  border: 1px solid var(--gray-100, #eee);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .ep2-feedback-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
-[data-theme="dark"] .ep2-feedback-item {
-  background: rgba(13, 17, 23, 0.4);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-feedback-source {
   display: inline-flex;
   align-items: center;
@@ -506,20 +457,18 @@
   font-style: italic;
   font-size: 0.95rem;
   line-height: 1.8;
-  color: var(--gray-700, #2D3443);
+  color: var(--gray-700);
   border-left: 3px solid var(--lavender, #9B72CF);
   padding-left: 16px;
   margin: 0 0 14px;
 }
-[data-theme="dark"] .ep2-feedback-quote {
-  color: #C4CAD4;
-}
+
 .ep2-feedback-action {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   font-size: 0.88rem;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   padding: 12px 16px;
   border-radius: 10px;
   background: rgba(46, 196, 182, 0.06);
@@ -529,11 +478,7 @@
   color: var(--teal, #2EC4B6);
   margin-top: 3px;
 }
-[data-theme="dark"] .ep2-feedback-action {
-  background: rgba(46, 196, 182, 0.04);
-  border-color: rgba(46, 196, 182, 0.1);
-  color: #9AA2B0;
-}
+
 
 /* ---------- EP2 Filosofi Quote ---------- */
 .ep2-quote-card {
@@ -550,8 +495,8 @@
 .ep2-filosofi-card {
   display: flex;
   border-radius: 16px;
-  background: var(--white, #fff);
-  border: 1px solid var(--gray-100, #eee);
+  background: var(--white);
+  border: 1px solid var(--gray-100);
   box-shadow: var(--shadow-sm, 0 2px 12px rgba(0,0,0,0.04));
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -560,10 +505,7 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-md, 0 8px 30px rgba(0,0,0,0.08));
 }
-[data-theme="dark"] .ep2-filosofi-card {
-  background: var(--gray-800, #1A2030);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-filosofi-card-accent {
   width: 6px;
   min-height: 100%;
@@ -578,7 +520,7 @@
 .ep2-filosofi-card-body h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin: 0 0 12px;
   display: flex;
   align-items: center;
@@ -588,18 +530,14 @@
   color: var(--teal, #2EC4B6);
   font-size: 1.1rem;
 }
-[data-theme="dark"] .ep2-filosofi-card-body h3 {
-  color: #E8EAED;
-}
+
 .ep2-filosofi-card-body p {
   font-size: 0.92rem;
   line-height: 1.8;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0;
 }
-[data-theme="dark"] .ep2-filosofi-card-body p {
-  color: #9AA2B0;
-}
+
 
 /* ---------- EP2 Values Grid ---------- */
 .ep2-values-section {
@@ -609,12 +547,10 @@
   font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin-bottom: 28px;
 }
-[data-theme="dark"] .ep2-values-title {
-  color: #E8EAED;
-}
+
 .ep2-values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -701,8 +637,8 @@
   position: relative;
   text-align: left;
   padding: 32px 28px;
-  background: var(--white, #fff);
-  border: 1px solid var(--gray-100, #eee);
+  background: var(--white);
+  border: 1px solid var(--gray-100);
   border-radius: 20px;
   cursor: pointer;
   font-family: inherit;
@@ -728,10 +664,7 @@
 .ep2-question-card:hover::before {
   opacity: 1;
 }
-[data-theme="dark"] .ep2-question-card {
-  background: var(--gray-800, #1A2030);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-question-icon {
   width: 56px;
   height: 56px;
@@ -756,23 +689,19 @@
   line-height: 1;
   font-family: var(--font-heading, "Outfit", sans-serif);
 }
-[data-theme="dark"] .ep2-question-num {
-  color: rgba(255, 255, 255, 0.05);
-}
+
 .ep2-question-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   margin: 0 0 12px;
   line-height: 1.4;
 }
-[data-theme="dark"] .ep2-question-title {
-  color: #E8EAED;
-}
+
 .ep2-question-text {
   font-size: 0.92rem;
   line-height: 1.7;
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   margin: 0 0 20px;
 }
 .ep2-question-cta {
@@ -787,9 +716,7 @@
 .ep2-question-card:hover .ep2-question-cta {
   gap: 12px;
 }
-[data-theme="dark"] .ep2-question-cta {
-  color: var(--coral, #39BDEB);
-}
+
 
 /* ============================================
    EP2 MODAL
@@ -812,7 +739,7 @@
   opacity: 1;
 }
 .ep2-modal-container {
-  background: var(--white, #fff);
+  background: var(--white);
   border-radius: 24px;
   width: 100%;
   max-width: 800px;
@@ -827,9 +754,7 @@
 .ep2-modal-overlay.active .ep2-modal-container {
   transform: scale(1) translateY(0);
 }
-[data-theme="dark"] .ep2-modal-container {
-  background: var(--gray-800, #1A2030);
-}
+
 .ep2-modal-close {
   position: absolute;
   top: 16px;
@@ -839,7 +764,7 @@
   border-radius: 50%;
   border: none;
   background: var(--gray-100, #eee);
-  color: var(--gray-700, #2D3443);
+  color: var(--gray-700);
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
@@ -853,10 +778,7 @@
   color: #fff;
   transform: rotate(90deg);
 }
-[data-theme="dark"] .ep2-modal-close {
-  background: rgba(255, 255, 255, 0.08);
-  color: #E8EAED;
-}
+
 .ep2-modal-header {
   display: flex;
   align-items: flex-start;
@@ -865,19 +787,15 @@
   padding-bottom: 24px;
   border-bottom: 1px solid var(--gray-100, #eee);
 }
-[data-theme="dark"] .ep2-modal-header {
-  border-bottom-color: var(--gray-700, #2D3443);
-}
+
 .ep2-modal-header h3 {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 6px 0 0;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   line-height: 1.3;
 }
-[data-theme="dark"] .ep2-modal-header h3 {
-  color: #E8EAED;
-}
+
 .ep2-modal-tag {
   display: inline-flex;
   align-items: center;
@@ -897,12 +815,10 @@
 .ep2-modal-body > p {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0 0 24px;
 }
-[data-theme="dark"] .ep2-modal-body > p {
-  color: #C4CAD4;
-}
+
 
 /* Modal: Timeline (Q1) */
 .ep2-modal-timeline {
@@ -915,11 +831,9 @@
   gap: 16px;
   padding: 16px;
   border-radius: 12px;
-  background: var(--gray-50, #f8fafc);
+  background: var(--gray-50);
 }
-[data-theme="dark"] .ep2-modal-step {
-  background: rgba(13, 17, 23, 0.4);
-}
+
 .ep2-modal-step-num {
   flex-shrink: 0;
   width: 38px;
@@ -939,20 +853,16 @@
   font-size: 1rem;
   font-weight: 700;
   margin: 4px 0 6px;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
 }
-[data-theme="dark"] .ep2-modal-step h4 {
-  color: #E8EAED;
-}
+
 .ep2-modal-step p {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0;
 }
-[data-theme="dark"] .ep2-modal-step p {
-  color: #9AA2B0;
-}
+
 
 /* Modal: Challenges (Q2) */
 .ep2-modal-challenges {
@@ -963,12 +873,10 @@
 .ep2-modal-challenge {
   padding: 20px;
   border-radius: 14px;
-  background: var(--gray-50, #f8fafc);
+  background: var(--gray-50);
   border-left: 4px solid #FF6B6B;
 }
-[data-theme="dark"] .ep2-modal-challenge {
-  background: rgba(13, 17, 23, 0.4);
-}
+
 .ep2-modal-challenge-head {
   margin-bottom: 12px;
 }
@@ -976,20 +884,16 @@
   font-size: 1.05rem;
   font-weight: 700;
   margin: 8px 0 0;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
 }
-[data-theme="dark"] .ep2-modal-challenge-head h4 {
-  color: #E8EAED;
-}
+
 .ep2-modal-challenge-problem {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0 0 14px;
 }
-[data-theme="dark"] .ep2-modal-challenge-problem {
-  color: #9AA2B0;
-}
+
 .ep2-modal-solution {
   background: rgba(46, 196, 182, 0.08);
   border-left: 3px solid var(--teal, #2EC4B6);
@@ -1007,12 +911,10 @@
 .ep2-modal-solution p {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: var(--gray-700, #2D3443);
+  color: var(--gray-700);
   margin: 0;
 }
-[data-theme="dark"] .ep2-modal-solution p {
-  color: #C4CAD4;
-}
+
 
 /* Modal: Feedback (Q3) */
 .ep2-modal-feedback-list {
@@ -1023,12 +925,10 @@
 .ep2-modal-feedback {
   padding: 20px;
   border-radius: 14px;
-  background: var(--gray-50, #f8fafc);
+  background: var(--gray-50);
   border-left: 4px solid var(--lavender, #9B72CF);
 }
-[data-theme="dark"] .ep2-modal-feedback {
-  background: rgba(13, 17, 23, 0.4);
-}
+
 .ep2-modal-feedback-source {
   display: inline-flex;
   align-items: center;
@@ -1047,21 +947,19 @@
   font-style: italic;
   font-size: 0.92rem;
   line-height: 1.8;
-  color: var(--gray-700, #2D3443);
+  color: var(--gray-700);
   border: none;
   padding: 0;
   margin: 0 0 12px;
 }
-[data-theme="dark"] .ep2-modal-feedback blockquote {
-  color: #C4CAD4;
-}
+
 .ep2-modal-action {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   font-size: 0.88rem;
   line-height: 1.6;
-  color: var(--gray-700, #2D3443);
+  color: var(--gray-700);
   background: rgba(46, 196, 182, 0.08);
   padding: 10px 14px;
   border-radius: 8px;
@@ -1070,9 +968,7 @@
   color: var(--teal, #2EC4B6);
   margin-top: 4px;
 }
-[data-theme="dark"] .ep2-modal-action {
-  color: #C4CAD4;
-}
+
 
 /* ============================================
    EP2 COMPACT FILOSOFI
@@ -1084,12 +980,9 @@
   background: linear-gradient(135deg, rgba(155, 114, 207, 0.06), rgba(46, 196, 182, 0.06));
   border-radius: 20px;
   margin-bottom: 36px;
-  border: 1px solid var(--gray-100, #eee);
+  border: 1px solid var(--gray-100);
 }
-[data-theme="dark"] .ep2-quote-banner {
-  background: linear-gradient(135deg, rgba(155, 114, 207, 0.08), rgba(46, 196, 182, 0.08));
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-quote-mark {
   font-size: 4rem;
   font-family: Georgia, serif;
@@ -1102,18 +995,16 @@
   font-family: var(--font-heading, "Outfit", sans-serif);
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   font-weight: 600;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
   line-height: 1.5;
   margin: 0 0 12px;
   border: none;
   padding: 0;
 }
-[data-theme="dark"] .ep2-quote-banner blockquote {
-  color: #E8EAED;
-}
+
 .ep2-quote-banner cite {
   font-size: 0.88rem;
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   font-style: normal;
 }
 
@@ -1124,10 +1015,10 @@
   margin-bottom: 40px;
 }
 .ep2-filosofi-mini-card {
-  background: var(--white, #fff);
+  background: var(--white);
   border-radius: 16px;
   padding: 24px;
-  border: 1px solid var(--gray-100, #eee);
+  border: 1px solid var(--gray-100);
   border-top: 4px solid var(--teal, #2EC4B6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1137,10 +1028,7 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,0.08));
 }
-[data-theme="dark"] .ep2-filosofi-mini-card {
-  background: var(--gray-800, #1A2030);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-filosofi-mini-icon {
   width: 44px;
   height: 44px;
@@ -1165,20 +1053,16 @@
   font-size: 1.05rem;
   font-weight: 700;
   margin: 0 0 10px;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
 }
-[data-theme="dark"] .ep2-filosofi-mini-card h3 {
-  color: #E8EAED;
-}
+
 .ep2-filosofi-mini-summary {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0 0 14px;
 }
-[data-theme="dark"] .ep2-filosofi-mini-summary {
-  color: #9AA2B0;
-}
+
 .ep2-filosofi-expand {
   background: none;
   border: none;
@@ -1202,9 +1086,7 @@
 .ep2-filosofi-expand.expanded i {
   transform: rotate(180deg);
 }
-[data-theme="dark"] .ep2-filosofi-expand {
-  color: var(--coral, #39BDEB);
-}
+
 .ep2-filosofi-mini-full {
   max-height: 0;
   overflow: hidden;
@@ -1217,35 +1099,29 @@
 .ep2-filosofi-mini-full p {
   font-size: 0.88rem;
   line-height: 1.8;
-  color: var(--gray-600, #4A5263);
+  color: var(--gray-600);
   margin: 0;
   padding-top: 14px;
   border-top: 1px solid var(--gray-100, #eee);
 }
-[data-theme="dark"] .ep2-filosofi-mini-full p {
-  color: #C4CAD4;
-  border-top-color: var(--gray-700, #2D3443);
-}
+
 
 /* Compact Values (mini horizontal cards) */
 .ep2-value-mini {
   display: flex;
   gap: 14px;
   align-items: flex-start;
-  background: var(--white, #fff);
+  background: var(--white);
   padding: 18px 20px;
   border-radius: 14px;
-  border: 1px solid var(--gray-100, #eee);
+  border: 1px solid var(--gray-100);
   transition: transform 0.3s ease;
 }
 .ep2-value-mini:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm, 0 8px 20px rgba(0,0,0,0.06));
 }
-[data-theme="dark"] .ep2-value-mini {
-  background: var(--gray-800, #1A2030);
-  border-color: var(--gray-700, #2D3443);
-}
+
 .ep2-value-mini-icon {
   width: 42px;
   height: 42px;
@@ -1266,15 +1142,13 @@
   font-size: 0.95rem;
   font-weight: 700;
   margin: 0 0 4px;
-  color: var(--gray-800, #1A2030);
+  color: var(--gray-800);
 }
-[data-theme="dark"] .ep2-value-mini h4 {
-  color: #E8EAED;
-}
+
 .ep2-value-mini p {
   font-size: 0.82rem;
   line-height: 1.5;
-  color: var(--gray-500, #6E7787);
+  color: var(--gray-500);
   margin: 0;
 }
 
