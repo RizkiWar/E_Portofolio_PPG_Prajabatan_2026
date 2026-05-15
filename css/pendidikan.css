@@ -104,6 +104,16 @@
   font-size: 0.88rem;
   color: var(--gray-500);
   line-height: 1.6;
+  text-align: justify;
+}
+
+.timeline-card p strong {
+  color: var(--coral);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .timeline-card p strong {
+  color: #7DD3FC;
 }
 
 
