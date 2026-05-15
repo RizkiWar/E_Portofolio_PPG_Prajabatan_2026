@@ -697,10 +697,28 @@ function initEp2Particles() {
   wrapper.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
   wrapper.addEventListener('mouseleave', function() { mouseX = -999; mouseY = -999; });
 
-  // Click ripple burst
+  var ripples = [];
+  var burstParticles = [];
+
+  // Click ripple (EP1-style: expanding rings + burst)
   wrapper.addEventListener('click', function(e) {
-    for (var j = 0; j < 10; j++) {
-      particles.push(createParticle(e.clientX, e.clientY, true));
+    var color = colors[Math.floor(Math.random() * colors.length)];
+    ripples.push({ x: e.clientX, y: e.clientY, radius: 0, maxRadius: 150 + Math.random() * 80, alpha: 0.4, color: color });
+    ripples.push({ x: e.clientX, y: e.clientY, radius: 0, maxRadius: 80 + Math.random() * 60, alpha: 0.25, color: colors[Math.floor(Math.random() * colors.length)] });
+    for (var j = 0; j < 12; j++) {
+      var angle = (Math.PI * 2 / 12) * j + Math.random() * 0.3;
+      var speed = 2 + Math.random() * 3;
+      var bColor = colors[Math.floor(Math.random() * colors.length)];
+      burstParticles.push({
+        x: e.clientX, y: e.clientY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        size: Math.random() * 3 + 1.5,
+        alpha: 0.8,
+        color: bColor,
+        life: 1,
+        decay: 0.015 + Math.random() * 0.015
+      });
     }
   });
 
@@ -770,6 +788,34 @@ function initEp2Particles() {
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Draw ripples (EP1-style expanding rings)
+    for (var ri = ripples.length - 1; ri >= 0; ri--) {
+      var r = ripples[ri];
+      r.radius += 3;
+      r.alpha -= 0.006;
+      if (r.alpha <= 0 || r.radius >= r.maxRadius) { ripples.splice(ri, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = r.color.replace(')', ',' + r.alpha + ')').replace('rgb(', 'rgba(');
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // Draw burst particles
+    for (var bi = burstParticles.length - 1; bi >= 0; bi--) {
+      var b = burstParticles[bi];
+      b.x += b.vx; b.y += b.vy;
+      b.vx *= 0.96; b.vy *= 0.96;
+      b.life -= b.decay;
+      b.alpha = b.life * 0.8;
+      if (b.life <= 0) { burstParticles.splice(bi, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.size * b.life, 0, Math.PI * 2);
+      ctx.fillStyle = b.color.replace(')', ',' + b.alpha + ')').replace('rgb(', 'rgba(');
+      ctx.fill();
+    }
+
+    // Draw main particles
     for (var i = particles.length - 1; i >= 0; i--) {
       var p = particles[i];
       p.x += p.vx;

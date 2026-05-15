@@ -2243,67 +2243,6 @@
   }
 }
 
-/* ============================================
-   EP2 SCROLL RAIL (dot navigation — EP1 style)
-   ============================================ */
-.ep2-scroll-rail {
-  position: fixed;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  z-index: 1100;
-  padding: 14px 6px;
-}
-.ep2-rail-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: var(--gray-300, #C4CAD4);
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  outline: none;
-}
-.ep2-rail-dot::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: transparent;
-  transition: all 0.35s ease;
-}
-.ep2-rail-dot:hover {
-  background: var(--teal, #2EC4B6);
-  transform: scale(1.4);
-}
-.ep2-rail-dot:hover::before {
-  background: rgba(46, 196, 182, 0.15);
-}
-.ep2-rail-dot.active {
-  background: var(--teal, #2EC4B6);
-  transform: scale(1.5);
-  box-shadow: 0 0 0 5px rgba(46, 196, 182, 0.18);
-}
-.ep2-rail-dot:focus-visible {
-  outline: 2px solid var(--teal, #2EC4B6);
-  outline-offset: 4px;
-}
-[data-theme="dark"] .ep2-rail-dot {
-  background: var(--gray-500);
-}
-[data-theme="dark"] .ep2-rail-dot:hover,
-[data-theme="dark"] .ep2-rail-dot.active {
-  background: var(--teal, #2EC4B6);
-}
-@media (max-width: 768px) {
-  .ep2-scroll-rail { display: none; }
-}
 
 /* EP2 Particle canvas layer */
 #ep2ParticleCanvas {
@@ -2313,4 +2252,83 @@
   height: 100%;
   pointer-events: none;
   z-index: 3;
+}
+
+/* ============================================
+   EP2 SCROLL RAIL (identical to EP1 .scroll-rail)
+   ============================================ */
+.ep2-scroll-rail {
+  position: fixed;
+  top: 50%;
+  right: 22px;
+  z-index: 1100;
+  display: grid;
+  gap: 10px;
+  padding: 10px 7px;
+  border: 1px solid rgba(15, 94, 168, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+.ep2-rail-dot {
+  position: relative;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: 0 0 0 0 rgba(46, 196, 182, 0);
+  cursor: pointer;
+  transform: scale(1);
+  transition: box-shadow 0.32s ease, transform 0.32s ease;
+}
+.ep2-rail-dot::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(15, 94, 168, 0.28);
+  transition: width 0.26s ease, height 0.26s ease, background 0.26s ease, box-shadow 0.26s ease;
+}
+.ep2-rail-dot:hover::before,
+.ep2-rail-dot:focus-visible::before {
+  width: 10px;
+  height: 10px;
+  background: rgba(46, 196, 182, 0.7);
+}
+.ep2-rail-dot:focus-visible {
+  outline: 2px solid rgba(46, 196, 182, 0.6);
+  outline-offset: 3px;
+}
+.ep2-rail-dot.active::before {
+  width: 9px;
+  height: 9px;
+  background: var(--teal, #2EC4B6);
+  box-shadow: 0 0 0 6px rgba(46, 196, 182, 0.16);
+}
+.ep2-rail-dot.active {
+  transform: scale(1.35);
+}
+[data-theme="dark"] .ep2-scroll-rail {
+  border-color: rgba(125, 211, 252, 0.16);
+  background: rgba(13, 17, 23, 0.48);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+[data-theme="dark"] .ep2-rail-dot::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+[data-theme="dark"] .ep2-rail-dot:hover::before,
+[data-theme="dark"] .ep2-rail-dot:focus-visible::before,
+[data-theme="dark"] .ep2-rail-dot.active::before {
+  background: var(--teal, #2EC4B6);
+}
+@media (max-width: 768px) {
+  .ep2-scroll-rail { display: none; }
 }
