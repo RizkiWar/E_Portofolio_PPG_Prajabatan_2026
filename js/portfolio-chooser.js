@@ -34,7 +34,7 @@
       }
     }, 300);
 
-    if (typeof gsap !== 'undefined') {
+    if (typeof gsap !== 'undefined' && window.innerWidth > 768) {
       gsap.from('.chooser-content > *', {
         opacity: 0, y: 30, duration: 0.6, stagger: 0.12, ease: 'power3.out', delay: 0.1
       });
