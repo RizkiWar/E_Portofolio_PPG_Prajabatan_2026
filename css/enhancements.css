@@ -2025,3 +2025,62 @@ body.chooser-active .back-to-top {
     font-size: 1.1rem;
   }
 }
+
+/* ============================================
+   FORCE CHOOSER VISIBLE ON ALL DEVICES
+   ============================================ */
+.portfolio-chooser {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  z-index: 99999 !important;
+  background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.portfolio-chooser:not(.active) {
+  display: none !important;
+}
+
+.portfolio-chooser.active {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.portfolio-chooser .chooser-content {
+  position: relative !important;
+  z-index: 100000 !important;
+  color: #fff !important;
+  width: 100% !important;
+  max-width: 700px !important;
+}
+
+.portfolio-chooser .chooser-title,
+.portfolio-chooser .chooser-card h3 {
+  color: #fff !important;
+}
+
+.portfolio-chooser .chooser-subtitle {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.portfolio-chooser .chooser-card {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .portfolio-chooser .chooser-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
