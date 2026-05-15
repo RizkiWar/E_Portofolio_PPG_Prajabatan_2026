@@ -270,72 +270,47 @@ function buildSectionEntrance(section, prepared, index) {
   const isHeroSection = section.id === 'hero';
   const header = section.querySelector('.section-header');
 
-  const start = index === 0 ? 'top 92%' : 'top 78%';
-  const timeline = gsap.timeline({
-    defaults: { ease: 'power3.out' },
-    scrollTrigger: {
-      trigger: section,
-      start,
-      toggleActions: 'play none none none'
-    }
-  });
-
-  timeline.set(section, {
-    '--fx-line-opacity': 0,
-    '--fx-line-scale': 0
-  });
-
-  if (header) {
-    timeline.fromTo(header, {
-      autoAlpha: 0,
-      y: 20
-    }, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.6
-    }, 0.04);
+  if (isHeroSection) {
+    const bodyItems = prepared.items.filter(item => item !== header);
+    gsap.set(bodyItems, { autoAlpha: 1, y: 0 });
+    gsap.set(section, { '--fx-line-opacity': 1, '--fx-line-scale': 1 });
+    return;
   }
-
-  if (prepared.titleWords.length) {
-    timeline.fromTo(prepared.titleWords, {
-      autoAlpha: 0,
-      yPercent: 40
-    }, {
-      autoAlpha: 1,
-      yPercent: 0,
-      duration: 0.6,
-      stagger: 0.03
-    }, 0.1);
-  }
-
-  timeline.to(section, {
-    '--fx-line-opacity': 1,
-    '--fx-line-scale': 1,
-    duration: 0.6,
-    ease: 'power2.out'
-  }, 0.15);
 
   const bodyItems = prepared.items.filter(item => item !== header);
+  const allTargets = [header, ...prepared.titleWords, ...bodyItems].filter(Boolean);
+
+  gsap.set(section, { '--fx-line-opacity': 0, '--fx-line-scale': 0 });
+  if (header) gsap.set(header, { autoAlpha: 0, y: 20 });
+  if (prepared.titleWords.length) gsap.set(prepared.titleWords, { autoAlpha: 0, yPercent: 40 });
+  if (bodyItems.length) gsap.set(bodyItems, { autoAlpha: 0, y: 24 });
+
+  var played = false;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !played) {
+        played = true;
+        observer.disconnect();
+        playEntrance(section, header, prepared.titleWords, bodyItems);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+
+  observer.observe(section);
+}
+
+function playEntrance(section, header, titleWords, bodyItems) {
+  var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  if (header) {
+    tl.to(header, { autoAlpha: 1, y: 0, duration: 0.5 }, 0);
+  }
+  if (titleWords.length) {
+    tl.to(titleWords, { autoAlpha: 1, yPercent: 0, duration: 0.5, stagger: 0.025 }, 0.05);
+  }
+  tl.to(section, { '--fx-line-opacity': 1, '--fx-line-scale': 1, duration: 0.5 }, 0.1);
   if (bodyItems.length) {
-    if (isHeroSection) {
-      timeline.set(bodyItems, {
-        autoAlpha: 1,
-        y: 0
-      }, 0);
-    } else {
-      timeline.fromTo(bodyItems, {
-        autoAlpha: 0,
-        y: 24
-      }, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: {
-          each: 0.04,
-          from: 'start'
-        }
-      }, header ? 0.25 : 0.05);
-    }
+    tl.to(bodyItems, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.03 }, 0.15);
   }
 }
 
