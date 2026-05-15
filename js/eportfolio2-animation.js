@@ -175,6 +175,7 @@ function splitTextReveal(el, timeline) {
   var parts = html.split(/<br\s*\/?>/i);
   el.innerHTML = '';
   el.style.overflow = 'hidden';
+  el.style.visibility = 'visible';
 
   parts.forEach(function(part, pi) {
     var words = part.trim().split(/\s+/);
@@ -642,8 +643,7 @@ export function refreshEp2Animation() {
 }
 
 /* ============================================
-   EP2 CANVAS PARTICLES
-   Lightweight particle system with mouse interaction
+   EP2 CANVAS PARTICLES (EP1-style mechanical shapes)
    ============================================ */
 function initEp2Particles() {
   var wrapper = document.getElementById('eportfolio2Wrapper');
@@ -655,14 +655,15 @@ function initEp2Particles() {
 
   var canvas = document.createElement('canvas');
   canvas.id = 'ep2ParticleCanvas';
-  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:0.6;';
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;';
   wrapper.insertBefore(canvas, wrapper.firstChild);
 
   var ctx = canvas.getContext('2d');
   var particles = [];
   var mouseX = -999, mouseY = -999;
-  var particleCount = Math.min(Math.floor(window.innerWidth / 25), 45);
-  var colors = ['rgba(46,196,182,0.6)', 'rgba(57,189,235,0.5)', 'rgba(155,114,207,0.5)', 'rgba(15,94,168,0.4)'];
+  var particleCount = Math.min(Math.floor(window.innerWidth / 30), 40);
+  var colors = ['#0F5EA8', '#39BDEB', '#2EC4B6', '#F1C05B'];
+  var shapes = ['gear', 'hexBolt', 'cube', 'spark', 'circle'];
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -671,15 +672,21 @@ function initEp2Particles() {
   resize();
   window.addEventListener('resize', resize);
 
-  function createParticle() {
+  function createParticle(x, y, burst) {
+    var angle = burst ? Math.random() * Math.PI * 2 : 0;
+    var speed = burst ? 2 + Math.random() * 2.5 : 0;
     return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 3 + 1.5,
+      x: x !== undefined ? x : Math.random() * canvas.width,
+      y: y !== undefined ? y : Math.random() * canvas.height,
+      vx: burst ? Math.cos(angle) * speed : (Math.random() - 0.5) * 0.3,
+      vy: burst ? Math.sin(angle) * speed : (Math.random() - 0.5) * 0.3,
+      size: Math.random() * 8 + 5,
       color: colors[Math.floor(Math.random() * colors.length)],
-      life: Math.random() * 200 + 100
+      shape: shapes[Math.floor(Math.random() * shapes.length)],
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.02,
+      alpha: burst ? 1 : 0.35 + Math.random() * 0.25,
+      life: burst ? 50 : Infinity
     };
   }
 
@@ -687,30 +694,78 @@ function initEp2Particles() {
     particles.push(createParticle());
   }
 
-  wrapper.addEventListener('mousemove', function(e) {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-  wrapper.addEventListener('mouseleave', function() {
-    mouseX = -999;
-    mouseY = -999;
-  });
+  wrapper.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+  wrapper.addEventListener('mouseleave', function() { mouseX = -999; mouseY = -999; });
 
-  // Click ripple
+  // Click ripple burst
   wrapper.addEventListener('click', function(e) {
-    for (var j = 0; j < 8; j++) {
-      var angle = (j / 8) * Math.PI * 2;
-      var speed = 2 + Math.random() * 2;
-      var p = createParticle();
-      p.x = e.clientX;
-      p.y = e.clientY;
-      p.vx = Math.cos(angle) * speed;
-      p.vy = Math.sin(angle) * speed;
-      p.life = 40;
-      p.size = 2.5;
-      particles.push(p);
+    for (var j = 0; j < 10; j++) {
+      particles.push(createParticle(e.clientX, e.clientY, true));
     }
   });
+
+  function drawGear(size) {
+    var teeth = 7;
+    ctx.beginPath();
+    for (var i = 0; i < teeth * 2; i++) {
+      var radius = i % 2 === 0 ? size : size * 0.72;
+      var a = (Math.PI * 2 * i) / (teeth * 2);
+      var x = Math.cos(a) * radius;
+      var y = Math.sin(a) * radius;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.3, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  function drawHexBolt(size) {
+    ctx.beginPath();
+    for (var i = 0; i < 6; i++) {
+      var a = Math.PI / 6 + (Math.PI * 2 * i) / 6;
+      var x = Math.cos(a) * size;
+      var y = Math.sin(a) * size;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.3, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  function drawCube(size) {
+    var h = size * 0.55;
+    var o = size * 0.3;
+    ctx.strokeRect(-h, -h, size, size);
+    ctx.strokeRect(-h + o, -h - o, size, size);
+    ctx.beginPath();
+    ctx.moveTo(-h, -h); ctx.lineTo(-h + o, -h - o);
+    ctx.moveTo(h, -h); ctx.lineTo(h + o, -h - o);
+    ctx.moveTo(-h, h); ctx.lineTo(-h + o, h - o);
+    ctx.moveTo(h, h); ctx.lineTo(h + o, h - o);
+    ctx.stroke();
+  }
+
+  function drawSpark(size) {
+    ctx.beginPath();
+    for (var i = 0; i < 4; i++) {
+      var a = (Math.PI * 2 * i) / 4;
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.cos(a) * size, Math.sin(a) * size);
+    }
+    ctx.stroke();
+  }
+
+  function drawCircle(size) {
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.6, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  var drawFns = { gear: drawGear, hexBolt: drawHexBolt, cube: drawCube, spark: drawSpark, circle: drawCircle };
 
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -719,51 +774,57 @@ function initEp2Particles() {
       var p = particles[i];
       p.x += p.vx;
       p.y += p.vy;
-      p.life--;
+      p.rotation += p.rotSpeed;
+      if (p.life !== Infinity) p.life--;
 
       // Mouse repulsion
       var dx = p.x - mouseX;
       var dy = p.y - mouseY;
       var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100 && dist > 0) {
-        var force = (100 - dist) / 100 * 0.8;
+      if (dist < 120 && dist > 0) {
+        var force = (120 - dist) / 120 * 0.6;
         p.vx += (dx / dist) * force;
         p.vy += (dy / dist) * force;
       }
 
       // Damping
-      p.vx *= 0.99;
-      p.vy *= 0.99;
+      p.vx *= 0.985;
+      p.vy *= 0.985;
 
       // Wrap edges
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      if (p.y < -20) p.y = canvas.height + 20;
+      if (p.y > canvas.height + 20) p.y = -20;
 
       // Draw
-      var alpha = Math.min(p.life / 40, 1);
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = p.color.replace(/[\d.]+\)$/, (alpha * 0.6) + ')');
-      ctx.fill();
+      var alpha = p.life !== Infinity ? (p.life / 50) * p.alpha : p.alpha;
+      if (alpha <= 0) { particles.splice(i, 1); continue; }
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.globalAlpha = alpha;
+      ctx.strokeStyle = p.color;
+      ctx.lineWidth = Math.max(1, p.size * 0.1);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      drawFns[p.shape](p.size);
+      ctx.restore();
 
       // Connection lines
-      for (var j = i - 1; j >= Math.max(0, i - 10); j--) {
+      for (var j = i - 1; j >= Math.max(0, i - 8); j--) {
         var p2 = particles[j];
+        if (p2.life !== Infinity) continue;
         var d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
-        if (d < 100) {
+        if (d < 110) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = 'rgba(57,189,235,' + ((1 - d / 100) * 0.15) + ')';
+          ctx.strokeStyle = 'rgba(57,189,235,' + ((1 - d / 110) * 0.12) + ')';
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
-      }
-
-      if (p.life <= 0) {
-        particles[i] = createParticle();
       }
     }
 
