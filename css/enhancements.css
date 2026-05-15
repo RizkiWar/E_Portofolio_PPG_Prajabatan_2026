@@ -1825,3 +1825,168 @@ section > .container, .section > .container {
     -webkit-backdrop-filter: none !important;
   }
 }
+
+/* ============================================
+   PORTFOLIO CHOOSER SCREEN
+   ============================================ */
+.portfolio-chooser {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.portfolio-chooser.active {
+  display: flex;
+}
+
+.chooser-content {
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.chooser-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.chooser-logo img {
+  width: min(360px, 78vw);
+  height: auto;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 18px;
+  padding: 16px 20px;
+  box-shadow:
+    0 22px 64px rgba(7, 23, 43, 0.22),
+    0 0 0 8px rgba(255, 255, 255, 0.08);
+  display: block;
+}
+
+.chooser-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.chooser-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+}
+
+.chooser-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.chooser-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.chooser-card:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(46, 196, 182, 0.5);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.chooser-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #2EC4B6, #0F5EA8);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chooser-card-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.chooser-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.chooser-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.chooser-card-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2EC4B6;
+  transition: color 0.2s;
+}
+
+.chooser-card:hover .chooser-card-cta {
+  color: #7DD3FC;
+}
+
+@media (max-width: 600px) {
+  .chooser-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .chooser-title {
+    font-size: 1.5rem;
+  }
+  .chooser-card {
+    padding: 24px 20px;
+  }
+}
+
+/* Hide scroll indicators when chooser is active */
+.portfolio-chooser.active ~ .scroll-progress,
+.portfolio-chooser.active ~ nav.navbar,
+body:has(.portfolio-chooser.active) .scroll-rail,
+body:has(.portfolio-chooser.active) .scroll-progress,
+body:has(.portfolio-chooser.active) .navbar,
+body:has(.portfolio-chooser.active) .scroll-indicator {
+  display: none !important;
+}
+
+/* Hide all navigation when chooser is active (class-based fallback) */
+body.chooser-active .scroll-progress,
+body.chooser-active .navbar,
+body.chooser-active .scroll-indicator,
+body.chooser-active .back-to-top {
+  display: none !important;
+}
+
+/* Hide scroll indicator in hero for cleaner look */
+.scroll-indicator {
+  display: none !important;
+}
