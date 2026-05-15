@@ -6,16 +6,7 @@
 import '../css/index.css';
 import './particles.js';
 import './scroll-experience.js';
-import './section-transitions.js';
 import './artefak.js';
-import { initProfilAnimation } from './profil-animation.js';
-import { initPendidikanAnimation } from './pendidikan-animation.js';
-import { initArtefakAnimation } from './artefak-animation.js';
-import { initModelGuruAnimation } from './model-guru-animation.js';
-import { initKeahlianAnimation } from './keahlian-animation.js';
-import { initGaleriAnimation } from './galeri-animation.js';
-import { initKontakAnimation } from './kontak-animation.js';
-import { initFooterAnimation } from './footer-animation.js';
 import { initPortfolioChooser } from './portfolio-chooser.js';
 import { initSertifikatModal } from './sertifikat-modal.js';
 import { refreshEp2Animation } from './eportfolio2-animation.js';
@@ -692,14 +683,6 @@ function initMain() {
     });
   });
 
-  initProfilAnimation();
-  initPendidikanAnimation();
-  initArtefakAnimation();
-  initModelGuruAnimation();
-  initKeahlianAnimation();
-  initGaleriAnimation();
-  initKontakAnimation();
-  initFooterAnimation();
   initPortfolioChooser();
   initSertifikatModal();
 
