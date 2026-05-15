@@ -6,6 +6,8 @@ if (!gsap || !ScrollTrigger) {
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
+ScrollTrigger.config({ limitCallbacks: true });
+gsap.ticker.lagSmoothing(500, 33);
 
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 window.__portfolioScrollExperience = true;
@@ -392,7 +394,7 @@ function buildSectionScrub(section) {
         trigger: section,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.35
+        scrub: 2.5
       }
     });
   }
@@ -411,7 +413,7 @@ function buildSectionScrub(section) {
         trigger: section,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1.45
+        scrub: 3
       }
     });
   }
@@ -427,7 +429,7 @@ function buildSectionScrub(section) {
         trigger: timeline,
         start: 'top 78%',
         end: 'bottom 42%',
-        scrub: 1.1
+        scrub: 2
       }
     });
   }

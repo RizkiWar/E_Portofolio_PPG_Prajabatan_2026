@@ -107,9 +107,9 @@
   }
 
   function getParticleCount() {
-    if (width < 768) return 12;
-    if (width < 1024) return 18;
-    return 25;
+    if (width < 768) return 8;
+    if (width < 1024) return 12;
+    return 18;
   }
 
   function createParticle(x, y) {
