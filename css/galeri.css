@@ -138,11 +138,13 @@
   /* On very small mobile, stack vertically */
   .gallery-accordion {
     flex-direction: column;
-    height: 600px;
+    height: auto;
+    max-height: 520px;
     gap: 10px;
   }
   .gallery-item {
     border-radius: 16px;
+    min-height: 100px;
   }
   .gallery-item img {
     left: 0;

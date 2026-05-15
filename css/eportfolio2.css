@@ -10,7 +10,7 @@
   inset: 0;
   height: 100vh;
   height: 100dvh;
-  width: 100vw;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--off-white, #fafbfd);
@@ -99,6 +99,7 @@
 .ep2-navbar .nav-links a:hover::after,
 .ep2-navbar .nav-links a.active::after { width: 100%; }
 .ep2-navbar .nav-actions { display: flex; align-items: center; gap: 10px; }
+.ep2-navbar .hamburger { display: none; }
 
 /* ---------- Section header ---------- */
 .ep2-section .section-header { margin-bottom: 32px; text-align: center; }
@@ -794,7 +795,10 @@
   .ep2-values-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .eportfolio2-wrapper > section { padding: 90px 0 40px; }
+  .eportfolio2-wrapper > section {
+    min-height: auto;
+    padding: 80px 0 40px;
+  }
   .ep2-modal-container { padding: 28px 20px; }
   .ep2-modal-header { flex-direction: column; gap: 12px; }
   .ep2-quote-banner { padding: 22px 20px; }
@@ -804,7 +808,42 @@
 }
 @media (max-width: 480px) {
   .ep2-values-grid { grid-template-columns: 1fr; }
-  .ep2-navbar .nav-links { display: none; }
+  .ep2-navbar .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 0;
+    background: var(--white, #fff);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+    padding: 0 20px;
+    border-bottom: 3px solid var(--teal, #2EC4B6);
+  }
+  .ep2-navbar .nav-links.open {
+    max-height: 100vh;
+    padding: 16px 20px 20px;
+  }
+  .ep2-navbar .nav-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--gray-100, #eee);
+    min-height: 44px;
+  }
+  .ep2-navbar .nav-links li:last-child a { border-bottom: none; }
+  .ep2-navbar .hamburger { display: flex; }
+  [data-theme="dark"] .ep2-navbar .nav-links {
+    background: rgba(13, 17, 23, 0.98);
+    border-bottom-color: var(--teal, #2EC4B6);
+  }
+  [data-theme="dark"] .ep2-navbar .nav-links a {
+    color: rgba(255,255,255,0.84);
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
 }
 
 /* Reduced motion */
@@ -1733,4 +1772,87 @@
 .ep2-value-mini,
 .ep2-hero-preview-card {
   will-change: auto !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE PATCH ? EP2
+   Keep navigation usable, prevent overflow
+   ============================================ */
+@media (max-width: 768px) {
+  .ep2-navbar .container {
+    padding: 0 14px !important;
+    gap: 10px !important;
+  }
+  .ep2-navbar .nav-logo img {
+    height: 32px !important;
+  }
+  .ep2-navbar .nav-actions {
+    gap: 8px !important;
+  }
+  .ep2-navbar .theme-toggle,
+  .ep2-navbar .home-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+  .ep2-navbar .nav-links {
+    display: flex !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 14px !important;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .ep2-navbar .nav-links::-webkit-scrollbar { display: none; }
+  .ep2-navbar .nav-links a {
+    font-size: 0.8rem !important;
+  }
+  .ep2-hero .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .ep2-title {
+    font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+  }
+  .ep2-subtitle {
+    font-size: 0.9rem !important;
+  }
+  .ep2-hero-preview-card,
+  .ep2-question-card,
+  .ep2-filosofi-mini-card,
+  .ep2-values-section {
+    width: 100% !important;
+  }
+  .ep2-questions-grid,
+  .ep2-filosofi-compact-grid,
+  .ep2-values-grid,
+  .ep2-refleksi-summary {
+    grid-template-columns: 1fr !important;
+  }
+  #ep2-refleksi,
+  #ep2-filosofi {
+    min-height: auto !important;
+    padding: 86px 0 44px !important;
+  }
+}
+@media (max-width: 420px) {
+  .ep2-navbar .nav-links {
+    max-width: 170px;
+  }
+  .ep2-navbar .nav-links a {
+    font-size: 0.76rem !important;
+  }
+  .ep2-hero-photo {
+    width: 108px !important;
+    height: 108px !important;
+  }
+  .ep2-hero-left {
+    padding: 16px 14px !important;
+  }
+  .ep2-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

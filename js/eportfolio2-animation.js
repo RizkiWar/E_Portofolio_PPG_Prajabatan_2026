@@ -39,8 +39,25 @@
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+      // Close mobile menu after click
+      var ep2Ham = document.getElementById('ep2Hamburger');
+      var ep2Nav = document.getElementById('ep2NavLinks');
+      if (ep2Ham && ep2Nav) {
+        ep2Ham.classList.remove('active');
+        ep2Nav.classList.remove('open');
+      }
     });
   });
+
+  // EP2 Hamburger toggle for mobile
+  var ep2Hamburger = document.getElementById('ep2Hamburger');
+  var ep2NavLinksEl = document.getElementById('ep2NavLinks');
+  if (ep2Hamburger && ep2NavLinksEl) {
+    ep2Hamburger.addEventListener('click', function() {
+      ep2Hamburger.classList.toggle('active');
+      ep2NavLinksEl.classList.toggle('open');
+    });
+  }
 }
 
 
