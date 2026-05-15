@@ -14,11 +14,25 @@
     chooser.classList.add('active');
     chooser.setAttribute('aria-hidden', 'false');
     chooser.style.opacity = '1';
+    chooser.style.display = 'flex';
+    chooser.style.visibility = 'visible';
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100vh';
     document.body.style.position = 'fixed';
     document.body.style.width = '100%';
+    document.body.style.top = '0';
     document.body.classList.add('chooser-active');
+
+    // Re-enforce visibility after short delay (in case other scripts override)
+    setTimeout(() => {
+      if (chooser.classList.contains('active')) {
+        chooser.style.display = 'flex';
+        chooser.style.opacity = '1';
+        chooser.style.visibility = 'visible';
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+      }
+    }, 300);
 
     if (typeof gsap !== 'undefined') {
       gsap.from('.chooser-content > *', {
