@@ -25,13 +25,25 @@ window.refreshEp2Animation = refreshEp2Animation;
 let mainInitialized = false;
 
 function preloadAllAssets() {
-  // Force browser to parse & cache all DOM elements by reading layout
+  var loadingFill = document.querySelector('.intro-panel-loading-fill');
+  var progress = 0;
+  var totalSteps = 5;
+  var step = 0;
+
+  function updateBar() {
+    step++;
+    progress = Math.min((step / totalSteps) * 100, 100);
+    if (loadingFill) loadingFill.style.width = progress + '%';
+  }
+
+  // Step 1: Force layout read on all sections
   var allSections = document.querySelectorAll('section, .eportfolio2-wrapper, .footer, .ep2-footer');
   allSections.forEach(function(section) {
     section.offsetHeight;
   });
+  updateBar();
 
-  // Preload all images (including lazy-loaded ones)
+  // Step 2: Remove lazy-loading, start image loads
   var allImages = document.querySelectorAll('img[loading="lazy"], img[data-src]');
   allImages.forEach(function(img) {
     if (img.dataset.src) {
@@ -39,22 +51,26 @@ function preloadAllAssets() {
     }
     img.removeAttribute('loading');
   });
+  updateBar();
 
-  // Force decode all visible images
-  var visibleImages = document.querySelectorAll('img[src]');
-  visibleImages.forEach(function(img) {
+  // Step 3: Force decode all images
+  var visibleImages = Array.from(document.querySelectorAll('img[src]'));
+  var decodePromises = visibleImages.map(function(img) {
     if (img.decode) {
-      img.decode().catch(function() {});
+      return img.decode().catch(function() {});
     }
+    return Promise.resolve();
   });
+  updateBar();
 
-  // Pre-cache EP2 template content
+  // Step 4: Pre-cache EP2 templates
   var templates = document.querySelectorAll('template[id]');
   templates.forEach(function(tpl) {
     tpl.content.cloneNode(true);
   });
+  updateBar();
 
-  // Force style recalc on all animated elements so first animation frame is instant
+  // Step 5: Force style recalc on animated elements
   var animTargets = document.querySelectorAll(
     '.portfolio-card, .timeline-card, .pillar-card, .skill-item-card, .cert-card, ' +
     '.gallery-item, .section-header, .hero-image-wrapper, .about-image-card, ' +
@@ -63,6 +79,11 @@ function preloadAllAssets() {
   );
   animTargets.forEach(function(el) {
     window.getComputedStyle(el).opacity;
+  });
+
+  // Wait for all images to decode, then fill bar to 100%
+  Promise.all(decodePromises).then(function() {
+    updateBar();
   });
 }
 

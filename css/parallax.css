@@ -248,7 +248,7 @@ body:not(.intro-ready) {
   width: 0;
   border-radius: 4px;
   background: linear-gradient(90deg, #7DD3FC, #FFFFFF, #2EC4B6);
-  animation: loadingFill 1.45s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .intro-panel-prompt {
