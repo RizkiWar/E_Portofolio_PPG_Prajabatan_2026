@@ -315,8 +315,26 @@ function playEntrance(section, header, titleWords, bodyItems) {
 }
 
 function buildSectionScrub(section) {
-  // Removed: ScrollTrigger scrub parallax was causing frame drops during scroll
-  // Parallax effect now handled by CSS transform in smoothness.css
+  // Timeline line reveal — use lightweight scroll listener instead of ScrollTrigger scrub
+  const timeline = section.querySelector('.timeline');
+  if (timeline) {
+    timeline.style.setProperty('--timeline-reveal', '100%');
+    var revealed = false;
+    var timelineObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !revealed) {
+          revealed = true;
+          timelineObserver.disconnect();
+          gsap.to(timeline, {
+            '--timeline-reveal': '0%',
+            duration: 1.5,
+            ease: 'power2.out'
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    timelineObserver.observe(timeline);
+  }
 }
 
 function setActiveSection(section, index, ui) {
