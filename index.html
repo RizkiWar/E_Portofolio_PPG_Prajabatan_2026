@@ -1390,11 +1390,12 @@
   <div class="eportfolio2-wrapper" id="eportfolio2Wrapper" style="display:none;">
     <nav class="navbar ep2-navbar" id="ep2Navbar">
       <div class="container">
-        <a href="#" class="nav-logo" id="ep2BackBtn">
+        <a href="#ep2-hero" class="nav-logo" id="ep2BackBtn">
           <img src="assets/img/ppg-logo-clean.png" alt="Logo PPG" width="48" height="48" />
         </a>
         <ul class="nav-links" id="ep2NavLinks">
-          <li><a href="#ep2-refleksi" class="active">Refleksi PPL</a></li>
+          <li><a href="#ep2-hero" class="active">Beranda</a></li>
+          <li><a href="#ep2-refleksi">Refleksi PPL</a></li>
           <li><a href="#ep2-filosofi">Filosofi Mengajar</a></li>
         </ul>
         <div class="nav-actions">
@@ -1405,8 +1406,8 @@
       </div>
     </nav>
 
-    <!-- EP2 Hero -->
-    <section class="ep2-hero section">
+    <!-- EP2 Hero / Beranda -->
+    <section class="ep2-hero section" id="ep2-hero">
       <div class="ep2-hero-shapes" aria-hidden="true">
         <div class="shape shape-circle"></div>
         <div class="shape shape-square"></div>
@@ -1414,10 +1415,25 @@
       </div>
       <div class="container">
         <div class="ep2-hero-content">
-          <div class="section-badge teal"><i class="fa-solid fa-book-open"></i> E-Portfolio 2 &mdash; UAS</div>
-          <h1 class="ep2-title">Refleksi Akhir &amp; Filosofi Mengajar</h1>
+          <div class="ep2-hero-greeting">
+            <i class="fa-solid fa-book-open"></i> E-Portfolio 2 &mdash; UAS
+          </div>
+          <h1 class="ep2-title">Refleksi Akhir &amp;<br>Filosofi Mengajar</h1>
           <p class="ep2-subtitle">Dokumentasi refleksi perjalanan Praktik Pengalaman Lapangan Terbimbing dan prinsip-prinsip yang mendasari praktik pengajaran saya sebagai calon guru profesional Teknik Pemesinan.</p>
+          <div class="ep2-hero-actions">
+            <a href="#ep2-refleksi" class="btn btn-primary"><i class="fa-solid fa-clipboard-list"></i> Lihat Refleksi</a>
+            <a href="#ep2-filosofi" class="btn btn-secondary"><i class="fa-solid fa-lightbulb"></i> Filosofi Mengajar</a>
+          </div>
+          <div class="ep2-hero-badges">
+            <div class="ep2-hero-badge"><i class="fa-solid fa-graduation-cap"></i> PPG Prajabatan 2026</div>
+            <div class="ep2-hero-badge"><i class="fa-solid fa-school"></i> SMKN 2 Depok</div>
+            <div class="ep2-hero-badge"><i class="fa-solid fa-gears"></i> Teknik Pemesinan</div>
+          </div>
         </div>
+      </div>
+      <div class="ep2-scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll</span>
       </div>
     </section>
 

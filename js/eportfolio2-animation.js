@@ -90,13 +90,13 @@ export function initEp2Animation() {
 
   // Scroll-spy for EP2 navbar
   var navLinks = wrapper.querySelectorAll('#ep2NavLinks a');
-  var sections = wrapper.querySelectorAll('.ep2-section');
+  var sections = wrapper.querySelectorAll('.ep2-hero, .ep2-section');
   if (navLinks.length && sections.length) {
     sections.forEach(function(section) {
       ScrollTrigger.create({
         trigger: section,
-        start: 'top 40%',
-        end: 'bottom 40%',
+        start: 'top 50%',
+        end: 'bottom 50%',
         onEnter: function() { updateActiveNav(section.id); },
         onEnterBack: function() { updateActiveNav(section.id); }
       });
