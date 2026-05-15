@@ -422,9 +422,12 @@ function initMain() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function getAnchorScrollOffset() {
-    const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-    const extraGap = window.innerWidth <= 768 ? 6 : 8;
-    return Math.ceil(navHeight + extraGap);
+    if (!navbar) return 0;
+    const wasScrolled = navbar.classList.contains('scrolled');
+    if (!wasScrolled) navbar.classList.add('scrolled');
+    const navHeight = navbar.getBoundingClientRect().height;
+    if (!wasScrolled) navbar.classList.remove('scrolled');
+    return Math.ceil(navHeight - 10);
   }
 
   function scrollToAnchor(target) {

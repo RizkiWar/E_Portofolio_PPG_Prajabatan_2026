@@ -29,7 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       event.preventDefault();
       completeIntro();
-      target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      const navbar = document.getElementById('navbar');
+      let navHeight = 0;
+      if (navbar) {
+        const wasScrolled = navbar.classList.contains('scrolled');
+        if (!wasScrolled) navbar.classList.add('scrolled');
+        navHeight = navbar.getBoundingClientRect().height;
+        if (!wasScrolled) navbar.classList.remove('scrolled');
+      }
+      const offset = Math.ceil(navHeight - 10);
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, targetTop - offset),
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
     });
   });
 
