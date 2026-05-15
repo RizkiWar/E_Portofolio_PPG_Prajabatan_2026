@@ -135,12 +135,12 @@ export function initPortfolioChooser() {
 
   function tryShowChooser() {
     if (introAnimationCompleted()) {
-      setTimeout(showChooser, 100);
+      setTimeout(showChooser, 10);
     } else {
       const observer = new MutationObserver(() => {
         if (introAnimationCompleted()) {
           observer.disconnect();
-          setTimeout(showChooser, 100);
+          setTimeout(showChooser, 10);
         }
       });
       observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
