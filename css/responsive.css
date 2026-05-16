@@ -808,138 +808,158 @@ html, body {
 }
 
 /* ============================================
-   LAPTOP SMALL / DISPLAY SCALING FIX
-   Prevent desktop layout from feeling over-zoomed on 125%-150% scaled laptops
+   DESKTOP FLUID COMPACT SCALE
+   Keeps desktop layout, scales visual density for laptop-size screens
    ============================================ */
-@media (min-width: 769px) and (max-width: 1366px) {
+@media (min-width: 769px) {
   :root {
-    --section-padding: 72px 0;
+    --desktop-ui-scale: clamp(0.86, calc(0.72 + 0.00022 * 100vw), 1);
+    --desktop-space-scale: clamp(0.78, calc(0.58 + 0.00028 * 100vw), 1);
+    --desktop-hero-scale: clamp(0.82, calc(0.62 + 0.00028 * 100vw), 1);
+    --desktop-card-scale: clamp(0.86, calc(0.72 + 0.00022 * 100vw), 1);
   }
 
   .container,
   .ep2-container {
-    width: min(100% - 40px, 1120px) !important;
-    max-width: 1120px !important;
+    width: min(calc(100% - (48px * var(--desktop-space-scale))), 1200px) !important;
   }
 
   .navbar .container,
   .ep2-navbar .container {
-    min-height: 68px;
+    min-height: calc(78px * var(--desktop-space-scale)) !important;
   }
 
   .nav-logo img {
-    width: 88px !important;
-    height: 88px !important;
+    width: calc(104px * var(--desktop-ui-scale)) !important;
+    height: calc(104px * var(--desktop-ui-scale)) !important;
   }
 
   .nav-links,
   .ep2-navbar .nav-links {
-    gap: 18px !important;
+    gap: calc(24px * var(--desktop-space-scale)) !important;
   }
 
   .nav-links a,
-  .ep2-navbar .nav-links a {
-    font-size: 0.88rem !important;
+  .ep2-navbar .nav-links a,
+  .theme-toggle,
+  .home-btn {
+    font-size: calc(0.95rem * var(--desktop-ui-scale)) !important;
   }
 
   .hero {
     min-height: auto !important;
-    padding-top: 110px !important;
-    padding-bottom: 72px !important;
+    padding-top: calc(128px * var(--desktop-space-scale)) !important;
+    padding-bottom: calc(88px * var(--desktop-space-scale)) !important;
   }
 
   .hero .container {
-    gap: 44px !important;
+    gap: calc(64px * var(--desktop-space-scale)) !important;
   }
 
   .hero-name {
-    font-size: clamp(2.2rem, 4.6vw, 4rem) !important;
+    font-size: clamp(2.15rem, calc(4.6vw * var(--desktop-ui-scale)), 4.65rem) !important;
     line-height: 1.03 !important;
   }
 
   .hero-role {
-    font-size: clamp(1rem, 1.7vw, 1.35rem) !important;
+    font-size: clamp(1rem, calc(1.8vw * var(--desktop-ui-scale)), 1.55rem) !important;
   }
 
   .hero-desc {
-    font-size: 0.98rem !important;
-    max-width: 620px !important;
+    font-size: calc(1rem * var(--desktop-ui-scale)) !important;
+    max-width: calc(680px * var(--desktop-ui-scale)) !important;
   }
 
   .hero-image-wrapper {
-    width: clamp(260px, 28vw, 380px) !important;
-    height: clamp(260px, 28vw, 380px) !important;
+    width: clamp(240px, calc(31vw * var(--desktop-hero-scale)), 430px) !important;
+    height: clamp(240px, calc(31vw * var(--desktop-hero-scale)), 430px) !important;
   }
 
-  .hero-float {
-    padding: 9px 14px !important;
-    font-size: 0.82rem !important;
+  .hero-float,
+  .hero-badge {
+    padding: calc(8px * var(--desktop-space-scale)) calc(16px * var(--desktop-space-scale)) !important;
+    font-size: calc(0.88rem * var(--desktop-ui-scale)) !important;
   }
 
-  .section {
-    padding: 72px 0 !important;
+  .section,
+  .ep2-section {
+    padding-top: calc(86px * var(--desktop-space-scale)) !important;
+    padding-bottom: calc(86px * var(--desktop-space-scale)) !important;
   }
 
-  .section-header {
-    margin-bottom: 40px !important;
+  .section-header,
+  .ep2-section .section-header {
+    margin-bottom: calc(52px * var(--desktop-space-scale)) !important;
   }
 
-  .section-title {
-    font-size: clamp(1.65rem, 3vw, 2.25rem) !important;
+  .section-title,
+  .ep2-section .section-title {
+    font-size: clamp(1.55rem, calc(3.1vw * var(--desktop-ui-scale)), 2.45rem) !important;
   }
 
-  .portfolio-card,
-  .timeline-card,
-  .pillar-card,
-  .skill-item-card,
-  .cert-card,
-  .contact-form,
-  .philosophy-card {
-    transform-origin: center top;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 22px !important;
+  .portfolio-grid,
+  .ep2-question-grid,
+  .ep2-filosofi-grid,
+  .skill-cards-grid,
+  .cert-grid,
+  .gallery-grid {
+    gap: calc(26px * var(--desktop-space-scale)) !important;
   }
 
   .ep2-hero {
     min-height: auto !important;
-    padding-top: 104px !important;
-    padding-bottom: 64px !important;
+    padding-top: calc(116px * var(--desktop-space-scale)) !important;
+    padding-bottom: calc(74px * var(--desktop-space-scale)) !important;
   }
 
   .ep2-hero-content {
-    gap: 28px !important;
+    gap: calc(36px * var(--desktop-space-scale)) !important;
     transform: none !important;
   }
 
   .ep2-hero-top {
-    grid-template-columns: 220px minmax(0, 1fr) !important;
-    gap: 34px !important;
+    grid-template-columns: calc(280px * var(--desktop-ui-scale)) minmax(0, 1fr) !important;
+    gap: calc(56px * var(--desktop-space-scale)) !important;
   }
 
   .ep2-title {
-    font-size: clamp(2rem, 4.8vw, 4rem) !important;
+    font-size: clamp(2rem, calc(5.4vw * var(--desktop-ui-scale)), 4.7rem) !important;
     line-height: 1.02 !important;
   }
 
   .ep2-hero-photo {
-    width: 128px !important;
-    height: 128px !important;
+    width: calc(150px * var(--desktop-hero-scale)) !important;
+    height: calc(150px * var(--desktop-hero-scale)) !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) and (max-height: 820px) {
+  :root {
+    --desktop-ui-scale: 0.88;
+    --desktop-space-scale: 0.76;
+    --desktop-hero-scale: 0.82;
   }
 
-  .ep2-hero-grid {
-    gap: 18px !important;
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
-  .ep2-question-grid,
-  .ep2-filosofi-grid {
-    gap: 20px !important;
+  .hero-name {
+    font-size: clamp(2.1rem, 4vw, 3.45rem) !important;
+  }
+
+  .ep2-title {
+    font-size: clamp(2rem, 4.2vw, 3.45rem) !important;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1180px) {
+  :root {
+    --desktop-ui-scale: 0.86;
+    --desktop-space-scale: 0.74;
+    --desktop-hero-scale: 0.8;
+  }
+
   .hero .container,
   .ep2-hero-top {
     grid-template-columns: 1fr !important;
@@ -961,41 +981,5 @@ html, body {
 
   .portfolio-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (min-width: 769px) and (max-height: 760px) {
-  :root {
-    --section-padding: 56px 0;
-  }
-
-  .hero,
-  .ep2-hero {
-    padding-top: 92px !important;
-    padding-bottom: 52px !important;
-  }
-
-  .hero-name {
-    font-size: clamp(2rem, 4.2vw, 3.4rem) !important;
-  }
-
-  .ep2-title {
-    font-size: clamp(1.9rem, 4.4vw, 3.4rem) !important;
-  }
-
-  .hero-image-wrapper {
-    width: clamp(220px, 24vw, 320px) !important;
-    height: clamp(220px, 24vw, 320px) !important;
-  }
-
-  .ep2-hero-photo {
-    width: 112px !important;
-    height: 112px !important;
-  }
-
-  .section,
-  .ep2-section {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
   }
 }
