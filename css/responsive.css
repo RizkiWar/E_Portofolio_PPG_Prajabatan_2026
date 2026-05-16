@@ -809,27 +809,26 @@ html, body {
 
 /* ============================================
    7. LAPTOP COMPACT DISPLAY FIX (Auto Scale)
-   Applies 80% zoom on common laptop resolutions (1366x768 etc)
+   Applies zoom on common laptop resolutions (1366x768 etc)
    ============================================ */
 @media screen and (min-width: 1024px) and (max-width: 1440px) and (max-height: 900px) {
   html {
-    zoom: 0.8;
-  }
-  
-  /* Fix particle positioning which can break under CSS zoom */
-  #particleCanvas {
-    transform: scale(1.25);
-    transform-origin: top left;
-    width: 125vw !important;
-    height: 125vh !important;
+    zoom: 0.75;
   }
 
-  /* Fix fixed overlays that get distorted by zoom */
-  .portfolio-chooser,
-  #introTear,
-  .cert-modal-overlay,
-  .modal-overlay, .ep2-modal-overlay {
-    zoom: 1.25;
+  /* Fix EP2 Hero to fit perfectly in 1 viewport under zoom */
+  .ep2-hero {
+    min-height: 100vh !important;
+    padding-top: 60px !important;
+    padding-bottom: 20px !important;
+    justify-content: center !important;
+  }
+  .ep2-hero-content {
+    transform: none !important;
+    gap: 20px !important;
+  }
+  .ep2-hero-top {
+    gap: 30px !important;
   }
 }
 
@@ -837,30 +836,21 @@ html, body {
   html {
     zoom: 0.67;
   }
-  
-  #particleCanvas {
-    transform: scale(1.4925);
-    width: 149.25vw !important;
-    height: 149.25vh !important;
-  }
 
-  .portfolio-chooser,
-  #introTear,
-  .cert-modal-overlay,
-  .modal-overlay, .ep2-modal-overlay {
-    zoom: 1.4925;
+  .ep2-hero {
+    min-height: 100vh !important;
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+    justify-content: center !important;
+  }
+  .ep2-hero-content {
+    transform: none !important;
+    gap: 16px !important;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023px) and (max-height: 800px) {
   html {
     zoom: 0.75;
-  }
-
-  .portfolio-chooser,
-  #introTear,
-  .cert-modal-overlay,
-  .modal-overlay, .ep2-modal-overlay {
-    zoom: 1.3333;
   }
 }
