@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm2': {
       title: 'LKM Siklus 2',
       type: 'Lembar Kerja Murid (LKM)',
-      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      fileUrl: 'https://drive.google.com/file/d/1u8pM1xoKZZcD-_1AL0LoqnMQY0W-JC1d/view?usp=sharing',
       context: 'LKM Siklus 2 digunakan untuk memandu aktivitas belajar siswa secara bertahap sesuai fokus perbaikan siklus.',
       purpose: 'Memberikan panduan kerja terstruktur agar siswa aktif, terarah, dan mampu menyelesaikan tugas pembelajaran Siklus 2.',
       pros: [
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media-s2': {
       title: 'Media Presentasi (PPT) Siklus 2',
       type: 'Media Pembelajaran (Slide Presentasi)',
-      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      fileUrl: 'https://drive.google.com/file/d/1Vp0AWdM7qEqq1TC_zvRLVwuGaeqSxNyo/view?usp=sharing',
       context: 'Media presentasi Siklus 2 disiapkan untuk memperjelas alur pembelajaran dan menekankan poin perbaikan dari siklus sebelumnya.',
       purpose: 'Membantu guru menyajikan materi secara visual dan membantu siswa memahami konsep secara lebih terstruktur pada Siklus 2.',
       pros: [
@@ -251,6 +251,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'Perlu pengayaan contoh praktik agar tidak hanya bersifat informatif.'
       ],
       theory: 'Selaras dengan prinsip multimedia learning, yaitu kombinasi teks dan visual untuk meningkatkan pemahaman siswa.'
+    },
+    'modal-bench-vise2': {
+      title: 'Job Sheet Bench Vise Siklus 2',
+      type: 'Jobsheet / Gambar Kerja',
+      fileUrl: 'https://drive.google.com/file/d/1UBkwO2ZI1SxuAzPomElc8yiNGclT3lv_/view?usp=sharing',
+      context: 'Jobsheet Bench Vise digunakan sebagai referensi praktik pada Siklus 2 untuk membantu siswa memahami bentuk, komponen, dan tuntutan pengerjaan objek kerja.',
+      purpose: 'Memberikan acuan teknis dan visual agar siswa dapat mengerjakan tugas praktik Bench Vise secara lebih terarah dan sesuai standar gambar kerja.',
+      pros: [
+        'Objek Bench Vise relevan untuk latihan membaca gambar teknik dan memahami komponen mekanik.',
+        'Dapat menjadi panduan praktik yang konkret bagi siswa selama pengerjaan Siklus 2.'
+      ],
+      cons: [
+        'Perlu pendampingan guru jika siswa belum familiar dengan detail komponen Bench Vise.',
+        'Instruksi praktik mungkin perlu dilengkapi dengan langkah kerja bertahap sesuai kemampuan siswa.'
+      ],
+      theory: 'Mendukung contextual teaching and learning melalui penggunaan dokumen kerja autentik sebagai sumber belajar praktik.'
     }
   };
 
