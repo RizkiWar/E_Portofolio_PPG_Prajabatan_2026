@@ -61,7 +61,7 @@ body:not(.intro-ready) {
     radial-gradient(circle at 50% 50%, rgba(125, 211, 252, 0.34), transparent 30%),
     radial-gradient(circle at 72% 50%, rgba(46, 196, 182, 0.22), transparent 32%),
     linear-gradient(135deg, #0A4778 0%, #0F5EA8 52%, #0D1117 100%);
-  background-size: 100vw 100vh;
+  background-size: 100% 200%;
   background-repeat: no-repeat;
   transition:
     transform 0.6s cubic-bezier(0.77, 0, 0.18, 1),
