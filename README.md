@@ -132,11 +132,11 @@ Deploy otomatis ke GitHub Pages via GitHub Actions setiap push ke branch `main`.
 
 ## 👩‍🏫 Tentang
 
-**Program:** PPG Prajabatan 2026
-**Bidang Studi:** Teknik Pemesinan
-**Institusi:** Universitas Sarjanawiyata Tamansiswa (UST)
-**Mahasiswa:** Fanny Fatchurrahman
+**Mahasiswa:** Fanny Fatchurrahman  
+**Bidang Studi:** Teknik Pemesinan  
+**Program:** PPG Prajabatan 2026  
+**Institusi:** Universitas Sarjanawiyata Tamansiswa (UST)  
 
 ---
 
-*Dibuat dengan ❤️ untuk PPG Prajabatan 2026*
+*@Fanny Fatchurrahman | Mahasiswa PPG Prajabatan 2026*
