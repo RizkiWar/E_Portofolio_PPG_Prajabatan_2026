@@ -4,76 +4,25 @@
    ============================================ */
 
 import '../css/index.css';
+import './particles.js';
+import './scroll-experience.js';
+import './section-transitions.js';
 import './artefak.js';
+import { initProfilAnimation } from './profil-animation.js';
+import { initPendidikanAnimation } from './pendidikan-animation.js';
+import { initArtefakAnimation } from './artefak-animation.js';
+import { initModelGuruAnimation } from './model-guru-animation.js';
+import { initKeahlianAnimation } from './keahlian-animation.js';
+import { initGaleriAnimation } from './galeri-animation.js';
+import { initKontakAnimation } from './kontak-animation.js';
+import { initFooterAnimation } from './footer-animation.js';
 import { initPortfolioChooser } from './portfolio-chooser.js';
 import { initSertifikatModal } from './sertifikat-modal.js';
+import { refreshEp2Animation } from './eportfolio2-animation.js';
 
-window.refreshEp2Animation = function() {};
+window.refreshEp2Animation = refreshEp2Animation;
 
 let mainInitialized = false;
-
-function preloadAllAssets() {
-  var loadingFill = document.querySelector('.intro-panel-loading-fill');
-  var progress = 0;
-  var totalSteps = 5;
-  var step = 0;
-
-  function updateBar() {
-    step++;
-    progress = Math.min((step / totalSteps) * 100, 100);
-    if (loadingFill) loadingFill.style.width = progress + '%';
-  }
-
-  // Step 1: Force layout read on all sections
-  var allSections = document.querySelectorAll('section, .eportfolio2-wrapper, .footer, .ep2-footer');
-  allSections.forEach(function(section) {
-    section.offsetHeight;
-  });
-  updateBar();
-
-  // Step 2: Remove lazy-loading, start image loads
-  var allImages = document.querySelectorAll('img[loading="lazy"], img[data-src]');
-  allImages.forEach(function(img) {
-    if (img.dataset.src) {
-      img.src = img.dataset.src;
-    }
-    img.removeAttribute('loading');
-  });
-  updateBar();
-
-  // Step 3: Force decode all images
-  var visibleImages = Array.from(document.querySelectorAll('img[src]'));
-  var decodePromises = visibleImages.map(function(img) {
-    if (img.decode) {
-      return img.decode().catch(function() {});
-    }
-    return Promise.resolve();
-  });
-  updateBar();
-
-  // Step 4: Pre-cache EP2 templates
-  var templates = document.querySelectorAll('template[id]');
-  templates.forEach(function(tpl) {
-    tpl.content.cloneNode(true);
-  });
-  updateBar();
-
-  // Step 5: Force style recalc on animated elements
-  var animTargets = document.querySelectorAll(
-    '.portfolio-card, .timeline-card, .pillar-card, .skill-item-card, .cert-card, ' +
-    '.gallery-item, .section-header, .hero-image-wrapper, .about-image-card, ' +
-    '.ep2-question-card, .ep2-filosofi-mini-card, .ep2-hero-preview-card, ' +
-    '.ep2-value-mini, .ep2-hero-left, .ep2-hero-photo'
-  );
-  animTargets.forEach(function(el) {
-    window.getComputedStyle(el).opacity;
-  });
-
-  // Wait for all images to decode, then fill bar to 100%
-  Promise.all(decodePromises).then(function() {
-    updateBar();
-  });
-}
 
 function initMain() {
   if (mainInitialized) return;
@@ -337,12 +286,72 @@ function initMain() {
   });
 
   // ---------- Hero Background Parallax ----------
-  // Removed: was causing scroll jank
+  const heroSection = document.querySelector('#hero.hero.section');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (heroSection && !reducedMotionQuery.matches) {
+    const getShift = () => (window.innerWidth < 768 ? -34 : -96);
+
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.to(heroSection, {
+        '--hero-scroll-shift': () => `${getShift()}px`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.8,
+          invalidateOnRefresh: true
+        }
+      });
+    } else {
+      let ticking = false;
+      const updateHeroParallax = () => {
+        const progress = Math.min(1, Math.max(0, -heroSection.getBoundingClientRect().top / Math.max(heroSection.offsetHeight, 1)));
+        heroSection.style.setProperty('--hero-scroll-shift', `${Math.round(progress * getShift())}px`);
+        ticking = false;
+      };
+      const requestHeroParallax = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateHeroParallax);
+      };
+      updateHeroParallax();
+      window.addEventListener('scroll', requestHeroParallax, { passive: true });
+      window.addEventListener('resize', requestHeroParallax, { passive: true });
+    }
+  }
 
   // ---------- Scroll Reveal ----------
-  // Removed: all elements visible immediately
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  revealElements.forEach(el => el.classList.add('visible'));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // ---------- Skill Bar Animation ----------
+  const skillBars = document.querySelectorAll('.bar-fill');
+
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const width = entry.target.getAttribute('data-width');
+        entry.target.style.width = width + '%';
+      }
+    });
+  }, { threshold: 0.3 });
+
+  skillBars.forEach(bar => skillObserver.observe(bar));
 
   // ---------- Portfolio Filter ----------
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -369,6 +378,7 @@ function initMain() {
       const matchesFilter = (filter === 'all' || cardCategory === filter);
       if (matchesSiklus && matchesFilter) {
         card.style.display = '';
+        card.style.animation = 'fadeIn 0.5s ease forwards';
       } else {
         card.style.display = 'none';
       }
@@ -518,6 +528,38 @@ function initMain() {
     });
   });
 
+  // ---------- Count-up Animation ----------
+  const statNumbers = document.querySelectorAll('.about-stat .number');
+
+  function countUp(el, target, suffix) {
+    let current = 0;
+    const increment = target / 60;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        el.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current) + suffix;
+      }
+    }, 16);
+  }
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        const text = entry.target.textContent;
+        const num = parseInt(text);
+        if (isNaN(num)) return;
+        const suffix = text.includes('+') ? '+' : '';
+        countUp(entry.target, num, suffix);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => countObserver.observe(el));
+
   // ---------- Portfolio Siklus Tabs ----------
   const tabBtns = document.querySelectorAll('.tab-btn');
   tabBtns.forEach(btn => {
@@ -556,6 +598,22 @@ function initMain() {
     });
   });
 
+  // ---------- Pillar Progress Animation ----------
+  const pillarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target.querySelector('.pillar-progress-fill');
+        if (fill) {
+          const styleAttr = fill.getAttribute('style') || '';
+          const match = styleAttr.match(/--progress:\s*([^;"]+)/);
+          const width = match ? match[1].trim() : '80%';
+          fill.style.width = width;
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.pillar-card').forEach(card => pillarObserver.observe(card));
+
   // ---------- Gallery Accordion Interaction ----------
   const galleryItems = document.querySelectorAll('.gallery-accordion .gallery-item');
   
@@ -568,6 +626,14 @@ function initMain() {
     });
   });
 
+  initProfilAnimation();
+  initPendidikanAnimation();
+  initArtefakAnimation();
+  initModelGuruAnimation();
+  initKeahlianAnimation();
+  initGaleriAnimation();
+  initKontakAnimation();
+  initFooterAnimation();
   initPortfolioChooser();
   initSertifikatModal();
 

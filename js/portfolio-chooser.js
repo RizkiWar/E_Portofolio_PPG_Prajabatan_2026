@@ -58,7 +58,7 @@ export function initPortfolioChooser() {
   function showEP2() {
     if (!ep2Wrapper) return;
     // Hide all E-Portfolio 1 sections
-    document.querySelectorAll('body > section, body > footer, #particleCanvas, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
+    document.querySelectorAll('body > section, body > footer, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
       el.style.display = 'none';
     });
     // Show E-Portfolio 2
@@ -82,7 +82,7 @@ export function initPortfolioChooser() {
     if (!ep2Wrapper) return;
     ep2Wrapper.style.display = 'none';
     // Restore E-Portfolio 1 sections
-    document.querySelectorAll('body > section, body > footer, #particleCanvas, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
+    document.querySelectorAll('body > section, body > footer, .floating-shapes, .scroll-progress, #navbar, .back-to-top, .scroll-rail').forEach(el => {
       el.style.display = '';
     });
     window.scrollTo({ top: 0, behavior: 'auto' });
