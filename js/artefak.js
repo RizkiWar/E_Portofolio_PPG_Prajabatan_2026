@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       theory: 'Mengacu pada Goal-Free Effect (Sweller, 1988) dengan target produk di awal, serta Signaling Principle (Mayer, 2009) melalui highlight bobot terbesar pada rubrik.'
     },
     'modal-toolpost': {
-      title: 'Gambar Teknik Tool Post (Revisi)',
+      title: 'Job Sheet Tool Post',
       type: 'Gambar Teknik',
       fileUrl: 'https://drive.google.com/file/d/1HGyN7VOBQYgdXj3-IszSVntb4yltAMt_/view?usp=sharing',
       context: 'File gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
