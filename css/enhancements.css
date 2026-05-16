@@ -2463,3 +2463,120 @@ body.chooser-active .back-to-top {
     gap: 4px;
   }
 }
+
+/* Colorful icon palette */
+:root {
+  --icon-blue: #0F5EA8;
+  --icon-cyan: #06B6D4;
+  --icon-teal: #2EC4B6;
+  --icon-amber: #F59E0B;
+  --icon-coral: #FF6B6B;
+  --icon-violet: #8B5CF6;
+  --icon-mint: #10B981;
+  --icon-pink: #EC4899;
+}
+
+[data-theme="dark"] {
+  --icon-blue: #7DD3FC;
+  --icon-cyan: #22D3EE;
+  --icon-teal: #5EEAD4;
+  --icon-amber: #FDE68A;
+  --icon-coral: #FDA4AF;
+  --icon-violet: #C4B5FD;
+  --icon-mint: #86EFAC;
+  --icon-pink: #F9A8D4;
+}
+
+.section-badge i,
+.chooser-title i,
+.nav-controls i,
+.home-btn i,
+.card-link i,
+.card-img-overlay i,
+.dossier-kicker i,
+.dossier-preview span i,
+.assessment-highlights i,
+.modal-close i,
+.cert-btn i,
+.ep2-card-icon i,
+.ep2-modal-tag i,
+.ep2-modal-action i,
+.ep2-modal-solution i,
+.back-to-top i {
+  color: var(--icon-cyan);
+  text-shadow: 0 8px 24px color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.section-badge:nth-of-type(1) i,
+.section-badge.blue i,
+.card-tag.rpp + * i,
+.dossier-blue .dossier-kicker i {
+  color: var(--icon-blue);
+}
+
+.section-badge.mint i,
+.card-tag.asesmen + * i,
+.assessment-highlights span:nth-child(1) i,
+.dossier-kicker .fa-file-signature {
+  color: var(--icon-mint);
+}
+
+.section-badge.amber i,
+.card-tag.media + * i,
+.assessment-highlights span:nth-child(2) i,
+.dossier-amber .dossier-kicker i {
+  color: var(--icon-amber);
+}
+
+.section-badge.lavender i,
+.card-link .fa-chart-simple,
+.assessment-highlights span:nth-child(3) i,
+.ep2-modal-tag i {
+  color: var(--icon-violet);
+}
+
+.card-img-overlay .fa-file-pdf,
+.dossier-preview .fa-magnifying-glass-plus,
+.assessment-highlights span:nth-child(4) i {
+  color: var(--icon-coral);
+}
+
+.hero-social i,
+.footer-social i,
+.contact-icon i,
+.ep2-card-icon.sky i {
+  color: var(--icon-cyan);
+}
+
+.skill-category i,
+.skill-card i,
+.ep2-card-icon.mint i {
+  color: var(--icon-teal);
+}
+
+.gallery-category i,
+.cert-icon i,
+.ep2-card-icon.coral i {
+  color: var(--icon-pink);
+}
+
+.card-link:hover i,
+.dossier-btn:hover i,
+.dossier-link:hover i,
+.assessment-highlights span:hover i {
+  filter: brightness(1.12) saturate(1.25);
+  transform: translateY(-1px) scale(1.04);
+}
+
+.card-link i,
+.dossier-btn i,
+.dossier-link i,
+.assessment-highlights i,
+.dossier-preview span i {
+  transition: transform 0.2s ease, filter 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .card-img-overlay i,
+[data-theme="dark"] .dossier-preview span i {
+  text-shadow: 0 0 18px color-mix(in srgb, currentColor 46%, transparent);
+}
