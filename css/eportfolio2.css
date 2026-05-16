@@ -2160,7 +2160,7 @@
    Initial states & utilities for JS-driven animations
    ============================================ */
 
-/* GSAP uses autoAlpha (visibility+opacity), set initial visibility */
+/* GSAP ANIMATION SUPPORT — disabled, all elements visible */
 .ep2-hero-left,
 .ep2-hero-greeting,
 .ep2-subtitle,
@@ -2179,7 +2179,7 @@
 .ep2-value-mini,
 .ep2-footer .footer-brand,
 .ep2-footer .footer-sitemap {
-  visibility: hidden;
+  visibility: visible;
 }
 
 /* Word split spans */

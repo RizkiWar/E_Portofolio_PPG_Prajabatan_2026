@@ -4,14 +4,11 @@
    ============================================ */
 
 import '../css/index.css';
-import './particles.js';
-import './scroll-experience.js';
 import './artefak.js';
 import { initPortfolioChooser } from './portfolio-chooser.js';
 import { initSertifikatModal } from './sertifikat-modal.js';
-import { refreshEp2Animation } from './eportfolio2-animation.js';
 
-window.refreshEp2Animation = refreshEp2Animation;
+window.refreshEp2Animation = function() {};
 
 let mainInitialized = false;
 
