@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       theory: 'Menerapkan guided practice dari Cognitive Apprenticeship (Collins, Brown & Newman, 1989) di mana siswa mengikuti prosedur eksplisit dengan monitoring bertahap.'
     },
-    'modal-lkm2': {
+    'modal-lkm1-p2': {
       title: 'LKM Siklus 1 Pertemuan 2 - Constraint dan Cek DOF',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1Z3_glCt5CahLNMVduJ6XUMTLAjnhsl6d/view?usp=sharing',
@@ -171,6 +171,86 @@ document.addEventListener('DOMContentLoaded', () => {
       pros: ['Detail presisi sangat jelas sebagai referensi utama untuk objek rakitan.'],
       cons: ['Bukan modul ajar, murni hanya gambar teknik tanpa instruksi urutan pasang.'],
       theory: 'Berfungsi sebagai authentic material yang merepresentasikan dokumen kerja nyata di industri manufaktur, mendukung prinsip Contextual Teaching and Learning (CTL).'
+    },
+    'modal-rpp2': {
+      title: 'RPP Siklus 2 - Inovasi Pembelajaran',
+      type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
+      fileUrl: 'https://drive.google.com/file/d/1ZA9QdvQr6je_JHCprcPOy62WWKSISAaF/view?usp=sharing',
+      context: 'RPP ini disusun untuk pelaksanaan Siklus 2 dengan penyesuaian berdasarkan refleksi hasil belajar pada Siklus 1.',
+      purpose: 'Mengarahkan proses pembelajaran Siklus 2 agar strategi, aktivitas, dan asesmen lebih tepat sasaran terhadap kebutuhan siswa.',
+      pros: [
+        'Memuat perbaikan langkah pembelajaran berdasarkan evaluasi siklus sebelumnya.',
+        'Memberikan arah yang lebih fokus untuk penguatan kompetensi pada Siklus 2.'
+      ],
+      cons: [
+        'Masih membutuhkan validasi lanjutan setelah implementasi penuh di kelas.',
+        'Beberapa aktivitas mungkin perlu diferensiasi lebih rinci sesuai profil siswa.'
+      ],
+      theory: 'Mengacu pada prinsip reflective practice dalam Penelitian Tindakan Kelas, yaitu perbaikan pembelajaran berkelanjutan antar siklus.'
+    },
+    'modal-asesmen2': {
+      title: 'Perangkat Asesmen Siklus 2',
+      type: 'Instrumen Asesmen Siklus 2',
+      fileUrl: 'https://drive.google.com/file/d/1JfYVk4iEimTrBkIMsdm8se5tzNjzwpzz/view?usp=sharing',
+      context: 'Perangkat asesmen untuk Siklus 2 disiapkan untuk memotret perkembangan pemahaman dan keterampilan siswa setelah tindak lanjut dari Siklus 1.',
+      purpose: 'Menilai proses dan hasil belajar pada Siklus 2 secara lebih terarah agar data evaluasi dapat digunakan untuk refleksi pembelajaran berikutnya.',
+      pros: [
+        'Instrumen dirancang untuk memantau kemajuan belajar siswa pada tahap lanjutan.',
+        'Dapat menjadi dasar refleksi guru dalam menentukan strategi penguatan.'
+      ],
+      cons: [
+        'Perlu uji konsistensi skor jika digunakan oleh lebih dari satu penilai.',
+        'Masih memerlukan penyempurnaan indikator untuk konteks kelas yang berbeda.'
+      ],
+      theory: 'Bersandar pada konsep assessment for learning, di mana hasil asesmen digunakan sebagai umpan balik perbaikan pembelajaran.'
+    },
+    'modal-materi2': {
+      title: 'Bahan Ajar Siklus 2',
+      type: 'Bahan Ajar',
+      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      context: 'Bahan ajar Siklus 2 ini menjadi pendamping kegiatan belajar untuk memperdalam materi setelah evaluasi Siklus 1.',
+      purpose: 'Membantu siswa memahami kembali konsep inti dan menerapkannya dalam tugas pembelajaran Siklus 2.',
+      pros: [
+        'Materi difokuskan pada penguatan konsep yang masih perlu ditingkatkan.',
+        'Dapat digunakan siswa sebagai referensi belajar mandiri.'
+      ],
+      cons: [
+        'Konten masih bersifat umum dan bisa diperdalam dengan contoh kontekstual tambahan.',
+        'Perlu integrasi lebih lanjut dengan aktivitas diferensiasi.'
+      ],
+      theory: 'Sejalan dengan teori scaffolding, materi pendukung diberikan untuk membantu siswa mencapai kompetensi target secara bertahap.'
+    },
+    'modal-lkm2': {
+      title: 'LKM Siklus 2',
+      type: 'Lembar Kerja Murid (LKM)',
+      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      context: 'LKM Siklus 2 digunakan untuk memandu aktivitas belajar siswa secara bertahap sesuai fokus perbaikan siklus.',
+      purpose: 'Memberikan panduan kerja terstruktur agar siswa aktif, terarah, dan mampu menyelesaikan tugas pembelajaran Siklus 2.',
+      pros: [
+        'Langkah kerja membantu siswa mengikuti proses belajar secara sistematis.',
+        'Mendukung keterlibatan aktif siswa selama pelaksanaan Siklus 2.'
+      ],
+      cons: [
+        'Instruksi perlu disesuaikan lebih spesifik untuk variasi kemampuan siswa.',
+        'Membutuhkan ruang refleksi yang lebih luas untuk umpan balik individual.'
+      ],
+      theory: 'Menggunakan pendekatan guided practice yang menekankan pendampingan bertahap hingga siswa lebih mandiri.'
+    },
+    'modal-media-s2': {
+      title: 'Media Presentasi (PPT) Siklus 2',
+      type: 'Media Pembelajaran (Slide Presentasi)',
+      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      context: 'Media presentasi Siklus 2 disiapkan untuk memperjelas alur pembelajaran dan menekankan poin perbaikan dari siklus sebelumnya.',
+      purpose: 'Membantu guru menyajikan materi secara visual dan membantu siswa memahami konsep secara lebih terstruktur pada Siklus 2.',
+      pros: [
+        'Visual presentasi memudahkan penyampaian inti materi secara ringkas.',
+        'Dapat meningkatkan fokus siswa saat pembelajaran berlangsung.'
+      ],
+      cons: [
+        'Efektivitas media sangat bergantung pada strategi penyajian guru.',
+        'Perlu pengayaan contoh praktik agar tidak hanya bersifat informatif.'
+      ],
+      theory: 'Selaras dengan prinsip multimedia learning, yaitu kombinasi teks dan visual untuk meningkatkan pemahaman siswa.'
     }
   };
 
