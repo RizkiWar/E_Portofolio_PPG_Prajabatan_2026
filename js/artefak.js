@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-lkm2': {
       title: 'LKM Siklus 2',
       type: 'Lembar Kerja Murid (LKM)',
-      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      fileUrl: 'https://drive.google.com/file/d/1u8pM1xoKZZcD-_1AL0LoqnMQY0W-JC1d/view?usp=sharing',
       context: 'LKM Siklus 2 digunakan untuk memandu aktivitas belajar siswa secara bertahap sesuai fokus perbaikan siklus.',
       purpose: 'Memberikan panduan kerja terstruktur agar siswa aktif, terarah, dan mampu menyelesaikan tugas pembelajaran Siklus 2.',
       pros: [
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-media-s2': {
       title: 'Media Presentasi (PPT) Siklus 2',
       type: 'Media Pembelajaran (Slide Presentasi)',
-      fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
+      fileUrl: 'https://drive.google.com/file/d/1Vp0AWdM7qEqq1TC_zvRLVwuGaeqSxNyo/view?usp=sharing',
       context: 'Media presentasi Siklus 2 disiapkan untuk memperjelas alur pembelajaran dan menekankan poin perbaikan dari siklus sebelumnya.',
       purpose: 'Membantu guru menyajikan materi secara visual dan membantu siswa memahami konsep secara lebih terstruktur pada Siklus 2.',
       pros: [
@@ -251,6 +251,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'Perlu pengayaan contoh praktik agar tidak hanya bersifat informatif.'
       ],
       theory: 'Selaras dengan prinsip multimedia learning, yaitu kombinasi teks dan visual untuk meningkatkan pemahaman siswa.'
+    },
+    'modal-jobsheet-bench-vise': {
+      title: 'Job Sheet Bench Vise',
+      type: 'Job Sheet Praktik',
+      fileUrl: 'https://drive.google.com/file/d/1UBkwO2ZI1SxuAzPomElc8yiNGclT3lv_/view?usp=sharing',
+      context: 'Job Sheet Bench Vise disusun untuk melengkapi perangkat pembelajaran praktik pada Siklus 2.',
+      purpose: 'Memberikan panduan langkah kerja yang jelas agar siswa dapat melaksanakan praktik bench vise secara aman, terstruktur, dan sesuai target kompetensi.',
+      pros: [
+        'Menyediakan alur kerja praktik yang runtut dan mudah diikuti.',
+        'Membantu guru menyamakan standar pelaksanaan praktik antar kelompok siswa.'
+      ],
+      cons: [
+        'Perlu penyesuaian detail jika alat atau kondisi bengkel berbeda.',
+        'Masih membutuhkan penguatan rubrik evaluasi hasil kerja praktik.'
+      ],
+      theory: 'Menerapkan prinsip pembelajaran berbasis praktik (experiential learning), di mana pemahaman konsep diperkuat melalui aktivitas kerja langsung yang terstruktur.'
     }
   };
 
