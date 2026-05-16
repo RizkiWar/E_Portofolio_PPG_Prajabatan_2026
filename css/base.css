@@ -141,7 +141,7 @@ html {
   background: var(--coral-light);
   top: 15%;
   left: 8%;
-  animation: shapeFloat1 12s infinite alternate;
+  animation: none;
 }
 
 .shape-circle.small {
@@ -150,7 +150,7 @@ html {
   background: var(--sky);
   top: 60%;
   left: 85%;
-  animation: shapeFloat2 10s infinite alternate;
+  animation: none;
   animation-delay: -3s;
 }
 
@@ -160,7 +160,7 @@ html {
   background: var(--mint);
   top: 80%;
   left: 15%;
-  animation: shapeFloat3 8s infinite alternate;
+  animation: none;
   animation-delay: -5s;
 }
 
@@ -172,7 +172,7 @@ html {
   background: var(--teal-light);
   top: 35%;
   right: 5%;
-  animation: shapeFloat2 14s infinite alternate;
+  animation: none;
   animation-delay: -2s;
 }
 
@@ -183,7 +183,7 @@ html {
   background: var(--amber);
   top: 75%;
   left: 45%;
-  animation: shapeFloat1 9s infinite alternate;
+  animation: none;
   animation-delay: -4s;
 }
 
@@ -194,7 +194,7 @@ html {
   background: var(--coral);
   top: 25%;
   left: 55%;
-  animation: shapeFloat3 11s infinite alternate;
+  animation: none;
   animation-delay: -1s;
 }
 
@@ -208,7 +208,7 @@ html {
   background: transparent;
   top: 50%;
   left: 3%;
-  animation: shapeFloat3 13s infinite alternate;
+  animation: none;
   animation-delay: -6s;
 }
 
@@ -221,7 +221,7 @@ html {
   background: transparent;
   top: 10%;
   right: 15%;
-  animation: shapeFloat1 11s infinite alternate;
+  animation: none;
   animation-delay: -3s;
 }
 
@@ -231,7 +231,7 @@ html {
   height: 24px;
   top: 45%;
   left: 70%;
-  animation: shapeFloat2 10s infinite alternate;
+  animation: none;
   animation-delay: -7s;
   background: transparent;
 }
@@ -267,7 +267,7 @@ html {
   left: 65%;
   transform: rotate(45deg);
   border-radius: 4px;
-  animation: shapeFloat1 12s infinite alternate;
+  animation: none;
   animation-delay: -8s;
 }
 

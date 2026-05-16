@@ -439,23 +439,23 @@
 }
 
 .section-motion-play::before {
-  animation: sectionSweep 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: none;
 }
 
 .section-motion-play::after {
-  animation: sectionRuleTrace 0.82s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: none;
 }
 
 .section-motion-play > .container {
-  animation: sectionFocusIn 0.86s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: none;
 }
 
 .section-motion-leaving > .container {
-  animation: sectionCalmOut 0.38s ease-out both;
+  animation: none;
 }
 
 .section-motion-child-play {
-  animation: sectionChildCascade 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: none;
   animation-delay: var(--section-motion-delay, 0ms);
 }
 
@@ -1296,7 +1296,7 @@
   transform: translate3d(var(--hero-scroll-shift), 0, 0) scale(1.015);
   transform-origin: center;
   will-change: transform;
-  animation: heroBgDriftZoom 28s ease-in-out infinite alternate;
+  animation: none;
 }
 
 #hero.hero.section::after {
@@ -1312,7 +1312,7 @@
   background-position: 0 0, -180% 0, 0 0, 0 0;
   mix-blend-mode: multiply;
   will-change: background-position, opacity;
-  animation: heroBlueprintOverlay 18s linear infinite;
+  animation: none;
 }
 
 [data-theme="dark"] #hero.hero.section::after {
@@ -1523,7 +1523,7 @@
 
   #hero.hero.section::before,
   #hero.hero.section::after {
-    animation: none !important;
+    animation: none;
   }
 
   #hero.hero.section::before {
@@ -1570,7 +1570,7 @@
   transform: translate3d(0, 0, 0) scale(1.04);
   transform-origin: center;
   will-change: transform, opacity, background-position;
-  animation: sectionSvgDrift 32s ease-in-out infinite alternate;
+  animation: none;
 }
 
 #about.section > .container,
@@ -1686,7 +1686,7 @@
   #certificates.section::before,
   #gallery.section::before,
   #contact.section::before {
-    animation: none !important;
+    animation: none;
     transform: none !important;
   }
 }

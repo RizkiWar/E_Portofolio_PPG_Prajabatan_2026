@@ -130,7 +130,7 @@
 .ep2-hero-shapes .shape {
   position: absolute; border-radius: 50%;
   background: var(--coral, #39BDEB);
-  animation: ep2-float 6s ease-in-out infinite;
+  animation: none;
 }
 .ep2-hero-shapes .shape-circle {
   width: 220px; height: 220px; top: 8%; right: 8%;
@@ -413,7 +413,7 @@
   align-items: center; gap: 8px;
   color: var(--gray-400, #9AA2B0);
   font-size: 0.74rem;
-  animation: ep2-bounce 2s ease-in-out infinite;
+  animation: none;
 }
 .ep2-scroll-indicator .mouse {
   width: 24px; height: 38px;
@@ -425,7 +425,7 @@
   transform: translateX(-50%);
   width: 3px; height: 8px;
   background: var(--teal, #2EC4B6); border-radius: 3px;
-  animation: ep2-scroll-dot 1.5s ease-in-out infinite;
+  animation: none;
 }
 @keyframes ep2-bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
@@ -932,7 +932,7 @@
   filter: blur(0);
 }
 .ep2-float-soft {
-  animation: ep2-soft-float 5.5s ease-in-out infinite;
+  animation: none;
 }
 @keyframes ep2-soft-float {
   0%, 100% { transform: translateY(0); }
@@ -1217,7 +1217,7 @@
   border-radius: 999px;
   filter: blur(56px);
   opacity: 0.22;
-  animation: ep2-glow-drift 14s ease-in-out infinite alternate;
+  animation: none;
 }
 .ep2-live-bg::before {
   top: 8%;
@@ -1238,7 +1238,7 @@
   background: rgba(57, 189, 235, 0.55);
   box-shadow: 0 0 18px rgba(57, 189, 235, 0.55);
   opacity: 0.45;
-  animation: ep2-particle-rise 12s linear infinite;
+  animation: none;
 }
 .ep2-live-bg span:nth-child(1) { left: 8%;  top: 80%; animation-duration: 13s; animation-delay: -1s; }
 .ep2-live-bg span:nth-child(2) { left: 18%; top: 62%; animation-duration: 16s; animation-delay: -6s; width: 5px; height: 5px; }
@@ -1275,7 +1275,7 @@
     rgba(57, 189, 235, 0.08) 100%
   );
   background-size: 400% 400%;
-  animation: ep2-aurora-flow 18s ease-in-out infinite;
+  animation: none;
   opacity: 0.6;
 }
 @keyframes ep2-aurora-flow {
@@ -1291,7 +1291,7 @@
   position: absolute;
   border: 2px solid;
   opacity: 0.18;
-  animation: ep2-geo-float 10s ease-in-out infinite;
+  animation: none;
 }
 .ep2-live-bg .ep2-geo:nth-child(11) {
   width: 40px; height: 40px;
@@ -1354,7 +1354,7 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(2px);
-  animation: ep2-orb-pulse 4s ease-in-out infinite;
+  animation: none;
 }
 .ep2-live-bg .ep2-orb:nth-child(17) {
   width: 12px; height: 12px;
@@ -1394,7 +1394,7 @@
   position: absolute;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(57, 189, 235, 0.2), transparent);
-  animation: ep2-line-sweep 8s ease-in-out infinite;
+  animation: none;
   opacity: 0.3;
 }
 .ep2-live-bg .ep2-line:nth-child(21) {
@@ -1426,7 +1426,7 @@
 /* --- LIVE CARD BREATHING --- */
 .ep2-question-card,
 .ep2-filosofi-mini-card {
-  animation: ep2-card-breathe 6s ease-in-out infinite;
+  animation: none;
 }
 .ep2-question-card:nth-child(2) { animation-delay: -2s; }
 .ep2-question-card:nth-child(3) { animation-delay: -4s; }
@@ -1448,7 +1448,7 @@
   top: 0; left: -100%;
   width: 200%; height: 3px;
   background: linear-gradient(90deg, transparent, var(--teal, #2EC4B6), var(--lavender, #9B72CF), transparent);
-  animation: ep2-border-slide 4s linear infinite;
+  animation: none;
 }
 .ep2-hero-preview-card[data-accent="lavender"]::after {
   animation-delay: -2s;
@@ -1460,7 +1460,7 @@
 
 /* --- LIVE ICON ROTATION on question cards --- */
 .ep2-question-icon {
-  animation: ep2-icon-spin 20s linear infinite;
+  animation: none;
 }
 .ep2-question-icon:nth-child(1) { animation-delay: 0s; }
 @keyframes ep2-icon-spin {
@@ -1468,7 +1468,7 @@
   100% { transform: rotate(360deg); }
 }
 .ep2-question-icon i {
-  animation: ep2-icon-counter-spin 20s linear infinite;
+  animation: none;
 }
 @keyframes ep2-icon-counter-spin {
   0% { transform: rotate(0deg); }
@@ -1486,7 +1486,7 @@
   top: 0; left: -100%;
   width: 50%; height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: ep2-shimmer 5s ease-in-out infinite;
+  animation: none;
 }
 .ep2-value-mini:nth-child(2)::before { animation-delay: -1.2s; }
 .ep2-value-mini:nth-child(3)::before { animation-delay: -2.4s; }
@@ -2015,7 +2015,7 @@
   transition: opacity 0.45s ease, transform 0.45s ease !important;
 }
 .ep2-float-soft {
-  animation: none !important;
+  animation: none;
 }
 .ep2-question-card,
 .ep2-filosofi-mini-card,
