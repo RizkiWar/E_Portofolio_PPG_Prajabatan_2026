@@ -333,6 +333,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('.dossier-preview-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const title = btn.getAttribute('data-pdf-title') || 'Preview Dokumen';
+      const fileUrl = btn.getAttribute('data-pdf-url') || '#';
+      const previewUrl = btn.getAttribute('data-pdf-preview') || fileUrl;
+
+      modalContent.innerHTML = '<div class="modal-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: none; padding-bottom: 0; gap: 15px; padding-right: 30px;"><div style="flex: 1; min-width: 250px;"><h3 style="margin-bottom: 4px; font-size: 1.3rem;">' + title + '</h3><p style="margin-bottom: 0;">Preview Dokumen Penilaian</p></div><a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: #2EC4B6; color: #FFFFFF; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(46,196,182,0.3); z-index: 5;">Buka di Tab Baru &nearr;</a></div><div class="modal-body" style="height: 75vh; padding-top: 20px;"><iframe src="' + previewUrl + '" style="width: 100%; height: 100%; border: 1px solid #DEE2E8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);" title="PDF Preview"></iframe></div>';
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
   if (modalClose) modalClose.addEventListener('click', closeModal);
 
   if (modalOverlay) {
