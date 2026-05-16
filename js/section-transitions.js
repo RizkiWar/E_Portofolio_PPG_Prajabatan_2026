@@ -4,7 +4,7 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduceMotion = false;
   const enhancedScrollFx = window.__portfolioScrollExperience === true;
   const sections = Array.from(document.querySelectorAll('section.section[id]'));
 

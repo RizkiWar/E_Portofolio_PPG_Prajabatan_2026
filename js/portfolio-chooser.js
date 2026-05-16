@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    PORTFOLIO CHOOSER SCREEN
    Show 2 portfolio options after intro loading
    ============================================ */
@@ -9,7 +9,7 @@ export function initPortfolioChooser() {
 
   const STORAGE_KEY = 'selectedPortfolio';
   const cards = chooser.querySelectorAll('.chooser-card');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = false;
   const ep2Wrapper = document.getElementById('eportfolio2Wrapper');
 
   function showChooser() {

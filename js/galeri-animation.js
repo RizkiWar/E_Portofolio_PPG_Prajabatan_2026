@@ -1,7 +1,7 @@
 export function initGaleriAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (false) return;
 
   var section = document.querySelector('#gallery');
   if (!section) return;

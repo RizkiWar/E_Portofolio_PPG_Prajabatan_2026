@@ -7,7 +7,7 @@ if (!gsap || !ScrollTrigger) {
 gsap.registerPlugin(ScrollTrigger);
 gsap.config({ nullTargetWarn: false });
 
-const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionQuery = { matches: false };
 window.__portfolioScrollExperience = true;
 
 const SECTION_PALETTES = {

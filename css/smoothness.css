@@ -128,7 +128,7 @@ img {
 }
 
 /* ---------- Reduce motion: respect user preference ---------- */
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   *,
   *::before,
   *::after {

@@ -7,7 +7,7 @@
   if (!canvas) return;
 
   const isMobile = window.innerWidth < 768;
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = false;
   if (isMobile || prefersReduced) {
     canvas.style.display = 'none';
     return;

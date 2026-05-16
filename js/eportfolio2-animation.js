@@ -72,7 +72,7 @@ function initEp2GsapAnimations(wrapper) {
   if (wrapper.dataset.gsapBound === '1') return;
   wrapper.dataset.gsapBound = '1';
 
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefersReduced = false;
   if (prefersReduced) {
     initEp2FallbackReveals(wrapper);
     return;
@@ -650,7 +650,7 @@ function initEp2Particles() {
   if (!wrapper || wrapper.dataset.particlesBound === '1') return;
   wrapper.dataset.particlesBound = '1';
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (false) return;
   if (window.innerWidth < 768) return;
 
   var canvas = document.createElement('canvas');

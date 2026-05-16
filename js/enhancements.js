@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hasGsap = Boolean(window.gsap);
   const hasScrollTrigger = Boolean(window.ScrollTrigger);
   const introTear = document.getElementById('introTear');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = false;
   const introOpenKeys = new Set(['ArrowDown', 'PageDown', ' ', 'Spacebar', 'Enter']);
   let introOpened = false;
 
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mm = gsap.matchMedia();
 
     mm.add({
-      reduceMotion: '(prefers-reduced-motion: reduce)',
+      reduceMotion: '(max-width: 0px)',
       isDesktop: '(min-width: 900px)',
     }, context => {
       const { reduceMotion, isDesktop } = context.conditions;

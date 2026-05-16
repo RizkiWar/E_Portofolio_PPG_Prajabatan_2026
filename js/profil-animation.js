@@ -1,7 +1,7 @@
 export function initProfilAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (false) return;
 
   var aboutSection = document.querySelector('#about');
   if (!aboutSection) return;

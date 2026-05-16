@@ -857,7 +857,7 @@
 }
 
 /* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .eportfolio2-wrapper { scroll-behavior: auto; }
   .ep2-hero-shapes .shape,
   .ep2-scroll-indicator { animation: none; }
@@ -950,7 +950,7 @@
 .ep2-hero-preview-card:hover {
   transform: translateY(-8px) scale(1.015);
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .ep2-animate,
   .ep2-animate.is-visible {
     opacity: 1;
@@ -1512,7 +1512,7 @@
 [data-theme="dark"] .ep2-live-bg span {
   opacity: 0.55;
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .ep2-live-bg::before,
   .ep2-live-bg::after,
   .ep2-live-bg span {
@@ -2216,7 +2216,7 @@
 }
 
 /* Reduced motion: show everything immediately */
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .ep2-hero-left,
   .ep2-hero-greeting,
   .ep2-title,

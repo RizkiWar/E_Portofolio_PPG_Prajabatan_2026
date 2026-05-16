@@ -1,7 +1,7 @@
 export function initPendidikanAnimation(){
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (false) return;
 
   var eduSection = document.querySelector('#education');
   if (!eduSection) return;

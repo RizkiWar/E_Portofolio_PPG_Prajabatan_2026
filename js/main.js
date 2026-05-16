@@ -331,7 +331,7 @@ function initMain() {
 
   // ---------- Hero Background Parallax ----------
   const heroSection = document.querySelector('#hero.hero.section');
-  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const reducedMotionQuery = { matches: false };
 
   if (heroSection && !reducedMotionQuery.matches) {
     const getShift = () => (window.innerWidth < 768 ? -34 : -96);
@@ -533,7 +533,7 @@ function initMain() {
   }
 
   // ---------- Smooth anchor scrolling ----------
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = false;
 
   function getAnchorScrollOffset() {
     if (!navbar) return 0;
