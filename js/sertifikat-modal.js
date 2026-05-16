@@ -21,8 +21,8 @@ export function initSertifikatModal() {
     if (typeof gsap !== 'undefined') {
       gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
       gsap.fromTo(popupBox,
-        { scale: 0.85, opacity: 0, y: 30 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.5)' }
+        { scale: 0.85, opacity: 0, y: 18 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.5)', clearProps: 'transform' }
       );
     }
   }
