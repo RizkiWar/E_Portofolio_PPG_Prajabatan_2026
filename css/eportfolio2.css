@@ -866,7 +866,7 @@
 .ep2-hero {
   background-image:
     linear-gradient(90deg, rgba(250, 251, 253, 0.94) 0%, rgba(250, 251, 253, 0.82) 42%, rgba(250, 251, 253, 0.35) 100%),
-    url("../assets/img/ai/ChatGPT Image May 13, 2026, 09_09_27 PM.png");
+    url("../assets/img/hero-bg-ai-light.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -875,7 +875,7 @@
 [data-theme="dark"] .ep2-hero {
   background-image:
     linear-gradient(90deg, rgba(13, 17, 23, 0.92) 0%, rgba(13, 17, 23, 0.78) 42%, rgba(13, 17, 23, 0.18) 100%),
-    url("../assets/img/ai/ChatGPT Image May 15, 2026, 07_50_37 PM.png");
+    url("../assets/img/hero-bg-ai-dark.png");
 }
 .ep2-hero::before {
   content: "";
