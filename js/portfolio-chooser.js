@@ -106,7 +106,7 @@ export function initPortfolioChooser() {
     });
   });
 
-  // EP1 home button â†’ back to chooser
+  // EP1 home button -> back to chooser
   var homeBtn = document.getElementById('homeBtn');
   if (homeBtn) {
     homeBtn.addEventListener('click', (e) => {
