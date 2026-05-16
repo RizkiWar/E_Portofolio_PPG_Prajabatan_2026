@@ -79,9 +79,6 @@ function initMain() {
   if (mainInitialized) return;
   mainInitialized = true;
 
-  // ---------- Preload & Cache All DOM + Images ----------
-  preloadAllAssets();
-
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
 
@@ -340,72 +337,12 @@ function initMain() {
   });
 
   // ---------- Hero Background Parallax ----------
-  const heroSection = document.querySelector('#hero.hero.section');
-  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  if (heroSection && !reducedMotionQuery.matches) {
-    const getShift = () => (window.innerWidth < 768 ? -34 : -96);
-
-    if (window.gsap && window.ScrollTrigger) {
-      window.gsap.registerPlugin(window.ScrollTrigger);
-      window.gsap.to(heroSection, {
-        '--hero-scroll-shift': () => `${getShift()}px`,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroSection,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.8,
-          invalidateOnRefresh: true
-        }
-      });
-    } else {
-      let ticking = false;
-      const updateHeroParallax = () => {
-        const progress = Math.min(1, Math.max(0, -heroSection.getBoundingClientRect().top / Math.max(heroSection.offsetHeight, 1)));
-        heroSection.style.setProperty('--hero-scroll-shift', `${Math.round(progress * getShift())}px`);
-        ticking = false;
-      };
-      const requestHeroParallax = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(updateHeroParallax);
-      };
-      updateHeroParallax();
-      window.addEventListener('scroll', requestHeroParallax, { passive: true });
-      window.addEventListener('resize', requestHeroParallax, { passive: true });
-    }
-  }
+  // Removed: was causing scroll jank
 
   // ---------- Scroll Reveal ----------
+  // Removed: all elements visible immediately
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ---------- Skill Bar Animation ----------
-  const skillBars = document.querySelectorAll('.bar-fill');
-
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const width = entry.target.getAttribute('data-width');
-        entry.target.style.width = width + '%';
-      }
-    });
-  }, { threshold: 0.3 });
-
-  skillBars.forEach(bar => skillObserver.observe(bar));
+  revealElements.forEach(el => el.classList.add('visible'));
 
   // ---------- Portfolio Filter ----------
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -432,7 +369,6 @@ function initMain() {
       const matchesFilter = (filter === 'all' || cardCategory === filter);
       if (matchesSiklus && matchesFilter) {
         card.style.display = '';
-        card.style.animation = 'fadeIn 0.5s ease forwards';
       } else {
         card.style.display = 'none';
       }
@@ -582,38 +518,6 @@ function initMain() {
     });
   });
 
-  // ---------- Count-up Animation ----------
-  const statNumbers = document.querySelectorAll('.about-stat .number');
-
-  function countUp(el, target, suffix) {
-    let current = 0;
-    const increment = target / 60;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        el.textContent = target + suffix;
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(current) + suffix;
-      }
-    }, 16);
-  }
-
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.dataset.counted) {
-        entry.target.dataset.counted = 'true';
-        const text = entry.target.textContent;
-        const num = parseInt(text);
-        if (isNaN(num)) return;
-        const suffix = text.includes('+') ? '+' : '';
-        countUp(entry.target, num, suffix);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statNumbers.forEach(el => countObserver.observe(el));
-
   // ---------- Portfolio Siklus Tabs ----------
   const tabBtns = document.querySelectorAll('.tab-btn');
   tabBtns.forEach(btn => {
@@ -651,22 +555,6 @@ function initMain() {
       }
     });
   });
-
-  // ---------- Pillar Progress Animation ----------
-  const pillarObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill = entry.target.querySelector('.pillar-progress-fill');
-        if (fill) {
-          const styleAttr = fill.getAttribute('style') || '';
-          const match = styleAttr.match(/--progress:\s*([^;"]+)/);
-          const width = match ? match[1].trim() : '80%';
-          fill.style.width = width;
-        }
-      }
-    });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.pillar-card').forEach(card => pillarObserver.observe(card));
 
   // ---------- Gallery Accordion Interaction ----------
   const galleryItems = document.querySelectorAll('.gallery-accordion .gallery-item');
