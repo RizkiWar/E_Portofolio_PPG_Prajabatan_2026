@@ -472,6 +472,36 @@
   color: #D7E3F0;
 }
 
+[data-theme="dark"] .modal-content .modal-header h3[style] {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .modal-content .modal-header p[style] {
+  color: #BAE6FD !important;
+}
+
+[data-theme="dark"] .modal-content .modal-body h4[style] {
+  color: #E0F2FE !important;
+}
+
+[data-theme="dark"] .modal-content .modal-body p[style],
+[data-theme="dark"] .modal-content .modal-body li[style] {
+  color: #D7E3F0 !important;
+}
+
+[data-theme="dark"] .modal-content .modal-body p[style*="font-style: italic"] {
+  color: #C4B5FD !important;
+  border-left-color: rgba(196, 181, 253, 0.45) !important;
+}
+
+[data-theme="dark"] .modal-content .modal-body strong[style*="color:#0F5EA8"] {
+  color: #93C5FD !important;
+}
+
+[data-theme="dark"] .modal-content .modal-body strong[style*="color:#FF6B6B"] {
+  color: #FDA4AF !important;
+}
+
 .modal-body ul {
   padding-left: 20px;
 }
