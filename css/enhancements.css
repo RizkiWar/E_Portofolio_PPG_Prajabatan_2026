@@ -2205,6 +2205,10 @@ body.chooser-active .back-to-top {
   border-radius: 999px;
   font-weight: 800;
   text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
 }
 
 .dossier-btn {
@@ -2251,24 +2255,50 @@ body.chooser-active .back-to-top {
 .dossier-preview span {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  top: 50%;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%) scale(0.96);
   white-space: nowrap;
-  padding: 9px 13px;
+  padding: 11px 15px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.82);
-  color: #fff;
-  font-size: 0.78rem;
+  background: rgba(15, 94, 168, 0.92);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 0.82rem;
   font-weight: 850;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
+  opacity: 0;
+  box-shadow: 0 14px 32px rgba(15, 94, 168, 0.32);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.dossier-preview::after {
+  content: "";
+  position: absolute;
+  width: min(100%, 230px);
+  height: 310px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(15, 94, 168, 0.08), rgba(15, 23, 42, 0.42));
+  opacity: 0;
+  transition: opacity 0.24s ease;
 }
 
 .dossier-preview:hover img {
   transform: translateY(-4px) scale(1.015);
   box-shadow: 0 28px 54px rgba(15, 23, 42, 0.18);
+}
+
+.dossier-preview:hover span,
+.dossier-preview:focus-visible span {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+}
+
+.dossier-preview:hover::after,
+.dossier-preview:focus-visible::after {
+  opacity: 1;
 }
 
 .dossier-preview-sheet {
@@ -2391,6 +2421,17 @@ body.chooser-active .back-to-top {
 [data-theme="dark"] .dossier-preview img {
   border-color: rgba(125, 211, 252, 0.22);
   background: #0F172A;
+}
+
+[data-theme="dark"] .dossier-preview span {
+  background: rgba(56, 189, 248, 0.92);
+  color: #082F49;
+  border-color: rgba(224, 242, 254, 0.5);
+  box-shadow: 0 14px 34px rgba(56, 189, 248, 0.24);
+}
+
+[data-theme="dark"] .dossier-preview::after {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.1), rgba(8, 47, 73, 0.58));
 }
 
 [data-theme="dark"] .dossier-preview-sheet span {
