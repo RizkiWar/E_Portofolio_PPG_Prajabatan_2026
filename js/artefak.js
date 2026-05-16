@@ -173,100 +173,106 @@ document.addEventListener('DOMContentLoaded', () => {
       theory: 'Berfungsi sebagai authentic material yang merepresentasikan dokumen kerja nyata di industri manufaktur, mendukung prinsip Contextual Teaching and Learning (CTL).'
     },
     'modal-rpp2': {
-      title: 'RPP Siklus 2 - Inovasi Pembelajaran',
+      title: 'RPP Siklus 2 - Pembelajaran Bench Vise',
       type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
       fileUrl: 'https://drive.google.com/file/d/1ZA9QdvQr6je_JHCprcPOy62WWKSISAaF/view?usp=sharing',
-      context: 'RPP ini disusun untuk pelaksanaan Siklus 2 dengan penyesuaian berdasarkan refleksi hasil belajar pada Siklus 1.',
-      purpose: 'Mengarahkan proses pembelajaran Siklus 2 agar strategi, aktivitas, dan asesmen lebih tepat sasaran terhadap kebutuhan siswa.',
+      context: 'RPP Siklus 2 digunakan sebagai rancangan tindak lanjut setelah refleksi Siklus 1. Fokus pembelajaran diarahkan pada objek Bench Vise agar siswa memperoleh tantangan baru yang tetap relevan dengan kompetensi membaca gambar teknik, memahami komponen mekanik, dan menerapkan prosedur kerja berbasis dokumen.',
+      purpose: 'Mengarahkan pembelajaran agar lebih terstruktur, kontekstual, dan responsif terhadap kebutuhan siswa melalui penguatan demonstrasi, praktik terbimbing, diskusi kesulitan, serta evaluasi berbasis produk kerja.',
       pros: [
-        'Memuat perbaikan langkah pembelajaran berdasarkan evaluasi siklus sebelumnya.',
-        'Memberikan arah yang lebih fokus untuk penguatan kompetensi pada Siklus 2.'
+        'Alur pembelajaran menunjukkan kesinambungan dari Siklus 1 karena strategi diperbaiki berdasarkan hasil refleksi sebelumnya.',
+        'Objek Bench Vise membuat aktivitas lebih autentik dan dekat dengan konteks kerja manufaktur.',
+        'RPP berpotensi memperjelas peran guru sebagai fasilitator melalui demonstrasi, pendampingan, dan umpan balik bertahap.'
       ],
       cons: [
-        'Masih membutuhkan validasi lanjutan setelah implementasi penuh di kelas.',
-        'Beberapa aktivitas mungkin perlu diferensiasi lebih rinci sesuai profil siswa.'
+        'Diferensiasi tugas perlu dibuat lebih eksplisit agar siswa dengan kecepatan belajar berbeda tetap terlayani.',
+        'Indikator keberhasilan sebaiknya dikaitkan langsung dengan rubrik produk agar penilaian lebih mudah ditelusuri.'
       ],
-      theory: 'Mengacu pada prinsip reflective practice dalam Penelitian Tindakan Kelas, yaitu perbaikan pembelajaran berkelanjutan antar siklus.'
+      theory: 'Mengacu pada reflective practice dalam Penelitian Tindakan Kelas, scaffolding Vygotsky, dan contextual teaching and learning karena pembelajaran diperbaiki antar siklus melalui tugas praktik autentik.'
     },
     'modal-asesmen2': {
       title: 'Perangkat Asesmen Siklus 2',
       type: 'Instrumen Asesmen Siklus 2',
       fileUrl: 'https://drive.google.com/file/d/1JfYVk4iEimTrBkIMsdm8se5tzNjzwpzz/view?usp=sharing',
-      context: 'Perangkat asesmen untuk Siklus 2 disiapkan untuk memotret perkembangan pemahaman dan keterampilan siswa setelah tindak lanjut dari Siklus 1.',
-      purpose: 'Menilai proses dan hasil belajar pada Siklus 2 secara lebih terarah agar data evaluasi dapat digunakan untuk refleksi pembelajaran berikutnya.',
+      context: 'Perangkat asesmen Siklus 2 berfungsi untuk memotret peningkatan kemampuan siswa setelah perbaikan pembelajaran. Instrumen ini penting karena Siklus 2 tidak hanya menilai hasil akhir, tetapi juga perkembangan proses belajar, kemandirian, ketelitian, dan kemampuan menerapkan masukan dari siklus sebelumnya.',
+      purpose: 'Menghasilkan data penilaian yang lebih objektif dan dapat digunakan untuk melihat apakah strategi perbaikan pada Siklus 2 berhasil meningkatkan kompetensi siswa.',
       pros: [
-        'Instrumen dirancang untuk memantau kemajuan belajar siswa pada tahap lanjutan.',
-        'Dapat menjadi dasar refleksi guru dalam menentukan strategi penguatan.'
+        'Asesmen mendukung evaluasi berkelanjutan karena dapat membandingkan kondisi siswa sebelum dan sesudah tindakan perbaikan.',
+        'Instrumen membantu guru mengamati proses kerja, bukan hanya produk akhir.',
+        'Hasil asesmen dapat menjadi dasar refleksi yang kuat untuk menentukan perlu atau tidaknya penguatan lanjutan.'
       ],
       cons: [
-        'Perlu uji konsistensi skor jika digunakan oleh lebih dari satu penilai.',
-        'Masih memerlukan penyempurnaan indikator untuk konteks kelas yang berbeda.'
+        'Rubrik perlu dibuat cukup rinci agar penilaian antar siswa konsisten dan tidak terlalu subjektif.',
+        'Perlu ruang catatan kualitatif agar kesalahan siswa dapat dijelaskan, bukan hanya diberi skor.'
       ],
-      theory: 'Bersandar pada konsep assessment for learning, di mana hasil asesmen digunakan sebagai umpan balik perbaikan pembelajaran.'
+      theory: 'Bersandar pada assessment for learning dan authentic assessment, yaitu penilaian digunakan sebagai umpan balik perbaikan sekaligus mengukur performa siswa pada tugas praktik yang nyata.'
     },
     'modal-materi2': {
       title: 'Bahan Ajar Siklus 2',
       type: 'Bahan Ajar',
       fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
-      context: 'Bahan ajar Siklus 2 ini menjadi pendamping kegiatan belajar untuk memperdalam materi setelah evaluasi Siklus 1.',
-      purpose: 'Membantu siswa memahami kembali konsep inti dan menerapkannya dalam tugas pembelajaran Siklus 2.',
+      context: 'Bahan ajar Siklus 2 menjadi sumber belajar pendamping untuk membantu siswa memahami materi Bench Vise secara lebih mandiri. Bahan ini berperan sebagai penghubung antara penjelasan guru, jobsheet, LKM, dan praktik yang dilakukan siswa.',
+      purpose: 'Memperkuat pemahaman konsep sebelum praktik, mengurangi ketergantungan siswa kepada guru, dan menyediakan referensi yang dapat dibaca ulang saat siswa mengalami kesulitan.',
       pros: [
-        'Materi difokuskan pada penguatan konsep yang masih perlu ditingkatkan.',
-        'Dapat digunakan siswa sebagai referensi belajar mandiri.'
+        'Bahan ajar membantu siswa membangun pemahaman awal sebelum mengerjakan tugas praktik.',
+        'Konten dapat menjadi pegangan belajar mandiri sehingga waktu praktik lebih efisien.',
+        'Materi pendamping memperkuat hubungan antara konsep gambar teknik dan penerapan pada objek Bench Vise.'
       ],
       cons: [
-        'Konten masih bersifat umum dan bisa diperdalam dengan contoh kontekstual tambahan.',
-        'Perlu integrasi lebih lanjut dengan aktivitas diferensiasi.'
+        'Akan lebih kuat jika disertai contoh kesalahan umum dan cara memperbaikinya.',
+        'Perlu penanda bagian penting agar siswa mudah menemukan informasi saat praktik berlangsung.'
       ],
-      theory: 'Sejalan dengan teori scaffolding, materi pendukung diberikan untuk membantu siswa mencapai kompetensi target secara bertahap.'
+      theory: 'Sejalan dengan scaffolding dan cognitive load theory karena bahan ajar memecah informasi menjadi referensi yang dapat dipelajari bertahap sebelum siswa menghadapi tugas praktik penuh.'
     },
     'modal-lkm2': {
       title: 'LKM Siklus 2',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1u8pM1xoKZZcD-_1AL0LoqnMQY0W-JC1d/view?usp=sharing',
-      context: 'LKM Siklus 2 digunakan untuk memandu aktivitas belajar siswa secara bertahap sesuai fokus perbaikan siklus.',
-      purpose: 'Memberikan panduan kerja terstruktur agar siswa aktif, terarah, dan mampu menyelesaikan tugas pembelajaran Siklus 2.',
+      context: 'LKM Siklus 2 menjadi alat kerja siswa dalam mengikuti aktivitas praktik Bench Vise. LKM berfungsi mengubah materi dan instruksi guru menjadi langkah kegiatan yang dapat diikuti, dicatat, dan direfleksikan oleh siswa.',
+      purpose: 'Memandu siswa agar bekerja sistematis, aktif mencatat hasil pengamatan, dan mampu mengevaluasi proses belajarnya selama menyelesaikan tugas Siklus 2.',
       pros: [
-        'Langkah kerja membantu siswa mengikuti proses belajar secara sistematis.',
-        'Mendukung keterlibatan aktif siswa selama pelaksanaan Siklus 2.'
+        'Langkah kerja membuat aktivitas praktik lebih terarah dan mengurangi kebingungan siswa saat mulai mengerjakan.',
+        'LKM dapat mendorong keaktifan karena siswa tidak hanya menerima materi, tetapi juga melakukan, mencatat, dan merefleksi.',
+        'Struktur LKM cocok digunakan sebagai bukti proses belajar pada Penelitian Tindakan Kelas.'
       ],
       cons: [
-        'Instruksi perlu disesuaikan lebih spesifik untuk variasi kemampuan siswa.',
-        'Membutuhkan ruang refleksi yang lebih luas untuk umpan balik individual.'
+        'Instruksi sebaiknya dibuat bertingkat agar siswa cepat tetap tertantang dan siswa lambat tetap terbantu.',
+        'Perlu kolom refleksi atau catatan kesulitan agar guru bisa membaca hambatan belajar tiap siswa.'
       ],
-      theory: 'Menggunakan pendekatan guided practice yang menekankan pendampingan bertahap hingga siswa lebih mandiri.'
+      theory: 'Menggunakan guided practice dan metakognisi, karena siswa diarahkan melalui langkah kerja sambil dilatih menyadari proses, kesalahan, dan perbaikan belajarnya.'
     },
     'modal-media-s2': {
       title: 'Media Presentasi (PPT) Siklus 2',
       type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1Vp0AWdM7qEqq1TC_zvRLVwuGaeqSxNyo/view?usp=sharing',
-      context: 'Media presentasi Siklus 2 disiapkan untuk memperjelas alur pembelajaran dan menekankan poin perbaikan dari siklus sebelumnya.',
-      purpose: 'Membantu guru menyajikan materi secara visual dan membantu siswa memahami konsep secara lebih terstruktur pada Siklus 2.',
+      context: 'Media presentasi Siklus 2 digunakan untuk membantu guru membuka pembelajaran, menjelaskan alur praktik, menampilkan visual utama Bench Vise, dan menegaskan bagian penting yang harus diperhatikan siswa.',
+      purpose: 'Membuat penjelasan guru lebih ringkas, visual, dan mudah diikuti sehingga siswa memiliki gambaran awal sebelum masuk ke aktivitas praktik atau pengerjaan LKM.',
       pros: [
-        'Visual presentasi memudahkan penyampaian inti materi secara ringkas.',
-        'Dapat meningkatkan fokus siswa saat pembelajaran berlangsung.'
+        'Media visual membantu siswa memahami bentuk dan komponen Bench Vise sebelum membaca dokumen kerja lebih detail.',
+        'Slide dapat menjaga fokus kelas karena informasi disajikan bertahap dan mudah diarahkan oleh guru.',
+        'Presentasi cocok menjadi jembatan antara apersepsi, demonstrasi, dan instruksi praktik.'
       ],
       cons: [
-        'Efektivitas media sangat bergantung pada strategi penyajian guru.',
-        'Perlu pengayaan contoh praktik agar tidak hanya bersifat informatif.'
+        'Media perlu didukung demonstrasi langsung agar tidak berhenti sebagai penjelasan satu arah.',
+        'Akan lebih efektif jika ditambah penanda visual pada bagian rawan salah atau poin pemeriksaan kerja.'
       ],
-      theory: 'Selaras dengan prinsip multimedia learning, yaitu kombinasi teks dan visual untuk meningkatkan pemahaman siswa.'
+      theory: 'Selaras dengan multimedia learning Mayer, terutama prinsip signaling dan segmenting, karena informasi visual membantu siswa menangkap poin penting secara bertahap.'
     },
     'modal-bench-vise2': {
       title: 'Job Sheet Bench Vise Siklus 2',
       type: 'Jobsheet / Gambar Kerja',
       fileUrl: 'https://drive.google.com/file/d/1UBkwO2ZI1SxuAzPomElc8yiNGclT3lv_/view?usp=sharing',
-      context: 'Jobsheet Bench Vise digunakan sebagai referensi praktik pada Siklus 2 untuk membantu siswa memahami bentuk, komponen, dan tuntutan pengerjaan objek kerja.',
-      purpose: 'Memberikan acuan teknis dan visual agar siswa dapat mengerjakan tugas praktik Bench Vise secara lebih terarah dan sesuai standar gambar kerja.',
+      context: 'Jobsheet Bench Vise merupakan artefak kunci pada Siklus 2 karena menjadi acuan teknis siswa dalam memahami objek kerja. Dokumen ini menghubungkan materi, LKM, dan praktik dengan produk nyata yang harus dibaca dan dikerjakan siswa.',
+      purpose: 'Menyediakan referensi gambar kerja agar siswa dapat mengenali bentuk, komponen, ukuran, dan tuntutan teknis Bench Vise secara lebih akurat sebelum menyelesaikan tugas praktik.',
       pros: [
-        'Objek Bench Vise relevan untuk latihan membaca gambar teknik dan memahami komponen mekanik.',
-        'Dapat menjadi panduan praktik yang konkret bagi siswa selama pengerjaan Siklus 2.'
+        'Objek Bench Vise relevan untuk melatih kemampuan membaca gambar teknik, memahami relasi komponen, dan berpikir spasial.',
+        'Jobsheet memberi konteks nyata sehingga pembelajaran tidak hanya teoritis.',
+        'Dokumen ini dapat menjadi standar pembanding saat siswa mengecek ketepatan hasil kerja.'
       ],
       cons: [
-        'Perlu pendampingan guru jika siswa belum familiar dengan detail komponen Bench Vise.',
-        'Instruksi praktik mungkin perlu dilengkapi dengan langkah kerja bertahap sesuai kemampuan siswa.'
+        'Siswa pemula kemungkinan masih membutuhkan arahan untuk membaca detail gambar dan memahami urutan pengerjaan.',
+        'Jobsheet akan lebih kuat jika dipasangkan dengan checklist pemeriksaan hasil kerja.'
       ],
-      theory: 'Mendukung contextual teaching and learning melalui penggunaan dokumen kerja autentik sebagai sumber belajar praktik.'
+      theory: 'Mendukung contextual teaching and learning dan project-based learning karena siswa belajar melalui dokumen kerja autentik yang mengarah pada penyelesaian produk praktik.'
     }
   };
 
