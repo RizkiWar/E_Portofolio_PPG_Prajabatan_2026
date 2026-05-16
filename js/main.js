@@ -31,15 +31,41 @@ function waitForWindowLoad() {
 
 function preloadPageContent() {
   const loadingFill = document.querySelector('.intro-panel-loading-fill');
+  const loadingStatus = document.getElementById('introLoadingStatus');
   const images = Array.from(document.images);
   const tasks = [];
   let completed = 0;
 
+  const statusSteps = [
+    { at: 0, text: 'Menyiapkan tampilan awal...' },
+    { at: 18, text: 'Memuat gambar dan thumbnail...' },
+    { at: 42, text: 'Menyiapkan animasi halaman...' },
+    { at: 66, text: 'Merapikan dokumen dan preview...' },
+    { at: 88, text: 'Hampir selesai...' },
+    { at: 100, text: 'Siap dibuka.' }
+  ];
+  let currentStatus = '';
+
+  const setLoadingStatus = percent => {
+    if (!loadingStatus) return;
+    const next = statusSteps.reduce((active, step) => (percent >= step.at ? step : active), statusSteps[0]).text;
+    if (next === currentStatus) return;
+    currentStatus = next;
+    loadingStatus.classList.add('is-changing');
+    setTimeout(() => {
+      loadingStatus.textContent = next;
+      loadingStatus.classList.remove('is-changing');
+    }, 120);
+  };
+
+  setLoadingStatus(0);
+
   const updateProgress = () => {
     completed += 1;
-    if (!loadingFill) return;
     const total = Math.max(tasks.length, 1);
-    loadingFill.style.width = Math.min(100, Math.round((completed / total) * 100)) + '%';
+    const percent = Math.min(100, Math.round((completed / total) * 100));
+    if (loadingFill) loadingFill.style.width = percent + '%';
+    setLoadingStatus(percent);
   };
 
   images.forEach(img => {
@@ -71,6 +97,7 @@ function preloadPageContent() {
     new Promise(resolve => setTimeout(resolve, 15000))
   ]).then(() => {
     if (loadingFill) loadingFill.style.width = '100%';
+    setLoadingStatus(100);
   });
 }
 

@@ -251,6 +251,21 @@ body:not(.intro-ready) {
   animation: loadingFill 1.45s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
+.intro-panel-loading-status {
+  min-height: 1.2em;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.intro-panel-loading-status.is-changing {
+  opacity: 0.45;
+  transform: translateY(2px);
+}
+
 .intro-panel-prompt {
   opacity: 0;
   visibility: hidden;
@@ -263,6 +278,11 @@ body:not(.intro-ready) {
 }
 
 .intro-tear.loader-complete .intro-panel-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-tear.loader-complete .intro-panel-loading-status {
   opacity: 0;
   visibility: hidden;
 }
