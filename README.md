@@ -63,37 +63,37 @@ E-Portofolio_PPG_Prajabatan_2026/
 │   ├── kontak.css      # Kontak section
 │   ├── galeri.css      # Galeri section
 │   ├── parallax.css    # Intro tear & parallax
-│   ├── enhancements.css
-│   ├── smoothness.css
+│   ├── enhancements.css# Tambahan efek visual dan polesan UI
+│   ├── smoothness.css  # Pengaturan transisi dan animasi halus
 │   ├── eportfolio2.css # E-Portfolio 2 styles
 │   ├── dark-mode.css   # Dark mode overrides
 │   └── responsive.css  # Responsive breakpoints
 ├── js/
 │   ├── main.js         # Entry point (imports all modules)
 │   ├── particles.js    # Canvas particle animation
-│   ├── scroll-experience.js
-│   ├── section-transitions.js
-│   ├── artefak.js
-│   ├── profil-animation.js
-│   ├── pendidikan-animation.js
-│   ├── artefak-animation.js
-│   ├── model-guru-animation.js
-│   ├── keahlian-animation.js
-│   ├── galeri-animation.js
-│   ├── kontak-animation.js
-│   ├── footer-animation.js
-│   ├── portfolio-chooser.js
-│   └── sertifikat-modal.js
+│   ├── scroll-experience.js    # Logika pengguliran (scroll) halaman
+│   ├── section-transitions.js  # Efek transisi perpindahan antar bagian (section)
+│   ├── artefak.js              # Logika fitur filter dan tampilan artefak
+│   ├── profil-animation.js     # Animasi khusus bagian profil
+│   ├── pendidikan-animation.js # Animasi khusus bagian pendidikan
+│   ├── artefak-animation.js    # Animasi khusus bagian artefak
+│   ├── model-guru-animation.js # Animasi khusus bagian model guru
+│   ├── keahlian-animation.js   # Animasi khusus bagian keahlian (skills)
+│   ├── galeri-animation.js     # Animasi khusus bagian galeri
+│   ├── kontak-animation.js     # Animasi khusus bagian kontak
+│   ├── footer-animation.js     # Animasi khusus bagian footer (kaki halaman)
+│   ├── portfolio-chooser.js    # Logika interaksi pemilihan kategori portofolio
+│   └── sertifikat-modal.js     # Logika pop-up (modal) penampil gambar sertifikat
 ├── vendor/
-│   ├── gsap.min.js
-│   └── ScrollTrigger.min.js
+│   ├── gsap.min.js             # Library animasi GreenSock (terkompresi)
+│   └── ScrollTrigger.min.js    # Plugin GSAP untuk pemicu animasi saat di-scroll
 ├── assets/
 │   ├── img/            # Gambar dan media
 │   └── pdf/            # Dokumen PDF
 ├── dist/               # Production build output
 ├── vite.config.js      # Vite configuration
-├── package.json
-└── README.md
+├── package.json        # Identitas proyek, dependensi npm, & daftar script
+└── README.md           # Dokumentasi dan informasi proyek (file ini)
 ```
 
 ---
