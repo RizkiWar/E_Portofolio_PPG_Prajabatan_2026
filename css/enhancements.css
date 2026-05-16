@@ -272,12 +272,10 @@
     var(--surface-strong);
 }
 
-.portfolio-card[data-siklus="siklus2"] .portfolio-card-img img,
 .portfolio-card[data-siklus="siklus3"] .portfolio-card-img img {
   filter: grayscale(0.78) saturate(0.7) opacity(0.58);
 }
 
-.portfolio-card[data-siklus="siklus2"]::after,
 .portfolio-card[data-siklus="siklus3"]::after {
   content: "Dalam pengembangan";
   position: absolute;

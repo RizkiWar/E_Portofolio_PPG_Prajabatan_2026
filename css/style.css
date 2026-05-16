@@ -3710,13 +3710,11 @@ body {
 /* ============================================
    COMING SOON CARD STYLE
    ============================================ */
-.portfolio-card[data-siklus="siklus2"],
 .portfolio-card[data-siklus="siklus3"] {
   opacity: 0.7;
   position: relative;
 }
 
-.portfolio-card[data-siklus="siklus2"]::after,
 .portfolio-card[data-siklus="siklus3"]::after {
   content: '🚧 Segera Hadir';
   position: absolute;
@@ -3732,7 +3730,6 @@ body {
   z-index: 3;
 }
 
-.portfolio-card[data-siklus="siklus2"]:hover,
 .portfolio-card[data-siklus="siklus3"]:hover {
   opacity: 1;
   transform: translateY(-4px);
