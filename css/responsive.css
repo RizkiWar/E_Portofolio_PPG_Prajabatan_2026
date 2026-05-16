@@ -826,10 +826,9 @@ html, body {
 
   /* Fix fixed overlays that get distorted by zoom */
   .portfolio-chooser,
-  #loadingScreen,
   #introTear,
-  .cert-modal,
-  .modal-overlay {
+  .cert-modal-overlay,
+  .modal-overlay, .ep2-modal-overlay {
     zoom: 1.25;
   }
 }
@@ -846,10 +845,9 @@ html, body {
   }
 
   .portfolio-chooser,
-  #loadingScreen,
   #introTear,
-  .cert-modal,
-  .modal-overlay {
+  .cert-modal-overlay,
+  .modal-overlay, .ep2-modal-overlay {
     zoom: 1.4925;
   }
 }
@@ -860,10 +858,9 @@ html, body {
   }
 
   .portfolio-chooser,
-  #loadingScreen,
   #introTear,
-  .cert-modal,
-  .modal-overlay {
+  .cert-modal-overlay,
+  .modal-overlay, .ep2-modal-overlay {
     zoom: 1.3333;
   }
 }
