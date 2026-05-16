@@ -24,12 +24,63 @@ window.refreshEp2Animation = refreshEp2Animation;
 
 let mainInitialized = false;
 
+function waitForWindowLoad() {
+  if (document.readyState === 'complete') return Promise.resolve();
+  return new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+}
+
+function preloadPageContent() {
+  const loadingFill = document.querySelector('.intro-panel-loading-fill');
+  const images = Array.from(document.images);
+  const tasks = [];
+  let completed = 0;
+
+  const updateProgress = () => {
+    completed += 1;
+    if (!loadingFill) return;
+    const total = Math.max(tasks.length, 1);
+    loadingFill.style.width = Math.min(100, Math.round((completed / total) * 100)) + '%';
+  };
+
+  images.forEach(img => {
+    if (img.dataset && img.dataset.src && !img.src) img.src = img.dataset.src;
+    img.loading = 'eager';
+
+    if (img.complete && img.naturalWidth > 0) {
+      tasks.push(Promise.resolve().then(updateProgress));
+      return;
+    }
+
+    const imageTask = new Promise(resolve => {
+      const done = () => resolve();
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    }).then(() => (img.decode ? img.decode().catch(() => {}) : undefined)).then(updateProgress);
+
+    tasks.push(imageTask);
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    tasks.push(document.fonts.ready.catch(() => {}).then(updateProgress));
+  }
+
+  tasks.push(waitForWindowLoad().then(updateProgress));
+
+  return Promise.race([
+    Promise.allSettled(tasks),
+    new Promise(resolve => setTimeout(resolve, 15000))
+  ]).then(() => {
+    if (loadingFill) loadingFill.style.width = '100%';
+  });
+}
+
 function initMain() {
   if (mainInitialized) return;
   mainInitialized = true;
 
   // ---------- Loading Screen ----------
   const loadingScreen = document.getElementById('loadingScreen');
+  const preloadReady = preloadPageContent();
 
   const hideLoadingScreen = () => {
     if (!loadingScreen) return;
@@ -39,15 +90,12 @@ function initMain() {
 
   if (loadingScreen) {
     const minLoadingTime = 800;
+    const startedAt = performance.now();
 
-    if (document.readyState === 'complete') {
-      setTimeout(hideLoadingScreen, minLoadingTime);
-    } else {
-      window.addEventListener('load', () => {
-        setTimeout(hideLoadingScreen, minLoadingTime);
-      }, { once: true });
-      setTimeout(hideLoadingScreen, 3000);
-    }
+    preloadReady.then(() => {
+      const elapsed = performance.now() - startedAt;
+      setTimeout(hideLoadingScreen, Math.max(0, minLoadingTime - elapsed));
+    });
   }
 
   // ---------- Intro Screen (Two-Phase) ----------
@@ -67,7 +115,7 @@ function initMain() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
     const minLoaderTime = 800;
-    const maxLoaderTime = 2400;
+    const maxLoaderTime = 15000;
     const startedAt = performance.now();
     let loaderDone = false;
 
@@ -83,12 +131,8 @@ function initMain() {
       }, delay);
     };
 
-    if (document.readyState === 'complete') {
-      showPrompt();
-    } else {
-      window.addEventListener('load', showPrompt, { once: true });
-      setTimeout(showPrompt, maxLoaderTime);
-    }
+    preloadReady.then(showPrompt);
+    setTimeout(showPrompt, maxLoaderTime);
 
     // Phase 2: Listen for scroll/touch/keyboard to open the intro
     const openKeys = new Set(['ArrowDown', 'PageDown', ' ', 'Spacebar', 'Enter']);
