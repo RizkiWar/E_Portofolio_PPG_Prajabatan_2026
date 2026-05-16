@@ -816,9 +816,12 @@ html, body {
     zoom: 0.75;
   }
 
-  /* Fix EP2 Hero to fit perfectly in 1 viewport under zoom */
+  /* Make 100vh elements span the actual full viewport despite zoom */
+  .hero, .eportfolio2-wrapper > section {
+    min-height: calc(100vh / 0.75) !important;
+  }
+  
   .ep2-hero {
-    min-height: 100vh !important;
     padding-top: 60px !important;
     padding-bottom: 20px !important;
     justify-content: center !important;
@@ -837,8 +840,11 @@ html, body {
     zoom: 0.67;
   }
 
+  .hero, .eportfolio2-wrapper > section {
+    min-height: calc(100vh / 0.67) !important;
+  }
+
   .ep2-hero {
-    min-height: 100vh !important;
     padding-top: 40px !important;
     padding-bottom: 20px !important;
     justify-content: center !important;
