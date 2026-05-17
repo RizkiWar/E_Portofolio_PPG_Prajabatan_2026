@@ -35,27 +35,27 @@ export function initKontakAnimation(){
   var masterTL = gsap.timeline({
     scrollTrigger: {
       trigger: '#contact',
-      start: 'top 75%',
+      start: 'top 88%',
       toggleActions: 'play none none none'
     }
   });
 
   masterTL
-    .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
-    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, '-=0.3')
-    .to(subtitle, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+    .to(badge, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: 'back.out(1.6)' })
+    .to(title, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out' }, '-=0.25')
+    .to(subtitle, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, '-=0.25');
 
   if (contactInfo) {
-    masterTL.to(contactInfo, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.2');
-    if (infoHeading) masterTL.to(infoHeading, { opacity: 1, y: 0, duration: 0.45, ease: 'back.out(1.5)' }, '-=0.4');
-    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' }, '-=0.3');
-    if (detailItems.length) masterTL.to(detailItems, { opacity: 1, x: 0, scale: 1, duration: 0.45, stagger: 0.1, ease: 'back.out(1.5)' }, '-=0.2');
+    masterTL.to(contactInfo, { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out' }, '-=0.25');
+    if (infoHeading) masterTL.to(infoHeading, { opacity: 1, y: 0, duration: 0.3, ease: 'back.out(1.5)' }, '-=0.3');
+    if (infoDesc) masterTL.to(infoDesc, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.35, ease: 'power2.out' }, '-=0.25');
+    if (detailItems.length) masterTL.to(detailItems, { opacity: 1, x: 0, scale: 1, duration: 0.3, stagger: 0.05, ease: 'back.out(1.5)' }, '-=0.2');
   }
 
   if (contactForm) {
-    masterTL.to(contactForm, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5');
-    if (formGroups.length) masterTL.to(formGroups, { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: 'power2.out' }, '-=0.4');
-    if (submitBtn) masterTL.to(submitBtn, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(1.7)' }, '-=0.2');
+    masterTL.to(contactForm, { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out' }, '-=0.45');
+    if (formGroups.length) masterTL.to(formGroups, { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out' }, '-=0.3');
+    if (submitBtn) masterTL.to(submitBtn, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.7)' }, '-=0.15');
   }
 
   section.querySelectorAll('.contact-detail-item').forEach(function(item){

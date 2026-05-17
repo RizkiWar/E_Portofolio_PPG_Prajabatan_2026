@@ -92,7 +92,7 @@
   transition: width 0.3s ease;
 }
 .ep2-navbar .nav-links a:hover,
-.ep2-navbar .nav-links a.active { color: var(--primary, #0F5EA8); }
+.ep2-navbar .nav-links a.active { color: var(--coral-dark, #E24A4A); }
 .ep2-navbar .nav-links a:hover::after,
 .ep2-navbar .nav-links a.active::after { width: 100%; }
 .ep2-navbar .nav-actions { display: flex; align-items: center; gap: 10px; }
@@ -126,7 +126,7 @@
 }
 .ep2-hero-shapes .shape {
   position: absolute; border-radius: 50%;
-  background: var(--coral, #39BDEB);
+  background: var(--coral, #FF6B6B);
   animation: ep2-float 6s ease-in-out infinite;
 }
 .ep2-hero-shapes .shape-circle {
@@ -141,7 +141,7 @@
 }
 .ep2-hero-shapes .shape-triangle {
   width: 90px; height: 90px; top: 38%; right: 4%;
-  background: var(--coral, #39BDEB);
+  background: var(--coral, #FF6B6B);
   animation-delay: -4s;
 }
 @keyframes ep2-float {
@@ -180,7 +180,7 @@
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid var(--white);
-  box-shadow: 0 14px 36px rgba(15, 94, 168, 0.18);
+  box-shadow: 0 14px 36px rgba(255, 107, 107, 0.18);
   background: var(--white);
 }
 .ep2-hero-photo img {
@@ -244,11 +244,16 @@
   flex-shrink: 0;
   aspect-ratio: 1;
 }
+.ep2-hero-social a:nth-child(1) { color: #0A66C2; }
+.ep2-hero-social a:nth-child(2) { color: #E4405F; }
+.ep2-hero-social a:nth-child(3) { color: #FF0000; }
+.ep2-hero-social a:nth-child(4) { color: #333; }
 .ep2-hero-social a:hover {
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
+.ep2-hero-social a:hover i { color: #fff; }
 .ep2-hero-social a:nth-child(1):hover { background: #0A66C2; border-color: #0A66C2; }
 .ep2-hero-social a:nth-child(2):hover { background: #E4405F; border-color: #E4405F; }
 .ep2-hero-social a:nth-child(3):hover { background: #FF0000; border-color: #FF0000; }
@@ -462,12 +467,12 @@
   content: "";
   position: absolute; top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--teal, #2EC4B6), var(--coral, #39BDEB), var(--lavender, #9B72CF));
+  background: linear-gradient(90deg, var(--teal, #2EC4B6), var(--coral, #FF6B6B), var(--lavender, #9B72CF));
   opacity: 0; transition: opacity 0.3s ease;
 }
 .ep2-question-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg, 0 20px 50px rgba(15, 94, 168, 0.14));
+  box-shadow: var(--shadow-lg, 0 20px 50px rgba(255, 107, 107, 0.14));
   border-color: transparent;
 }
 .ep2-question-card:hover::before { opacity: 1; }
@@ -479,7 +484,7 @@
   margin-bottom: 16px;
 }
 .ep2-question-icon.teal { background: linear-gradient(135deg, var(--teal, #2EC4B6), var(--teal-dark, #1FA899)); }
-.ep2-question-icon.coral { background: linear-gradient(135deg, var(--coral, #39BDEB), var(--coral-dark, #0E8AC3)); }
+.ep2-question-icon.coral { background: linear-gradient(135deg, var(--coral, #FF6B6B), var(--coral-dark, #E24A4A)); }
 .ep2-question-icon.lavender { background: linear-gradient(135deg, var(--lavender, #9B72CF), #6B4FA3); }
 .ep2-question-num {
   position: absolute; top: 22px; right: 24px;
@@ -499,7 +504,7 @@
 .ep2-question-cta {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 0.9rem; font-weight: 600;
-  color: var(--primary, #0F5EA8);
+  color: var(--coral-dark, #E24A4A);
   margin-top: auto; transition: gap 0.3s ease;
 }
 .ep2-question-card:hover .ep2-question-cta { gap: 14px; }
@@ -551,7 +556,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex; flex-direction: column;
 }
-.ep2-filosofi-mini-card[data-accent="sky"] { border-top-color: var(--coral, #39BDEB); }
+.ep2-filosofi-mini-card[data-accent="sky"] { border-top-color: var(--coral, #FF6B6B); }
 .ep2-filosofi-mini-card[data-accent="lavender"] { border-top-color: var(--lavender, #9B72CF); }
 .ep2-filosofi-mini-card:hover {
   transform: translateY(-6px);
@@ -566,7 +571,7 @@
   font-size: 1.1rem; margin-bottom: 12px;
 }
 .ep2-filosofi-mini-card[data-accent="sky"] .ep2-filosofi-mini-icon {
-  background: rgba(57, 189, 235, 0.12); color: var(--coral, #39BDEB);
+  background: rgba(255, 107, 107, 0.12); color: var(--coral, #FF6B6B);
 }
 .ep2-filosofi-mini-card[data-accent="lavender"] .ep2-filosofi-mini-icon {
   background: rgba(155, 114, 207, 0.12); color: var(--lavender, #9B72CF);
@@ -583,7 +588,7 @@
 .ep2-filosofi-expand {
   background: none; border: none; padding: 0;
   font-family: inherit; font-size: 0.85rem; font-weight: 600;
-  color: var(--primary, #0F5EA8); cursor: pointer;
+  color: var(--coral-dark, #E24A4A); cursor: pointer;
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: auto;
   transition: gap 0.3s ease;
@@ -627,7 +632,7 @@
   font-size: 1.05rem; color: #fff; flex-shrink: 0;
 }
 .ep2-value-mini-icon.teal { background: var(--teal, #2EC4B6); }
-.ep2-value-mini-icon.sky { background: var(--coral, #39BDEB); }
+.ep2-value-mini-icon.sky { background: var(--coral, #FF6B6B); }
 .ep2-value-mini-icon.lavender { background: var(--lavender, #9B72CF); }
 .ep2-value-mini-icon.amber { background: #F59E0B; }
 .ep2-value-mini h4 {
@@ -666,15 +671,16 @@
 }
 .ep2-modal-close {
   position: absolute; top: 16px; right: 16px;
-  width: 40px; height: 40px; border-radius: 50%;
+  width: 40px; height: 40px; min-width: 40px; min-height: 40px;
+  aspect-ratio: 1; padding: 0; border-radius: 999px;
   border: none; background: var(--gray-100, #eee);
-  color: var(--gray-700); font-size: 1.5rem;
-  cursor: pointer; display: flex;
+  color: var(--gray-700); font-size: 1.5rem; line-height: 1;
+  cursor: pointer; display: inline-flex;
   align-items: center; justify-content: center;
   transition: all 0.3s ease; z-index: 1;
 }
 .ep2-modal-close:hover {
-  background: var(--coral, #39BDEB); color: #fff;
+  background: var(--coral, #FF6B6B); color: #fff;
   transform: rotate(90deg);
 }
 .ep2-modal-header {
@@ -693,7 +699,7 @@
   font-size: 1.3rem; color: #fff;
 }
 .ep2-card-icon.teal { background: var(--teal, #2EC4B6); }
-.ep2-card-icon.coral { background: var(--coral, #39BDEB); }
+.ep2-card-icon.coral { background: var(--coral, #FF6B6B); }
 .ep2-card-icon.lavender { background: var(--lavender, #9B72CF); }
 .ep2-modal-tag {
   display: inline-flex; align-items: center; gap: 6px;
@@ -702,7 +708,7 @@
   padding: 4px 10px; border-radius: 20px;
 }
 .ep2-modal-tag.teal { background: rgba(46, 196, 182, 0.12); color: var(--teal-dark, #1FA899); }
-.ep2-modal-tag.coral { background: rgba(57, 189, 235, 0.12); color: var(--primary, #0F5EA8); }
+.ep2-modal-tag.coral { background: rgba(255, 107, 107, 0.12); color: var(--coral-dark, #E24A4A); }
 .ep2-modal-tag.lavender { background: rgba(155, 114, 207, 0.12); color: var(--lavender, #9B72CF); }
 .ep2-modal-tag.problem { background: rgba(255, 107, 107, 0.12); color: #D32F2F; }
 .ep2-modal-body > p {
@@ -718,7 +724,7 @@
   font-weight: 700; font-size: 0.9rem; color: #fff;
 }
 .ep2-modal-step-num.teal { background: var(--teal, #2EC4B6); }
-.ep2-modal-step-num.sky { background: var(--coral, #39BDEB); }
+.ep2-modal-step-num.sky { background: var(--coral, #FF6B6B); }
 .ep2-modal-step-num.amber { background: #F59E0B; }
 .ep2-modal-step-num.lavender { background: var(--lavender, #9B72CF); }
 .ep2-modal-step h4 {
@@ -866,7 +872,7 @@
 .ep2-hero {
   background-image:
     linear-gradient(90deg, rgba(250, 251, 253, 0.94) 0%, rgba(250, 251, 253, 0.82) 42%, rgba(250, 251, 253, 0.35) 100%),
-    url("../assets/img/hero-bg-ai-light.png");
+    url("../assets/img/ChatGPT Image May 13, 2026, 09_09_27 PM.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -875,7 +881,7 @@
 [data-theme="dark"] .ep2-hero {
   background-image:
     linear-gradient(90deg, rgba(13, 17, 23, 0.92) 0%, rgba(13, 17, 23, 0.78) 42%, rgba(13, 17, 23, 0.18) 100%),
-    url("../assets/img/hero-bg-ai-dark.png");
+    url("../assets/img/ChatGPT Image May 17, 2026, 01_40_08 PM.png");
 }
 .ep2-hero::before {
   content: "";
@@ -885,13 +891,13 @@
   pointer-events: none;
   background:
     radial-gradient(circle at 20% 25%, rgba(46, 196, 182, 0.16), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(57, 189, 235, 0.14), transparent 30%);
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.14), transparent 30%);
   transform: translate3d(0, calc(var(--ep2-bg-shift, 0) * 1px), 0);
 }
 [data-theme="dark"] .ep2-hero::before {
   background:
     radial-gradient(circle at 20% 25%, rgba(46, 196, 182, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(57, 189, 235, 0.16), transparent 30%);
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.16), transparent 30%);
 }
 .ep2-hero .container { position: relative; z-index: 1; }
 .ep2-hero-left,
@@ -905,7 +911,7 @@
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 20px 60px rgba(15, 94, 168, 0.12);
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.12);
 }
 [data-theme="dark"] .ep2-hero-left {
   background: rgba(20, 22, 29, 0.62);
@@ -993,7 +999,7 @@
   background: rgba(46, 196, 182, 0.18);
 }
 [data-theme="dark"] .ep2-filosofi-mini-card[data-accent="sky"] .ep2-filosofi-mini-icon {
-  background: rgba(57, 189, 235, 0.18);
+  background: rgba(255, 107, 107, 0.18);
 }
 [data-theme="dark"] .ep2-filosofi-mini-card[data-accent="lavender"] .ep2-filosofi-mini-icon {
   background: rgba(155, 114, 207, 0.18);
@@ -1093,13 +1099,13 @@
    Decorative numbers: visible but still soft
    ============================================ */
 .ep2-question-card:nth-child(1) .ep2-question-num { color: rgba(46, 196, 182, 0.24); }
-.ep2-question-card:nth-child(2) .ep2-question-num { color: rgba(57, 189, 235, 0.24); }
+.ep2-question-card:nth-child(2) .ep2-question-num { color: rgba(255, 107, 107, 0.24); }
 .ep2-question-card:nth-child(3) .ep2-question-num { color: rgba(155, 114, 207, 0.24); }
 .ep2-hero-preview-card[data-accent="teal"] .ep2-hero-preview-num { color: rgba(46, 196, 182, 0.28); }
 .ep2-hero-preview-card[data-accent="lavender"] .ep2-hero-preview-num { color: rgba(155, 114, 207, 0.28); }
 
 [data-theme="dark"] .ep2-question-card:nth-child(1) .ep2-question-num { color: rgba(46, 196, 182, 0.42); }
-[data-theme="dark"] .ep2-question-card:nth-child(2) .ep2-question-num { color: rgba(57, 189, 235, 0.42); }
+[data-theme="dark"] .ep2-question-card:nth-child(2) .ep2-question-num { color: rgba(255, 107, 107, 0.42); }
 [data-theme="dark"] .ep2-question-card:nth-child(3) .ep2-question-num { color: rgba(155, 114, 207, 0.44); }
 [data-theme="dark"] .ep2-hero-preview-card[data-accent="teal"] .ep2-hero-preview-num { color: rgba(46, 196, 182, 0.48); }
 [data-theme="dark"] .ep2-hero-preview-card[data-accent="lavender"] .ep2-hero-preview-num { color: rgba(155, 114, 207, 0.50); }
@@ -1155,7 +1161,7 @@
   border-radius: 16px;
   background: var(--white);
   border: 1px solid var(--gray-100);
-  box-shadow: 0 10px 26px rgba(15, 94, 168, 0.05);
+  box-shadow: 0 10px 26px rgba(255, 107, 107, 0.05);
 }
 .ep2-refleksi-summary-num {
   min-width: 34px;
@@ -1167,7 +1173,7 @@
   font-size: 0.78rem;
   font-weight: 800;
   color: #fff;
-  background: linear-gradient(135deg, var(--teal, #2EC4B6), var(--coral, #39BDEB));
+  background: linear-gradient(135deg, var(--teal, #2EC4B6), var(--coral, #FF6B6B));
 }
 .ep2-refleksi-summary-item strong {
   display: block;
@@ -1232,8 +1238,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(57, 189, 235, 0.55);
-  box-shadow: 0 0 18px rgba(57, 189, 235, 0.55);
+  background: rgba(255, 107, 107, 0.55);
+  box-shadow: 0 0 18px rgba(255, 107, 107, 0.55);
   opacity: 0.45;
   animation: ep2-particle-rise 12s linear infinite;
 }
@@ -1266,10 +1272,10 @@
   background: linear-gradient(
     125deg,
     rgba(46, 196, 182, 0.08) 0%,
-    rgba(57, 189, 235, 0.06) 25%,
+    rgba(255, 107, 107, 0.06) 25%,
     rgba(155, 114, 207, 0.08) 50%,
     rgba(46, 196, 182, 0.06) 75%,
-    rgba(57, 189, 235, 0.08) 100%
+    rgba(255, 107, 107, 0.08) 100%
   );
   background-size: 400% 400%;
   animation: ep2-aurora-flow 18s ease-in-out infinite;
@@ -1308,7 +1314,7 @@
 }
 .ep2-live-bg .ep2-geo:nth-child(13) {
   width: 32px; height: 32px;
-  border-color: rgba(57, 189, 235, 0.6);
+  border-color: rgba(255, 107, 107, 0.6);
   border-radius: 4px;
   bottom: 25%; left: 12%;
   animation-duration: 11s;
@@ -1333,7 +1339,7 @@
 }
 .ep2-live-bg .ep2-geo:nth-child(16) {
   width: 20px; height: 20px;
-  border-color: rgba(57, 189, 235, 0.5);
+  border-color: rgba(255, 107, 107, 0.5);
   border-radius: 50%;
   top: 70%; left: 20%;
   animation-duration: 13s;
@@ -1369,8 +1375,8 @@
 }
 .ep2-live-bg .ep2-orb:nth-child(19) {
   width: 14px; height: 14px;
-  background: rgba(57, 189, 235, 0.45);
-  box-shadow: 0 0 28px rgba(57, 189, 235, 0.45);
+  background: rgba(255, 107, 107, 0.45);
+  box-shadow: 0 0 28px rgba(255, 107, 107, 0.45);
   bottom: 30%; left: 45%;
   animation-delay: -3s;
 }
@@ -1390,7 +1396,7 @@
 .ep2-live-bg .ep2-line {
   position: absolute;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(57, 189, 235, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.2), transparent);
   animation: ep2-line-sweep 8s ease-in-out infinite;
   opacity: 0.3;
 }
@@ -1430,8 +1436,8 @@
 .ep2-filosofi-mini-card:nth-child(2) { animation-delay: -2s; }
 .ep2-filosofi-mini-card:nth-child(3) { animation-delay: -4s; }
 @keyframes ep2-card-breathe {
-  0%, 100% { box-shadow: 0 4px 20px rgba(15, 94, 168, 0.06); }
-  50% { box-shadow: 0 8px 32px rgba(15, 94, 168, 0.12), 0 0 0 1px rgba(46, 196, 182, 0.08); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(255, 107, 107, 0.06); }
+  50% { box-shadow: 0 8px 32px rgba(255, 107, 107, 0.12), 0 0 0 1px rgba(46, 196, 182, 0.08); }
 }
 
 /* --- ANIMATED GRADIENT BORDER on hero preview cards --- */
@@ -1576,14 +1582,14 @@
   z-index: 0;
   background:
     radial-gradient(circle at 18% 24%, rgba(46, 196, 182, 0.08), transparent 30%),
-    radial-gradient(circle at 82% 20%, rgba(57, 189, 235, 0.08), transparent 26%),
+    radial-gradient(circle at 82% 20%, rgba(255, 107, 107, 0.08), transparent 26%),
     linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.50));
 }
 [data-theme="dark"] #ep2-refleksi::before,
 [data-theme="dark"] #ep2-filosofi::before {
   background:
     radial-gradient(circle at 18% 24%, rgba(46, 196, 182, 0.10), transparent 30%),
-    radial-gradient(circle at 82% 20%, rgba(57, 189, 235, 0.10), transparent 26%),
+    radial-gradient(circle at 82% 20%, rgba(255, 107, 107, 0.10), transparent 26%),
     linear-gradient(180deg, rgba(20,22,29,0.70), rgba(20,22,29,0.48));
 }
 #ep2-refleksi > .container,
@@ -2262,7 +2268,7 @@
   display: grid;
   gap: 10px;
   padding: 10px 7px;
-  border: 1px solid rgba(15, 94, 168, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.12);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.64);
   box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
@@ -2291,7 +2297,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(15, 94, 168, 0.28);
+  background: rgba(255, 107, 107, 0.28);
   transition: width 0.26s ease, height 0.26s ease, background 0.26s ease, box-shadow 0.26s ease;
 }
 .ep2-rail-dot:hover::before,

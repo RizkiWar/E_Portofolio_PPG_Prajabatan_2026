@@ -10,33 +10,33 @@
   gap: 6px;
   padding: 8px 18px;
   border-radius: 10px;
-  background: var(--gradient-warm, linear-gradient(135deg, #0F5EA8, #39BDEB));
+  background: var(--gradient-warm, linear-gradient(135deg, #FF6B6B, #F1D7A6));
   color: #fff;
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(15, 94, 168, 0.25);
+  box-shadow: 0 4px 14px rgba(255, 107, 107, 0.25);
   white-space: nowrap;
 }
 
 .btn-cv:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(57, 189, 235, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.35);
   color: #fff;
 }
 
 /* --- Hero CV Download Button --- */
 .btn-cv-hero {
-  background: linear-gradient(135deg, #0F5EA8, #39BDEB);
+  background: linear-gradient(135deg, #FF6B6B, #F1D7A6);
   color: #fff !important;
-  box-shadow: 0 6px 20px rgba(15, 94, 168, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
 
 .btn-cv-hero:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(57, 189, 235, 0.45);
+  box-shadow: 0 12px 36px rgba(255, 107, 107, 0.4);
 }
 
 /* --- Portfolio card image fix: smooth clipping, no boxy edges --- */
@@ -2541,22 +2541,27 @@ body.chooser-active .back-to-top {
   color: var(--icon-coral);
 }
 
-.hero-social i,
-.footer-social i,
-.contact-icon i,
-.ep2-card-icon.sky i {
+.contact-icon i {
   color: var(--icon-cyan);
 }
 
+.hero-social i,
+.footer-social i,
+.ep2-card-icon i,
+.ep2-question-icon i,
+.ep2-filosofi-mini-icon i,
+.ep2-value-mini-icon i,
+.ep2-hero-preview-icon i {
+  color: #fff;
+}
+
 .skill-category i,
-.skill-card i,
-.ep2-card-icon.mint i {
+.skill-card i {
   color: var(--icon-teal);
 }
 
 .gallery-category i,
-.cert-icon i,
-.ep2-card-icon.coral i {
+.cert-icon i {
   color: var(--icon-pink);
 }
 

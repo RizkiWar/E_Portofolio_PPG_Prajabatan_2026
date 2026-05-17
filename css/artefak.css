@@ -16,8 +16,8 @@
   margin: 0 auto 18px;
   padding: 6px;
   border-radius: 16px;
-  background: rgba(15, 94, 168, 0.08);
-  border: 1px solid rgba(15, 94, 168, 0.1);
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.12);
   flex-wrap: wrap;
 }
 
@@ -27,7 +27,7 @@
   border: 0;
   border-radius: 12px;
   background: transparent;
-  color: #0F5EA8;
+  color: var(--coral-dark);
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 700;
@@ -37,9 +37,9 @@
 
 .tab-btn.active,
 .tab-btn:hover {
-  background: #0F5EA8;
+  background: var(--gradient-warm);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(15, 94, 168, 0.2);
+  box-shadow: 0 10px 24px rgba(255, 107, 107, 0.22);
 }
 
 .portfolio-filter {
@@ -67,10 +67,10 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-  border-color: rgba(57, 189, 235, 0.45);
-  background: rgba(57, 189, 235, 0.1);
-  color: #C05621;
-  box-shadow: 0 12px 28px rgba(57, 189, 235, 0.12);
+  border-color: rgba(255, 107, 107, 0.45);
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--coral-dark);
+  box-shadow: 0 12px 28px rgba(255, 107, 107, 0.14);
 }
 
 .portfolio-grid {
@@ -98,7 +98,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, #0F5EA8, #39BDEB, #2EC4B6);
+  background: linear-gradient(90deg, #FF6B6B, #F1D7A6, #2EC4B6);
   opacity: 0;
   transition: opacity 0.35s ease;
   z-index: 3;
@@ -190,12 +190,12 @@
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
 }
 
-.card-tag.rpp     { background: linear-gradient(135deg, #39BDEB, #39BDEB); }
+.card-tag.rpp     { background: linear-gradient(135deg, #FF6B6B, #E24A4A); }
 .card-tag.modul   { background: linear-gradient(135deg, #2EC4B6, #1B998B); }
 .card-tag.media   { background: linear-gradient(135deg, #9B72CF, #6D5BD0); }
-.card-tag.asesmen { background: linear-gradient(135deg, #F1D7A6, #39BDEB); }
+.card-tag.asesmen { background: linear-gradient(135deg, #F1D7A6, #F59E0B); }
 .card-tag.sky     { background: linear-gradient(135deg, #56CCF2, #2D9CDB); }
-.card-tag.coral   { background: linear-gradient(135deg, #0F5EA8, #39BDEB); }
+.card-tag.coral   { background: linear-gradient(135deg, #FF6B6B, #F1D7A6); }
 
 .portfolio-card-body {
   display: flex;
@@ -372,11 +372,16 @@
   border: none;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 999px;
   font-size: 24px;
+  line-height: 1;
   color: var(--gray-600);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;

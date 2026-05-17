@@ -8,9 +8,9 @@
 /* ---------- CSS Custom Properties ---------- */
 :root {
   /* Primary Palette */
-  --coral:        #39BDEB;
-  --coral-light:  #7DD3FC;
-  --coral-dark:   #0E8AC3;
+  --coral:        #FF6B6B;
+  --coral-light:  #FFA8A8;
+  --coral-dark:   #E24A4A;
   --teal:         #2EC4B6;
   --teal-light:   #4DD9CC;
   --teal-dark:    #1FA899;
@@ -38,11 +38,11 @@
   --gray-900:     #0D1117;
 
   /* Gradients */
-  --gradient-hero:    linear-gradient(135deg, #39BDEB 0%, #F1D7A6 25%, #56CCF2 50%, #9B72CF 75%, #2EC4B6 100%);
-  --gradient-coral:   linear-gradient(135deg, #39BDEB, #7DD3FC);
+  --gradient-hero:    linear-gradient(135deg, #FF6B6B 0%, #F1D7A6 25%, #56CCF2 50%, #9B72CF 75%, #2EC4B6 100%);
+  --gradient-coral:   linear-gradient(135deg, #FF6B6B, #FFA8A8);
   --gradient-teal:    linear-gradient(135deg, #2EC4B6, #56CCF2);
   --gradient-lavender:linear-gradient(135deg, #9B72CF, #B794E0);
-  --gradient-warm:    linear-gradient(135deg, #39BDEB, #0F5EA8);
+  --gradient-warm:    linear-gradient(135deg, #FF6B6B, #F1D7A6);
   --gradient-cool:    linear-gradient(135deg, #56CCF2, #2EC4B6);
   --gradient-sunset:  linear-gradient(135deg, #FF6F91, #F1D7A6);
 
@@ -51,7 +51,7 @@
   --shadow-md:   0 4px 20px rgba(0,0,0,0.08);
   --shadow-lg:   0 8px 40px rgba(0,0,0,0.10);
   --shadow-xl:   0 16px 60px rgba(0,0,0,0.12);
-  --shadow-glow-coral:   0 8px 30px rgba(57, 189, 235,0.3);
+  --shadow-glow-coral:   0 8px 30px rgba(255, 107, 107,0.3);
   --shadow-glow-teal:    0 8px 30px rgba(46,196,182,0.3);
   --shadow-glow-lavender:0 8px 30px rgba(155,114,207,0.3);
 

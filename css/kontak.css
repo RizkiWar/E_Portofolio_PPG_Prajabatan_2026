@@ -14,7 +14,7 @@
   right: -200px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(57, 189, 235,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 107, 107,0.08) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -153,7 +153,7 @@
 
 .form-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(57, 189, 235,0.4);
+  box-shadow: 0 12px 40px rgba(255, 107, 107,0.35);
 }
 
 
@@ -208,16 +208,16 @@
 }
 
 .footer-social a:nth-child(1) {
-  background: #0077B5;
+  background: linear-gradient(135deg, #0A66C2, #4B9FEF);
 }
 .footer-social a:nth-child(2) {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  background: linear-gradient(135deg, #F58529, #DD2A7B 52%, #8134AF);
 }
 .footer-social a:nth-child(3) {
-  background: #FF0000;
+  background: linear-gradient(135deg, #FF2D2D, #B90000);
 }
 .footer-social a:nth-child(4) {
-  background: #333;
+  background: linear-gradient(135deg, #24292F, #57606A);
 }
 
 .footer-social a:hover {
@@ -265,7 +265,7 @@
 }
 .form-group.floating input:focus,
 .form-group.floating textarea:focus {
-  border-color: #0F5EA8;
+  border-color: var(--coral);
 }
 .form-group.floating input:focus + label,
 .form-group.floating input:not(:placeholder-shown) + label,
@@ -274,7 +274,7 @@
   top: 8px;
   transform: none;
   font-size: 0.75rem;
-  color: #0F5EA8;
+  color: var(--coral-dark);
   font-weight: 600;
 }
 .form-success {
@@ -329,10 +329,10 @@
   transition: all 0.3s ease;
 }
 
-.contact-social-btn.linkedin { background: #0077B5; }
-.contact-social-btn.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.contact-social-btn.youtube { background: #FF0000; }
-.contact-social-btn.github { background: #333; }
+.contact-social-btn.linkedin { background: linear-gradient(135deg, #0A66C2, #4B9FEF); }
+.contact-social-btn.instagram { background: linear-gradient(135deg, #F58529, #DD2A7B 52%, #8134AF); }
+.contact-social-btn.youtube { background: linear-gradient(135deg, #FF2D2D, #B90000); }
+.contact-social-btn.github { background: linear-gradient(135deg, #24292F, #57606A); }
 
 .contact-social-btn:hover {
   transform: translateY(-4px) scale(1.1);
