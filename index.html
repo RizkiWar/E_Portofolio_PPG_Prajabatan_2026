@@ -27,6 +27,9 @@
     var t=localStorage.getItem('theme');
     if(!t)t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
     document.documentElement.setAttribute('data-theme',t);
+    if(localStorage.getItem('perfMode')==='1'){
+      document.documentElement.classList.add('perf-mode');
+    }
   })();
   </script>
 
@@ -132,6 +135,9 @@
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Mode Gelap/Terang">
           <span class="theme-icon">🌙</span>
+        </button>
+        <button class="theme-toggle perf-toggle" id="perfToggle" aria-label="Toggle Performance Mode" title="Performance Mode">
+          <span class="perf-icon">⚡</span>
         </button>
         <button class="home-btn" id="homeBtn" aria-label="Kembali ke Pilihan Portfolio" title="Kembali ke Pilihan Portfolio">
           <i class="fa-solid fa-house"></i>
@@ -1446,6 +1452,9 @@
           <button class="theme-toggle" id="ep2ThemeToggle" aria-label="Toggle dark mode" title="Mode Gelap/Terang">
             <span class="theme-icon">🌙</span>
           </button>
+          <button class="theme-toggle perf-toggle" id="ep2PerfToggle" aria-label="Toggle Performance Mode" title="Performance Mode">
+            <span class="perf-icon">⚡</span>
+          </button>
           <button class="home-btn" id="ep2BackChooser" aria-label="Kembali ke Pilihan Portfolio" title="Kembali ke Pilihan Portfolio">
             <i class="fa-solid fa-house"></i>
           </button>
@@ -1811,6 +1820,36 @@
   </div>
 
   <!-- JavaScript -->
+  <!-- Performance Mode Info Popup -->
+  <div class="perf-info-overlay" id="perfInfoOverlay" role="dialog" aria-modal="true" aria-labelledby="perfInfoTitle">
+    <div class="perf-info-box">
+      <h3 class="perf-info-title" id="perfInfoTitle">
+        <span class="perf-bolt">⚡</span> Performance Mode
+      </h3>
+      <p>
+        Website ini punya banyak efek visual seperti partikel bergerak, blur kaca, dan animasi latar belakang. Kalau scroll terasa berat di laptop atau HP, aktifkan <strong>Performance Mode</strong> untuk mengurangi efek-efek tersebut.
+      </p>
+      <ul>
+        <li>Partikel dan bentuk melayang dimatikan</li>
+        <li>Efek blur dan animasi latar dikurangi</li>
+        <li>Konten utama, hover, dan animasi reveal tetap berjalan</li>
+      </ul>
+      <p style="font-size:0.82rem; color:var(--gray-500);">
+        Pilihan ini disimpan otomatis. Anda bisa nyalakan/matikan kapan saja lewat tombol ⚡ di navbar.
+      </p>
+      <div class="perf-info-actions">
+        <button class="perf-info-btn ghost" id="perfInfoLater">Nanti saja</button>
+        <button class="perf-info-btn primary" id="perfInfoEnable">Aktifkan Sekarang</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Mode Toast -->
+  <div class="perf-toast" id="perfToast" role="status" aria-live="polite">
+    <span class="perf-toast-icon">⚡</span>
+    <span class="perf-toast-text">Performance Mode aktif</span>
+  </div>
+
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
   <script type="module" src="js/main.js"></script>

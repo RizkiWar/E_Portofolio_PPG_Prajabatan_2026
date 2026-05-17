@@ -19,19 +19,56 @@ export function initFooterAnimation(){
   if (sitemap) gsap.set(sitemap, { opacity: 0, x: 30 });
   if (bottomText) gsap.set(bottomText, { opacity: 0, y: 15 });
 
-  var masterTL = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.footer',
-      start: 'top 90%',
-      toggleActions: 'play none none none'
-    }
-  });
+  function buildTimeline(){
+    var tl = gsap.timeline();
+    if (logo) tl.to(logo, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' });
+    if (tagline) tl.to(tagline, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, '-=0.25');
+    if (socialLinks.length) tl.to(socialLinks, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, stagger: 0.05, ease: 'back.out(2)' }, '-=0.25');
+    if (sitemap) tl.to(sitemap, { opacity: 1, x: 0, duration: 0.4, ease: 'power3.out' }, '-=0.3');
+    if (bottomText) tl.to(bottomText, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, '-=0.2');
+    return tl;
+  }
 
-  if (logo) masterTL.to(logo, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
-  if (tagline) masterTL.to(tagline, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
-  if (socialLinks.length) masterTL.to(socialLinks, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, stagger: 0.08, ease: 'back.out(2)' }, '-=0.3');
-  if (sitemap) masterTL.to(sitemap, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
-  if (bottomText) masterTL.to(bottomText, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2');
+  function showInstant(){
+    if (logo) gsap.set(logo, { opacity: 1, y: 0 });
+    if (tagline) gsap.set(tagline, { opacity: 1, y: 0 });
+    gsap.set(socialLinks, { opacity: 1, scale: 1, rotation: 0 });
+    if (sitemap) gsap.set(sitemap, { opacity: 1, x: 0 });
+    if (bottomText) gsap.set(bottomText, { opacity: 1, y: 0 });
+  }
+
+  var played = false;
+  function play(){
+    if (played) return;
+    played = true;
+    buildTimeline();
+  }
+
+  var rect = footer.getBoundingClientRect();
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  if (rect.top < vh) {
+    showInstant();
+    played = true;
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          play();
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });
+    io.observe(footer);
+  } else {
+    showInstant();
+  }
+
+  setTimeout(function(){
+    if (!played) {
+      var r = footer.getBoundingClientRect();
+      if (r.top < (window.innerHeight + 200)) showInstant();
+    }
+  }, 1500);
 
   sitemapLinks.forEach(function(link){
     link.addEventListener('mouseenter', function(){

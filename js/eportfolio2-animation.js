@@ -557,7 +557,7 @@ function initEp2FallbackReveals(wrapper) {
 
   animatedItems.forEach(function(item, index) {
     item.classList.add('ep2-animate');
-    item.style.setProperty('--ep2-delay', Math.min(index % 6, 5) * 80 + 'ms');
+    item.style.setProperty('--ep2-delay', '0ms');
   });
 
   if (!('IntersectionObserver' in window)) {
@@ -572,7 +572,7 @@ function initEp2FallbackReveals(wrapper) {
         observer.unobserve(entry.target);
       }
     });
-  }, { root: wrapper, threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  }, { root: wrapper, threshold: 0, rootMargin: '0px 0px 10% 0px' });
 
   animatedItems.forEach(function(item) { observer.observe(item); });
 }
@@ -652,6 +652,7 @@ function initEp2Particles() {
 
   if (false) return;
   if (window.innerWidth < 768) return;
+  if (document.documentElement.classList.contains('perf-mode')) return;
 
   var canvas = document.createElement('canvas');
   canvas.id = 'ep2ParticleCanvas';

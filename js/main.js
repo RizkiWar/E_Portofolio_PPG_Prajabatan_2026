@@ -356,6 +356,83 @@ function initMain() {
     }
   });
 
+  // ---------- Performance Mode Toggle ----------
+  (function setupPerfToggle(){
+    const perfButtons = document.querySelectorAll('#perfToggle, #ep2PerfToggle');
+    if (!perfButtons.length) return;
+    const html = document.documentElement;
+    const overlay = document.getElementById('perfInfoOverlay');
+    const overlayEnable = document.getElementById('perfInfoEnable');
+    const overlayLater = document.getElementById('perfInfoLater');
+    const toast = document.getElementById('perfToast');
+    const toastText = toast ? toast.querySelector('.perf-toast-text') : null;
+    let toastTimer = null;
+
+    const apply = () => {
+      const on = html.classList.contains('perf-mode');
+      perfButtons.forEach(btn => {
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.title = on ? 'Performance Mode: AKTIF (klik untuk matikan)' : 'Performance Mode: NONAKTIF (klik untuk aktifkan)';
+      });
+    };
+    apply();
+
+    function showToast(message){
+      if (!toast) return;
+      if (toastText) toastText.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function setMode(next, opts){
+      const silent = opts && opts.silent;
+      html.classList.toggle('perf-mode', next);
+      localStorage.setItem('perfMode', next ? '1' : '0');
+      if (next) {
+        const ep2Canvas = document.getElementById('ep2ParticleCanvas');
+        if (ep2Canvas) ep2Canvas.remove();
+        const wrapper = document.getElementById('eportfolio2Wrapper');
+        if (wrapper) delete wrapper.dataset.particlesBound;
+      }
+      apply();
+      if (!silent) showToast(next ? '⚡ Performance Mode aktif' : 'Performance Mode dimatikan');
+    }
+
+    function openInfo(){
+      if (!overlay) return false;
+      overlay.classList.add('active');
+      return true;
+    }
+    function closeInfo(){
+      if (overlay) overlay.classList.remove('active');
+    }
+
+    if (overlayEnable) overlayEnable.addEventListener('click', () => { setMode(true); closeInfo(); });
+    if (overlayLater) overlayLater.addEventListener('click', () => {
+      localStorage.setItem('perfInfoSeen', '1');
+      closeInfo();
+    });
+    if (overlay) overlay.addEventListener('click', (e) => { if (e.target === overlay) closeInfo(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) closeInfo();
+    });
+
+    perfButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const seen = localStorage.getItem('perfInfoSeen') === '1';
+        const isOn = html.classList.contains('perf-mode');
+        if (!seen && !isOn) {
+          if (openInfo()) {
+            localStorage.setItem('perfInfoSeen', '1');
+            return;
+          }
+        }
+        setMode(!isOn);
+      });
+    });
+  })();
+
   // ---------- Hero Background Parallax ----------
   const heroSection = document.querySelector('#hero.hero.section');
   const reducedMotionQuery = { matches: false };
@@ -401,11 +478,12 @@ function initMain() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0,
+    rootMargin: '0px 0px 10% 0px'
   });
 
   revealElements.forEach(el => revealObserver.observe(el));

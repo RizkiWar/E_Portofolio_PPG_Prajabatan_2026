@@ -37,7 +37,7 @@ export function initPortfolioChooser() {
 
     if (typeof gsap !== 'undefined' && window.innerWidth > 768) {
       gsap.from('.chooser-content > *', {
-        opacity: 0, y: 20, duration: 0.35, stagger: 0.06, ease: 'power3.out', delay: 0
+        opacity: 0, y: 12, duration: 0.25, stagger: 0.03, ease: 'power2.out', delay: 0
       });
     }
   }
@@ -75,7 +75,7 @@ export function initPortfolioChooser() {
       if (typeof window.refreshEp2Animation === 'function') {
         window.refreshEp2Animation();
       }
-    }, 100);
+    }, 0);
   }
 
   function hideEP2() {
@@ -137,12 +137,12 @@ export function initPortfolioChooser() {
 
   function tryShowChooser() {
     if (introAnimationCompleted()) {
-      setTimeout(showChooser, 10);
+      showChooser();
     } else {
       const observer = new MutationObserver(() => {
         if (introAnimationCompleted()) {
           observer.disconnect();
-          setTimeout(showChooser, 10);
+          showChooser();
         }
       });
       observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
