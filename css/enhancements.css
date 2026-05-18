@@ -2875,4 +2875,14 @@ html.perf-mode .section { content-visibility: auto; contain-intrinsic-size: 1px 
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-.perf-toast .perf-toast-icon { font-size: 1rem; }
+.perf-toast .perf-toast-icon { font-size: 1rem; color: #FFD166; }
+.perf-toast .perf-toast-text { color: #fff; }
+
+[data-theme="dark"] .perf-toast {
+  background: #F8FAFC;
+  color: #1A2030;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+[data-theme="dark"] .perf-toast .perf-toast-icon { color: #E24A4A; }
+[data-theme="dark"] .perf-toast .perf-toast-text { color: #1A2030; }
