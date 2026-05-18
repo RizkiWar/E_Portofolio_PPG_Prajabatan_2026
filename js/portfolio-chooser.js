@@ -100,7 +100,15 @@ export function initPortfolioChooser() {
   }
 
   cards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (card.dataset.locked === 'true' || card.classList.contains('is-locked')) {
+        e.preventDefault();
+        e.stopPropagation();
+        card.classList.remove('shake');
+        void card.offsetWidth;
+        card.classList.add('shake');
+        return;
+      }
       const num = card.getAttribute('data-portfolio');
       selectPortfolio(num);
     });
