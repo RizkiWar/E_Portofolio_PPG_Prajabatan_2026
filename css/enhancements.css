@@ -869,6 +869,7 @@
 #about.section,
 #education.section,
 #portfolio.section,
+#analisis.section,
 #penilaian.section,
 #model-guru.section,
 #skills.section,
@@ -947,6 +948,20 @@
     linear-gradient(130deg, rgba(255, 111, 145, 0.12) 0%, rgba(255, 111, 145, 0) 44%),
     linear-gradient(248deg, rgba(15, 94, 168, 0.1) 0%, rgba(15, 94, 168, 0) 47%),
     linear-gradient(180deg, #fffbfd 0%, #f8fbff 100%) !important;
+}
+
+#analisis.section {
+  background:
+    linear-gradient(132deg, rgba(46, 196, 182, 0.12) 0%, rgba(46, 196, 182, 0) 46%),
+    linear-gradient(248deg, rgba(155, 114, 207, 0.10) 0%, rgba(155, 114, 207, 0) 46%),
+    linear-gradient(180deg, #fbfffe 0%, #f4fbf9 100%) !important;
+}
+
+[data-theme="dark"] #analisis.section {
+  background:
+    linear-gradient(132deg, rgba(46, 196, 182, 0.10) 0%, rgba(46, 196, 182, 0) 46%),
+    linear-gradient(248deg, rgba(155, 114, 207, 0.09) 0%, rgba(155, 114, 207, 0) 46%),
+    linear-gradient(180deg, #111827 0%, #0d1623 100%) !important;
 }
 
 [data-theme="dark"] #hero.section {
