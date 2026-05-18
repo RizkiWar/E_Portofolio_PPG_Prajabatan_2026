@@ -3713,40 +3713,23 @@ body {
 }
 
 /* ============================================
-   COMING SOON CARD STYLE
+   SIKLUS 3 CARD STYLE
    ============================================ */
 .portfolio-card[data-siklus="siklus3"] {
-  opacity: 0.7;
   position: relative;
 }
 
-.portfolio-card[data-siklus="siklus3"]::after {
-  content: '🚧 Segera Hadir';
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(57, 189, 235, 0.15);
-  color: #39BDEB;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 50px;
-  border: 1px solid rgba(57, 189, 235, 0.3);
-  z-index: 3;
-}
-
 .portfolio-card[data-siklus="siklus3"]:hover {
-  opacity: 1;
   transform: translateY(-4px);
 }
 
 /* Siklus placeholder image tints */
 .img-siklus2 {
-  filter: hue-rotate(120deg);
+  /* Thumbnail asli dari Drive — tidak diubah warnanya */
 }
 
 .img-siklus3 {
-  filter: hue-rotate(240deg);
+  /* Thumbnail asli dari Drive — tidak diubah warnanya */
 }
 
 /* ============================================

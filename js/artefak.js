@@ -12,267 +12,373 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const artifactData = {
     'modal-rpp1': {
-      title: 'RPP Siklus 1 - Deep Learning Assembly Tool Post',
+      title: 'RPP Siklus 1 Deep Learning Assembly Tool Post',
       type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
       fileUrl: 'https://drive.google.com/file/d/13HtahKdlZsOCvZQitf-nsfdewEUgTeHT/view?usp=sharing',
-      context: 'RPP untuk mata pelajaran Gambar Teknik Manufaktur kelas XI SMK Negeri 2 Depok Sleman, topik perancangan gambar rakitan Tool Post menggunakan Autodesk Inventor selama 3 pertemuan (24 JP).',
-      purpose: 'Memandu guru melaksanakan pembelajaran mendalam (deep learning) agar siswa mampu membuat assembly, menerapkan constraint, membuat drawing IDW, dan mengekspor PDF gambar kerja Tool Post sesuai standar industri.',
+      context: 'RPP ini saya buat untuk kelas XI Teknik Pemesinan SMK Negeri 2 Klaten dengan topik perancangan gambar rakitan Tool Post di Autodesk Inventor. Pelaksanaan dirancang selama 3 pertemuan dengan total 24 JP, mengingat materi assembly memang tidak bisa diselesaikan dalam satu kali pertemuan.',
+      purpose: 'Tujuannya bukan sekadar menyelesaikan administrasi, melainkan menjadi peta yang membimbing alur pembelajaran agar siswa benar-benar sampai pada produk PDF gambar kerja Tool Post yang sesuai standar industri, bukan hanya tahu teori constraint.',
       pros: [
-        'Mengintegrasikan tiga pendekatan pedagogis: Understanding by Design (UbD), Deep Learning (Berkesadaran-Bermakna-Menggembirakan), dan Sistem Among Tamansiswa secara koheren.',
-        'Rubrik sumatif 9 aspek berbobot 100 sangat terstruktur dan transparan untuk penilaian objektif.',
-        'Diferensiasi pembelajaran jelas: scaffolding untuk siswa lambat dan pengayaan (exploded view, isometric) untuk siswa cepat.'
+        'Tiga pendekatan (Understanding by Design, Deep Learning, dan sistem Among Tamansiswa) saya rangkai menjadi satu alur yang nyambung, bukan ditempel terpisah.',
+        'Rubrik sumatif sembilan aspek dengan total bobot 100 membuat penilaian lebih objektif sehingga siswa tahu persis apa yang dinilai.',
+        'Saya siapkan jalur diferensiasi sejak awal: scaffolding tambahan untuk siswa yang lambat dan tantangan exploded view untuk siswa yang cepat selesai.'
       ],
       cons: [
-        'Alokasi waktu 8 JP per pertemuan sangat padat, terutama Pertemuan 3 yang menuntut pembuatan 3 lembar drawing sekaligus.',
-        'Tidak menyediakan alternatif asesmen bagi siswa yang mengalami kendala teknis berat di luar kontrol mereka.'
+        'Alokasi 8 JP per pertemuan ternyata cukup berat di lapangan, terutama Pertemuan 3 yang menuntut 3 lembar drawing sekaligus.',
+        'Belum ada skenario cadangan untuk siswa yang terhambat masalah teknis di luar kontrolnya seperti laptop hang atau lisensi Inventor bermasalah.'
       ],
-      theory: 'Menerapkan Understanding by Design (Wiggins & McTighe, 2005) dengan backward design 3 tahap, dikombinasikan dengan pendekatan Deep Learning Kemdikbud dan filosofi Among Ki Hadjar Dewantara (Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani).'
+      theory: 'Mengacu pada Understanding by Design (Wiggins dan McTighe) dengan pola backward design, dipadu pendekatan Deep Learning Kemdikbud serta filosofi Among Ki Hadjar Dewantara: Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani.'
     },
     'modal-materi1': {
-      title: 'Handbook Siswa Siklus 1 - Assembly Tool Post Autodesk Inventor',
+      title: 'Handbook Siswa Siklus 1 Assembly Tool Post Autodesk Inventor',
       type: 'Bahan Ajar / Handbook Siswa',
       fileUrl: 'https://drive.google.com/file/d/17Dta9nZyABe3j9t8P9DnovuKzn75m45l/view?usp=sharing',
-      context: 'Bahan ajar pendukung LKM untuk siswa kelas XI Teknik Pemesinan SMK Negeri 2 Depok, berisi panduan lengkap alur kerja assembly Tool Post hingga ekspor PDF gambar kerja menggunakan Autodesk Inventor.',
-      purpose: 'Memberikan referensi prosedural dan konseptual bagi siswa agar dapat secara mandiri menyelesaikan assembly Tool Post, menerapkan constraint, membuat drawing IDW 3 lembar, dan mengekspor PDF sesuai kriteria penilaian.',
+      context: 'Handbook ini saya susun sebagai pendamping LKM untuk siswa kelas XI Teknik Pemesinan SMK Negeri 2 Klaten. Isinya panduan lengkap alur kerja assembly Tool Post sampai ekspor PDF gambar kerja menggunakan Autodesk Inventor, jadi siswa tidak hanya bergantung pada penjelasan saya di kelas.',
+      purpose: 'Saya ingin siswa punya pegangan prosedural dan konseptual ketika saya tidak sedang berdiri di samping mereka. Dengan handbook ini, mereka bisa membaca ulang langkah yang lupa, mencocokkan kesalahan dengan tabel troubleshooting, dan tetap melangkah meski saya sedang membantu siswa lain.',
       pros: [
-        'Struktur sistematis dari pengenalan komponen hingga ekspor PDF, dilengkapi tabel kesalahan umum beserta solusinya.',
-        'Menyediakan lembar praktik cek mandiri per pertemuan dan glosarium istilah teknis CAD.',
-        'Visualisasi screenshot langkah kerja mempermudah siswa visual-kinestetik mengikuti prosedur.'
+        'Strukturnya saya buat sistematis dari pengenalan komponen sampai ekspor PDF, lengkap dengan tabel kesalahan umum beserta solusinya.',
+        'Setiap pertemuan saya sediakan lembar cek mandiri dan glosarium istilah teknis CAD agar siswa tidak merasa kesulitan dengan jargon baru.',
+        'Saya banyak memakai screenshot langkah demi langkah karena siswa visual-kinestetik lebih mudah mengikuti prosedur lewat gambar daripada teks panjang.'
       ],
       cons: [
-        'Konten sangat padat (9 bagian) untuk satu handbook; siswa mungkin kesulitan menavigasi bagian yang relevan.',
-        'Belum menyertakan contoh gambar kerja PDF yang sudah jadi sebagai benchmark visual.'
+        'Konten 9 bagian terasa cukup padat untuk satu handbook, sehingga sebagian siswa kesulitan menemukan bagian yang sedang relevan dengan praktiknya.',
+        'Saya belum menyertakan contoh gambar kerja PDF yang sudah jadi sebagai pembanding visual, padahal itu akan sangat membantu siswa.'
       ],
-      theory: 'Menerapkan prinsip scaffolding Vygotsky melalui panduan bertahap dalam Zone of Proximal Development, serta Project-Based Learning dengan produk autentik berupa PDF gambar kerja.'
+      theory: 'Saya menerapkan prinsip scaffolding Vygotsky melalui panduan bertahap di Zone of Proximal Development, sekaligus Project-Based Learning karena siswa diarahkan menghasilkan produk autentik berupa PDF gambar kerja.'
     },
     'modal-asesmen1': {
-      title: 'Instrumen Asesmen Siklus 1 - Tool Post',
+      title: 'Instrumen Asesmen Siklus 1 Tool Post',
       type: 'Instrumen Asesmen (Awal, Formatif, Sumatif)',
       fileUrl: 'https://drive.google.com/file/d/1SJhusFCTSfJd1659mWUAMIJrQBfO3nmM/view?usp=sharing',
-      context: 'Dokumen instrumen asesmen lengkap untuk Siklus 1, mencakup asesmen awal, lembar observasi formatif, checklist mandiri, rubrik sumatif 9 aspek, pedoman penskoran, dan lembar rekap nilai.',
-      purpose: 'Menyediakan alat ukur komprehensif untuk memetakan kesiapan awal siswa, memantau proses praktik secara formatif, dan menilai produk akhir PDF gambar kerja Tool Post secara objektif.',
+      context: 'Dokumen ini saya rancang sebagai paket asesmen lengkap untuk Siklus 1, mencakup asesmen awal, lembar observasi formatif, checklist mandiri, rubrik sumatif sembilan aspek, pedoman penskoran, dan lembar rekap nilai.',
+      purpose: 'Saya butuh alat ukur yang menyeluruh: memetakan kesiapan siswa di awal, memantau proses praktik di tengah jalan, sekaligus menilai produk akhir PDF gambar kerja Tool Post secara konsisten antar siswa.',
       pros: [
-        'Alur asesmen bertahap (awal-formatif-sumatif) sangat jelas dengan pemisahan tegas antara asesmen non-nilai dan sumatif.',
-        'Rubrik rinci per aspek dengan deskriptor 5 level (0-4) dan rumus konversi bobot memungkinkan penilaian konsisten.',
-        'Menyertakan instrumen refleksi murid dan catatan guru yang mendukung assessment as learning.'
+        'Alur asesmennya bertahap dari awal, formatif, sampai sumatif, dengan pemisahan tegas antara asesmen yang berdampak pada nilai dan yang murni untuk pemetaan.',
+        'Rubrik per aspek saya buat dengan deskriptor lima level (0 sampai 4) plus rumus konversi bobot, sehingga penilaian jadi lebih konsisten meski dilakukan beberapa hari.',
+        'Saya menyertakan instrumen refleksi murid dan catatan guru, sehingga asesmen ini bisa berfungsi sebagai assessment as learning, bukan sekadar pemberi nilai.'
       ],
       cons: [
-        'Rubrik 9 aspek x 5 level menghasilkan beban penilaian yang berat bagi guru jika menilai banyak siswa.',
-        'Asesmen awal hanya berupa 5 pertanyaan terbuka tanpa rubrik penskoran kuantitatif.'
+        'Sembilan aspek dikalikan lima level berarti beban penilaian lumayan berat kalau menilai banyak siswa sekaligus dalam satu hari.',
+        'Asesmen awalnya masih berupa lima pertanyaan terbuka tanpa rubrik penskoran kuantitatif, jadi datanya lebih kualitatif daripada terukur.'
       ],
-      theory: 'Mengacu pada Assessment for Learning, Assessment as Learning, dan Assessment of Learning (Earl, 2013), dengan rubrik analitik berbobot sejalan dengan authentic assessment (Mueller, 2005).'
+      theory: 'Mengacu pada Assessment for Learning, Assessment as Learning, dan Assessment of Learning (Earl), dengan rubrik analitik berbobot yang sejalan dengan prinsip authentic assessment Mueller.'
     },
     'modal-lkm1': {
-      title: 'LKM Siklus 1 Pertemuan 1 - Assembly Tool Post',
+      title: 'LKM Siklus 1 Pertemuan 1 Assembly Tool Post',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1mcGkRJtcLVytwnXn7z2mykJoX9hgZZ9R/view?usp=sharing',
-      context: 'Lembar kerja siswa untuk Pertemuan 1 Siklus 1, memandu siswa membuat file assembly .iam dan menempatkan 8 komponen Tool Post di Autodesk Inventor.',
-      purpose: 'Memandu siswa secara prosedural untuk membuat file assembly, menempatkan seluruh komponen sesuai BOM, dan menetapkan Tool Holder sebagai Grounded Component.',
+      context: 'LKM ini saya pakai pada Pertemuan 1 Siklus 1. Tugasnya memandu siswa membuat file assembly .iam dan menempatkan delapan komponen Tool Post di Autodesk Inventor sebelum berlanjut ke tahap constraint.',
+      purpose: 'Saya ingin siswa terbiasa bekerja prosedural sejak awal: tahu cara membuat file .iam, menempatkan komponen sesuai BOM, dan menetapkan Tool Holder sebagai Grounded Component agar referensi assembly tidak goyah.',
       pros: [
-        'Format checklist dengan kolom "Sudah/Perlu bimbingan" memungkinkan self-assessment dan identifikasi kebutuhan bimbingan.',
-        'Tabel komponen lengkap dengan jumlah dan fungsi singkat membantu verifikasi kelengkapan assembly.'
+        'Format checklist dengan kolom "sudah" dan "perlu bimbingan" memudahkan siswa menilai dirinya sendiri sebelum saya datangi.',
+        'Tabel komponen lengkap dengan jumlah dan fungsi singkat membantu siswa memverifikasi kelengkapan rakitan tanpa harus sering bertanya.'
       ],
       cons: [
-        'Tidak menyertakan ilustrasi/screenshot langkah kerja sehingga siswa bergantung pada demonstrasi guru.',
-        'Kolom catatan kendala terlalu sempit untuk dokumentasi permasalahan teknis kompleks.'
+        'Saya belum menyertakan ilustrasi atau screenshot langkah kerja, sehingga siswa masih banyak bergantung pada demonstrasi langsung.',
+        'Kolom catatan kendala terlalu sempit, padahal beberapa siswa ingin menulis lebih panjang ketika menemui masalah teknis yang kompleks.'
       ],
-      theory: 'Menerapkan guided practice dari Cognitive Apprenticeship (Collins, Brown & Newman, 1989) di mana siswa mengikuti prosedur eksplisit dengan monitoring bertahap.'
+      theory: 'Saya menerapkan guided practice dari pendekatan Cognitive Apprenticeship (Collins, Brown, dan Newman), yaitu siswa mengikuti prosedur eksplisit dengan monitoring guru yang bertahap dikurangi.'
     },
     'modal-lkm1-p2': {
-      title: 'LKM Siklus 1 Pertemuan 2 - Constraint dan Cek DOF',
+      title: 'LKM Siklus 1 Pertemuan 2 Constraint dan Cek DOF',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1Z3_glCt5CahLNMVduJ6XUMTLAjnhsl6d/view?usp=sharing',
-      context: 'Lembar kerja siswa untuk Pertemuan 2 Siklus 1, memandu penerapan constraint Mate, Flush, Insert, dan Angle pada assembly Tool Post hingga DOF = 0.',
-      purpose: 'Memandu siswa menerapkan empat jenis constraint secara berurutan agar hubungan antar komponen stabil dan rakitan siap untuk drawing IDW.',
+      context: 'Pada Pertemuan 2 Siklus 1, LKM ini saya pakai untuk memandu siswa menerapkan empat jenis constraint, yaitu Mate, Flush, Insert, dan Angle, pada assembly Tool Post sampai DOF (Degree of Freedom) bernilai nol.',
+      purpose: 'Saya ingin siswa paham bahwa rakitan stabil bukan kebetulan: setiap komponen perlu constraint yang tepat. Target DOF nol menjadi penanda objektif bahwa rakitan siap masuk tahap drawing IDW.',
       pros: [
-        'Tabel constraint dilengkapi fungsi dan contoh spesifik pada Tool Post.',
-        'Target DOF = 0 sebagai indikator keberhasilan memberikan ukuran objektif yang dapat dicek mandiri.'
+        'Tabel constraint dilengkapi fungsi dan contoh spesifik di Tool Post, sehingga siswa tidak bingung kapan harus pakai Mate dan kapan Flush.',
+        'Target DOF nol jadi indikator keberhasilan yang gampang dicek mandiri tanpa harus menunggu penilaian guru.'
       ],
       cons: [
-        'Urutan constraint bersifat linear, padahal praktik mungkin perlu pendekatan iteratif.',
-        'Tidak ada panduan troubleshooting jika terjadi over-constraint atau konflik.'
+        'Urutan constraint masih saya buat linear, padahal di praktik nyata kadang siswa perlu pendekatan iteratif.',
+        'Belum ada panduan troubleshooting jelas ketika siswa menemui over-constraint atau konflik antar constraint.'
       ],
-      theory: 'Berbasis scaffolded practice (Bruner, 1966) dengan pengurangan bantuan bertahap: demonstrasi, imitasi dengan checklist, lalu pengecekan mandiri melalui indikator DOF.'
+      theory: 'Berdasar pada scaffolded practice Bruner dengan pengurangan bantuan bertahap: dari demonstrasi, lalu imitasi dengan checklist, sampai pengecekan mandiri lewat indikator DOF.'
     },
     'modal-lkm3': {
-      title: 'LKM Siklus 1 Pertemuan 3 - Drawing IDW dan Export PDF',
+      title: 'LKM Siklus 1 Pertemuan 3 Drawing IDW dan Export PDF',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1YuJtd6sDCAwnYJ2eVZJI71GClZ6ep8et/view?usp=sharing',
-      context: 'Lembar kerja siswa untuk Pertemuan 3 Siklus 1, memandu pembuatan drawing .idw 3 lembar beserta BOM, balloon, title block, dan ekspor PDF sebagai produk akhir sumatif.',
-      purpose: 'Memandu siswa menghasilkan PDF gambar kerja Tool Post 3 lembar yang lengkap dan memenuhi rubrik 9 aspek penilaian sumatif.',
+      context: 'LKM ini menjadi penutup Siklus 1 yang memandu siswa membuat drawing .idw tiga lembar lengkap dengan BOM, balloon, title block, sampai ekspor PDF sebagai produk akhir sumatif.',
+      purpose: 'Tujuan akhirnya satu, yaitu PDF gambar kerja Tool Post tiga lembar yang memenuhi seluruh sembilan aspek rubrik. LKM ini saya buat agar siswa tidak kebingungan saat semua komponen drawing harus dipenuhi sekaligus.',
       pros: [
-        'Checklist akhir 10 item sebelum upload PDF berfungsi sebagai quality control mandiri.',
-        'Menyertakan rubrik penilaian ringkas langsung di LKM sehingga siswa memahami ekspektasi saat mengerjakan.',
-        'Kolom refleksi tiga bagian (dikuasai/sulit/bantuan) mendorong metakognisi siswa.'
+        'Checklist akhir sepuluh item sebelum mengunggah PDF berfungsi sebagai quality control mandiri agar siswa tidak menyerahkan file yang masih kurang.',
+        'Saya menempelkan rubrik penilaian ringkas langsung di LKM, jadi siswa paham ekspektasi dari awal mengerjakan, bukan setelah dinilai.',
+        'Kolom refleksi tiga bagian (yang dikuasai, yang sulit, yang masih perlu bantuan) membantu siswa berlatih metakognisi.'
       ],
       cons: [
-        'Beban kerja Pertemuan 3 sangat tinggi (3 lembar drawing + semua elemen + refleksi) dalam satu sesi 8 JP.',
-        'Tidak ada contoh visual hasil drawing yang benar sebagai acuan perbandingan.'
+        'Beban Pertemuan 3 cukup tinggi karena tiga lembar drawing plus refleksi harus selesai dalam satu sesi 8 JP.',
+        'Saya belum menyertakan contoh visual hasil drawing yang benar untuk dijadikan acuan perbandingan oleh siswa.'
       ],
-      theory: 'Menerapkan Project-Based Learning (Larmer & Mergendoller, 2015) dengan produk autentik dan self-regulation melalui checklist metakognitif, sejalan dengan Assessment as Learning.'
+      theory: 'Mengacu pada Project-Based Learning (Larmer dan Mergendoller) dengan produk autentik, sekaligus menumbuhkan self-regulation lewat checklist metakognitif sebagai bentuk Assessment as Learning.'
     },
     'modal-media1': {
-      title: 'Media Pembelajaran Pertemuan 1 - Assembly Tool Post',
+      title: 'Media Pembelajaran Pertemuan 1 Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1EUubB5nRb-d2RGyJCrDbUVBlOO3ZwAxq/view?usp=sharing',
-      context: 'Slide presentasi 11 halaman untuk Pertemuan 1 Siklus 1, digunakan guru saat demonstrasi di lab CAD untuk memandu Assembly Environment, Place Component, dan Grounded Component.',
-      purpose: 'Menyajikan visualisasi langkah kerja assembly Tool Post secara bertahap agar siswa memahami konsep file .ipt/.iam/.idw, Place Component, serta Grounded Component.',
+      context: 'Slide presentasi 11 halaman ini saya pakai saat Pertemuan 1 Siklus 1 di lab CAD. Fokusnya menemani saya saat menjelaskan Assembly Environment, Place Component, dan konsep Grounded Component.',
+      purpose: 'Saya ingin siswa punya gambaran visual yang jelas terhadap konsep file .ipt, .iam, dan .idw, mengingat ketiganya sering tertukar di kepala siswa pemula.',
       pros: [
-        'Pertanyaan pemantik kontekstual efektif menghubungkan praktik digital dengan realitas industri.',
-        'Slide referensi 8 komponen lengkap dengan nama file .ipt berfungsi sebagai quick reference.',
-        'Struktur slide mengikuti alur Among (Ing Ngarsa-Ing Madya-Tut Wuri) dengan exit ticket di akhir.'
+        'Pertanyaan pemantik kontekstual yang saya susun di awal cukup efektif menghubungkan praktik digital dengan kondisi nyata di industri.',
+        'Slide referensi delapan komponen lengkap dengan nama file .ipt menjadi quick reference yang sering siswa buka ulang saat praktik.',
+        'Struktur slide saya susun mengikuti alur Among (Ing Ngarsa, Ing Madya, Tut Wuri) dengan exit ticket di akhir, jadi pembelajaran terasa utuh.'
       ],
       cons: [
-        'Konten bergantung pada narasi guru; siswa yang absen sulit mempelajari ulang tanpa rekaman.',
-        'Tidak menyertakan animasi atau video pendek proses Place Component.'
+        'Konten masih sangat bergantung pada narasi saya, sehingga siswa yang absen kesulitan mempelajari ulang tanpa rekaman.',
+        'Belum saya tambahkan animasi atau video pendek proses Place Component yang sebenarnya akan sangat membantu siswa visual.'
       ],
-      theory: 'Mengacu pada Dual Coding Theory (Paivio, 1986) dan prinsip Multimedia Learning Mayer (2009) yang menekankan segmentasi informasi dalam chunk kecil per slide.'
+      theory: 'Mengacu pada Dual Coding Theory (Paivio) dan prinsip Multimedia Learning Mayer, terutama segmenting yang mendorong informasi disajikan dalam potongan kecil per slide.'
     },
     'modal-media2': {
-      title: 'Media Pembelajaran Pertemuan 2 - Constraint Assembly Tool Post',
+      title: 'Media Pembelajaran Pertemuan 2 Constraint Assembly Tool Post',
       type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1Ps_bbj5JMdrlZeTidPEPYYfbqokWq390/view?usp=sharing',
-      context: 'Slide presentasi 11 halaman untuk Pertemuan 2 Siklus 1, memandu demonstrasi dan praktik penerapan constraint Mate, Flush, Insert, dan Angle pada assembly Tool Post.',
-      purpose: 'Memvisualisasikan konsep dan prosedur empat jenis constraint agar siswa memahami fungsi, cara memilih permukaan yang tepat, serta cara mengecek DOF.',
+      context: 'Slide presentasi 11 halaman ini saya gunakan untuk Pertemuan 2 Siklus 1, fokus pada demonstrasi dan praktik penerapan constraint Mate, Flush, Insert, dan Angle pada assembly Tool Post.',
+      purpose: 'Saya ingin siswa memahami fungsi setiap constraint, cara memilih permukaan yang tepat, dan cara membaca DOF, bukan sekadar tahu nama tombolnya.',
       pros: [
-        'Setiap jenis constraint disajikan dengan slide terpisah berisi definisi, langkah, dan kesalahan umum.',
-        'Slide troubleshooting constraint memberikan panduan langsung yang dapat dirujuk saat praktik.',
-        'Urutan kerja praktik P2 disajikan dalam format numbered steps yang jelas.'
+        'Setiap jenis constraint saya pisah ke slide masing-masing, lengkap dengan definisi, langkah, dan kesalahan umum yang biasa muncul.',
+        'Slide troubleshooting constraint membantu saya saat menjawab pertanyaan siswa tanpa harus mengulang penjelasan dari nol.',
+        'Urutan kerja praktik Pertemuan 2 saya sajikan dalam numbered steps yang mudah diikuti.'
       ],
       cons: [
-        'Penjelasan perbedaan Mate vs Flush masih kurang kontrastif untuk siswa pemula.',
-        'Tidak ada slide perbandingan before-after assembly sebelum dan sesudah constraint.'
+        'Penjelasan perbedaan Mate dan Flush masih kurang kontrastif untuk siswa pemula, jadi sebagian masih sering tertukar.',
+        'Belum ada slide perbandingan before-after assembly sebelum dan sesudah constraint diterapkan.'
       ],
-      theory: 'Menerapkan Worked Example Effect (Sweller, 2006) dari Cognitive Load Theory, di mana demonstrasi langkah per langkah mengurangi beban kognitif ekstrinsik siswa.'
+      theory: 'Mengadopsi Worked Example Effect (Sweller) dari Cognitive Load Theory, yaitu demonstrasi langkah demi langkah agar beban kognitif ekstrinsik siswa berkurang.'
     },
     'modal-media3': {
-      title: 'Media Pembelajaran Pertemuan 3 - Drawing Tool Post',
+      title: 'Media Pembelajaran Pertemuan 3 Drawing Tool Post',
       type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1J66nK1Tj4dIgvm9A9u0brBtIuvxo_gRz/view?usp=sharing',
-      context: 'Slide presentasi 11 halaman untuk Pertemuan 3 Siklus 1, memandu pembuatan drawing .idw 3 lembar, BOM, balloon, title block, dan ekspor PDF gambar kerja Tool Post.',
-      purpose: 'Memvisualisasikan prosedur pembuatan gambar kerja 2D dari model 3D assembly, termasuk komponen wajib drawing dan standar ekspor PDF.',
+      context: 'Slide ini menemani Pertemuan 3 Siklus 1, di mana siswa membuat drawing .idw tiga lembar, BOM, balloon, title block, sampai mengekspor PDF gambar kerja Tool Post.',
+      purpose: 'Saya menggunakan media ini untuk memvisualisasikan bagaimana model 3D assembly diturunkan menjadi gambar kerja 2D yang lengkap dan siap dipakai sebagai dokumen produksi.',
       pros: [
-        'Slide "Komponen Drawing Wajib Ada" menyajikan 8 elemen esensial sebagai mental checklist.',
-        'Checklist sumatif 9 aspek dengan bobot ditampilkan langsung sehingga siswa memahami prioritas penilaian.',
-        'Slide troubleshooting akhir sangat praktis untuk penyelesaian masalah saat ekspor.'
+        'Slide "Komponen Drawing Wajib Ada" saya pakai sebagai mental checklist sehingga siswa tidak lupa elemen-elemen esensial drawing.',
+        'Checklist sumatif sembilan aspek lengkap dengan bobot saya tampilkan langsung agar siswa memprioritaskan bagian yang nilainya paling besar.',
+        'Slide troubleshooting di akhir sangat praktis ketika siswa mengalami masalah saat ekspor PDF.'
       ],
       cons: [
-        'Tidak menyertakan contoh PDF gambar kerja yang sudah memenuhi semua 9 aspek rubrik.',
-        'Materi drawing environment yang kompleks dipadatkan dalam 11 slide, berpotensi terlalu cepat.'
+        'Saya belum menyertakan contoh PDF gambar kerja yang sudah memenuhi seluruh sembilan aspek rubrik sebagai pembanding.',
+        'Materi drawing environment yang sebetulnya kompleks masih saya padatkan dalam 11 slide, sehingga sebagian siswa merasa terlalu cepat.'
       ],
-      theory: 'Mengacu pada Goal-Free Effect (Sweller, 1988) dengan target produk di awal, serta Signaling Principle (Mayer, 2009) melalui highlight bobot terbesar pada rubrik.'
+      theory: 'Mengacu pada Goal-Free Effect (Sweller) dengan menampilkan target produk di awal, serta Signaling Principle Mayer melalui penegasan bobot terbesar pada rubrik.'
     },
     'modal-toolpost': {
       title: 'Job Sheet Tool Post',
-      type: 'Gambar Teknik',
+      type: 'Jobsheet / Gambar Kerja',
       fileUrl: 'https://drive.google.com/file/d/1HGyN7VOBQYgdXj3-IszSVntb4yltAMt_/view?usp=sharing',
-      context: 'File gambar rakitan Tool Post hasil revisi, digunakan sebagai referensi objek praktik Assembly di Siklus 1.',
-      purpose: 'Siswa menggunakan dimensi dan bentuk pada file ini sebagai acuan perakitan komponen.',
-      pros: ['Detail presisi sangat jelas sebagai referensi utama untuk objek rakitan.'],
-      cons: ['Bukan modul ajar, murni hanya gambar teknik tanpa instruksi urutan pasang.'],
-      theory: 'Berfungsi sebagai authentic material yang merepresentasikan dokumen kerja nyata di industri manufaktur, mendukung prinsip Contextual Teaching and Learning (CTL).'
-    },
-    'modal-rpp2': {
-      title: 'RPP Siklus 2 - Pembelajaran Bench Vise',
-      type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
-      fileUrl: 'https://drive.google.com/file/d/1ZA9QdvQr6je_JHCprcPOy62WWKSISAaF/view?usp=sharing',
-      context: 'RPP Siklus 2 digunakan sebagai rancangan tindak lanjut setelah refleksi Siklus 1. Fokus pembelajaran diarahkan pada objek Bench Vise agar siswa memperoleh tantangan baru yang tetap relevan dengan kompetensi membaca gambar teknik, memahami komponen mekanik, dan menerapkan prosedur kerja berbasis dokumen.',
-      purpose: 'Mengarahkan pembelajaran agar lebih terstruktur, kontekstual, dan responsif terhadap kebutuhan siswa melalui penguatan demonstrasi, praktik terbimbing, diskusi kesulitan, serta evaluasi berbasis produk kerja.',
+      context: 'File ini berupa gambar rakitan Tool Post hasil revisi yang saya gunakan sebagai referensi objek praktik Assembly di Siklus 1. Dokumen ini menjadi acuan utama untuk semua dimensi dan bentuk komponen yang akan dirakit.',
+      purpose: 'Saya butuh referensi yang konsisten agar seluruh siswa berangkat dari titik yang sama saat merakit. Tanpa jobsheet ini, hasil kerja siswa rentan tidak presisi karena masing-masing menafsirkan bentuk komponen dengan caranya sendiri.',
       pros: [
-        'Alur pembelajaran menunjukkan kesinambungan dari Siklus 1 karena strategi diperbaiki berdasarkan hasil refleksi sebelumnya.',
-        'Objek Bench Vise membuat aktivitas lebih autentik dan dekat dengan konteks kerja manufaktur.',
-        'RPP berpotensi memperjelas peran guru sebagai fasilitator melalui demonstrasi, pendampingan, dan umpan balik bertahap.'
+        'Detail presisi pada gambar cukup jelas dan bisa langsung dijadikan acuan saat siswa merakit komponen di Inventor.'
       ],
       cons: [
-        'Diferensiasi tugas perlu dibuat lebih eksplisit agar siswa dengan kecepatan belajar berbeda tetap terlayani.',
-        'Indikator keberhasilan sebaiknya dikaitkan langsung dengan rubrik produk agar penilaian lebih mudah ditelusuri.'
+        'Karena murni gambar teknik, dokumen ini tidak memberi instruksi urutan pasang, sehingga siswa tetap butuh panduan dari LKM atau guru.'
       ],
-      theory: 'Mengacu pada reflective practice dalam Penelitian Tindakan Kelas, scaffolding Vygotsky, dan contextual teaching and learning karena pembelajaran diperbaiki antar siklus melalui tugas praktik autentik.'
+      theory: 'Berfungsi sebagai authentic material yang merepresentasikan dokumen kerja nyata di industri manufaktur, mendukung prinsip Contextual Teaching and Learning.'
+    },
+    'modal-rpp2': {
+      title: 'RPP Siklus 2 Pembelajaran Bench Vise',
+      type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
+      fileUrl: 'https://drive.google.com/file/d/1ZA9QdvQr6je_JHCprcPOy62WWKSISAaF/view?usp=sharing',
+      context: 'RPP ini saya susun setelah melakukan refleksi atas Siklus 1. Saya pindah objek ke Bench Vise supaya siswa dapat tantangan baru, tapi tetap belajar membaca gambar teknik, memahami komponen mekanik, dan bekerja berdasarkan dokumen.',
+      purpose: 'Saya ingin pembelajaran lebih terstruktur dan kontekstual, sekaligus responsif terhadap kebutuhan siswa lewat penguatan demonstrasi, praktik terbimbing, diskusi kesulitan, dan evaluasi berbasis produk kerja.',
+      pros: [
+        'Alur pembelajaran terasa nyambung dengan Siklus 1 karena strateginya saya perbaiki dari hasil refleksi siklus sebelumnya.',
+        'Objek Bench Vise membuat aktivitas siswa lebih autentik dan dekat dengan konteks kerja manufaktur.',
+        'Peran saya sebagai fasilitator menjadi lebih jelas lewat demonstrasi, pendampingan, dan umpan balik bertahap.'
+      ],
+      cons: [
+        'Diferensiasi tugas masih perlu saya buat lebih eksplisit agar siswa dengan kecepatan belajar berbeda tetap merasa terlayani.',
+        'Indikator keberhasilan akan lebih kuat kalau langsung saya kaitkan dengan rubrik produk supaya jejak penilaian mudah ditelusuri.'
+      ],
+      theory: 'Mengacu pada reflective practice dalam Penelitian Tindakan Kelas, scaffolding Vygotsky, dan Contextual Teaching and Learning karena pembelajaran saya perbaiki antar siklus lewat tugas praktik autentik.'
     },
     'modal-asesmen2': {
       title: 'Perangkat Asesmen Siklus 2',
       type: 'Instrumen Asesmen Siklus 2',
       fileUrl: 'https://drive.google.com/file/d/1JfYVk4iEimTrBkIMsdm8se5tzNjzwpzz/view?usp=sharing',
-      context: 'Perangkat asesmen Siklus 2 berfungsi untuk memotret peningkatan kemampuan siswa setelah perbaikan pembelajaran. Instrumen ini penting karena Siklus 2 tidak hanya menilai hasil akhir, tetapi juga perkembangan proses belajar, kemandirian, ketelitian, dan kemampuan menerapkan masukan dari siklus sebelumnya.',
-      purpose: 'Menghasilkan data penilaian yang lebih objektif dan dapat digunakan untuk melihat apakah strategi perbaikan pada Siklus 2 berhasil meningkatkan kompetensi siswa.',
+      context: 'Perangkat asesmen Siklus 2 saya buat untuk memotret peningkatan kemampuan siswa setelah perbaikan pembelajaran. Bukan hanya nilai akhir yang saya lihat, melainkan juga proses, kemandirian, ketelitian, dan kemampuan siswa menerapkan masukan dari siklus sebelumnya.',
+      purpose: 'Saya butuh data yang lebih objektif untuk menilai apakah strategi perbaikan di Siklus 2 benar-benar berhasil meningkatkan kompetensi siswa atau hanya terasa membaik di permukaan.',
       pros: [
-        'Asesmen mendukung evaluasi berkelanjutan karena dapat membandingkan kondisi siswa sebelum dan sesudah tindakan perbaikan.',
-        'Instrumen membantu guru mengamati proses kerja, bukan hanya produk akhir.',
-        'Hasil asesmen dapat menjadi dasar refleksi yang kuat untuk menentukan perlu atau tidaknya penguatan lanjutan.'
+        'Asesmennya mendukung evaluasi berkelanjutan karena saya bisa membandingkan kondisi siswa sebelum dan sesudah perbaikan.',
+        'Saya bisa mengamati proses kerja siswa, bukan hanya hasil akhir, sehingga umpan balik bisa lebih spesifik.',
+        'Hasilnya menjadi dasar refleksi yang kuat untuk memutuskan apakah perlu penguatan lanjutan di siklus berikutnya.'
       ],
       cons: [
-        'Rubrik perlu dibuat cukup rinci agar penilaian antar siswa konsisten dan tidak terlalu subjektif.',
-        'Perlu ruang catatan kualitatif agar kesalahan siswa dapat dijelaskan, bukan hanya diberi skor.'
+        'Rubrik perlu saya buat lebih rinci agar penilaian antar siswa konsisten dan tidak terlalu bergantung pada perasaan saya.',
+        'Saya perlu menambah ruang catatan kualitatif supaya kesalahan siswa bisa dijelaskan, bukan hanya diberi skor.'
       ],
-      theory: 'Bersandar pada assessment for learning dan authentic assessment, yaitu penilaian digunakan sebagai umpan balik perbaikan sekaligus mengukur performa siswa pada tugas praktik yang nyata.'
+      theory: 'Bersandar pada Assessment for Learning dan authentic assessment, di mana penilaian saya pakai sebagai umpan balik perbaikan sekaligus mengukur performa siswa pada tugas praktik nyata.'
     },
     'modal-materi2': {
       title: 'Bahan Ajar Siklus 2',
       type: 'Bahan Ajar',
       fileUrl: 'https://drive.google.com/file/d/1iERRUFToo_4ckzTqBm1CKgQ7eixDdtsF/view?usp=sharing',
-      context: 'Bahan ajar Siklus 2 menjadi sumber belajar pendamping untuk membantu siswa memahami materi Bench Vise secara lebih mandiri. Bahan ini berperan sebagai penghubung antara penjelasan guru, jobsheet, LKM, dan praktik yang dilakukan siswa.',
-      purpose: 'Memperkuat pemahaman konsep sebelum praktik, mengurangi ketergantungan siswa kepada guru, dan menyediakan referensi yang dapat dibaca ulang saat siswa mengalami kesulitan.',
+      context: 'Bahan ajar Siklus 2 saya rancang sebagai sumber belajar pendamping agar siswa lebih mandiri memahami materi Bench Vise. Posisinya menjadi penghubung antara penjelasan saya, jobsheet, LKM, dan praktik di lapangan.',
+      purpose: 'Saya ingin pemahaman konsep siswa terbangun sebelum praktik dimulai, sehingga waktu di bengkel bisa fokus pada pengerjaan, bukan menjelaskan ulang teori dari nol.',
       pros: [
-        'Bahan ajar membantu siswa membangun pemahaman awal sebelum mengerjakan tugas praktik.',
-        'Konten dapat menjadi pegangan belajar mandiri sehingga waktu praktik lebih efisien.',
-        'Materi pendamping memperkuat hubungan antara konsep gambar teknik dan penerapan pada objek Bench Vise.'
+        'Membantu siswa membangun pemahaman awal sebelum mengerjakan tugas praktik, jadi praktiknya tidak diawali dari kebingungan.',
+        'Bisa menjadi pegangan belajar mandiri sehingga siswa tidak perlu menunggu saya untuk maju selangkah.',
+        'Memperkuat hubungan antara konsep gambar teknik dan penerapannya pada objek Bench Vise.'
       ],
       cons: [
-        'Akan lebih kuat jika disertai contoh kesalahan umum dan cara memperbaikinya.',
-        'Perlu penanda bagian penting agar siswa mudah menemukan informasi saat praktik berlangsung.'
+        'Akan lebih kuat kalau saya tambah contoh kesalahan umum dan cara memperbaikinya, karena itu bagian yang paling sering ditanyakan siswa.',
+        'Perlu penanda bagian penting supaya siswa cepat menemukan informasi saat praktik berlangsung.'
       ],
-      theory: 'Sejalan dengan scaffolding dan cognitive load theory karena bahan ajar memecah informasi menjadi referensi yang dapat dipelajari bertahap sebelum siswa menghadapi tugas praktik penuh.'
+      theory: 'Sejalan dengan scaffolding dan Cognitive Load Theory karena bahan ajar saya pecah menjadi referensi yang bisa siswa pelajari bertahap sebelum menghadapi tugas praktik penuh.'
     },
     'modal-lkm2': {
       title: 'LKM Siklus 2',
       type: 'Lembar Kerja Murid (LKM)',
       fileUrl: 'https://drive.google.com/file/d/1u8pM1xoKZZcD-_1AL0LoqnMQY0W-JC1d/view?usp=sharing',
-      context: 'LKM Siklus 2 menjadi alat kerja siswa dalam mengikuti aktivitas praktik Bench Vise. LKM berfungsi mengubah materi dan instruksi guru menjadi langkah kegiatan yang dapat diikuti, dicatat, dan direfleksikan oleh siswa.',
-      purpose: 'Memandu siswa agar bekerja sistematis, aktif mencatat hasil pengamatan, dan mampu mengevaluasi proses belajarnya selama menyelesaikan tugas Siklus 2.',
+      context: 'LKM Siklus 2 saya pakai sebagai alat kerja siswa selama praktik Bench Vise. Fungsinya menerjemahkan materi dan instruksi saya menjadi langkah konkret yang bisa diikuti, dicatat, dan direfleksikan oleh siswa.',
+      purpose: 'Saya ingin siswa bekerja sistematis, aktif mencatat hasil pengamatan, dan mampu mengevaluasi proses belajarnya selama menyelesaikan tugas Siklus 2.',
       pros: [
-        'Langkah kerja membuat aktivitas praktik lebih terarah dan mengurangi kebingungan siswa saat mulai mengerjakan.',
-        'LKM dapat mendorong keaktifan karena siswa tidak hanya menerima materi, tetapi juga melakukan, mencatat, dan merefleksi.',
-        'Struktur LKM cocok digunakan sebagai bukti proses belajar pada Penelitian Tindakan Kelas.'
+        'Langkah kerja membuat aktivitas praktik lebih terarah, sehingga kebingungan siswa di awal pengerjaan jauh berkurang.',
+        'LKM mendorong keaktifan karena siswa tidak hanya menerima materi, tetapi juga melakukan, mencatat, dan merefleksi.',
+        'Strukturnya cocok dijadikan bukti proses belajar pada Penelitian Tindakan Kelas.'
       ],
       cons: [
-        'Instruksi sebaiknya dibuat bertingkat agar siswa cepat tetap tertantang dan siswa lambat tetap terbantu.',
-        'Perlu kolom refleksi atau catatan kesulitan agar guru bisa membaca hambatan belajar tiap siswa.'
+        'Instruksi sebaiknya saya buat bertingkat agar siswa cepat tetap tertantang dan siswa lambat tetap terbantu.',
+        'Saya perlu kolom refleksi atau catatan kesulitan agar bisa membaca hambatan belajar tiap siswa secara spesifik.'
       ],
-      theory: 'Menggunakan guided practice dan metakognisi, karena siswa diarahkan melalui langkah kerja sambil dilatih menyadari proses, kesalahan, dan perbaikan belajarnya.'
+      theory: 'Memakai pendekatan guided practice dan metakognisi, karena siswa diarahkan lewat langkah kerja sambil dilatih menyadari proses, kesalahan, dan perbaikan belajarnya sendiri.'
     },
     'modal-media-s2': {
       title: 'Media Presentasi (PPT) Siklus 2',
       type: 'Media Pembelajaran (Slide Presentasi)',
       fileUrl: 'https://drive.google.com/file/d/1Vp0AWdM7qEqq1TC_zvRLVwuGaeqSxNyo/view?usp=sharing',
-      context: 'Media presentasi Siklus 2 digunakan untuk membantu guru membuka pembelajaran, menjelaskan alur praktik, menampilkan visual utama Bench Vise, dan menegaskan bagian penting yang harus diperhatikan siswa.',
-      purpose: 'Membuat penjelasan guru lebih ringkas, visual, dan mudah diikuti sehingga siswa memiliki gambaran awal sebelum masuk ke aktivitas praktik atau pengerjaan LKM.',
+      context: 'Media presentasi Siklus 2 saya pakai untuk membuka pembelajaran, menjelaskan alur praktik, menampilkan visual utama Bench Vise, dan menegaskan bagian yang harus diperhatikan siswa.',
+      purpose: 'Saya ingin penjelasan saya terasa ringkas, visual, dan mudah diikuti, sehingga siswa punya gambaran awal sebelum masuk ke aktivitas praktik atau pengerjaan LKM.',
       pros: [
-        'Media visual membantu siswa memahami bentuk dan komponen Bench Vise sebelum membaca dokumen kerja lebih detail.',
-        'Slide dapat menjaga fokus kelas karena informasi disajikan bertahap dan mudah diarahkan oleh guru.',
-        'Presentasi cocok menjadi jembatan antara apersepsi, demonstrasi, dan instruksi praktik.'
+        'Visualnya membantu siswa memahami bentuk dan komponen Bench Vise sebelum mereka mendalami dokumen kerja yang lebih detail.',
+        'Slide menjaga fokus kelas karena informasi disampaikan bertahap dan mudah saya arahkan.',
+        'Cocok menjadi jembatan antara apersepsi, demonstrasi, dan instruksi praktik.'
       ],
       cons: [
-        'Media perlu didukung demonstrasi langsung agar tidak berhenti sebagai penjelasan satu arah.',
-        'Akan lebih efektif jika ditambah penanda visual pada bagian rawan salah atau poin pemeriksaan kerja.'
+        'Media ini perlu didukung demonstrasi langsung agar tidak berhenti sebagai penjelasan satu arah.',
+        'Akan lebih efektif kalau saya tambahkan penanda visual pada bagian rawan salah atau poin pemeriksaan kerja.'
       ],
-      theory: 'Selaras dengan multimedia learning Mayer, terutama prinsip signaling dan segmenting, karena informasi visual membantu siswa menangkap poin penting secara bertahap.'
+      theory: 'Selaras dengan Multimedia Learning Mayer, terutama prinsip signaling dan segmenting, karena informasi visual saya susun bertahap agar siswa menangkap poin penting tanpa kelebihan beban kognitif.'
     },
     'modal-bench-vise2': {
       title: 'Job Sheet Bench Vise Siklus 2',
       type: 'Jobsheet / Gambar Kerja',
       fileUrl: 'https://drive.google.com/file/d/1UBkwO2ZI1SxuAzPomElc8yiNGclT3lv_/view?usp=sharing',
-      context: 'Jobsheet Bench Vise merupakan artefak kunci pada Siklus 2 karena menjadi acuan teknis siswa dalam memahami objek kerja. Dokumen ini menghubungkan materi, LKM, dan praktik dengan produk nyata yang harus dibaca dan dikerjakan siswa.',
-      purpose: 'Menyediakan referensi gambar kerja agar siswa dapat mengenali bentuk, komponen, ukuran, dan tuntutan teknis Bench Vise secara lebih akurat sebelum menyelesaikan tugas praktik.',
+      context: 'Jobsheet Bench Vise menjadi artefak kunci di Siklus 2 karena ini acuan teknis yang siswa pegang. Dokumen ini menyatukan materi, LKM, dan praktik dengan produk nyata yang harus dibaca dan dikerjakan siswa.',
+      purpose: 'Saya menyediakan referensi gambar kerja agar siswa dapat mengenali bentuk, komponen, ukuran, dan tuntutan teknis Bench Vise dengan lebih akurat sebelum menyelesaikan tugas praktik.',
       pros: [
-        'Objek Bench Vise relevan untuk melatih kemampuan membaca gambar teknik, memahami relasi komponen, dan berpikir spasial.',
-        'Jobsheet memberi konteks nyata sehingga pembelajaran tidak hanya teoritis.',
-        'Dokumen ini dapat menjadi standar pembanding saat siswa mengecek ketepatan hasil kerja.'
+        'Bench Vise relevan untuk melatih kemampuan membaca gambar teknik, memahami relasi komponen, dan berpikir spasial.',
+        'Memberi konteks nyata sehingga pembelajaran tidak terjebak di teori saja.',
+        'Bisa saya jadikan standar pembanding ketika siswa mengecek ketepatan hasil kerjanya.'
       ],
       cons: [
-        'Siswa pemula kemungkinan masih membutuhkan arahan untuk membaca detail gambar dan memahami urutan pengerjaan.',
-        'Jobsheet akan lebih kuat jika dipasangkan dengan checklist pemeriksaan hasil kerja.'
+        'Siswa pemula masih butuh saya bimbing untuk membaca detail gambar dan memahami urutan pengerjaan.',
+        'Akan lebih kuat kalau saya pasangkan dengan checklist pemeriksaan hasil kerja.'
       ],
-      theory: 'Mendukung contextual teaching and learning dan project-based learning karena siswa belajar melalui dokumen kerja autentik yang mengarah pada penyelesaian produk praktik.'
+      theory: 'Mendukung Contextual Teaching and Learning serta Project-Based Learning karena siswa belajar lewat dokumen kerja autentik yang berujung pada penyelesaian produk praktik.'
+    },
+    'modal-rpp3': {
+      title: 'RPP Siklus 3 Penguatan Pembelajaran',
+      type: 'Rencana Pelaksanaan Pembelajaran (RPP)',
+      fileUrl: 'https://drive.google.com/file/d/1nMEvFmnToRrXgEasfwipyZYPFPAH81g7/view?usp=sharing',
+      context: 'RPP Siklus 3 saya rancang sebagai puncak dari rangkaian PTK. Saya menutup celah yang muncul di Siklus 1 dan 2 dengan strategi yang lebih matang, alur tugas yang lebih ringkas, dan ekspektasi produk akhir yang lebih jelas.',
+      purpose: 'Saya ingin memastikan siswa benar-benar mantap pada kompetensi inti: membaca gambar teknik, mengelola alur kerja praktik, dan menghasilkan produk kerja yang memenuhi standar industri tanpa banyak revisi.',
+      pros: [
+        'Strategi pembelajaran sudah saya stabilkan dari hasil refleksi dua siklus sebelumnya, jadi efisiensi waktunya lebih baik.',
+        'Saya berikan ruang lebih besar untuk umpan balik personal karena alur kerja sudah dipahami siswa dari Siklus 1 dan 2.',
+        'Indikator keberhasilan saya pertajam sehingga siswa tahu persis kapan tugasnya bisa dianggap selesai.'
+      ],
+      cons: [
+        'Karena ekspektasinya naik, saya perlu menyiapkan jaring pengaman untuk siswa yang baru menyusul atau tertinggal di siklus sebelumnya.',
+        'Beban dokumentasi siswa cukup banyak, sehingga saya harus memastikan format catatannya tidak menambah beban kerja yang tidak perlu.'
+      ],
+      theory: 'Menggunakan reflective practice Schön dan prinsip Penelitian Tindakan Kelas Kemmis dan McTaggart, di mana setiap siklus saya gunakan sebagai bahan perbaikan siklus berikutnya.'
+    },
+    'modal-asesmen3': {
+      title: 'Perangkat Asesmen Siklus 3',
+      type: 'Instrumen Asesmen Siklus 3',
+      fileUrl: 'https://drive.google.com/file/d/1Q4X0hzFoL2sndthweM0Z2Zg2UMEZbAnN/view?usp=sharing',
+      context: 'Asesmen Siklus 3 saya gunakan untuk memvalidasi capaian akhir setelah dua siklus perbaikan. Fokusnya tidak hanya nilai produk, tetapi juga konsistensi performa siswa selama proses kerja.',
+      purpose: 'Saya ingin tahu apakah peningkatan yang muncul di Siklus 2 memang stabil, bukan kebetulan, sehingga keputusan kelulusan kompetensi bisa saya pertanggungjawabkan.',
+      pros: [
+        'Instrumennya sudah saya rapikan berdasar pengalaman menilai di Siklus 1 dan 2, jadi alurnya lebih efisien.',
+        'Saya menyediakan bagian observasi proses agar siswa tetap dinilai dari kerja nyata, bukan hanya hasil akhir.',
+        'Ada ruang umpan balik singkat yang langsung bisa saya tulis saat menilai, membantu siswa memperbaiki di sesi terakhir.'
+      ],
+      cons: [
+        'Untuk siswa yang masih banyak revisi, instrumen ini akan terasa berat karena ekspektasi nilai akhir cukup tinggi.',
+        'Saya masih perlu menambah kolom catatan kualitatif yang lebih panjang agar setiap nilai punya konteks penjelasannya.'
+      ],
+      theory: 'Mengacu pada Assessment of Learning sekaligus Assessment as Learning, karena di siklus akhir siswa juga saya minta mengevaluasi diri sendiri sebagai bagian dari proses penilaian.'
+    },
+    'modal-materi3': {
+      title: 'Bahan Ajar Siklus 3',
+      type: 'Bahan Ajar',
+      fileUrl: 'https://drive.google.com/file/d/1IMeGEQnQ7yGPfZDlNIx9vvFvSyEFDxd5/view?usp=sharing',
+      context: 'Bahan ajar Siklus 3 saya susun sebagai konsolidasi: konsep yang sudah pernah muncul di siklus sebelumnya saya rangkum ulang, lalu saya tambah bagian penguatan untuk topik yang masih sering keliru.',
+      purpose: 'Saya ingin siswa punya satu sumber rujukan yang ringkas dan konsisten di siklus akhir, daripada harus membuka berkas-berkas dari siklus terdahulu.',
+      pros: [
+        'Konsep utama saya rangkum kembali sehingga siswa tidak kehilangan benang merah dari Siklus 1 dan 2.',
+        'Bagian penguatan saya susun berdasarkan kesalahan paling sering, bukan asumsi materi yang sulit secara umum.',
+        'Layoutnya saya buat lebih ringkas agar siswa mudah membaca cepat di sela-sela praktik.'
+      ],
+      cons: [
+        'Karena ringkasannya cukup padat, siswa yang baru bergabung di Siklus 3 mungkin perlu pendampingan tambahan untuk memahami konteksnya.',
+        'Saya belum menyertakan tautan ke contoh hasil kerja siswa terbaik dari siklus sebelumnya sebagai pembanding.'
+      ],
+      theory: 'Mengacu pada prinsip Cognitive Load Theory dengan menyajikan ulang informasi penting dalam bentuk lebih ringkas, sekaligus scaffolding karena bantuan visual saya kurangi seiring naiknya kemandirian siswa.'
+    },
+    'modal-lkm-s3': {
+      title: 'LKM Siklus 3',
+      type: 'Lembar Kerja Murid (LKM)',
+      fileUrl: 'https://drive.google.com/file/d/146s-ujXpnJcaow8u1ez-d7AybWFvk6ot/view?usp=sharing',
+      context: 'LKM Siklus 3 saya pakai sebagai panduan kerja akhir. Aktivitasnya saya rancang sedikit lebih terbuka dibanding siklus sebelumnya supaya siswa terbiasa mengambil keputusan teknis sendiri.',
+      purpose: 'Saya ingin siswa makin mandiri: bisa merencanakan langkah, memilih constraint yang tepat, dan memutuskan kapan pekerjaannya bisa dianggap selesai.',
+      pros: [
+        'Instruksi yang lebih terbuka mendorong siswa berpikir, bukan hanya mengikuti urutan tombol.',
+        'Saya sediakan poin refleksi yang menyatukan pengalaman siswa dari Siklus 1 sampai 3.',
+        'Ada bagian self-check yang membuat siswa terbiasa melakukan kontrol kualitas terhadap hasil kerjanya.'
+      ],
+      cons: [
+        'Untuk siswa yang masih kurang percaya diri, instruksi terbuka kadang justru bikin mereka ragu memulai.',
+        'Saya perlu memantau lebih intens supaya kebebasan dalam LKM tidak berubah jadi kebingungan terselubung.'
+      ],
+      theory: 'Mengacu pada gradual release of responsibility (Pearson dan Gallagher), karena di siklus akhir kontrol kerja sebagian besar saya geser ke siswa.'
+    },
+    'modal-media-s3': {
+      title: 'Media Presentasi (PPT) Siklus 3',
+      type: 'Media Pembelajaran (Slide Presentasi)',
+      fileUrl: 'https://drive.google.com/file/d/1WC8kfZjPYYoN2XoQecVcyjJbmqGckReo/view?usp=sharing',
+      context: 'Media presentasi Siklus 3 saya gunakan untuk membuka pembelajaran, mengulang konsep penting, dan menampilkan target produk akhir agar siswa langsung punya gambaran akhir yang jelas.',
+      purpose: 'Saya ingin presentasi ini menjadi pengingat sekaligus pemicu, bukan penjelasan dari nol, karena siswa sudah lewat dua siklus sebelumnya.',
+      pros: [
+        'Slide pembuka langsung menampilkan target produk akhir, sehingga siswa fokus ke sasaran sejak menit pertama.',
+        'Saya menampilkan ringkasan kesalahan umum dari siklus sebelumnya supaya siswa tidak mengulang masalah yang sama.',
+        'Format slide saya ringkas, jadi waktu praktik tidak terpotong oleh durasi paparan yang terlalu panjang.'
+      ],
+      cons: [
+        'Karena banyak materi yang saya rangkum, siswa yang absen di siklus sebelumnya bisa kewalahan kalau hanya mengandalkan slide ini.',
+        'Beberapa visual masih bersifat statis, padahal animasi pendek akan lebih membantu untuk topik tertentu.'
+      ],
+      theory: 'Mengacu pada Multimedia Learning Mayer, terutama prinsip coherence dan signaling, karena saya menyaring konten ke yang paling relevan dan menandai bagian penting secara eksplisit.'
+    },
+    'modal-jobsheet3': {
+      title: 'Job Sheet Siklus 3',
+      type: 'Jobsheet / Gambar Kerja',
+      fileUrl: 'https://drive.google.com/file/d/1-hlj7zVWoxI7PuqmPQr5hTXQEKzxZbQ7/view?usp=sharing',
+      context: 'Jobsheet Siklus 3 menjadi acuan teknis untuk tugas akhir program. Saya menyiapkan dokumen ini agar siswa terbiasa membaca gambar kerja yang lebih detail dan mendekati kondisi industri.',
+      purpose: 'Saya ingin siswa keluar dari Siklus 3 dengan kepercayaan diri membaca jobsheet yang sesungguhnya, bukan hanya dokumen latihan yang sudah disederhanakan.',
+      pros: [
+        'Tingkat detail jobsheet sudah saya naikkan agar siswa terbiasa dengan informasi sepadat dokumen kerja nyata.',
+        'Saya jadikan jobsheet ini standar pembanding untuk asesmen sumatif siklus akhir.',
+        'Layout dan notasi mengikuti gaya gambar kerja umum di industri, jadi siswa terbiasa dengan format profesional.'
+      ],
+      cons: [
+        'Tingkat detailnya cukup tinggi, sehingga siswa yang masih lemah membaca gambar perlu waktu adaptasi di awal sesi.',
+        'Saya perlu menyediakan checklist pembacaan jobsheet sebagai pendamping agar siswa tidak kehilangan informasi penting.'
+      ],
+      theory: 'Mendukung Contextual Teaching and Learning sekaligus situated learning Lave dan Wenger, karena siswa belajar lewat dokumen yang menyerupai kondisi kerja sebenarnya.'
     }
   };
 

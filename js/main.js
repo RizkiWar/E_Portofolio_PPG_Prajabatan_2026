@@ -512,7 +512,7 @@ function initMain() {
 
   function getActiveSiklus() {
     const activeTab = document.querySelector('.tab-btn.active');
-    return activeTab ? activeTab.getAttribute('data-tab') : 'siklus1';
+    return activeTab ? activeTab.getAttribute('data-tab') : 'all';
   }
 
   function getActiveFilter() {
@@ -524,7 +524,7 @@ function initMain() {
     portfolioCards.forEach(card => {
       const cardSiklus = card.getAttribute('data-siklus') || 'siklus1';
       const cardCategory = card.getAttribute('data-category');
-      const matchesSiklus = (cardSiklus === siklus);
+      const matchesSiklus = (siklus === 'all' || cardSiklus === siklus);
       const matchesFilter = (filter === 'all' || cardCategory === filter);
       if (matchesSiklus && matchesFilter) {
         card.style.display = '';

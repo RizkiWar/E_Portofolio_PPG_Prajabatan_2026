@@ -268,27 +268,8 @@
   opacity: 1;
   border-style: dashed;
   background:
-    linear-gradient(135deg, rgba(15, 94, 168, 0.04), rgba(46, 196, 182, 0.05)),
+    linear-gradient(135deg, rgba(255, 107, 107, 0.04), rgba(46, 196, 182, 0.05)),
     var(--surface-strong);
-}
-
-.portfolio-card[data-siklus="siklus3"] .portfolio-card-img img {
-  filter: grayscale(0.78) saturate(0.7) opacity(0.58);
-}
-
-.portfolio-card[data-siklus="siklus3"]::after {
-  content: "Dalam pengembangan";
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 4;
-  padding: 7px 10px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--primary, #0F5EA8);
-  font-size: 0.72rem;
-  font-weight: 800;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
 }
 
 .assessment-dashboard {
