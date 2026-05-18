@@ -11,6 +11,7 @@ import './artefak.js';
 import { initProfilAnimation } from './profil-animation.js';
 import { initPendidikanAnimation } from './pendidikan-animation.js';
 import { initArtefakAnimation } from './artefak-animation.js';
+import { initAnalisisAnimation } from './analisis-animation.js';
 import { initModelGuruAnimation } from './model-guru-animation.js';
 import { initKeahlianAnimation } from './keahlian-animation.js';
 import { initGaleriAnimation } from './galeri-animation.js';
@@ -778,6 +779,7 @@ function initMain() {
   initProfilAnimation();
   initPendidikanAnimation();
   initArtefakAnimation();
+  initAnalisisAnimation();
   initModelGuruAnimation();
   initKeahlianAnimation();
   initGaleriAnimation();
