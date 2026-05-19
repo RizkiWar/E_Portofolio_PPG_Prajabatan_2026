@@ -145,12 +145,17 @@
 .cert-card .cert-icon {
   width: 48px;
   height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  aspect-ratio: 1;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
+  line-height: 1;
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .cert-card:nth-child(odd) .cert-icon  { background: rgba(57, 189, 235,0.12); }

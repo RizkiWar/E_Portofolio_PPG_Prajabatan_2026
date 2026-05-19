@@ -82,6 +82,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+  overflow: visible;
   perspective: 600px;
 }
 
