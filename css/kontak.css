@@ -4,7 +4,7 @@
 .contact {
   background: var(--white);
   position: relative;
-  overflow-x: clip;
+  overflow: visible;
 }
 
 .contact::before {
