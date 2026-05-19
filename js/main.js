@@ -95,7 +95,7 @@ function preloadPageContent() {
 
   return Promise.race([
     Promise.allSettled(tasks),
-    new Promise(resolve => setTimeout(resolve, 15000))
+    new Promise(resolve => setTimeout(resolve, 3000))
   ]).then(() => {
     if (loadingFill) loadingFill.style.width = '100%';
     setLoadingStatus(100);
@@ -143,7 +143,7 @@ function initMain() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
     const minLoaderTime = 800;
-    const maxLoaderTime = 15000;
+    const maxLoaderTime = 3000;
     const startedAt = performance.now();
     let loaderDone = false;
 
@@ -805,3 +805,5 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+
