@@ -2,7 +2,7 @@
   <h1>🎓 E-Portfolio PPG Prajabatan 2026</h1>
   <p><i>Website E-Portfolio interaktif untuk memenuhi persyaratan Program Pendidikan Profesi Guru (PPG) Prajabatan 2026.</i></p>
 
-  <a href="https://fannyf123.github.io/E_Portofolio_PPG_Prajabatan_2026"><strong>🌍 Lihat Live Demo »</strong></a>
+  <a href="https://USERNAME.github.io/E_Portofolio_PPG_Prajabatan_2026"><strong>🌍 Lihat Live Demo »</strong></a>
   <br><br>
 
   [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
@@ -115,7 +115,7 @@ Untuk menjalankan atau memodifikasi website ini di komputer Anda, ikuti langkah-
 
 1. **Clone repository ini**
    ```bash
-   git clone https://github.com/fannyf123/E_Portofolio_PPG_Prajabatan_2026.git
+   git clone #/E_Portofolio_PPG_Prajabatan_2026.git
    cd E_Portofolio_PPG_Prajabatan_2026
    ```
 2. **Install dependensi**
@@ -143,13 +143,13 @@ Proyek ini telah dikonfigurasi menggunakan **GitHub Actions**. Setiap kali ada p
 
 ## 👩‍🏫 Profil Penulis
 
-* **Nama:** Fanny Fatchurrahman
+* **Nama:** Muhammad Rizki Wardana
 * **Bidang Studi:** Teknik Pemesinan
 * **Program:** PPG Prajabatan 2026
-* **Institusi:** Universitas Sarjanawiyata Tamansiswa (UST)
+* **Institusi:** Universitas Katolik Santo Thomas
 
 <br>
 
 <div align="center">
-  <i>Copyright &copy; 2026 Fanny Fatchurrahman. All rights reserved.</i>
+   <i>Copyright &copy; 2026 Muhammad Rizki Wardana. All rights reserved.</i>
 </div>
