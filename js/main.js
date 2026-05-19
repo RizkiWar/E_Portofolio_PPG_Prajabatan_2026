@@ -25,9 +25,13 @@ window.refreshEp2Animation = refreshEp2Animation;
 
 let mainInitialized = false;
 
+// FIX 1: waitForWindowLoad yang lebih robust dengan timeout internal
 function waitForWindowLoad() {
   if (document.readyState === 'complete') return Promise.resolve();
-  return new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+  return Promise.race([
+    new Promise(resolve => window.addEventListener('load', resolve, { once: true })),
+    new Promise(resolve => setTimeout(resolve, 3000)) // fallback jika event 'load' sudah terlewat
+  ]);
 }
 
 function preloadPageContent() {
@@ -93,6 +97,11 @@ function preloadPageContent() {
 
   tasks.push(waitForWindowLoad().then(updateProgress));
 
+  // FIX 2: Pastikan tasks tidak kosong agar progress tidak stuck di 0
+  if (tasks.length === 0) {
+    tasks.push(Promise.resolve().then(updateProgress));
+  }
+
   return Promise.race([
     Promise.allSettled(tasks),
     new Promise(resolve => setTimeout(resolve, 3000))
@@ -110,11 +119,15 @@ function initMain() {
   const loadingScreen = document.getElementById('loadingScreen');
   const preloadReady = preloadPageContent();
 
-  const hideLoadingScreen = () => {
-    if (!loadingScreen) return;
-    loadingScreen.classList.add('hidden');
-    loadingScreen.setAttribute('aria-hidden', 'true');
-  };
+  const hideLoadingScreen = (() => {
+    let hidden = false;
+    return () => {
+      if (hidden || !loadingScreen) return;
+      hidden = true; // FIX 3: Pastikan hanya dipanggil sekali
+      loadingScreen.classList.add('hidden');
+      loadingScreen.setAttribute('aria-hidden', 'true');
+    };
+  })();
 
   if (loadingScreen) {
     const minLoadingTime = 800;
@@ -124,6 +137,9 @@ function initMain() {
       const elapsed = performance.now() - startedAt;
       setTimeout(hideLoadingScreen, Math.max(0, minLoadingTime - elapsed));
     });
+
+    // FIX 4: Fallback paksa — loading screen PASTI hilang maksimal 5 detik
+    setTimeout(hideLoadingScreen, 5000);
   }
 
   // ---------- Intro Screen (Two-Phase) ----------
@@ -805,5 +821,3 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
-
-
